@@ -1,5 +1,5 @@
 ---
-title: youtube-rmd
+title: Youtube Faves
 author: Nathan Moore
 date: '2021-01-27'
 slug: []
@@ -15,10 +15,3 @@ I'm a big fan of Run the Jewels and remixes, and this gets it exactly right.
 blogdown::shortcode('youtube', 'LsR0Bh_Q4AA')
 ```
 
-
-
-I wish I new how to dance like this
-
-```{r echo=FALSE}
-blogdown::shortcode('youtube', 'BcsfftwLUf0')
-```
