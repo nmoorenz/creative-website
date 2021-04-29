@@ -6,7 +6,7 @@
     <description>Recent content in Portfolios on Nathan Moore</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 Jan 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://nmoore.nz/portfolio/index.xml" rel="self" type="application/rss+xml" />
     
@@ -102,13 +102,21 @@
     </item>
     
     <item>
-      <title>youtube-rmd</title>
-      <link>https://nmoore.nz/portfolio/2021-01-27-youtube-rmd/</link>
+      <title>Advent of Code 2020</title>
+      <link>https://nmoore.nz/portfolio/2021-01-28-advent-of-code-2020/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nmoore.nz/portfolio/2021-01-28-advent-of-code-2020/</guid>
+      <description>This is a review of my first foray into Advent of Code. I’ve started to gather my thoughts in the github readme while looking over the code again. I had big goals of completing each day in R and python, but after a few days decided that one language was more than enough. It will be an ongoing project to look at each day and see if I can write python solutions, while also collecting choice tidbits of fancy or useful or awful code.</description>
+    </item>
+    
+    <item>
+      <title>Youtube Faves</title>
+      <link>https://nmoore.nz/portfolio/2021-01-27-youtube/</link>
       <pubDate>Wed, 27 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://nmoore.nz/portfolio/2021-01-27-youtube-rmd/</guid>
+      <guid>https://nmoore.nz/portfolio/2021-01-27-youtube/</guid>
       <description>I’m a big fan of Run the Jewels and remixes, and this gets it exactly right.
-  I wish I new how to dance like this
   </description>
     </item>
     

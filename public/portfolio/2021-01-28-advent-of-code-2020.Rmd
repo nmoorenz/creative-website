@@ -1,0 +1,80 @@
+---
+title: Advent of Code 2020
+author: Nathan Moore
+date: '2021-01-28'
+slug: []
+categories: []
+tags: []
+image: '/img/portfolio/TePapaCrab.jpg'
+showonlyimage: no
+---
+
+This is a review of my first foray into Advent of Code. I've started to gather my thoughts in the github readme while looking over the code again. I had big goals of completing each day in R and python, but after a few days decided that one language was more than enough. It will be an ongoing project to look at each day and see if I can write python solutions, while also collecting choice tidbits of fancy or useful or awful code. 
+
+This is the advent website: [Advent of Code 2020](https://adventofcode.com/2020)
+
+This is my github repository: [github.com/nmoorenz/advent-of-code](https://github.com/nmoorenz/advent-of-code)
+
+The following is a comparison of R and Python code for day 5, my favourite day of the challenge. Recognising the ticket numbers can be interpreted in binary is a crucial breakthrough. I love finding a new and good function in R: `strtoi()`. That takes a `base` argument for binary! Then finding `int()` in Python has the same argument. List comprehensions are, for me, a killer feature of Python. 
+
+```{r advent1, echo = TRUE}
+# tidyverse of course
+suppressPackageStartupMessages(library(tidyverse))
+
+# love the here package to load things
+inputfile = here::here("data", "advent2020", "day05.txt")
+bp <- read.delim(inputfile, header = FALSE)
+
+# conversions for letters to binary
+named_v = c("F" = "0", "B" = "1", "L" = "0", "R" = "1")
+
+# mutate seems like the best way to do this
+# we can also use many replacements in one function
+# strtoi() for string to integer, in base 2
+bp_bin <- bp %>% 
+  mutate(
+    bin = str_replace_all(V1, named_v),
+    row = strtoi(str_sub(bin, end = 7), base = 2), 
+    col = strtoi(str_sub(bin, start = 8), base = 2), 
+    id = row * 8 + col
+  )
+
+# max is part one answer
+max_id <- max(bp_bin$id)  
+min_id <- min(bp_bin$id)
+
+# possible seats from min to max
+bp_seq = seq(from = min_id, to = max_id)
+
+# part two answer - seat left over
+p2 <- setdiff(bp_seq, bp_bin$id)
+```
+
+
+```{python advent2, echo = TRUE}
+# read file
+with open("C:/Users/amess/Documents/R/projects/creative-website/data/advent2020/day05.txt", "r") as f:
+  bp = f.read().splitlines()
+
+# row and col binary via replacement
+row = [x[:7].replace("B", "1").replace("F", "0") for x in bp]
+col = [x[7:].replace("L", "0").replace("R", "1") for x in bp]
+
+# id as a combo of row and col            
+id = [int(r, 2) * 8 + int(c, 2) for r, c in zip(row, col)]
+
+#part a
+p1 = max(id)
+
+# part b
+p2 = set(range(min(id), max(id))) - set(id)
+```
+
+The maximum seat number on my plane (part one answer) is `r max_id` and my seat number (part two answer) is `r p2`. 
+
+This crab is a reference to a few questions in the challenges. 
+
+![In honour of the card playing crab, here's a big one from the Te Papa collection](/img/portfolio/TePapaCrab.jpg)
+
+
+Image Credit: Charybdis (Charybdis) japonica (A. Milne-Edwards, 1861), collected September 2000, Auckland, Rangitoto Channel, New Zealand. CC BY 4.0. Te Papa (CR.009843)
