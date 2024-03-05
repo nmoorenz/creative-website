@@ -12,11 +12,11 @@ googleAnalytics = ""
   # Use custom.css for your custom styling
   style = "default"
   description = "Nathan's Website"
-  copyright = "&copy;2021 Nathan Moore"
+  copyright = "&copy;2024 Nathan Moore"
   sidebarAbout = [
     "I am a data person who wants to make a website.",
     "Originally from Taranaki, I now live in Auckland. ", 
-    "frisbee, cycling, rtistry, cooking"
+    "Also: ultimate frisbee, disc golf, cycling, cooking"
   ]
   # Contact page
      # Since this template is static, the contact form uses www.formspree.io as a
@@ -57,7 +57,7 @@ googleAnalytics = ""
 
   [params.social]
   email         = "nath@nmoore.nz"
-  twitter       = "https://www.twitter.com/nmoorenz"
+#  twitter       = "https://www.twitter.com/nmoorenz"
   linkedin      = "https://www.linkedin.com/in/nmoorenz"
   github        = "https://www.github.com/nmoorenz"
 #  facebook      = "full page or profile url in facebook"

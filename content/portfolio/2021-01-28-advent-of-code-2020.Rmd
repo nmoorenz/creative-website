@@ -17,6 +17,8 @@ This is my github repository: [github.com/nmoorenz/advent-of-code](https://githu
 
 The following is a comparison of R and Python code for day 5, my favourite day of the challenge. Recognising the ticket numbers can be interpreted in binary is a crucial breakthrough. I love finding a new and good function in R: `strtoi()`. That takes a `base` argument for binary! Then finding `int()` in Python has the same argument. List comprehensions are, for me, a killer feature of Python. 
 
+### R Code
+
 ```{r advent1, echo = TRUE}
 # tidyverse of course
 suppressPackageStartupMessages(library(tidyverse))
@@ -50,10 +52,11 @@ bp_seq = seq(from = min_id, to = max_id)
 p2 <- setdiff(bp_seq, bp_bin$id)
 ```
 
+### Python Code
 
 ```{python advent2, echo = TRUE}
 # read file
-with open("C:/Users/amess/Documents/R/projects/creative-website/data/advent2020/day05.txt", "r") as f:
+with open("../../data/advent2020/day05.txt", "r") as f:
   bp = f.read().splitlines()
 
 # row and col binary via replacement
@@ -69,6 +72,8 @@ p1 = max(id)
 # part b
 p2 = set(range(min(id), max(id))) - set(id)
 ```
+
+### Answer 
 
 The maximum seat number on my plane (part one answer) is `r max_id` and my seat number (part two answer) is `r p2`. 
 
