@@ -10,7 +10,9 @@ showonlyimage: no
 ---
 
 It's been some years since I've updated my personal website so I though I better do something about it. 
+
 <!--more-->
+
 The first step was to change the theme. This can be done in place in an [existing repository](https://github.com/nmoorenz/hugo-hyde-website), but I had created a [whole different repo](https://github.com/nmoorenz/creative-website) for playing around with. 
 
 Do I still have Netlify access? Yes, I can still login there via Github. I clicked around and went through a few things, my custom domain is still linked, I updated the node.js version because it said so, and found the [repository management link](https://app.netlify.com/sites/nmoorenz/configuration/deploys). 
