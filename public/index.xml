@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nathan Moore</title>
-    <link>http://localhost:4321/</link>
+    <link>https://nmoore.nz/</link>
     <description>Recent content on Nathan Moore</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 06 Mar 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:4321/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nmoore.nz/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Website Update</title>
-      <link>http://localhost:4321/portfolio/2024-03-06-website-update/</link>
+      <link>https://nmoore.nz/portfolio/2024-03-06-website-update/</link>
       <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-03-06-website-update/</guid>
-      <description>It’s been some years since I’ve updated my personal website so I though I better do something about it.&#xA;The first step was to change the theme. This can be done in place in an existing repository, but I had created a whole different repo for playing around with.&#xA;Do I still have Netlify access? Yes, I can still login there via Github. I clicked around and went through a few things, my custom domain is still linked, I updated the node.</description>
+      <guid>https://nmoore.nz/portfolio/2024-03-06-website-update/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;It’s been some years since I’ve updated my personal website so I though I better do something about it.&#xD;&#xA;</description>
     </item>
     <item>
       <title>Advent of Code 2020</title>
-      <link>http://localhost:4321/portfolio/2021-01-28-advent-of-code-2020/</link>
+      <link>https://nmoore.nz/portfolio/2021-01-28-advent-of-code-2020/</link>
       <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2021-01-28-advent-of-code-2020/</guid>
+      <guid>https://nmoore.nz/portfolio/2021-01-28-advent-of-code-2020/</guid>
       <description>This is a short review of my first foray into Advent of Code. I’ve started to gather my thoughts in the github readme while looking over the code again. I had big goals of completing each day in R and python, but after a few days decided that one language was more than enough. It will be an ongoing project to look at each day and see if I can write python solutions, while also collecting choice tidbits of fancy or useful or awful code.</description>
     </item>
     <item>
       <title>Youtube Faves</title>
-      <link>http://localhost:4321/portfolio/2021-01-27-youtube/</link>
+      <link>https://nmoore.nz/portfolio/2021-01-27-youtube/</link>
       <pubDate>Wed, 27 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2021-01-27-youtube/</guid>
+      <guid>https://nmoore.nz/portfolio/2021-01-27-youtube/</guid>
       <description>I’m a big fan of Run the Jewels, and remixes, and brass, and shortcodes, and this gets it exactly right.</description>
     </item>
   </channel>
