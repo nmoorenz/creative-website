@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>An introduction to Python via Wordle</title>
+<meta name="description" content="Nathan&#39;s Website">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="http://localhost:4321/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="http://localhost:4321/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://localhost:4321/css/owl.carousel.css">
+<link rel="stylesheet" href="http://localhost:4321/css/owl.theme.css">
+
+
+  <link href="http://localhost:4321/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="http://localhost:4321/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="http://localhost:4321/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="http://localhost:4321/">Nathan Moore</a></h1>
+    
+      <p class="sidebar-p">I am a data person who wants to make a website.</p>
+    
+      <p class="sidebar-p">Originally from Taranaki, I now live in Auckland. </p>
+    
+      <p class="sidebar-p">Also: ultimate frisbee, disc golf, cycling, cooking</p>
+    
+    <ul class="sidebar-menu">
+      
+        <li><a href="http://localhost:4321/portfolio/">Home</a></li>
+      
+        <li><a href="http://localhost:4321/about/">About</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  
+  
+  <a href="mailto:nath@nmoore.nz" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://www.linkedin.com/in/nmoorenz" data-animate-hover="pulse" class="external">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  
+  <a href="https://www.github.com/nmoorenz" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2024 Nathan Moore |
+        
+        Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="http://localhost:4321/">Nathan Moore</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>An introduction to Python via Wordle</h1>
+         <p>When Wordle first went viral I was in a group chat at work and had the idea of making a Python tutorial based on Wordle. I never did it, but this post is that introduction. I will likely do another introduction to R post as well.</p>
+<p>The NY Times has <a href="https://arstechnica.com/gaming/2022/02/heres-how-the-new-york-times-changed-wordle/">changed the source code</a> for Wordle (<a href="https://arstechnica.com/gaming/2022/01/beware-trolls-are-out-to-spoil-tomorrows-wordle-for-you/">likely in response to security concerns?</a>) but the <a href="https://web.archive.org/web/20220210031511id_/https://www.powerlanguage.co.uk/wordle/">Web Archive</a> still has the old information, including the source code and the <a href="/data/main.e65ce0a5.js" target="_blank">Javascript</a>. Thanks to <a href="https://leancrew.com/all-this/2022/02/resurrecting-the-old-wordle-for-procrastinators/">this link</a> for the info.</p>
+<p>My idea for the tutorial is to do some analysis on the answers and the possible words. Maybe we can figure out some good starting words, find out the letter frequencies, that kind of thing.</p>
+<p>First I want to read in the javascript file and get the word lists into variables. Somewhat surprisingly these were always available! Sitting right there in the code.</p>
+<pre class="python"><code>
+with open(&#39;../../../data/main.e65ce0a5.js&#39;, &#39;r&#39;) as f:
+    js = f.read()</code></pre>
+<p>I get an error for an unexpected character:</p>
+<pre><code>Traceback (most recent call last):
+  File &quot;C:\Users\NATHAN~1\AppData\Local\Temp\Rtmpc1KPgv\chunk-code-7da05d317d7a.txt&quot;, line 3, in &lt;module&gt;
+    js = f.read()
+         ^^^^^^^^
+  File &quot;C:\Program Files\Python312\Lib\encodings\cp1252.py&quot;, line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: &#39;charmap&#39; codec can&#39;t decode byte 0x90 in position 142756: character maps to &lt;undefined&gt;</code></pre>
+<p>When I look up position 142756 in the file, I find that it’s a backspace character, and the enter character is there just afterwards.</p>
+<pre class="js"><code>var s=a.detail.key;&quot;←&quot;===s||&quot;Backspace&quot;===s?e.removeLetter():&quot;↵&quot;===s||&quot;Enter&quot;===s?e.submitGuess()</code></pre>
+<p>Let’s try to open with different encodings. My first guess of <code>utf-8</code> worked!</p>
+<pre class="python"><code>
+with open(&#39;../../../data/main.e65ce0a5.js&#39;, &#39;r&#39;, encoding=&#39;utf-8&#39;) as f:
+    js = f.read()</code></pre>
+<p>Now, from looking at the Javascript file I know that the answers are contained in a variable called <code>La</code> and the possible words in <code>Ta</code>. I can also quickly see that <code>La=</code> and <code>Ta=</code> only appear once each in the file so I can use regex to extract those strings and then turn them into proper python lists.</p>
+<p>I also know that “shave” is the last Wordle answer, but that is some years away.</p>
+<pre class="python"><code># import regex
+import re
+
+# La= is the identifier for the string
+# \[ want to find a literal square open bracket
+# \] want to find a literal square close bracket
+# (.*?) want to find the one or more of anything in a non-greedy way
+# [0] findall returns a list so get the first element
+answer_string = re.findall(r&#39;La=\[(.*?)\]&#39;, js)[0]
+possible_string = re.findall(r&#39;Ta=\[(.*?)\]&#39;, js)[0]
+
+ans_len = len(answer_string)
+poss_len = len(possible_string)</code></pre>
+<p>I have long strings: <code>answer_string</code> is 18519 characters long, and <code>possible_string</code> is 85255 characters long. I need to make them lists.</p>
+<p>Note: <a href="https://stackoverflow.com/questions/65344130/rmarkdown-python-inline-code-in-rmarkdown">displaying python variables in rmarkdown</a>.</p>
+<pre class="python"><code>
+answer_list = answer_string.replace(&#39;&quot;&#39;, &#39;&#39;).split(&#39;,&#39;)
+possible_list = possible_string.replace(&#39;&quot;&#39;, &#39;&#39;).split(&#39;,&#39;)
+
+ans_len = len(answer_list)
+poss_len = len(possible_list)</code></pre>
+<p>Now I have lists to work with: <code>answer_list</code> is 2315 words long, and <code>possible_list</code> is 10657 words long.</p>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="http://localhost:4321/js/jquery.min.js"></script>
+<script src="http://localhost:4321/js/bootstrap.min.js"></script>
+<script src="http://localhost:4321/js/jquery.cookie.js"> </script>
+<script src="http://localhost:4321/js/ekko-lightbox.js"></script>
+<script src="http://localhost:4321/js/jquery.scrollTo.min.js"></script>
+<script src="http://localhost:4321/js/masonry.pkgd.min.js"></script>
+<script src="http://localhost:4321/js/imagesloaded.pkgd.min.js"></script>
+<script src="http://localhost:4321/js/owl.carousel.min.js"></script>
+<script src="http://localhost:4321/js/front.js"></script>
+
+
+
+</body>
+</html>
