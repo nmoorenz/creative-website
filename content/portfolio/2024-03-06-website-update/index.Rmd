@@ -6,7 +6,37 @@ slug: []
 categories: []
 tags: []
 image: ''
-showonlyimage: no
+showonlyimage: yes
 ---
 
-This is a test page. 
+It's been some years since I've updated my personal website so I though I better do something about it. 
+
+The first step was to change the theme. This can be done in place in an [existing repository](https://github.com/nmoorenz/hugo-hyde-website), but I had created a [whole different repo](https://github.com/nmoorenz/creative-website) for playing around with. 
+
+Do I still have Netlify access? Yes, I can still login there via Github. I clicked around and went through a few things, my custom domain is still linked, I updated the node.js version because it said so, and found the [repository management link](https://app.netlify.com/sites/nmoorenz/configuration/deploys). 
+
+![Build & deploy > Continuous deployment > Repository](/img/portfolio/configure-deployment.png)
+ 
+<br>
+Except, I could only see one repository. I went over to Github to see if anything needed to be changed there. Under [Settings > Applications](https://github.com/settings/installations) the only thing I have is Netlify. 
+
+![Github > Settings > Applications](/img/portfolio/github-applications.png)
+  
+<br> 
+Finding the new repo is easy so I enable that. 
+
+![Configure > Repository access](/img/portfolio/netlify-repo-access.png)
+ 
+<br> 
+Then I went back to Netlify and the [repository is available](https://app.netlify.com/sites/nmoorenz/link/repos). 
+
+![Link your site to a Git repository](/img/portfolio/link-your-site.png)
+
+<br>
+The site started deploying immediately, and I was pleasantly surprised to see five green ticks on the page, with a new site available! It only took 23 seconds. 
+
+![Deploy log](/img/portfolio/deploy-success.png)
+
+<br>
+I have subsequently made a few minor changes like deleting the example posts, and deleting the previously rendered html. It seems like an index.html file is created instead of the blog post stub, and that includes the navigation on the page. Is this a Hugo thing? Is it a blogdown thing? I'm not sure and it's only a maybe about whether I'm going to dig to find out. 
+

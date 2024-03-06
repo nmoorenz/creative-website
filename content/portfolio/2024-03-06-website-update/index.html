@@ -6,9 +6,41 @@ slug: []
 categories: []
 tags: []
 image: ''
-showonlyimage: no
+showonlyimage: yes
 ---
 
 
 
-<p>This is a test page.</p>
+<p>It’s been some years since I’ve updated my personal website so I though I better do something about it.</p>
+<p>The first step was to change the theme. This can be done in place in an <a href="https://github.com/nmoorenz/hugo-hyde-website">existing repository</a>, but I had created a <a href="https://github.com/nmoorenz/creative-website">whole different repo</a> for playing around with.</p>
+<p>Do I still have Netlify access? Yes, I can still login there via Github. I clicked around and went through a few things, my custom domain is still linked, I updated the node.js version because it said so, and found the <a href="https://app.netlify.com/sites/nmoorenz/configuration/deploys">repository management link</a>.</p>
+<div class="float">
+<img src="/img/portfolio/configure-deployment.png" alt="Build &amp; deploy &gt; Continuous deployment &gt; Repository" />
+<div class="figcaption">Build &amp; deploy &gt; Continuous deployment &gt; Repository</div>
+</div>
+<p><br>
+Except, I could only see one repository. I went over to Github to see if anything needed to be changed there. Under <a href="https://github.com/settings/installations">Settings &gt; Applications</a> the only thing I have is Netlify.</p>
+<div class="float">
+<img src="/img/portfolio/github-applications.png" alt="Github &gt; Settings &gt; Applications" />
+<div class="figcaption">Github &gt; Settings &gt; Applications</div>
+</div>
+<p><br>
+Finding the new repo is easy so I enable that.</p>
+<div class="float">
+<img src="/img/portfolio/netlify-repo-access.png" alt="Configure &gt; Repository access" />
+<div class="figcaption">Configure &gt; Repository access</div>
+</div>
+<p><br>
+Then I went back to Netlify and the <a href="https://app.netlify.com/sites/nmoorenz/link/repos">repository is available</a>.</p>
+<div class="float">
+<img src="/img/portfolio/link-your-site.png" alt="Link your site to a Git repository" />
+<div class="figcaption">Link your site to a Git repository</div>
+</div>
+<p><br>
+The site started deploying immediately, and I was pleasantly surprised to see five green ticks on the page, with a new site available! It only took 23 seconds.</p>
+<div class="float">
+<img src="/img/portfolio/deploy-success.png" alt="Deploy log" />
+<div class="figcaption">Deploy log</div>
+</div>
+<p><br>
+I have subsequently made a few minor changes like deleting the example posts, and deleting the previously rendered html. It seems like an index.html file is created instead of the blog post stub, and that includes the navigation on the page. Is this a Hugo thing? Is it a blogdown thing? I’m not sure and it’s only a maybe about whether I’m going to dig to find out.</p>
