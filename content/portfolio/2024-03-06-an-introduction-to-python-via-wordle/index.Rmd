@@ -5,7 +5,7 @@ date: '2024-03-06'
 slug: []
 categories: []
 tags: []
-image: ''
+image: 'img/portfolio/wordle.jpg'
 showonlyimage: no
 ---
 
@@ -15,7 +15,9 @@ When Wordle first went viral I was in a group chat at work and had the idea of m
 
 When Wordle first went viral I was in a group chat at work and had the idea of making a Python tutorial based on Wordle. I never did it, but this post is that introduction. I will likely do another introduction to R post as well. 
 
-The NY Times has [changed the source code](https://arstechnica.com/gaming/2022/02/heres-how-the-new-york-times-changed-wordle/) for Wordle ([likely in response to security concerns?](https://arstechnica.com/gaming/2022/01/beware-trolls-are-out-to-spoil-tomorrows-wordle-for-you/)) but the [Web Archive](https://web.archive.org/web/20220210031511id_/https://www.powerlanguage.co.uk/wordle/) still has the old information, including the source code and the [Javascript](/data/main.e65ce0a5.js){target="_blank"}. Thanks to [this link](https://leancrew.com/all-this/2022/02/resurrecting-the-old-wordle-for-procrastinators/) for the info. 
+### Intro
+
+The NY Times has [changed the source code](https://arstechnica.com/gaming/2022/02/heres-how-the-new-york-times-changed-wordle/) for Wordle ([likely in response to security concerns?](https://arstechnica.com/gaming/2022/01/beware-trolls-are-out-to-spoil-tomorrows-wordle-for-you/)) but the [Web Archive](https://web.archive.org/web/20220210031511id_/https://www.powerlanguage.co.uk/wordle/) still has the old information, including the source code and the ![Javascript](/data/main.e65ce0a5.js){target="_blank"}. Thanks to [this link](https://leancrew.com/all-this/2022/02/resurrecting-the-old-wordle-for-procrastinators/) for the info. 
 
 My idea for the tutorial is to do some analysis on the answers and the possible words. Maybe we can figure out some good starting words, find out the letter frequencies, that kind of thing. 
 
@@ -28,7 +30,11 @@ library(reticulate)
 
 ```{python}
 
-with open('../../../data/main.e65ce0a5.js', 'r') as f:
+# with open() as f: is standard memory management to open and then close the file
+# This is the path to the file, before we publish
+# 'r' to read the file
+# f.read() because we are fine with one big string of contents
+with open('../../../static/data/main.e65ce0a5.js', 'r') as f:
     js = f.read()
 
 ```
@@ -54,16 +60,18 @@ var s=a.detail.key;"←"===s||"Backspace"===s?e.removeLetter():"↵"===s||"Enter
 
 Let's try to open with different encodings. My first guess of `utf-8` worked!
 
+On review, this might be because I did not load the reticulate package. This error doesn't come up any more. 
+
 ```{python}
 
-with open('../../../data/main.e65ce0a5.js', 'r', encoding='utf-8') as f:
+with open('../../../static/data/main.e65ce0a5.js', 'r', encoding='utf-8') as f:
     js = f.read()
 
 ```
 
-Now, from looking at the Javascript file I know that the answers are contained in a variable called `La` and the possible words in `Ta`. I can also quickly see that `La=` and `Ta=` only appear once each in the file so I can use regex to extract those strings and then turn them into proper python lists. 
+Now, from looking at the Javascript file I know that the answers are contained in a variable called `La` and the possible words in `Ta`. I can also quickly search and see that `La=` and `Ta=` only appear once each in the file so I can use regex to extract those strings and then turn them into proper python lists. 
 
-I also know that "shave" is the last Wordle answer, but that is some years away. 
+I also know that "shave" is the last Wordle answer, but that is some years away. Spoilers, sorry. 
 
 ```{python}
 # import regex
@@ -84,10 +92,12 @@ poss_len = len(possible_string)
 
 I have long strings: `answer_string` is `r py$ans_len` characters long, and `possible_string` is `r py$poss_len` characters long. I need to make them lists. 
 
-Note: [displaying python variables in rmarkdown](https://stackoverflow.com/questions/65344130/rmarkdown-python-inline-code-in-rmarkdown). 
+Note: [displaying python variables in rmarkdown](https://stackoverflow.com/questions/65344130/rmarkdown-python-inline-code-in-rmarkdown) and [this answer](https://stackoverflow.com/questions/74489386/how-do-i-access-a-python-parameter-inline-in-a-quarto-markdown-paragraph). 
 
 ```{python}
 
+# the strings come along with the quotes from the Javascript, replace them with nothing
+# split by comma into a list
 answer_list = answer_string.replace('"', '').split(',')
 possible_list = possible_string.replace('"', '').split(',')
 
@@ -97,4 +107,200 @@ poss_len = len(possible_list)
 ```
 
 Now I have lists to work with: `answer_list` is `r py$ans_len` words long, and `possible_list` is `r py$poss_len` words long.  
+
+### Basics
+
+These were the first ten Wordle answers, in case you are interested. 
+
+```{python}
+
+# use [:10] to get the first ten elements from a list
+# indexes start at 0, so the slicer is not inclusive
+answer_list[:10]
+
+```
+
+Is my starting word a possible answer? Will I ever get a sacred 1? 
+
+```{python}
+
+'farts' in answer_list
+
+```
+
+No. That is fair enough. 
+
+### Counting
+
+So, what is a good starting word? Let's count the number of letters in each position, and the number overall
+
+```{python}
+import collections
+import pprint
+
+ans1 = collections.Counter([a[0] for a in answer_list])
+ans2 = collections.Counter([a[1] for a in answer_list])
+ans3 = collections.Counter([a[2] for a in answer_list])
+ans4 = collections.Counter([a[3] for a in answer_list])
+ans5 = collections.Counter([a[4] for a in answer_list])
+ans_all = collections.Counter(''.join(answer_list))
+
+pprint.pp(ans_all)
+
+```
+
+E, A, R, O, T are the most popular five letters. I can't think of any way to combine those into an actual word though. 
+
+What are the most popular letters in each position? 
+
+```{python}
+import pandas as pd
+
+# we need to sort the dictionaries first
+ans1 = dict(sorted(ans1.items(), key=lambda item: item[1], reverse=True))
+ans2 = dict(sorted(ans2.items(), key=lambda item: item[1], reverse=True))
+ans3 = dict(sorted(ans3.items(), key=lambda item: item[1], reverse=True))
+ans4 = dict(sorted(ans4.items(), key=lambda item: item[1], reverse=True))
+ans5 = dict(sorted(ans5.items(), key=lambda item: item[1], reverse=True))
+
+# convert dictionary items into columns
+position_counts = pd.DataFrame(ans1.items(), columns=['L1', 'C1'])
+
+# There are no words starting with X!
+# add a zero entry
+position_counts.loc[len(position_counts.index)] = ['x', 0]
+
+# temp dataframes
+temp_df = pd.DataFrame(ans2.items(), columns=['L2', 'C2'])
+# we need to check the lengths because joining on index assumes equal lengths
+len(temp_df)
+# join to the counter dataframe
+position_counts = position_counts.join(temp_df[['L2', 'C2']].set_axis(position_counts.index))
+
+# i'm sure this could be more efficient but it's what I've got 
+temp_df = pd.DataFrame(ans3.items(), columns=['L3', 'C3'])
+len(temp_df)
+position_counts = position_counts.join(temp_df[['L3', 'C3']].set_axis(position_counts.index))
+
+# position 4 is missing q
+temp_df = pd.DataFrame(ans4.items(), columns=['L4', 'C4'])
+len(temp_df)
+temp_df
+temp_df.loc[len(temp_df.index)] = ['q', 0]
+position_counts = position_counts.join(temp_df[['L4', 'C4']].set_axis(position_counts.index))
+
+# position 5 is missing j, q, v
+temp_df = pd.DataFrame(ans5.items(), columns=['L5', 'C5'])
+len(temp_df)
+temp_df
+temp_df.loc[len(temp_df.index)] = ['j', 0]
+temp_df.loc[len(temp_df.index)] = ['q', 0]
+temp_df.loc[len(temp_df.index)] = ['v', 0]
+position_counts = position_counts.join(temp_df[['L5', 'C5']].set_axis(position_counts.index))
+
+# there's probably a way to start with the letters and count them with collections
+position_counts
+
+```
+
+Thoughts from these counts: 
+
+* Not that many words start with E, and it's only fourth most popular for the second and third letters, but comes in strong for fourth and fifth letters. 
+* Vowels take all the top spots for the third letter, but only one word ends in U
+* It is not possible to just take the most popular for each position and I'm not sure why I thought that might be a possibility. 
+* Overall frequency suggests E, A, R, O, T, L, I, S. Combine that with S being the only consonant as the most popular in any position, and something like SLATE, STARE, STORE is a good starting option. 
+* There are many conditionals on finding a good starting word but I'm sure there is some way of deciding the optimal. 
+* AUDIO is a good starting word to identify vowels, and follow that up with a word with E in it. 
+* Maybe we can loop through all the possible answers and rank them by a score, the score being the sum of the frequency of the letters in each position. 
+
+```{python}
+
+# combine frequencies into one list
+list_of_freqs = [ans1, ans2, ans3, ans4, ans5]
+
+# function for calculating score
+def create_score(word): 
+    score = 0
+    for w, s in zip(list(word), list_of_freqs): 
+        score += s[w]
+    return score
+
+        
+# new dictionary with words as keys, and scores as values
+word_score = {x: create_score(x) for x in answer_list}
+
+# sort the dictionary
+word_score = dict(sorted(word_score.items(), key=lambda item: item[1], reverse=True))
+
+# print out the top 20 words
+pprint.pp(list(word_score.items())[:15])
+
+```
+
+How do my suggestions hold up? SLATE is number one! 
+
+```{python}
+
+print('stare: ' + str(word_score['stare']))
+print('store: ' + str(word_score['store']))
+
+```
+
+STARE is reasonable but STORE is lower down. I'm also kind of pleased that there aren't many words that use the overall frequency leaders, it's not that I can't think of any, we often have to dip into c, h, n. 
+
+### Combos
+
+Maybe we could do letter combinations? SH is a popular starting combo. We can't combine these in the same way as individual letters though: first and second letter plus second and third letter plus third and fourth plus four and five need to be combined in a cohesive way. 
+
+
+```{python}
+
+starter = collections.Counter([a[:2] for a in answer_list])
+finisher = collections.Counter([a[3:] for a in answer_list])
+
+print("most common starting combinations")
+pprint.pp(starter.most_common(15))
+
+print("most common ending combinations")
+pprint.pp(finisher.most_common(15))
+```
+
+ER is vastly more popular than any other starting or ending combination. 
+Interesting to see not so popular letters make an appearance for starting, like GR and FL
+
+Let's try again with more letters! 
+
+
+```{python}
+
+starter = collections.Counter([a[:3] for a in answer_list])
+finisher = collections.Counter([a[2:] for a in answer_list])
+
+print("most common starting combinations")
+pprint.pp(starter.most_common(15))
+
+print("most common ending combinations")
+pprint.pp(finisher.most_common(15))
+```
+
+```{python}
+
+starter = collections.Counter([a[:4] for a in answer_list])
+finisher = collections.Counter([a[1:] for a in answer_list])
+
+print("most common starting combinations")
+pprint.pp(starter.most_common(15))
+
+print("most common ending combinations")
+pprint.pp(finisher.most_common(15))
+```
+
+The ending combinations are definitely the ones to watch out for. There's the infamous IGHT but also OUND, OWER, and ATCH. 
+
+I wish the Twitter API was still available to see how many fails there are on days where those combinations occur. 
+
+### Conclusions
+
+Thanks to the Web Archive, I'm able to get the old version of the Wordle code, and do some exploration to try to find a good starting word. Python list comprehensions are cool; The Collections package was super helpful; I should definitely think about combining data structures instead of having five different dictionaries; functions can be easy; SLATE is a good starting word. 
+
 

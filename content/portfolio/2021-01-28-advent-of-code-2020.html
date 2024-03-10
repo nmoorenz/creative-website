@@ -21,7 +21,7 @@ showonlyimage: no
 suppressPackageStartupMessages(library(tidyverse))
 
 # love the here package to load things
-inputfile = here::here(&quot;data&quot;, &quot;advent2020&quot;, &quot;day05.txt&quot;)
+inputfile = here::here(&quot;static&quot;, &quot;data&quot;, &quot;advent2020&quot;, &quot;day05.txt&quot;)
 bp &lt;- read.delim(inputfile, header = FALSE)
 
 # conversions for letters to binary
@@ -51,7 +51,7 @@ p2 &lt;- setdiff(bp_seq, bp_bin$id)</code></pre>
 <div id="python-code" class="section level3">
 <h3>Python Code</h3>
 <pre class="python"><code># read file
-with open(&quot;../../data/advent2020/day05.txt&quot;, &quot;r&quot;) as f:
+with open(&quot;../../static/data/advent2020/day05.txt&quot;, &quot;r&quot;) as f:
   bp = f.read().splitlines()
 
 # row and col binary via replacement

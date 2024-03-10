@@ -5,7 +5,7 @@ date: '2024-03-06'
 slug: []
 categories: []
 tags: []
-image: ''
+image: 'img/portfolio/wordle.jpg'
 showonlyimage: no
 ---
 
@@ -14,11 +14,17 @@ showonlyimage: no
 <p>When Wordle first went viral I was in a group chat at work and had the idea of making a Python tutorial based on Wordle. I never did it, but this post is that introduction. I will likely do another introduction to R post as well.</p>
 <!--more-->
 <p>When Wordle first went viral I was in a group chat at work and had the idea of making a Python tutorial based on Wordle. I never did it, but this post is that introduction. I will likely do another introduction to R post as well.</p>
-<p>The NY Times has <a href="https://arstechnica.com/gaming/2022/02/heres-how-the-new-york-times-changed-wordle/">changed the source code</a> for Wordle (<a href="https://arstechnica.com/gaming/2022/01/beware-trolls-are-out-to-spoil-tomorrows-wordle-for-you/">likely in response to security concerns?</a>) but the <a href="https://web.archive.org/web/20220210031511id_/https://www.powerlanguage.co.uk/wordle/">Web Archive</a> still has the old information, including the source code and the <a href="/data/main.e65ce0a5.js" target="_blank">Javascript</a>. Thanks to <a href="https://leancrew.com/all-this/2022/02/resurrecting-the-old-wordle-for-procrastinators/">this link</a> for the info.</p>
+<div id="intro" class="section level3">
+<h3>Intro</h3>
+<p>The NY Times has <a href="https://arstechnica.com/gaming/2022/02/heres-how-the-new-york-times-changed-wordle/">changed the source code</a> for Wordle (<a href="https://arstechnica.com/gaming/2022/01/beware-trolls-are-out-to-spoil-tomorrows-wordle-for-you/">likely in response to security concerns?</a>) but the <a href="https://web.archive.org/web/20220210031511id_/https://www.powerlanguage.co.uk/wordle/">Web Archive</a> still has the old information, including the source code and the <embed src="/data/main.e65ce0a5.js" target="_blank" />. Thanks to <a href="https://leancrew.com/all-this/2022/02/resurrecting-the-old-wordle-for-procrastinators/">this link</a> for the info.</p>
 <p>My idea for the tutorial is to do some analysis on the answers and the possible words. Maybe we can figure out some good starting words, find out the letter frequencies, that kind of thing.</p>
 <p>First I want to read in the javascript file and get the word lists into variables. Somewhat surprisingly these were always available! Sitting right there in the code.</p>
 <pre class="python"><code>
-with open(&#39;../../../data/main.e65ce0a5.js&#39;, &#39;r&#39;) as f:
+# with open() as f: is standard memory management to open and then close the file
+# This is the path to the file, before we publish
+# &#39;r&#39; to read the file
+# f.read() because we are fine with one big string of contents
+with open(&#39;../../../static/data/main.e65ce0a5.js&#39;, &#39;r&#39;) as f:
     js = f.read()</code></pre>
 <p>I get an error for an unexpected character:</p>
 <pre><code>Traceback (most recent call last):
@@ -32,11 +38,12 @@ UnicodeDecodeError: &#39;charmap&#39; codec can&#39;t decode byte 0x90 in positi
 <p>When I look up position 142756 in the file, I find that it’s a backspace character, and the enter character is there just afterwards.</p>
 <pre class="js"><code>var s=a.detail.key;&quot;←&quot;===s||&quot;Backspace&quot;===s?e.removeLetter():&quot;↵&quot;===s||&quot;Enter&quot;===s?e.submitGuess()</code></pre>
 <p>Let’s try to open with different encodings. My first guess of <code>utf-8</code> worked!</p>
+<p>On review, this might be because I did not load the reticulate package. This error doesn’t come up any more.</p>
 <pre class="python"><code>
-with open(&#39;../../../data/main.e65ce0a5.js&#39;, &#39;r&#39;, encoding=&#39;utf-8&#39;) as f:
+with open(&#39;../../../static/data/main.e65ce0a5.js&#39;, &#39;r&#39;, encoding=&#39;utf-8&#39;) as f:
     js = f.read()</code></pre>
-<p>Now, from looking at the Javascript file I know that the answers are contained in a variable called <code>La</code> and the possible words in <code>Ta</code>. I can also quickly see that <code>La=</code> and <code>Ta=</code> only appear once each in the file so I can use regex to extract those strings and then turn them into proper python lists.</p>
-<p>I also know that “shave” is the last Wordle answer, but that is some years away.</p>
+<p>Now, from looking at the Javascript file I know that the answers are contained in a variable called <code>La</code> and the possible words in <code>Ta</code>. I can also quickly search and see that <code>La=</code> and <code>Ta=</code> only appear once each in the file so I can use regex to extract those strings and then turn them into proper python lists.</p>
+<p>I also know that “shave” is the last Wordle answer, but that is some years away. Spoilers, sorry.</p>
 <pre class="python"><code># import regex
 import re
 
@@ -51,11 +58,376 @@ possible_string = re.findall(r&#39;Ta=\[(.*?)\]&#39;, js)[0]
 ans_len = len(answer_string)
 poss_len = len(possible_string)</code></pre>
 <p>I have long strings: <code>answer_string</code> is 18519 characters long, and <code>possible_string</code> is 85255 characters long. I need to make them lists.</p>
-<p>Note: <a href="https://stackoverflow.com/questions/65344130/rmarkdown-python-inline-code-in-rmarkdown">displaying python variables in rmarkdown</a>.</p>
+<p>Note: <a href="https://stackoverflow.com/questions/65344130/rmarkdown-python-inline-code-in-rmarkdown">displaying python variables in rmarkdown</a> and <a href="https://stackoverflow.com/questions/74489386/how-do-i-access-a-python-parameter-inline-in-a-quarto-markdown-paragraph">this answer</a>.</p>
 <pre class="python"><code>
+# the strings come along with the quotes from the Javascript, replace them with nothing
+# split by comma into a list
 answer_list = answer_string.replace(&#39;&quot;&#39;, &#39;&#39;).split(&#39;,&#39;)
 possible_list = possible_string.replace(&#39;&quot;&#39;, &#39;&#39;).split(&#39;,&#39;)
 
 ans_len = len(answer_list)
 poss_len = len(possible_list)</code></pre>
 <p>Now I have lists to work with: <code>answer_list</code> is 2315 words long, and <code>possible_list</code> is 10657 words long.</p>
+</div>
+<div id="basics" class="section level3">
+<h3>Basics</h3>
+<p>These were the first ten Wordle answers, in case you are interested.</p>
+<pre class="python"><code># use [:10] to get the first ten elements from a list
+# indexes start at 0, so the slicer is not inclusive
+answer_list[:10]</code></pre>
+<pre><code>## [&#39;cigar&#39;, &#39;rebut&#39;, &#39;sissy&#39;, &#39;humph&#39;, &#39;awake&#39;, &#39;blush&#39;, &#39;focal&#39;, &#39;evade&#39;, &#39;naval&#39;, &#39;serve&#39;]</code></pre>
+<p>Is my starting word a possible answer? Will I ever get a sacred 1?</p>
+<pre class="python"><code>&#39;farts&#39; in answer_list</code></pre>
+<pre><code>## False</code></pre>
+<p>No. That is fair enough.</p>
+</div>
+<div id="counting" class="section level3">
+<h3>Counting</h3>
+<p>So, what is a good starting word? Let’s count the number of letters in each position, and the number overall</p>
+<pre class="python"><code>import collections
+import pprint
+
+ans1 = collections.Counter([a[0] for a in answer_list])
+ans2 = collections.Counter([a[1] for a in answer_list])
+ans3 = collections.Counter([a[2] for a in answer_list])
+ans4 = collections.Counter([a[3] for a in answer_list])
+ans5 = collections.Counter([a[4] for a in answer_list])
+ans_all = collections.Counter(&#39;&#39;.join(answer_list))
+
+pprint.pp(ans_all)</code></pre>
+<pre><code>## Counter({&#39;e&#39;: 1233,
+##          &#39;a&#39;: 979,
+##          &#39;r&#39;: 899,
+##          &#39;o&#39;: 754,
+##          &#39;t&#39;: 729,
+##          &#39;l&#39;: 719,
+##          &#39;i&#39;: 671,
+##          &#39;s&#39;: 669,
+##          &#39;n&#39;: 575,
+##          &#39;c&#39;: 477,
+##          &#39;u&#39;: 467,
+##          &#39;y&#39;: 425,
+##          &#39;d&#39;: 393,
+##          &#39;h&#39;: 389,
+##          &#39;p&#39;: 367,
+##          &#39;m&#39;: 316,
+##          &#39;g&#39;: 311,
+##          &#39;b&#39;: 281,
+##          &#39;f&#39;: 230,
+##          &#39;k&#39;: 210,
+##          &#39;w&#39;: 195,
+##          &#39;v&#39;: 153,
+##          &#39;z&#39;: 40,
+##          &#39;x&#39;: 37,
+##          &#39;q&#39;: 29,
+##          &#39;j&#39;: 27})</code></pre>
+<p>E, A, R, O, T are the most popular five letters. I can’t think of any way to combine those into an actual word though.</p>
+<p>What are the most popular letters in each position?</p>
+<pre class="python"><code>import pandas as pd
+
+# we need to sort the dictionaries first
+ans1 = dict(sorted(ans1.items(), key=lambda item: item[1], reverse=True))
+ans2 = dict(sorted(ans2.items(), key=lambda item: item[1], reverse=True))
+ans3 = dict(sorted(ans3.items(), key=lambda item: item[1], reverse=True))
+ans4 = dict(sorted(ans4.items(), key=lambda item: item[1], reverse=True))
+ans5 = dict(sorted(ans5.items(), key=lambda item: item[1], reverse=True))
+
+# convert dictionary items into columns
+position_counts = pd.DataFrame(ans1.items(), columns=[&#39;L1&#39;, &#39;C1&#39;])
+
+# There are no words starting with X!
+# add a zero entry
+position_counts.loc[len(position_counts.index)] = [&#39;x&#39;, 0]
+
+# temp dataframes
+temp_df = pd.DataFrame(ans2.items(), columns=[&#39;L2&#39;, &#39;C2&#39;])
+# we need to check the lengths because joining on index assumes equal lengths
+len(temp_df)</code></pre>
+<pre><code>## 26</code></pre>
+<pre class="python"><code># join to the counter dataframe
+position_counts = position_counts.join(temp_df[[&#39;L2&#39;, &#39;C2&#39;]].set_axis(position_counts.index))
+
+# i&#39;m sure this could be more efficient but it&#39;s what I&#39;ve got 
+temp_df = pd.DataFrame(ans3.items(), columns=[&#39;L3&#39;, &#39;C3&#39;])
+len(temp_df)</code></pre>
+<pre><code>## 26</code></pre>
+<pre class="python"><code>position_counts = position_counts.join(temp_df[[&#39;L3&#39;, &#39;C3&#39;]].set_axis(position_counts.index))
+
+# position 4 is missing q
+temp_df = pd.DataFrame(ans4.items(), columns=[&#39;L4&#39;, &#39;C4&#39;])
+len(temp_df)</code></pre>
+<pre><code>## 25</code></pre>
+<pre class="python"><code>temp_df</code></pre>
+<pre><code>##    L4   C4
+## 0   e  318
+## 1   n  182
+## 2   s  171
+## 3   a  163
+## 4   l  162
+## 5   i  158
+## 6   r  152
+## 7   c  152
+## 8   t  139
+## 9   o  132
+## 10  u   82
+## 11  g   76
+## 12  d   69
+## 13  m   68
+## 14  k   55
+## 15  p   50
+## 16  v   46
+## 17  f   35
+## 18  h   28
+## 19  w   25
+## 20  b   24
+## 21  z   20
+## 22  x    3
+## 23  y    3
+## 24  j    2</code></pre>
+<pre class="python"><code>temp_df.loc[len(temp_df.index)] = [&#39;q&#39;, 0]
+position_counts = position_counts.join(temp_df[[&#39;L4&#39;, &#39;C4&#39;]].set_axis(position_counts.index))
+
+# position 5 is missing j, q, v
+temp_df = pd.DataFrame(ans5.items(), columns=[&#39;L5&#39;, &#39;C5&#39;])
+len(temp_df)</code></pre>
+<pre><code>## 23</code></pre>
+<pre class="python"><code>temp_df</code></pre>
+<pre><code>##    L5   C5
+## 0   e  424
+## 1   y  364
+## 2   t  253
+## 3   r  212
+## 4   l  156
+## 5   h  139
+## 6   n  130
+## 7   d  118
+## 8   k  113
+## 9   a   64
+## 10  o   58
+## 11  p   56
+## 12  m   42
+## 13  g   41
+## 14  s   36
+## 15  c   31
+## 16  f   26
+## 17  w   17
+## 18  b   11
+## 19  i   11
+## 20  x    8
+## 21  z    4
+## 22  u    1</code></pre>
+<pre class="python"><code>temp_df.loc[len(temp_df.index)] = [&#39;j&#39;, 0]
+temp_df.loc[len(temp_df.index)] = [&#39;q&#39;, 0]
+temp_df.loc[len(temp_df.index)] = [&#39;v&#39;, 0]
+position_counts = position_counts.join(temp_df[[&#39;L5&#39;, &#39;C5&#39;]].set_axis(position_counts.index))
+
+# there&#39;s probably a way to start with the letters and count them with collections
+position_counts</code></pre>
+<pre><code>##    L1   C1 L2   C2 L3   C3 L4   C4 L5   C5
+## 0   s  366  a  304  a  307  e  318  e  424
+## 1   c  198  o  279  i  266  n  182  y  364
+## 2   b  173  r  267  o  244  s  171  t  253
+## 3   t  149  e  242  e  177  a  163  r  212
+## 4   p  142  i  202  u  165  l  162  l  156
+## 5   a  141  l  201  r  163  i  158  h  139
+## 6   f  136  u  186  n  139  r  152  n  130
+## 7   g  115  h  144  l  112  c  152  d  118
+## 8   d  111  n   87  t  111  t  139  k  113
+## 9   m  107  t   77  s   80  o  132  a   64
+## 10  r  105  p   61  d   75  u   82  o   58
+## 11  l   88  w   44  g   67  g   76  p   56
+## 12  w   83  c   40  m   61  d   69  m   42
+## 13  e   72  m   38  p   58  m   68  g   41
+## 14  h   69  y   23  b   57  k   55  s   36
+## 15  v   43  d   20  c   56  p   50  c   31
+## 16  o   41  b   16  v   49  v   46  f   26
+## 17  n   37  s   16  y   29  f   35  w   17
+## 18  i   34  v   15  w   26  h   28  b   11
+## 19  u   33  x   14  f   25  w   25  i   11
+## 20  q   23  g   12  x   12  b   24  x    8
+## 21  k   20  k   10  k   12  z   20  z    4
+## 22  j   20  f    8  z   11  x    3  u    1
+## 23  y    6  q    5  h    9  y    3  j    0
+## 24  z    3  j    2  j    3  j    2  q    0
+## 25  x    0  z    2  q    1  q    0  v    0</code></pre>
+<p>Thoughts from these counts:</p>
+<ul>
+<li>Not that many words start with E, and it’s only fourth most popular for the second and third letters, but comes in strong for fourth and fifth letters.</li>
+<li>Vowels take all the top spots for the third letter, but only one word ends in U</li>
+<li>It is not possible to just take the most popular for each position and I’m not sure why I thought that might be a possibility.</li>
+<li>Overall frequency suggests E, A, R, O, T, L, I, S. Combine that with S being the only consonant as the most popular in any position, and something like SLATE, STARE, STORE is a good starting option.</li>
+<li>There are many conditionals on finding a good starting word but I’m sure there is some way of deciding the optimal.</li>
+<li>AUDIO is a good starting word to identify vowels, and follow that up with a word with E in it.</li>
+<li>Maybe we can loop through all the possible answers and rank them by a score, the score being the sum of the frequency of the letters in each position.</li>
+</ul>
+<pre class="python"><code># combine frequencies into one list
+list_of_freqs = [ans1, ans2, ans3, ans4, ans5]
+
+# function for calculating score
+def create_score(word): 
+    score = 0
+    for w, s in zip(list(word), list_of_freqs): 
+        score += s[w]
+    return score
+
+        
+# new dictionary with words as keys, and scores as values
+word_score = {x: create_score(x) for x in answer_list}
+
+# sort the dictionary
+word_score = dict(sorted(word_score.items(), key=lambda item: item[1], reverse=True))
+
+# print out the top 20 words
+pprint.pp(list(word_score.items())[:15])</code></pre>
+<pre><code>## [(&#39;slate&#39;, 1437),
+##  (&#39;sauce&#39;, 1411),
+##  (&#39;slice&#39;, 1409),
+##  (&#39;shale&#39;, 1403),
+##  (&#39;saute&#39;, 1398),
+##  (&#39;share&#39;, 1393),
+##  (&#39;sooty&#39;, 1392),
+##  (&#39;shine&#39;, 1382),
+##  (&#39;suite&#39;, 1381),
+##  (&#39;crane&#39;, 1378),
+##  (&#39;saint&#39;, 1371),
+##  (&#39;soapy&#39;, 1366),
+##  (&#39;shone&#39;, 1360),
+##  (&#39;shire&#39;, 1352),
+##  (&#39;saucy&#39;, 1351)]</code></pre>
+<p>How do my suggestions hold up? SLATE is number one!</p>
+<pre class="python"><code>print(&#39;stare: &#39; + str(word_score[&#39;stare&#39;]))</code></pre>
+<pre><code>## stare: 1326</code></pre>
+<pre class="python"><code>print(&#39;store: &#39; + str(word_score[&#39;store&#39;]))</code></pre>
+<pre><code>## store: 1263</code></pre>
+<p>STARE is reasonable but STORE is lower down. I’m also kind of pleased that there aren’t many words that use the overall frequency leaders, it’s not that I can’t think of any, we often have to dip into c, h, n. </p>
+</div>
+<div id="combos" class="section level3">
+<h3>Combos</h3>
+<p>Maybe we could do letter combinations? SH is a popular starting combo. We can’t combine these in the same way as individual letters though: first and second letter plus second and third letter plus third and fourth plus four and five need to be combined in a cohesive way.</p>
+<pre class="python"><code>starter = collections.Counter([a[:2] for a in answer_list])
+finisher = collections.Counter([a[3:] for a in answer_list])
+
+print(&quot;most common starting combinations&quot;)</code></pre>
+<pre><code>## most common starting combinations</code></pre>
+<pre class="python"><code>pprint.pp(starter.most_common(15))</code></pre>
+<pre><code>## [(&#39;st&#39;, 65),
+##  (&#39;sh&#39;, 52),
+##  (&#39;cr&#39;, 45),
+##  (&#39;sp&#39;, 45),
+##  (&#39;ch&#39;, 40),
+##  (&#39;gr&#39;, 38),
+##  (&#39;re&#39;, 36),
+##  (&#39;fl&#39;, 36),
+##  (&#39;tr&#39;, 36),
+##  (&#39;br&#39;, 35),
+##  (&#39;ma&#39;, 34),
+##  (&#39;bl&#39;, 32),
+##  (&#39;ca&#39;, 32),
+##  (&#39;cl&#39;, 31),
+##  (&#39;mo&#39;, 29)]</code></pre>
+<pre class="python"><code>print(&quot;most common ending combinations&quot;)</code></pre>
+<pre><code>## most common ending combinations</code></pre>
+<pre class="python"><code>pprint.pp(finisher.most_common(15))</code></pre>
+<pre><code>## [(&#39;er&#39;, 141),
+##  (&#39;ch&#39;, 58),
+##  (&#39;ly&#39;, 56),
+##  (&#39;se&#39;, 52),
+##  (&#39;al&#39;, 50),
+##  (&#39;ck&#39;, 47),
+##  (&#39;ty&#39;, 46),
+##  (&#39;te&#39;, 39),
+##  (&#39;el&#39;, 38),
+##  (&#39;dy&#39;, 38),
+##  (&#39;ng&#39;, 38),
+##  (&#39;ge&#39;, 38),
+##  (&#39;ve&#39;, 37),
+##  (&#39;nt&#39;, 37),
+##  (&#39;th&#39;, 36)]</code></pre>
+<p>ER is vastly more popular than any other starting or ending combination.
+Interesting to see not so popular letters make an appearance for starting, like GR and FL</p>
+<p>Let’s try again with more letters!</p>
+<pre class="python"><code>starter = collections.Counter([a[:3] for a in answer_list])
+finisher = collections.Counter([a[2:] for a in answer_list])
+
+print(&quot;most common starting combinations&quot;)</code></pre>
+<pre><code>## most common starting combinations</code></pre>
+<pre class="python"><code>pprint.pp(starter.most_common(15))</code></pre>
+<pre><code>## [(&#39;sta&#39;, 19),
+##  (&#39;sha&#39;, 18),
+##  (&#39;sto&#39;, 16),
+##  (&#39;gra&#39;, 15),
+##  (&#39;cha&#39;, 13),
+##  (&#39;cra&#39;, 12),
+##  (&#39;spi&#39;, 12),
+##  (&#39;sho&#39;, 12),
+##  (&#39;pri&#39;, 11),
+##  (&#39;bra&#39;, 11),
+##  (&#39;cre&#39;, 11),
+##  (&#39;tra&#39;, 10),
+##  (&#39;bri&#39;, 10),
+##  (&#39;ste&#39;, 10),
+##  (&#39;gro&#39;, 10)]</code></pre>
+<pre class="python"><code>print(&quot;most common ending combinations&quot;)</code></pre>
+<pre><code>## most common ending combinations</code></pre>
+<pre class="python"><code>pprint.pp(finisher.most_common(15))</code></pre>
+<pre><code>## [(&#39;ing&#39;, 23),
+##  (&#39;lly&#39;, 22),
+##  (&#39;tch&#39;, 18),
+##  (&#39;ter&#39;, 16),
+##  (&#39;ack&#39;, 15),
+##  (&#39;nch&#39;, 14),
+##  (&#39;tty&#39;, 14),
+##  (&#39;ver&#39;, 14),
+##  (&#39;rry&#39;, 13),
+##  (&#39;unt&#39;, 13),
+##  (&#39;ash&#39;, 13),
+##  (&#39;ank&#39;, 12),
+##  (&#39;dge&#39;, 12),
+##  (&#39;ate&#39;, 11),
+##  (&#39;ide&#39;, 11)]</code></pre>
+<pre class="python"><code>starter = collections.Counter([a[:4] for a in answer_list])
+finisher = collections.Counter([a[1:] for a in answer_list])
+
+print(&quot;most common starting combinations&quot;)</code></pre>
+<pre><code>## most common starting combinations</code></pre>
+<pre class="python"><code>pprint.pp(starter.most_common(15))</code></pre>
+<pre><code>## [(&#39;basi&#39;, 4),
+##  (&#39;stee&#39;, 4),
+##  (&#39;stor&#39;, 4),
+##  (&#39;brin&#39;, 4),
+##  (&#39;shar&#39;, 4),
+##  (&#39;stea&#39;, 4),
+##  (&#39;scal&#39;, 4),
+##  (&#39;cove&#39;, 4),
+##  (&#39;mang&#39;, 4),
+##  (&#39;shee&#39;, 4),
+##  (&#39;spoo&#39;, 4),
+##  (&#39;stin&#39;, 3),
+##  (&#39;stoo&#39;, 3),
+##  (&#39;fort&#39;, 3),
+##  (&#39;star&#39;, 3)]</code></pre>
+<pre class="python"><code>print(&quot;most common ending combinations&quot;)</code></pre>
+<pre><code>## most common ending combinations</code></pre>
+<pre class="python"><code>pprint.pp(finisher.most_common(15))</code></pre>
+<pre><code>## [(&#39;ight&#39;, 9),
+##  (&#39;ound&#39;, 8),
+##  (&#39;ower&#39;, 7),
+##  (&#39;atch&#39;, 7),
+##  (&#39;atty&#39;, 6),
+##  (&#39;aunt&#39;, 6),
+##  (&#39;aste&#39;, 6),
+##  (&#39;illy&#39;, 6),
+##  (&#39;usty&#39;, 5),
+##  (&#39;ying&#39;, 5),
+##  (&#39;each&#39;, 5),
+##  (&#39;ater&#39;, 5),
+##  (&#39;ully&#39;, 5),
+##  (&#39;ough&#39;, 5),
+##  (&#39;andy&#39;, 5)]</code></pre>
+<p>The ending combinations are definitely the ones to watch out for. There’s the infamous IGHT but also OUND, OWER, and ATCH.</p>
+<p>I wish the Twitter API was still available to see how many fails there are on days where those combinations occur.</p>
+</div>
+<div id="conclusions" class="section level3">
+<h3>Conclusions</h3>
+<p>Thanks to the Web Archive, I’m able to get the old version of the Wordle code, and do some exploration to try to find a good starting word. Python list comprehensions are cool; The Collections package was super helpful; I should definitely think about combining data structures instead of having five different dictionaries; functions can be easy; SLATE is a good starting word.</p>
+</div>
