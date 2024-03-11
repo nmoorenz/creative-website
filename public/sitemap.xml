@@ -2,32 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:4321/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</loc>
+    <loc>https://nmoore.nz/</loc>
+    <lastmod>2024-03-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nmoore.nz/portfolio/</loc>
+    <lastmod>2024-03-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nmoore.nz/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</loc>
     <lastmod>2024-03-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/</loc>
+    <loc>https://nmoore.nz/portfolio/2024-03-06-website-update/</loc>
     <lastmod>2024-03-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/portfolio/</loc>
-    <lastmod>2024-03-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:4321/portfolio/2024-03-06-website-update/</loc>
-    <lastmod>2024-03-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:4321/portfolio/2021-01-28-advent-of-code-2020/</loc>
+    <loc>https://nmoore.nz/portfolio/2021-01-28-advent-of-code-2020/</loc>
     <lastmod>2021-01-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/about/</loc>
+    <loc>https://nmoore.nz/about/</loc>
     <lastmod>2021-01-27T18:00:00+12:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/contact/</loc>
+    <loc>https://nmoore.nz/contact/</loc>
     <lastmod>2021-01-27T18:00:00+12:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/portfolio/2021-01-27-youtube/</loc>
+    <loc>https://nmoore.nz/portfolio/2021-01-27-youtube/</loc>
     <lastmod>2021-01-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/categories/</loc>
+    <loc>https://nmoore.nz/categories/</loc>
   </url><url>
-    <loc>http://localhost:4321/tags/</loc>
+    <loc>https://nmoore.nz/tags/</loc>
   </url>
 </urlset>

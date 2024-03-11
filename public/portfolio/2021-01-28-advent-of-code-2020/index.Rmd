@@ -56,7 +56,7 @@ p2 <- setdiff(bp_seq, bp_bin$id)
 
 ```{python advent2, echo = TRUE}
 # read file
-with open("../../static/data/advent2020/day05.txt", "r") as f:
+with open("../../../static/data/advent2020/day05.txt", "r") as f:
   bp = f.read().splitlines()
 
 # row and col binary via replacement

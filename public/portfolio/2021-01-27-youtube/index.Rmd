@@ -9,7 +9,7 @@ image: 'img/portfolio/RTJ.png'
 showonlyimage: yes
 ---
 
-I'm a big fan of Run the Jewels,and remixes, and brass, and shortcodes, and this gets it exactly right.
+I'm a big fan of Run the Jewels, and remixes, and brass, and shortcodes, and this gets it exactly right.
 
 ```{r echo=FALSE}
 blogdown::shortcode('youtube', 'LsR0Bh_Q4AA')

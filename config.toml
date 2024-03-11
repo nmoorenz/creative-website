@@ -12,6 +12,7 @@ googleAnalytics = ""
   # Use custom.css for your custom styling
   style = "default"
   description = "Nathan's Website"
+  pluralizeListTitles = false
   copyright = "&copy;2024 Nathan Moore"
   sidebarAbout = [
     "I am a data person who wants to make a website.",
