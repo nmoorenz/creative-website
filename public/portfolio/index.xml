@@ -6,8 +6,15 @@
     <description>Recent content on Nathan Moore</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 Mar 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://nmoore.nz/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Running Adventures</title>
+      <link>https://nmoore.nz/portfolio/2024-03-11-running-adventures/</link>
+      <pubDate>Mon, 11 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://nmoore.nz/portfolio/2024-03-11-running-adventures/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;These are not my running adventures.&lt;/p&gt;&#xD;&#xA;</description>
+    </item>
     <item>
       <title>An introduction to Python via Wordle</title>
       <link>https://nmoore.nz/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</link>
