@@ -1,0 +1,20 @@
+---
+title: Baby Names
+author: Nathan Moore
+date: '2024-03-28'
+slug: []
+categories: []
+tags: []
+image: ''
+showonlyimage: no
+draft: true
+---
+
+
+
+https://smartstart.services.govt.nz/news/baby-names
+
+https://catalogue.data.govt.nz/dataset/baby-name-popularity-over-time
+
+
+
