@@ -16,5 +16,15 @@ https://smartstart.services.govt.nz/news/baby-names
 
 https://catalogue.data.govt.nz/dataset/baby-name-popularity-over-time
 
+```{r load}
+library(here)
+library(dplyr)
+
+names = read.csv(here('static', 'data', 'baby-names-2024-01-08.csv'))
+
+names = names |> 
+    group_by(Year, Sex) |> 
+    mutate(rank = rank(-Count, ties.method = 'first'))
+```
 
 
