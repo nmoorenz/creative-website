@@ -27,4 +27,8 @@ names = names |>
     mutate(rank = rank(-Count, ties.method = 'first'))
 ```
 
+Questions about the data: have names become more spread out over time? I should check the percentage of the top ten out of the whole, and how many names are in the list at all. I think this is only for a count of more than ten per year, that messes with proper percentages but is representative. 
 
+A ranking chart to show popularity has changed over time would be interesting: any names that were number one at any time, show them up and down in the top 100. 
+
+Are there differences between boys and girls? Popularity, names that occur in both lists, how high do they get? 
