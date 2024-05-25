@@ -10,7 +10,11 @@ showonlyimage: no
 draft: true
 ---
 
+Baby names become very interesting when you have a child. 
 
+<!--more-->
+
+New Zealand publishes the baby names that were used in the previous year in January. The list has all the years back to 1900. I think I'd like to do a little post about the data. The file only shows names with more than 10 entries. That means that some of the following percentages will be off. I'm guessing that they are good enough for these illustrative purposes. 
 
 https://smartstart.services.govt.nz/news/baby-names
 
@@ -19,12 +23,14 @@ https://catalogue.data.govt.nz/dataset/baby-name-popularity-over-time
 ```{r load}
 library(here)
 library(dplyr)
+library(ggplot2)
 
 names = read.csv(here('static', 'data', 'baby-names-2024-01-08.csv'))
 
 names = names |> 
     group_by(Year, Sex) |> 
-    mutate(rank = rank(-Count, ties.method = 'first'))
+    mutate(rank = rank(-Count, ties.method = 'first'), 
+           fraction = Count / sum(Count))
 ```
 
 Questions about the data: have names become more spread out over time? I should check the percentage of the top ten out of the whole, and how many names are in the list at all. I think this is only for a count of more than ten per year, that messes with proper percentages but is representative. 
@@ -32,3 +38,12 @@ Questions about the data: have names become more spread out over time? I should 
 A ranking chart to show popularity has changed over time would be interesting: any names that were number one at any time, show them up and down in the top 100. 
 
 Are there differences between boys and girls? Popularity, names that occur in both lists, how high do they get? 
+
+```{r}
+
+names |> 
+  ggplot(aes(x = Year, y = Count)) + 
+  geom_col()
+    
+```
+
