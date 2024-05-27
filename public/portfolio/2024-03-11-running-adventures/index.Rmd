@@ -33,11 +33,11 @@ First run by Bob Graham in 1932 (aged 42), the 42 peaks of the round need to be 
 
 ### Ireland 
 
-That brings me to my next part of the post. Again, I think I just stumbled across these one day. There are two rounds in Ireland, one older and one newer. 
+That brings me to the next part of my post. Again, I think I just stumbled across these one day. There are two rounds in Ireland, one older and one newer. 
 
-Wicklow is older, having been run since 2009. https://www.imra.ie/rounds/view/id/1 gives course information, completed rounds, rules, and records. With the help of [Grid Reference Finder](https://irish.gridreferencefinder.com/) I created a [google maps route](https://www.google.com/maps/d/edit?mid=1QgIPBX262RkN0iKXeV2Aqll-1DIssW8&usp=sharing), in the vague hope that I might one day be able to even think seriously about completing the challenge. 
+Wicklow is older, having been run since 2009. https://www.imra.ie/rounds/view/id/1 gives course information, completed rounds, rules, and records. With the help of [Grid Reference Finder](https://irish.gridreferencefinder.com/) I created a [google maps route](https://www.google.com/maps/d/edit?mid=1QgIPBX262RkN0iKXeV2Aqll-1DIssW8&usp=sharing), in the vague hope that I might one day be able to even think about completing the challenge. 
 
-There's also the Connemara round: https://www.imra.ie/rounds/view/id/2 has only one completion, in 2023! Again, I created a [google maps route](https://www.google.com/maps/d/edit?mid=1oBqP3bHHey8xyuYKDXuy7nlUo7RUdSc&usp=sharing). This is a wonderful part of Ireland that I have not explored enough. 
+There's also the Connemara round: https://www.imra.ie/rounds/view/id/2 has only one completion, in 2023! Again, I created a [google maps route](https://www.google.com/maps/d/edit?mid=1oBqP3bHHey8xyuYKDXuy7nlUo7RUdSc&usp=sharing). This is a wonderful part of Ireland that I have been to but not explored enough. 
 
 And just for good measure, I created an [Auckland Volcano Round](https://www.google.com/maps/d/edit?mid=1UaMIiIh9aCgrUMvyGIXSGidaEJDkqK8&usp=sharing). Future task: create a script to find the shortest route between a selection of the volcanos in a Travelling Salesperson fashion. 
 
