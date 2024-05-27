@@ -5,9 +5,8 @@ date: '2024-04-05'
 slug: []
 categories: []
 tags: []
-image: ''
+image: '/img/portfolio/animal.jpg'
 showonlyimage: no
-draft: true
 ---
 
 I have known about the concept of a "Third Place" for some time, but "Non-Places" are new to me. 
@@ -46,8 +45,9 @@ Even with serious ultimate there was always a social component of catching up wi
 
 In my role as tournament director for Taupo Hat I always saw the goal of organising to be facilitation of people having a good time. I sometimes referred to it as 'loosely organised chaos'. Anyone was welcome in terms of ability, we try to keep the cost as low as possible, experienced people help new people. Spirit games and a costume party also contribute to the festivities. People should leave wanting to come back again next year. "Post-tournament depression" is an unfortunate side effect of providing people a good time. 
 
-TODO: find taupo hat photo to put here
+![What an animal](/img/portfolio/animal.jpg)
 
+<br>
 Another thing I used to love doing was pub quiz. I like knowing things, I like hanging out with people, and I like a beer or two. Even though you are competing against other teams, placing doesn't really matter. I never got involved enough to be really competitive. The shared experience of success and failure against yourself and against the questions was a good thing to be a part of. It's also worth mentioning homemade quizzes are better than mass produced ones i.e. Believe It Or Not making things too commercial, sanitised, and farther away from a third place experience. 
 
 Now that I'm a dad, my third place experiences have changed. They now include the zoo, MOTAT, the museum, the maritime museum, the library, and playgrounds. Some of these are paid, we don't always meet up with people, the objective is often not conversation, but they are so important to family and community life. It is a joy to experience new things through and with a young person even if their questions are repetitive and it takes a big effort to make the trip. When we do meet up with people it always seems worthwhile and there's never enough time to talk. "We'll see you again soon" is a common refrain that unfortunately doesn't always pan out. 
@@ -124,4 +124,10 @@ https://www.academia.edu/1160482/Driving_Places_Marc_Auge_non_places_and_the_geo
 
 Coffeehouses of the revolutionaries i.e. penny universities.     
 https://www.history.com/news/coffee-houses-revolutions
+
+### Postscript
+
+Increasingly, these meeting places are virtual. Facebook groups like Dull Men's Club, the unfortunate entry of conspiracy focused Telegram channels, WhatsApp groups to share memes and reels. I think this post is a reminder for me to put my phone away and get outside more, to connect with people, touch grass, to find a Third Place. 
+
+![Look Up](/img/portfolio/LookUp.jpg)
 

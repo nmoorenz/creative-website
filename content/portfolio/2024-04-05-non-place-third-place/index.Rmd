@@ -7,7 +7,6 @@ categories: []
 tags: []
 image: '/img/portfolio/animal.jpg'
 showonlyimage: no
-draft: true
 ---
 
 I have known about the concept of a "Third Place" for some time, but "Non-Places" are new to me. 

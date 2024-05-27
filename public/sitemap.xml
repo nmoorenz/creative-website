@@ -1,36 +1,63 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
   <url>
     <loc>https://nmoore.nz/</loc>
     <lastmod>2024-04-05T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
+    <loc>https://nmoore.nz/portfolio/2024-04-05-non-place-third-place/</loc>
+    <lastmod>2024-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nmoore.nz/portfolio/</loc>
     <lastmod>2024-03-11T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nmoore.nz/portfolio/2024-03-11-running-adventures/</loc>
     <lastmod>2024-03-11T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nmoore.nz/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</loc>
     <lastmod>2024-03-06T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nmoore.nz/portfolio/2024-03-06-website-update/</loc>
     <lastmod>2024-03-06T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nmoore.nz/portfolio/2021-01-28-advent-of-code-2020/</loc>
     <lastmod>2021-01-28T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nmoore.nz/about/</loc>
     <lastmod>2021-01-27T18:00:00+12:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nmoore.nz/contact/</loc>
     <lastmod>2021-01-27T18:00:00+12:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nmoore.nz/portfolio/2021-01-27-youtube/</loc>
     <lastmod>2021-01-27T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nmoore.nz/categories/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nmoore.nz/tags/</loc>
   </url>
+  
 </urlset>
