@@ -6,100 +6,56 @@
     <description>Recent content on Nathan Moore</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Mar 2024 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://nmoore.nz/portfolio/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Christmas 2023</title>
-      <link>https://nmoore.nz/portfolio/2024-05-27-christmas-2023/</link>
-      <pubDate>Mon, 27 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://nmoore.nz/portfolio/2024-05-27-christmas-2023/</guid>
-      <description>This is a copy of my 2023 Christmas thread on Facebook</description>
-    </item>
-    
+    <lastBuildDate>Mon, 27 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nmoore.nz/portfolio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hot Cross Buns 2024</title>
       <link>https://nmoore.nz/portfolio/2024-05-27-hot-cross-buns-2024/</link>
       <pubDate>Mon, 27 May 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://nmoore.nz/portfolio/2024-05-27-hot-cross-buns-2024/</guid>
-      <description>This is a copy of my 2024 hot cross bun review thread from Facebook
-Whittaker’s Hot Cross Bun ChocolateApparently I have a reputation: I’ve already had two of these blocks of Hot Cross Bun chocolate from Whittaker’s bought for me. It’s quite good at what it’s trying to do, with spice and orange and fruit, but it could never be better than berry and biscuit or Ghana peppermint. 7.</description>
+      <description>This is a copy of my 2024 hot cross bun review thread from Facebook&#xA;Whittaker’s Hot Cross Bun Chocolate&#xD;Apparently I have a reputation: I’ve already had two of these blocks of Hot Cross Bun chocolate from Whittaker’s bought for me. It’s quite good at what it’s trying to do, with spice and orange and fruit, but it could never be better than berry and biscuit or Ghana peppermint. 7.</description>
     </item>
-    
     <item>
       <title>Non-Places and Third Places</title>
       <link>https://nmoore.nz/portfolio/2024-04-05-non-place-third-place/</link>
       <pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://nmoore.nz/portfolio/2024-04-05-non-place-third-place/</guid>
-      <description>
-
-
-&lt;p&gt;I have known about the concept of a “Third Place” for some time, but “Non-Places” are new to me.&lt;/p&gt;
-</description>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;I have known about the concept of a “Third Place” for some time, but “Non-Places” are new to me.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>Running Adventures</title>
       <link>https://nmoore.nz/portfolio/2024-03-11-running-adventures/</link>
       <pubDate>Mon, 11 Mar 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://nmoore.nz/portfolio/2024-03-11-running-adventures/</guid>
-      <description>
-
-
-&lt;p&gt;These are not my running adventures.&lt;/p&gt;
-</description>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;These are not my running adventures.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>An introduction to Python via Wordle</title>
       <link>https://nmoore.nz/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</link>
       <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://nmoore.nz/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</guid>
-      <description>
-
-
-&lt;p&gt;When Wordle first went viral I was in a group chat at work and had the idea of making a Python tutorial based on Wordle. I never did it, but this post is that introduction. I will likely do another introduction to R post as well.&lt;/p&gt;
-</description>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;When Wordle first went viral I was in a group chat at work and had the idea of making a Python tutorial based on Wordle. I never did it, but this post is that introduction. I will likely do another introduction to R post as well.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>Website Update</title>
       <link>https://nmoore.nz/portfolio/2024-03-06-website-update/</link>
       <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://nmoore.nz/portfolio/2024-03-06-website-update/</guid>
-      <description>
-
-
-&lt;p&gt;It’s been some years since I’ve updated my personal website so I though I better do something about it.&lt;/p&gt;
-</description>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;It’s been some years since I’ve updated my personal website so I though I better do something about it.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>Advent of Code 2020</title>
       <link>https://nmoore.nz/portfolio/2021-01-28-advent-of-code-2020/</link>
       <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://nmoore.nz/portfolio/2021-01-28-advent-of-code-2020/</guid>
       <description>This is a short review of my first foray into Advent of Code. I’ve started to gather my thoughts in the github readme while looking over the code again. I had big goals of completing each day in R and python, but after a few days decided that one language was more than enough. It will be an ongoing project to look at each day and see if I can write python solutions, while also collecting choice tidbits of fancy or useful or awful code.</description>
     </item>
-    
     <item>
       <title>Youtube Faves</title>
       <link>https://nmoore.nz/portfolio/2021-01-27-youtube/</link>
       <pubDate>Wed, 27 Jan 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://nmoore.nz/portfolio/2021-01-27-youtube/</guid>
-      <description>I’m a big fan of Run the Jewels, and remixes, and brass, and shortcodes, and this gets it exactly right.
-  </description>
+      <description>I’m a big fan of Run the Jewels, and remixes, and brass, and shortcodes, and this gets it exactly right.</description>
     </item>
-    
   </channel>
 </rss>
