@@ -5,7 +5,7 @@ date: '2024-04-05'
 slug: []
 categories: []
 tags: []
-image: ''
+image: '/img/portfolio/animal.jpg'
 showonlyimage: no
 draft: true
 ---
@@ -46,7 +46,7 @@ Even with serious ultimate there was always a social component of catching up wi
 
 In my role as tournament director for Taupo Hat I always saw the goal of organising to be facilitation of people having a good time. I sometimes referred to it as 'loosely organised chaos'. Anyone was welcome in terms of ability, we try to keep the cost as low as possible, experienced people help new people. Spirit games and a costume party also contribute to the festivities. People should leave wanting to come back again next year. "Post-tournament depression" is an unfortunate side effect of providing people a good time. 
 
-TODO: find taupo hat photo to put here
+![What an animal](/img/portfolio/animal.jpg)
 
 Another thing I used to love doing was pub quiz. I like knowing things, I like hanging out with people, and I like a beer or two. Even though you are competing against other teams, placing doesn't really matter. I never got involved enough to be really competitive. The shared experience of success and failure against yourself and against the questions was a good thing to be a part of. It's also worth mentioning homemade quizzes are better than mass produced ones i.e. Believe It Or Not making things too commercial, sanitised, and farther away from a third place experience. 
 
@@ -127,5 +127,7 @@ https://www.history.com/news/coffee-houses-revolutions
 
 ### Postscript
 
-Increasingly, these meeting places are virtual. Facebook groups like Dull Men's Club, the unfortunate entry of conspiracy focused Telegram channels, WhatsApp groups to share memes and reels. I think this post is a reminder for me to put my phone away and get outside more, to connect with people, to find a Third Place. 
+Increasingly, these meeting places are virtual. Facebook groups like Dull Men's Club, the unfortunate entry of conspiracy focused Telegram channels, WhatsApp groups to share memes and reels. I think this post is a reminder for me to put my phone away and get outside more, to connect with people, touch grass, to find a Third Place. 
+
+![Look Up](/img/portfolio/LookUp.jpg)
 
