@@ -11,6 +11,10 @@ showonlyimage: no
 
 A series of facebook posts from 2017, chronicling a trip to Ireland and the UK. 
 
+<!--more-->
+
+A series of facebook posts from 2017, chronicling a trip to Ireland and the UK. 
+
 #1: Later Skater
 
 ![](/img/eire2017/01.jpg)
