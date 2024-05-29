@@ -7,7 +7,6 @@ categories: []
 tags: []
 image: '/img/fb23xmas/kitchen.jpg'
 showonlyimage: yes
-draft: true
 ---
 
 This is a copy of my 2023 Christmas thread on Facebook
@@ -19,7 +18,7 @@ Putting the ham in water overnight is meant to take away some of the saltiness b
 
 Making some gingerbread mixture
 
-
+[video]
 
 Storing some gingerbread mixture in the fridge
 
@@ -49,7 +48,7 @@ Glaze:
 1tsp cardamom
 2 oranges, rind and juice
 
-
+[video]
 
 Traditional Christmas symbols: star, tree, dinosaur
 
@@ -82,7 +81,19 @@ Cubby House 🏠
 
 Pavlova
 
+[video]
 
+[oven]
+
+![](/img/fb23xmas/pavlova-oven-door.jpg)
+
+Looked great!
+
+![](/img/fb23xmas/pavlova-oven-open.jpg)
+
+Separation between shell and inside, but tasted amazing
+
+![](/img/fb23xmas/pavlova-cracks.jpg)
 
 Boxing day waffles
 
