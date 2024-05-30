@@ -1,5 +1,5 @@
 ---
-title: Hot cross Buns 2023
+title: Hot Cross Buns 2023
 author: Nathan Moore
 date: '2024-05-30'
 slug: []
