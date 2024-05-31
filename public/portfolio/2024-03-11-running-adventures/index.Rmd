@@ -5,7 +5,7 @@ date: '2024-03-11'
 slug: []
 categories: []
 tags: []
-image: 'img/portfolio/auckland-volcanos.png'
+image: 'img/portfolio/auckland-volcanos.jpg'
 showonlyimage: no
 ---
 
