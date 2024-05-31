@@ -23,7 +23,7 @@ An aside, that I found while looking for Barkley documentaries, linked to from t
 
 ### Bob Graham 
 
-As a result of watching lots of ultramarathon videos on youtube I got recommended this video from Canadian Jeff Pelletier doing the Bob Graham Round. I really enjoyed it so wanted to include it here. 
+As a result of watching lots of ultramarathon videos on youtube I got recommended this video from Canadian Jeff Pelletier doing the Bob Graham Round. I really enjoyed it so wanted to include it here.         
 
 ```{r echo=FALSE}
 blogdown::shortcode('youtube', 'dOTPAayi4nM')
