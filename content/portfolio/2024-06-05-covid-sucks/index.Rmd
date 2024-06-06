@@ -1,0 +1,195 @@
+---
+title: Covid Sucks
+author: Nathan Moore
+date: '2024-06-05'
+slug: []
+categories: []
+tags: []
+image: '/img/fbcovid/unstoppable.jpg'
+showonlyimage: yes
+---
+
+### This is Good
+
+https://www.beehive.govt.nz/release/make-summer-unstoppable-hitting-covid-19-six
+
+```{r echo=FALSE}
+blogdown::shortcode('youtube', 'bZj1pkEVcmk')
+```
+
+
+### This is All Bad 
+
+Mar 2020
+Artisanal
+
+May 2020 https://lifehacker.com/if-you-found-that-plandemic-video-convincing-read-th-1843339002
+
+Sep 2021
+https://www.newshub.co.nz/home/new-zealand/2021/09/coronavirus-debunking-a-kiwi-doctor-s-two-hour-anti-vaccination-video.html
+
+https://www.wired.com/story/prebunking-health-misinformation-tropes-can-stop-their-spread/
+
+https://thespinoff.co.nz/society/16-09-2021/siouxsie-wiles-toby-morris-do-i-need-a-covid-19-vaccine-even-if-im-fit-and-healthy/
+
+https://i.stuff.co.nz/national/health/coronavirus/300397872/covid19-three-weeks-inside-a-rabbit-hole-of-dangerous-misinformation
+
+https://amp.rnz.co.nz/article/3f9a6227-ed19-46b5-beb4-12c0a76d27f9
+
+https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-vaccines/covid-19-vaccine-clinical-trials-and-testing
+
+https://www.science.org/content/blog-post/awful-trials
+
+https://www.nzherald.co.nz/world/us-hospital-worker-reveals-the-horrific-seven-stages-a-covid-19-patient-endures-before-succumbing-to-the-disease/DMELDEEMOBEIVBN4XHZBUJQOH4/
+
+https://amp.rnz.co.nz/article/d71a13e7-a6e6-4372-af9a-6dcd306122ef
+
+https://i.stuff.co.nz/national/health/coronavirus/126309551/it-is-safe-it-is-effective-it-will-help-you--3600-kiwi-doctors-sign-letter-backing-covid19-vaccine
+
+https://bostonreview.net/politics/nicolas-guilhot-bad-information
+
+https://www.nbcnews.com/news/amp/rcna1791
+
+https://i.stuff.co.nz/business/opinion-analysis/300411567/covid19-our-path-from-pandemic-to-endemic
+
+https://www.newsroom.co.nz/who-are-the-vaccine-hesitant
+
+https://blogs.scientificamerican.com/observations/comparing-covid-19-deaths-to-flu-deaths-is-like-comparing-apples-to-oranges/
+
+https://i.stuff.co.nz/national/explained/126541618/that-most-controversial-1pm-covid-press-conference-explained
+
+https://amp.cnn.com/cnn/2021/09/29/world/coronavirus-newsletter-intl-29-09-21/index.html
+
+https://www.rnz.co.nz/national/programmes/saturday/audio/2018814766/ryan-salter-making-difficult-decisions-about-rationing-medical-care
+
+
+Feb 2022
+https://thespinoff.co.nz/internet/22-03-2022/how-dipping-a-toe-into-covid-truth-can-lead-to-a-very-deep-pool-of-conspiracy
+
+https://www.stuff.co.nz/national/300520915/the-real-dangers-lurking-in-the-freedom-convoy-protests
+
+https://www.newsroom.co.nz/hijacked-the-inside-story-of-how-nzs-convoy-lost-its-rudder
+
+The protest is not peaceful
+https://www.1news.co.nz/2022/02/19/we-want-to-feel-safe-say-wellingtonians-whove-been-attacked-by-protesters/
+
+There's all sorts of influence, it's not just about mandates
+https://thespinoff.co.nz/politics/18-02-2022/figureheads-and-factions-the-key-people-at-parliament-occupation
+
+More info on disruption
+https://www.newshub.co.nz/home/new-zealand/2022/02/frustrations-boil-over-as-wellingtonians-fear-anti-mandate-protest-will-spread-further-into-city.html
+
+"The first thing to understand is the police are not dealing with a single protest. They are dealing with a conglomeration of micro protests organised around a loose theme, one that is a toxic mixture of legitimate grievance, online culture war, and, at the fringes, deranged fantasies."
+https://i.stuff.co.nz/opinion/300521443/what-the-police-fail-to-understand-about-camp-freedom
+
+Literal Nazis
+https://i.stuff.co.nz/national/127817868/protesters-take-fight-against-government-and-media-to-streets-of-christchurch
+
+One of the most free societies in the world and one of the best health responses and one of the best economic responses in the world, and people think the government has done a bad job because they have to wear a mask and get vaccinated?
+
+https://i.stuff.co.nz/opinion/127815331/do-the-protesters-in-wellington-even-know-what-freedom-means
+
+I'm not exaggerating when I say Nazis and white supremacist and conspiracy theorists
+Spongebob.jog
+
+This is a humorous take
+car-vaccine.jpg
+
+cookers.jpg
+
+It's not about mandates (this is from a telegram channel at the end of Jan)
+counterspin.jpg
+
+Protestors stole rubber mats from a local skate park
+skate-park.jpg
+
+I posted this a few days ago but it's better here on context
+shitstock.jpg
+
+This is awful
+jacinda.jpg
+
+This is funny
+muddy-clown-school.jpg
+
+Op-shop was always shit...
+After Jason Kerrison posted on Twitter journalists getting hung, to journalists (Russell Brown and Hillary Barry), he was invited on counterspin to chat to Kelvyn Alp, who has called for a military coup
+kerrison.jpg
+
+Please sign
+https://www.change.org/p/freedom-groups-in-wellington-tell-the-wellington-protestors-to-go-home-they-are-not-the-majority
+
+Sean Plunket has received $3million in funding for a new media channel, and won't say who. He didn't find *many* Nazis at the protests. How many Nazis is ok?
+plunket.jpg
+
+Protesters threw shit at police yesterday.
+drake.jpg
+
+Throwing shit, throwing (probably) acid, and driving a car at people (the wrong way down a one way street, so it's not an accident), it seems like it's time to go home
+go-home.jpg
+
+"The Wellington protesters are creating mayhem for a pointless demand. Most reasonable people accept mandates have an end-point. It is impossible to give a calendar date, but they were never forever. It’s simply that we aren’t yet out of the Covid woods.      
+The protest shares all of Trump’s worst characteristics: childish behaviour, wild lies, insult-spewing, ignorance, extravagant promises and unreasonable demands. There is a disrespect for elite norms and predilection for conspiracy theories."        
+https://i.stuff.co.nz/national/politics/opinion/127798260/the-trumpism-spilling-out-onto-parliaments-lawn-is-the-new-virus
+
+
+My “We Never Flung Any Poop” sign has people asking a lot of questions that are already answered by the sign
+flung-poop.jpg
+
+One benefit (?) of being two years into the pandemic is that there are now studies that show increased risk of cardiovascular problems after contracting covid. Vaccination reduces your contracting chances and severity.
+https://www.nature.com/articles/d41586-022-00403-0
+
+Just in case anyone thinks I'm unreservedly supportive of the government
+https://jacobinmag.com/2021/02/jacinda-ardern-new-zealand-labour-prime-minister
+
+https://i.stuff.co.nz/national/health/coronavirus/127838802/new-zealand-occupation-website-registered-in-canada-linked-to-freedom-convoy
+
+Possibly the worst word at the moment, "mumfluencer"
+https://i.stuff.co.nz/national/health/coronavirus/300520631/its-like-a-cult-how-antivaccine-mumfluencers-are-fuelling-the-parliament-occupation
+
+"While it may be tempting to consider the mix of wellness, anti-vax and extremist communities in protests at home and abroad as unusual, it is instead a worrying manifestation of a long-developing confluence"
+https://www.newsroom.co.nz/ideasroom/all-together-freedom-convoys-wellness-communities-anti-vaxers-and-extremists
+
+In unsurprising news, the protest is a location of interest. In more concerning news, multiple people are reporting symptoms, but blaming government radiation weaponry.
+radiation.jpg 
+
+Vibes might be helpful
+scanner.jpg
+
+tinfoil.jpg
+
+crystals.jpg
+
+coutts.jpg
+
+To date:
+Non Vaccinated
+2740 out of every 100,000 have had covid, 208 out of 100,000 hospitalised.
+Those with Boosters
+529 out of every 100,000 have had covid, 3 out of every 100,000 have been hospitalised
+stats.jpg
+
+https://www.webworm.co/p/weirdterrors
+
+Instead, in an apparent move to present “both sides” of the protest, Reid provided a platform to a group that remains banned from Facebook after spreading misinformation.
+https://thespinoff.co.nz/politics/02-03-2022/giving-a-voice-to-voices-for-freedom
+
+These folks were bad news in April of last year
+https://www.newshub.co.nz/home/new-zealand/2021/04/coronavirus-every-claim-about-covid-19-made-by-anti-lockdown-group-voices-for-freedom-debunked-by-scientists.html
+
+"Difficult periods can be fertile ground for resentment and frustration to grow, as people look for someone to blame. In recent weeks we have seen how right-wing extremists feed off this, exploiting real fears by seeding hatred. Now more than ever, we need to do everything we can to take care of each other and build resilient communities."
+https://i.stuff.co.nz/opinion/127923753/the-recovery-from-covid-must-focus-on-strengthening-communities
+
+fringe.jpg
+
+The protest was always violent: Counterspin was/is promoting a video that called the Christchurch terrorist attack a false flag
+https://thespinoff.co.nz/politics/25-02-2022/censor-bans-christchurch-conspiracy-video-posted-by-parliament-occupation-group
+
+Christchurch protestors back on their bullshit
+chch.jpg
+
+https://www.newsroom.co.nz/clashes-a-catalysing-moment-for-nzs-fringe
+
+
+
+
