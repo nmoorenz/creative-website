@@ -1,0 +1,46 @@
+---
+title: Baby Names
+author: Nathan Moore
+date: '2024-03-28'
+slug: []
+categories: []
+tags: []
+image: ''
+showonlyimage: no
+draft: true
+---
+
+
+
+<p>Baby names become very interesting when you have a child.</p>
+<!--more-->
+<p>New Zealand publishes the baby names that were used in the previous year in January. The list has all the years back to 1900. I think I’d like to do a little post about the data. The file only shows names with more than 10 entries. That means that some of the following percentages will be off. I’m guessing that they are good enough for these illustrative purposes.</p>
+<p><a href="https://smartstart.services.govt.nz/news/baby-names" class="uri">https://smartstart.services.govt.nz/news/baby-names</a></p>
+<p><a href="https://catalogue.data.govt.nz/dataset/baby-name-popularity-over-time" class="uri">https://catalogue.data.govt.nz/dataset/baby-name-popularity-over-time</a></p>
+<pre class="r"><code>library(here)</code></pre>
+<pre><code>## Warning: package &#39;here&#39; was built under R version 4.3.3</code></pre>
+<pre><code>## here() starts at C:/Users/NathanMoore/code/creative-website</code></pre>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(ggplot2)
+
+names = read.csv(here(&#39;static&#39;, &#39;data&#39;, &#39;baby-names-2024-01-08.csv&#39;))
+
+names = names |&gt; 
+    group_by(Year, Sex) |&gt; 
+    mutate(rank = rank(-Count, ties.method = &#39;first&#39;), 
+           fraction = Count / sum(Count))</code></pre>
+<p>Questions about the data: have names become more spread out over time? I should check the percentage of the top ten out of the whole, and how many names are in the list at all. I think this is only for a count of more than ten per year, that messes with proper percentages but is representative.</p>
+<p>A ranking chart to show popularity has changed over time would be interesting: any names that were number one at any time, show them up and down in the top 100.</p>
+<p>Are there differences between boys and girls? Popularity, names that occur in both lists, how high do they get?</p>
+<pre class="r"><code>names |&gt; 
+  ggplot(aes(x = Year, y = Count)) + 
+  geom_col()</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
