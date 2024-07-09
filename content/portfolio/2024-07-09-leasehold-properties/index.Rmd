@@ -7,7 +7,6 @@ categories: []
 tags: []
 image: ''
 showonlyimage: no
-draft: true
 ---
 
 Leasehold properties pop up occasionally in Auckland, so I wanted to see where they are. 

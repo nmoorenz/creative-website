@@ -9,6 +9,10 @@ image: '/img/portfolio/TePapaCrab.jpg'
 showonlyimage: no
 ---
 
+This is a short review of my first foray into Advent of Code. 
+
+<!--more-->
+
 This is a short review of my first foray into Advent of Code. I've started to gather my thoughts in the github readme while looking over the code again. I had big goals of completing each day in R and python, but after a few days decided that one language was more than enough. It will be an ongoing project to look at each day and see if I can write python solutions, while also collecting choice tidbits of fancy or useful or awful code. 
 
 This is the advent website: [Advent of Code 2020](https://adventofcode.com/2020)
@@ -77,7 +81,7 @@ p2 = set(range(min(id), max(id))) - set(id)
 
 The maximum seat number on my plane (part one answer) is `r max_id` and my seat number (part two answer) is `r p2`. 
 
-In honour of the card playing crab mentioned in the challenges, here's a big one from the Te Papa collection, mainly for creating a picture for the blog main page. 
+In honour of the card playing crab mentioned in the challenges, here's a big one from the Te Papa collection, only included here for creating a picture for the blog page. 
 
 Image Credit: Charybdis (Charybdis) japonica (A. Milne-Edwards, 1861), collected September 2000, Auckland, Rangitoto Channel, New Zealand. CC BY 4.0. Te Papa (CR.009843)
 

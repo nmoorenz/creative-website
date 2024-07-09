@@ -6,8 +6,15 @@
     <description>Recent content on Nathan Moore</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jul 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://nmoore.nz/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leasehold Properties</title>
+      <link>https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/</link>
+      <pubDate>Tue, 09 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/</guid>
+      <description>&#xD;&#xA;&lt;link href=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/htmltools-fill/fill.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xD;&#xA;&lt;script src=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;script src=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/jquery/jquery-3.6.0.min.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;link href=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/leaflet/leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xD;&#xA;&lt;script src=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;link href=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/leafletfix/leafletfix.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xD;&#xA;&lt;script src=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/proj4/proj4.min.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;script src=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/Proj4Leaflet/proj4leaflet.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;link href=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/rstudio_leaflet/rstudio_leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xD;&#xA;&lt;script src=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/leaflet-binding/leaflet.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;script src=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/leaflet-providers/leaflet-providers_2.0.0.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;script src=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/leaflet-providers-plugin/leaflet-providers-plugin.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Leasehold properties pop up occasionally in Auckland, so I wanted to see where they are.&lt;/p&gt;&#xD;&#xA;</description>
+    </item>
     <item>
       <title>Covid Sucks</title>
       <link>https://nmoore.nz/portfolio/2024-06-05-covid-sucks/</link>
@@ -104,7 +111,7 @@
       <link>https://nmoore.nz/portfolio/2021-01-28-advent-of-code-2020/</link>
       <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
       <guid>https://nmoore.nz/portfolio/2021-01-28-advent-of-code-2020/</guid>
-      <description>This is a short review of my first foray into Advent of Code. I’ve started to gather my thoughts in the github readme while looking over the code again. I had big goals of completing each day in R and python, but after a few days decided that one language was more than enough. It will be an ongoing project to look at each day and see if I can write python solutions, while also collecting choice tidbits of fancy or useful or awful code.</description>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;This is a short review of my first foray into Advent of Code.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Youtube Faves</title>
