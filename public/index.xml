@@ -2,136 +2,115 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nathan Moore</title>
-    <link>http://localhost:4321/</link>
+    <link>https://nmoore.nz/</link>
     <description>Recent content on Nathan Moore</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 05 Jun 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:4321/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nmoore.nz/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Covid Sucks</title>
-      <link>http://localhost:4321/portfolio/2024-06-05-covid-sucks/</link>
+      <link>https://nmoore.nz/portfolio/2024-06-05-covid-sucks/</link>
       <pubDate>Wed, 05 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-06-05-covid-sucks/</guid>
-      <description>This is Good&#xD;https://www.beehive.govt.nz/release/make-summer-unstoppable-hitting-covid-19-six&#xA;### This is All Bad&#xA;Sep 2021&#xD;https://lifehacker.com/if-you-found-that-plandemic-video-convincing-read-th-1843339002&#xA;https://www.newshub.co.nz/home/new-zealand/2021/09/coronavirus-debunking-a-kiwi-doctor-s-two-hour-anti-vaccination-video.html&#xA;https://www.wired.com/story/prebunking-health-misinformation-tropes-can-stop-their-spread/&#xA;https://thespinoff.co.nz/society/16-09-2021/siouxsie-wiles-toby-morris-do-i-need-a-covid-19-vaccine-even-if-im-fit-and-healthy/&#xA;https://i.stuff.co.nz/national/health/coronavirus/300397872/covid19-three-weeks-inside-a-rabbit-hole-of-dangerous-misinformation&#xA;https://amp.rnz.co.nz/article/3f9a6227-ed19-46b5-beb4-12c0a76d27f9&#xA;https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-vaccines/covid-19-vaccine-clinical-trials-and-testing&#xA;https://www.science.org/content/blog-post/awful-trials&#xA;https://www.nzherald.co.nz/world/us-hospital-worker-reveals-the-horrific-seven-stages-a-covid-19-patient-endures-before-succumbing-to-the-disease/DMELDEEMOBEIVBN4XHZBUJQOH4/&#xA;https://amp.rnz.co.nz/article/d71a13e7-a6e6-4372-af9a-6dcd306122ef&#xA;https://i.stuff.co.nz/national/health/coronavirus/126309551/it-is-safe-it-is-effective-it-will-help-you--3600-kiwi-doctors-sign-letter-backing-covid19-vaccine&#xA;https://bostonreview.net/politics/nicolas-guilhot-bad-information&#xA;https://www.nbcnews.com/news/amp/rcna1791&#xA;https://i.stuff.co.nz/business/opinion-analysis/300411567/covid19-our-path-from-pandemic-to-endemic&#xA;https://www.newsroom.co.nz/who-are-the-vaccine-hesitant&#xA;https://blogs.scientificamerican.com/observations/comparing-covid-19-deaths-to-flu-deaths-is-like-comparing-apples-to-oranges/&#xA;https://i.stuff.co.nz/national/explained/126541618/that-most-controversial-1pm-covid-press-conference-explained&#xA;https://amp.cnn.com/cnn/2021/09/29/world/coronavirus-newsletter-intl-29-09-21/index.html&#xA;https://www.rnz.co.nz/national/programmes/saturday/audio/2018814766/ryan-salter-making-difficult-decisions-about-rationing-medical-care&#xA;Feb 2022&#xD;https://thespinoff.co.nz/internet/22-03-2022/how-dipping-a-toe-into-covid-truth-can-lead-to-a-very-deep-pool-of-conspiracy&#xA;https://www.stuff.co.nz/national/300520915/the-real-dangers-lurking-in-the-freedom-convoy-protests&#xA;https://www.newsroom.co.nz/hijacked-the-inside-story-of-how-nzs-convoy-lost-its-rudder&#xA;The protest is not peaceful&#xA;https://www.1news.co.nz/2022/02/19/we-want-to-feel-safe-say-wellingtonians-whove-been-attacked-by-protesters/&#xA;There’s all sorts of influence, it’s not just about mandates&#xA;https://thespinoff.co.nz/politics/18-02-2022/figureheads-and-factions-the-key-people-at-parliament-occupation&#xA;More info on disruption&#xA;https://www.newshub.co.nz/home/new-zealand/2022/02/frustrations-boil-over-as-wellingtonians-fear-anti-mandate-protest-will-spread-further-into-city.html&#xA;“The first thing to understand is the police are not dealing with a single protest.</description>
+      <guid>https://nmoore.nz/portfolio/2024-06-05-covid-sucks/</guid>
+      <description>This is Good&#xD;https://www.beehive.govt.nz/release/make-summer-unstoppable-hitting-covid-19-six&#xA;This is All Bad&#xD;Sep 2021&#xD;https://lifehacker.com/if-you-found-that-plandemic-video-convincing-read-th-1843339002&#xA;https://www.newshub.co.nz/home/new-zealand/2021/09/coronavirus-debunking-a-kiwi-doctor-s-two-hour-anti-vaccination-video.html&#xA;https://www.wired.com/story/prebunking-health-misinformation-tropes-can-stop-their-spread/&#xA;https://thespinoff.co.nz/society/16-09-2021/siouxsie-wiles-toby-morris-do-i-need-a-covid-19-vaccine-even-if-im-fit-and-healthy/&#xA;https://i.stuff.co.nz/national/health/coronavirus/300397872/covid19-three-weeks-inside-a-rabbit-hole-of-dangerous-misinformation&#xA;https://amp.rnz.co.nz/article/3f9a6227-ed19-46b5-beb4-12c0a76d27f9&#xA;https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-vaccines/covid-19-vaccine-clinical-trials-and-testing&#xA;https://www.science.org/content/blog-post/awful-trials&#xA;https://www.nzherald.co.nz/world/us-hospital-worker-reveals-the-horrific-seven-stages-a-covid-19-patient-endures-before-succumbing-to-the-disease/DMELDEEMOBEIVBN4XHZBUJQOH4/&#xA;https://amp.rnz.co.nz/article/d71a13e7-a6e6-4372-af9a-6dcd306122ef&#xA;https://i.stuff.co.nz/national/health/coronavirus/126309551/it-is-safe-it-is-effective-it-will-help-you--3600-kiwi-doctors-sign-letter-backing-covid19-vaccine&#xA;https://bostonreview.net/politics/nicolas-guilhot-bad-information&#xA;https://www.nbcnews.com/news/amp/rcna1791&#xA;https://i.stuff.co.nz/business/opinion-analysis/300411567/covid19-our-path-from-pandemic-to-endemic&#xA;https://www.newsroom.co.nz/who-are-the-vaccine-hesitant&#xA;https://blogs.scientificamerican.com/observations/comparing-covid-19-deaths-to-flu-deaths-is-like-comparing-apples-to-oranges/&#xA;https://i.stuff.co.nz/national/explained/126541618/that-most-controversial-1pm-covid-press-conference-explained&#xA;https://amp.cnn.com/cnn/2021/09/29/world/coronavirus-newsletter-intl-29-09-21/index.html&#xA;https://www.rnz.co.nz/national/programmes/saturday/audio/2018814766/ryan-salter-making-difficult-decisions-about-rationing-medical-care&#xA;Feb 2022&#xD;https://thespinoff.co.nz/internet/22-03-2022/how-dipping-a-toe-into-covid-truth-can-lead-to-a-very-deep-pool-of-conspiracy&#xA;https://www.stuff.co.nz/national/300520915/the-real-dangers-lurking-in-the-freedom-convoy-protests&#xA;https://www.newsroom.co.nz/hijacked-the-inside-story-of-how-nzs-convoy-lost-its-rudder&#xA;The protest is not peaceful&#xA;https://www.1news.co.nz/2022/02/19/we-want-to-feel-safe-say-wellingtonians-whove-been-attacked-by-protesters/&#xA;There’s all sorts of influence, it’s not just about mandates&#xA;https://thespinoff.co.nz/politics/18-02-2022/figureheads-and-factions-the-key-people-at-parliament-occupation&#xA;More info on disruption&#xA;https://www.newshub.co.nz/home/new-zealand/2022/02/frustrations-boil-over-as-wellingtonians-fear-anti-mandate-protest-will-spread-further-into-city.html&#xA;“The first thing to understand is the police are not dealing with a single protest.</description>
     </item>
     <item>
       <title>Christmas Mince Pies 2021</title>
-      <link>http://localhost:4321/portfolio/2024-05-31-christmas-mince-pies-2021/</link>
+      <link>https://nmoore.nz/portfolio/2024-05-31-christmas-mince-pies-2021/</link>
       <pubDate>Fri, 31 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-05-31-christmas-mince-pies-2021/</guid>
+      <guid>https://nmoore.nz/portfolio/2024-05-31-christmas-mince-pies-2021/</guid>
       <description>Christmas mince pies, 2021.&#xA;Countdown Salted Caramel Tarts&#xA;A twist on the regular. Quite nice, not at all traditional. Filling did not fill the case.&#xA;Average 3/5&#xA;Didn’t really fill the case after the top rose. Inadequate&#xA;Extra cases - I don’t need 5, thanks though&#xA;Countdown Plum and Gin&#xA;These are great. No gin taste but it is fun to pretend I’m having a tipple for morning tea. The plum is excellent.</description>
     </item>
     <item>
       <title>Hot Cross Buns 2022</title>
-      <link>http://localhost:4321/portfolio/2024-05-31-hot-cross-buns-2022/</link>
+      <link>https://nmoore.nz/portfolio/2024-05-31-hot-cross-buns-2022/</link>
       <pubDate>Fri, 31 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-05-31-hot-cross-buns-2022/</guid>
+      <guid>https://nmoore.nz/portfolio/2024-05-31-hot-cross-buns-2022/</guid>
       <description>This is a copy of my 2022 facebook thread on hot cross buns&#xA;Countdown Chocolate Orange&#xA;These folks have a whole range out now which reminded me to post. These were released first I think since I haven’t seen the others. Countdown knows where to direct their advertising. Quite good, like a bun of jaffas? Maybe a bit generic? $6.50 for countdown half dozen?&#xA;3/5 room for improvement&#xA;Yarrows The Bakers&#xD;Apple and Cinnamon Buns</description>
     </item>
     <item>
       <title>Christmas Mince Pies 2022</title>
-      <link>http://localhost:4321/portfolio/2024-05-30-christmas-mince-pies-2022/</link>
+      <link>https://nmoore.nz/portfolio/2024-05-30-christmas-mince-pies-2022/</link>
       <pubDate>Thu, 30 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-05-30-christmas-mince-pies-2022/</guid>
+      <guid>https://nmoore.nz/portfolio/2024-05-30-christmas-mince-pies-2022/</guid>
       <description>Garvey’s Bakery mini mince pies 7pk&#xA;Icing sugar topping, a little bit wholemeal crust, not so full with the filling, but they’re not even mini.&#xA;5/5 everything is delicious&#xA;Garvey’s Bakery Mince Pies, 6 for €5&#xA;No nonsense name, that’s for sure. Sugar coating on top! Not structurally sound, the top was thicker than the rest of the case. Full of filling, full of flavour.&#xA;5/5 everything is delicious</description>
     </item>
     <item>
       <title>Hot Cross Buns 2023</title>
-      <link>http://localhost:4321/portfolio/2024-05-30-hot-cross-buns-2023/</link>
+      <link>https://nmoore.nz/portfolio/2024-05-30-hot-cross-buns-2023/</link>
       <pubDate>Thu, 30 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-05-30-hot-cross-buns-2023/</guid>
+      <guid>https://nmoore.nz/portfolio/2024-05-30-hot-cross-buns-2023/</guid>
       <description>This is a copy of my 2023 hot cross bun review thread from Facebook&#xA;https://www.rnz.co.nz/news/national/486442/auckland-bakery-bags-best-hot-cross-bun-honours&#xA;https://www.rnz.co.nz/news/national/487192/hot-cross-buns-help-keep-auckland-eatery-going-the-buns-mean-i-m-still-here&#xA;https://www.rnz.co.nz/stories/2018882700/get-a-taste-of-easter-without-eating-a-hot-cross-bun&#xA;I was going to go to the office for work Tue/Wed this week but what’s even the point if Ima is already sold out?&#xA;https://www.imacuisine.co.nz/hot-cross-buns&#xA;https://www.theurbanlist.com/nz/a-list/aucklands-best-hot-cross-buns&#xA;https://thespinoff.co.nz/kai/05-04-2023/all-the-supermarket-hot-cross-buns-ranked-from-worst-to-best&#xA;Daily Bread, 2022 and 2023 Hot Cross Bun of the year. I ordered online on Monday evening for Tuesday pickup, but they weren’t there at the cool little Federal Street container cafe, so had to go back today.</description>
     </item>
     <item>
       <title>Christmas Music 2023</title>
-      <link>http://localhost:4321/portfolio/2024-05-29-christmas-music-2023/</link>
+      <link>https://nmoore.nz/portfolio/2024-05-29-christmas-music-2023/</link>
       <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-05-29-christmas-music-2023/</guid>
+      <guid>https://nmoore.nz/portfolio/2024-05-29-christmas-music-2023/</guid>
       <description>Some recommendations for alternative Christmas music&#xA;Bad Religion: Christmas Songs&#xA;This is really fun, starting with an acapella bit and racing through a bunch of songs about the “reason for the season”.&#xA;https://open.spotify.com/album/6C89e7cpRmYu1SSKK3GcwS&#xA;https://www.kerrang.com/a-love-letter-to-bad-religions-christmas-songs&#xA;The Toasters: Christma-Ska&#xA;Some covers and some originals, this is also a super fun Christmas album. Highlights: Winter Wonderland and War is Over&#xA;https://open.spotify.com/album/01WaNurRP5USodwR1m67tU&#xA;Reel Big Fish: Happy Skalidays&#xA;Skanking, a joke song, Little Drummer Boy (which has been on all 3 albums so far), an inclusive song, another joke song, and Auld Lang Syne.</description>
     </item>
     <item>
       <title>Ireland 2017</title>
-      <link>http://localhost:4321/portfolio/2024-05-29-ireland-2017/</link>
+      <link>https://nmoore.nz/portfolio/2024-05-29-ireland-2017/</link>
       <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-05-29-ireland-2017/</guid>
+      <guid>https://nmoore.nz/portfolio/2024-05-29-ireland-2017/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;A series of facebook posts from 2017, chronicling a trip to Ireland and the UK.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Christmas 2023</title>
-      <link>http://localhost:4321/portfolio/2024-05-27-christmas-2023/</link>
+      <link>https://nmoore.nz/portfolio/2024-05-27-christmas-2023/</link>
       <pubDate>Mon, 27 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-05-27-christmas-2023/</guid>
+      <guid>https://nmoore.nz/portfolio/2024-05-27-christmas-2023/</guid>
       <description>This is a copy of my 2023 Christmas thread on Facebook&#xA;Putting the ham in water overnight is meant to take away some of the saltiness before glazing&#xA;Storing some gingerbread mixture in the fridge&#xA;The christmas mince pie recipe was more hands on, so no process photos, but also storing in the fridge&#xA;For more timely updates tomorrow check my Instagram stories. Did I screenshot my own stories? Yes.</description>
     </item>
     <item>
       <title>Hot Cross Buns 2024</title>
-      <link>http://localhost:4321/portfolio/2024-05-27-hot-cross-buns-2024/</link>
+      <link>https://nmoore.nz/portfolio/2024-05-27-hot-cross-buns-2024/</link>
       <pubDate>Mon, 27 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-05-27-hot-cross-buns-2024/</guid>
+      <guid>https://nmoore.nz/portfolio/2024-05-27-hot-cross-buns-2024/</guid>
       <description>This is a copy of my 2024 hot cross bun review thread from Facebook&#xA;Whittaker’s Hot Cross Bun Chocolate&#xD;Apparently I have a reputation: I’ve already had two of these blocks of Hot Cross Bun chocolate from Whittaker’s bought for me. It’s quite good at what it’s trying to do, with spice and orange and fruit, but it could never be better than berry and biscuit or Ghana peppermint. 7.</description>
     </item>
     <item>
       <title>Non-Places and Third Places</title>
-      <link>http://localhost:4321/portfolio/2024-04-05-non-place-third-place/</link>
+      <link>https://nmoore.nz/portfolio/2024-04-05-non-place-third-place/</link>
       <pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-04-05-non-place-third-place/</guid>
+      <guid>https://nmoore.nz/portfolio/2024-04-05-non-place-third-place/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;I have known about the concept of a “Third Place” for some time, but “Non-Places” are new to me.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
-      <title>Cat Cable Project</title>
-      <link>http://localhost:4321/portfolio/2024-03-29-cat-cable/</link>
-      <pubDate>Fri, 29 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-03-29-cat-cable/</guid>
-      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;The idea of installing a CAT cable in the lounge for TV and laptop has taken hold.&lt;/p&gt;&#xD;&#xA;</description>
-    </item>
-    <item>
-      <title>Hot Cross Buns</title>
-      <link>http://localhost:4321/portfolio/2024-03-29-hot-cross-buns/</link>
-      <pubDate>Fri, 29 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-03-29-hot-cross-buns/</guid>
-      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;I really like hot cross buns.&lt;/p&gt;&#xD;&#xA;</description>
-    </item>
-    <item>
-      <title>Baby Names</title>
-      <link>http://localhost:4321/portfolio/2024-03-28-baby-names/</link>
-      <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-03-28-baby-names/</guid>
-      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Baby names become very interesting when you have a child.&lt;/p&gt;&#xD;&#xA;</description>
-    </item>
-    <item>
       <title>Running Adventures</title>
-      <link>http://localhost:4321/portfolio/2024-03-11-running-adventures/</link>
+      <link>https://nmoore.nz/portfolio/2024-03-11-running-adventures/</link>
       <pubDate>Mon, 11 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-03-11-running-adventures/</guid>
+      <guid>https://nmoore.nz/portfolio/2024-03-11-running-adventures/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;These are not my running adventures.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>An introduction to Python via Wordle</title>
-      <link>http://localhost:4321/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</link>
+      <link>https://nmoore.nz/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</link>
       <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</guid>
+      <guid>https://nmoore.nz/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;When Wordle first went viral I was in a group chat at work and had the idea of making a Python tutorial based on Wordle. I never did it, but this post is that introduction. I will likely do another introduction to R post as well.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Website Update</title>
-      <link>http://localhost:4321/portfolio/2024-03-06-website-update/</link>
+      <link>https://nmoore.nz/portfolio/2024-03-06-website-update/</link>
       <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-03-06-website-update/</guid>
+      <guid>https://nmoore.nz/portfolio/2024-03-06-website-update/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;It’s been some years since I’ve updated my personal website so I though I better do something about it.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Advent of Code 2020</title>
-      <link>http://localhost:4321/portfolio/2021-01-28-advent-of-code-2020/</link>
+      <link>https://nmoore.nz/portfolio/2021-01-28-advent-of-code-2020/</link>
       <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2021-01-28-advent-of-code-2020/</guid>
+      <guid>https://nmoore.nz/portfolio/2021-01-28-advent-of-code-2020/</guid>
       <description>This is a short review of my first foray into Advent of Code. I’ve started to gather my thoughts in the github readme while looking over the code again. I had big goals of completing each day in R and python, but after a few days decided that one language was more than enough. It will be an ongoing project to look at each day and see if I can write python solutions, while also collecting choice tidbits of fancy or useful or awful code.</description>
     </item>
     <item>
       <title>Youtube Faves</title>
-      <link>http://localhost:4321/portfolio/2021-01-27-youtube/</link>
+      <link>https://nmoore.nz/portfolio/2021-01-27-youtube/</link>
       <pubDate>Wed, 27 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2021-01-27-youtube/</guid>
+      <guid>https://nmoore.nz/portfolio/2021-01-27-youtube/</guid>
       <description>I’m a big fan of Run the Jewels, and remixes, and brass, and shortcodes, and this gets it exactly right.</description>
     </item>
   </channel>
