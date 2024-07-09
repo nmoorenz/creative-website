@@ -9,6 +9,10 @@ image: '/img/fbcovid/unstoppable.jpg'
 showonlyimage: yes
 ---
 
+This is a recollection of a series of facebook posts about how much covid sucks but how covid denialists and anti-vaxers suck even more. 
+
+<!--more-->
+
 ### This is Good
 
 https://www.beehive.govt.nz/release/make-summer-unstoppable-hitting-covid-19-six
