@@ -6,7 +6,7 @@ slug: []
 categories: []
 tags: []
 image: '/img/fb23xmas/kitchen.jpg'
-showonlyimage: yes
+showonlyimage: no
 ---
 
 This is a copy of my 2023 Christmas thread on Facebook
