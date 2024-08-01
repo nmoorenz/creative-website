@@ -6,11 +6,14 @@ slug: []
 categories: []
 tags: []
 image: '/img/fb23xmas/kitchen.jpg'
-showonlyimage: yes
+showonlyimage: no
 ---
 
 This is a copy of my 2023 Christmas thread on Facebook
 
+<!--more-->
+
+This is a copy of my 2023 Christmas thread on Facebook
 
 Putting the ham in water overnight is meant to take away some of the saltiness before glazing
 

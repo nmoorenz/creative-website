@@ -1,0 +1,305 @@
+---
+title: TradeMe Open Home search
+author: Nathan Moore
+date: '2024-07-29'
+slug: []
+categories: []
+tags: []
+image: ''
+showonlyimage: no
+draft: true
+---
+
+This post explores TradeMe as New Zealand's most popular property website. 
+
+<!--more-->
+
+Can we find out when open homes are during a weekend? I'm sure that a newspaper or property press printed publication has lists of open homes, but why can't I find this online? The major websites seem to be search focused. Shouldn't it be easier to create a list of open homes? 
+
+https://www.oneroof.co.nz/search/houses-for-sale/region_auckland-35_page_1
+
+https://www.realestate.co.nz/residential/sale/auckland
+
+https://www.trademe.co.nz/a/property/residential/sale/auckland/search?bof=ECipXrTw
+
+I'm going to use SelectorGadget in Chrome to find the information on each listing. 
+chrome://extensions/?id=mhjhnkcfbdhnjickkkdbjoemdmbfginb
+
+OneRoof and realestate.co.nz do not work well with SelectorGadget for some reason.
+TradeMe is the main online marketplace in New Zealand. It has the most accessible information for SelectorGadget. 
+
+I'm going to restrict my search - this is my actual current search, edited for search terms. 
+
+https://www.trademe.co.nz/a/property/residential/sale/auckland/auckland-city/search?
+price_min=1000&
+price_max=2000000&
+bedrooms_min=3&
+bedrooms_max=6&
+suburb=393&suburb=316&suburb=16&suburb=17&suburb=39&
+suburb=62&suburb=315&suburb=322&suburb=288&suburb=337&
+suburb=40&suburb=42&suburb=61&suburb=63&suburb=3496&
+suburb=394&suburb=317&suburb=146
+
+https://www.trademe.co.nz/a/property/residential/sale/search?
+price_min=1000&
+price_max=2000000&
+bedrooms_min=3&
+bedrooms_max=6&
+suburb=393&suburb=316&suburb=16&suburb=17&suburb=39&
+suburb=62&suburb=315&suburb=322&suburb=288&suburb=337&
+suburb=40&suburb=42&suburb=61&suburb=63&suburb=3496&
+suburb=394&suburb=317&suburb=146&
+page=2
+
+There are 18 pages of results so I need to go through all of these. I'll also use the second form of the url since that will be consistent for pages. Which reminds me: I need some consistent way of sorting the results, in case "Featured first" doesn't work. "Latest listings" is best but I might come back to that. 
+
+OK, so, the first url lets me choose elements within each listing box, but the second one does not. Or only lets me choose sometimes with SelectorGadget. 
+The tag is `.o-flag--compact` to get the open home date. What I actually want is the date and time which is only available on the page itself. 
+There's also something else that comes up when I hover: `tm-property-search-card-open-home tg-flag`. 
+
+If I get these links that have the open home flag, then I can go into a page and find the full details. 
+
+The urls for a listing look like this: these are sure to be consistent! 
+
+https://www.trademe.co.nz/a/property/new-homes/house-land/auckland/auckland-city/glen-innes/listing/4749600750
+
+And then, SelectorGadget doesn't select anything within the main div. I can still inspect the elements though. 
+Here I have removed anything that is within the <tm-add-to-calendar> tag because that is quite long and unnecessary. 
+
+```
+<div _ngcontent-frend-c732932279="" class="ng-star-inserted">
+  <tm-open-home-times _ngcontent-frend-c732932279="">
+    <tg-rack class="o-rack">
+      <div tgrackitem="" class="o-rack-item o-rack-item--no-bleed ng-star-inserted">
+        <div class="o-rack-item__body">
+          <div class="o-rack-item__main">
+            <tg-rack-item-primary class="o-rack-item__primary">
+              <div class="o-rack-item__primary-body"> Sat, 3 Aug 
+              </div>
+            </tg-rack-item-primary>
+            <tg-rack-item-secondary class="o-rack-item__secondary"> 2:45 pm - 3:30 pm 
+            </tg-rack-item-secondary>
+            <tg-rack-item-secondary class="o-rack-item__secondary">
+              <tm-add-to-calendar _nghost-frend-c1348920644="">
+              </tm-add-to-calendar>
+            </tg-rack-item-secondary>
+          </div>
+        </div>
+      </div>
+      <div tgrackitem="" class="o-rack-item o-rack-item--no-bleed ng-star-inserted">
+        <div class="o-rack-item__body">
+          <div class="o-rack-item__main">
+            <tg-rack-item-primary class="o-rack-item__primary">
+              <div class="o-rack-item__primary-body"> Sun, 4 Aug 
+              </div>
+            </tg-rack-item-primary>
+            <tg-rack-item-secondary class="o-rack-item__secondary"> 2:45 pm - 3:30 pm 
+            </tg-rack-item-secondary>
+            <tg-rack-item-secondary class="o-rack-item__secondary">
+              <tm-add-to-calendar _nghost-frend-c1348920644="">
+              </tm-add-to-calendar>
+            </tg-rack-item-secondary>
+          </div>
+        </div>
+      </div><!---->
+    </tg-rack>
+  </tm-open-home-times>
+</div>
+```
+
+Thoughts: Maybe I just need to use inspect to get the html elements rather than relying on SelectorGadget. Number two: there are two tags `<tg-rack-item-secondary class="o-rack-item__secondary">` only one of which I want with the open home time. 
+
+So, the html from the search page. 
+
+```
+<tm-property-search-card-open-home 
+    _ngcontent-frend-c322749118="" 
+    tmid="premium-listing-card-openhome" 
+    _nghost-frend-c3711351818="" 
+    id="1722209916371-4749600750-premium-listing-card-openhome">
+  <tg-flag 
+      _ngcontent-frend-c3711351818="" 
+      compact="" 
+      class="tm-property-search-card-open-home__openhome-flag 
+      o-flag 
+      o-flag--compact">
+    <span 
+        _ngcontent-frend-c3711351818="" 
+        class="tm-property-search-card-open-home__openhome-flag-prefix">
+      OPEN
+    </span> 
+      Sat, 3 Aug
+  </tg-flag>
+</tm-property-search-card-open-home>
+```
+
+The selector for each property. 
+
+```
+/html/body/tm-root/div[1]/main/div/
+tm-property-search-component/div/div/
+tm-property-search-results/div/div[3]/
+tm-search-results/div/div[2]/tg-row/tg-col[5]/
+tm-search-card-switcher/
+tm-property-premium-listing-card/div/
+a/
+tg-sticker2-wrapper/
+div/
+tg-sticker2/
+tm-property-search-card-open-home/
+tg-flag/
+span
+
+
+```
+
+I think this is all in vain because not everything is a premium listing. 
+
+Do we think that TradeMe is going to worry about loading all these pages? I'm sure we can find out. It's only 400 properties with my search parameters. 
+
+If we can get the links from all the pages quickly then it doesn't really matter about the order either. 
+
+The listing links should be stable! That assumption is also testable. 
+
+- If I run this on a Friday afternoon preparing for the weekend, I can see which listings still exist and which don't. 
+- I can see how long open homes run for. Do agents keep doing open homes when a listing has not sold? Is there a correlation between price and open home. My hypothesis would be that the lowest and the highest price properties do not have open homes. The first for lack of money, the latter for security. 
+
+Back to the search results. 
+
+https://www.trademe.co.nz/a/property/residential/sale/search?price_min=1000&price_max=2000000&bedrooms_min=3&bedrooms_max=6&suburb=393&suburb=316&suburb=16&suburb=17&suburb=39&suburb=62&suburb=315&suburb=322&suburb=288&suburb=337&suburb=40&suburb=42&suburb=61&suburb=63&suburb=3496&suburb=394&suburb=317&suburb=146&page=2
+
+I'm sure there's a constructor for these but I'm pretty much going to hard code it, including the number of pages. 
+
+
+```{r}
+library(rvest)
+
+url_1 = 'https://www.trademe.co.nz/a/property/residential/sale/search?price_min=1000&price_max=2000000&bedrooms_min=3&bedrooms_max=6&suburb=393&suburb=316&suburb=16&suburb=17&suburb=39&suburb=62&suburb=315&suburb=322&suburb=288&suburb=337&suburb=40&suburb=42&suburb=61&suburb=63&suburb=3496&suburb=394&suburb=317&suburb=146&page=1'
+
+```
+
+Then we read.
+
+The class for the <a> element is used - and then we can get the href afterwards. 
+
+```{r}
+
+page_1 = read_html(url_1)
+
+listings = page_1 |> html_elements(".tm-property-premium-listing-card__link")
+
+```
+
+This doesn't work - let's try some other things. 
+
+Make sure that I understand rvest and elements at its most basic level. 
+
+```{r}
+
+wiki_1 = read_html('https://en.wikipedia.org/wiki/Auckland')
+
+html_elements(wiki_1, "h2")
+
+```
+
+```{r}
+
+divs = page_1 |> html_elements("div")
+
+```
+
+It's good to see that the page has some divs! 
+
+This is the selector for the <a> 
+
+body > tm-root > div:nth-child(1) > main > div > tm-property-search-component > div > div > tm-property-search-results > div > div.tm-property-search-results__results-container > tm-search-results > div > div.tm-search-results__container.ng-star-inserted > tg-row > tg-col:nth-child(3) > tm-search-card-switcher > tm-property-premium-listing-card > div > a
+
+This is the XPath, these have the same form. 
+
+/html/body/tm-root/div[1]/main/div/tm-property-search-component/div/div/tm-property-search-results/div/div[3]/tm-search-results/div/div[2]/tg-row/tg-col[3]/tm-search-card-switcher/tm-property-premium-listing-card/div/a
+
+I think we should be working at a deeper level of the tree but I need to know how to get there. 
+
+Using SelectorGadget gives us this css selector `.l-col--has-flex-contents` 
+and this XPath `//*[contains(concat( " ", @class, " " ), concat( " ", "l-col--has-flex-contents", " " ))]`. 
+
+```{r}
+
+listings = page_1 |> html_elements(".l-col--has-flex-contents")
+
+```
+
+Nope
+
+```{r}
+
+listings = page_1 |> html_elements(xpath = '//*[contains(concat( " ", @class, " " ), concat( " ", "l-col--has-flex-contents", " " ))]')
+
+```
+
+I don't think I'm using SelectorGadget properly, or TradeMe is giving poor results. 
+
+Let's check back in with some XPath. 
+
+body > tm-root > div:nth-child(1) > main > div > tm-property-search-component > div > div > tm-property-search-results > div > div.tm-property-search-results__results-container > tm-search-results > div > div.tm-search-results__container.ng-star-inserted > tg-row > tg-col:nth-child(6)
+
+/html/body/tm-root/div[1]/main/div/tm-property-search-component/div/div/tm-property-search-results/div/div[3]/tm-search-results/div/div[2]/tg-row/tg-col[7]
+
+```{r}
+
+page_1 |> html_elements(xpath = '/html/body/tm-root/div')
+
+```
+
+We can navigate down some elements but then we run into a list selector `div[1]`. We'll have to figure out how to manage that. I don't think we should have to manage that but here we are. 
+
+```{r}
+
+page_1 |> html_elements(xpath = '/tm-property-search-results')
+
+```
+
+I can't just jump straight to there. 
+
+I can see that the div elements have some classes, let us try "preloader". 
+
+```{r}
+
+page_1 |> html_elements(css = '.preloader')
+
+```
+
+That works but maybe not like I want it to. 
+
+OK so I'm hopeful here. 
+
+```{r}
+
+page_1 |> html_elements(css = 'a.tm-property-premium-listing-card__link')
+
+```
+
+OK let us traverse the tree downwards. 
+
+/html/body/tm-root/div[1]/main/div/tm-property-search-component/div/div/tm-property-search-results/div/div[3]/tm-search-results/div/div[2]/tg-row/tg-col[7]
+
+```{r}
+
+divs = page_1 |> html_elements(xpath = '/html/body/tm-root/div')
+
+js = html_children(divs)[2] |> html_children() 
+
+html_text(js) |> trimws()
+
+```
+
+No wonder I can't get things, I was never going to be able to do anything 
+
+https://stackoverflow.com/questions/75768141/how-to-enable-javascript-in-r-rvest-browser
+
+If I search for other people that have had a similar problem, then I find that TradeMe has an API, which I probably should have started with. 
+
+https://developer.trademe.co.nz/api-overview
+
+I'm going to start a new post. 
+
