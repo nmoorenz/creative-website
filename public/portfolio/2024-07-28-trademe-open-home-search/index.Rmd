@@ -1,7 +1,7 @@
 ---
 title: TradeMe Open Home search
 author: Nathan Moore
-date: '2024-07-29'
+date: '2024-07-28'
 slug: []
 categories: []
 tags: []
@@ -293,7 +293,7 @@ html_text(js) |> trimws()
 
 ```
 
-No wonder I can't get things, I was never going to be able to do anything 
+No wonder I can't get things, I was never going to be able to get anything 
 
 https://stackoverflow.com/questions/75768141/how-to-enable-javascript-in-r-rvest-browser
 

@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nmoore.nz/</loc>
-    <lastmod>2024-07-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/</loc>
+    <lastmod>2024-07-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nmoore.nz/</loc>
     <lastmod>2024-07-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://nmoore.nz/portfolio/2024-06-05-covid-sucks/</loc>
@@ -61,6 +61,10 @@
   </url><url>
     <loc>https://nmoore.nz/portfolio/2021-01-27-youtube/</loc>
     <lastmod>2021-01-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nmoore.nz/portfolio/2024-07-28-trademe-open-home-search/</loc>
+  </url><url>
+    <loc>https://nmoore.nz/portfolio/2024-07-29-trademe-api/</loc>
   </url><url>
     <loc>https://nmoore.nz/categories/</loc>
   </url><url>
