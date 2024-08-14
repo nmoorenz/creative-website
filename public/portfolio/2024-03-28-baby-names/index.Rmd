@@ -14,19 +14,11 @@ Baby names become very interesting when you have a child.
 
 <!--more-->
 
-New Zealand publishes the baby names that were used during the previous year in January. The list has all the years back to 1900. I think I'd like to do a little post about the data. The file only shows names with more than 10 entries. That means that some of the following percentages will be off. I'm guessing that they are good enough for these illustrative purposes. 
+New Zealand publishes the baby names that were used in the previous year in January. The list has all the years back to 1900. I think I'd like to do a little post about the data. The file only shows names with more than 10 entries. That means that some of the following percentages will be off. I'm guessing that they are good enough for these illustrative purposes. 
 
 https://smartstart.services.govt.nz/news/baby-names
 
 https://catalogue.data.govt.nz/dataset/baby-name-popularity-over-time
-
-```{r setup, include=FALSE}
-library(here)
-library(dplyr)
-library(ggplot2)
-
-```
-
 
 ```{r load}
 library(here)
@@ -41,56 +33,17 @@ names = names |>
            fraction = Count / sum(Count))
 ```
 
-Questions about the data: have names become more spread out over time? I should check the percentage of the top ten out of the whole, and how many names are in the list at all. Again, this isn't totally representative because the data is trimmed at a minimum of ten names per year, but it will work. 
+Questions about the data: have names become more spread out over time? I should check the percentage of the top ten out of the whole, and how many names are in the list at all. I think this is only for a count of more than ten per year, that messes with proper percentages but is representative. 
 
-A ranking chart to show how popularity has changed over time would be interesting: any names that were number one at any time, show them up and down in the top 100. 
+A ranking chart to show popularity has changed over time would be interesting: any names that were number one at any time, show them up and down in the top 100. 
 
 Are there differences between boys and girls? Popularity, names that occur in both lists, how high do they get? 
 
-```{r basic}
+```{r}
 
 names |> 
   ggplot(aes(x = Year, y = Count)) + 
   geom_col()
     
 ```
-
-OK, so, first thing, the baby boom of the 50s and 60s is real. We're going to have to use fractions rather than absolute numbers for most things. 
-
-For fractions, there's this index which I saw used in the electricity industry: https://en.wikipedia.org/wiki/Herfindahl%E2%80%93Hirschman_index        
-It's a measure of how concentrated firms are in an industry. We can use a simple version of the same thing to see how concentrated names are in each year. 
-
-
-```{r count_per_year}
-
-names |> 
-  ggplot(aes(x = Year, color = Sex)) +
-  geom_line(stat = 'count')
-    
-```
-
-Names go from 100-150 different names per year, up to over 400 different names per year. This is a good start in showing the increase in variability! 
-
-```{r fractions, rows.print=20}
-
-names |> 
-  arrange(desc(fraction)) |> 
-  head(20)
-    
-```
-
-
-It's also indicative that nearly 10% of all male names in the first decade of the 1900s were William or John. 
-
-```{r fractions2, rows.print=20}
-
-names |> 
-  filter(Year >= 2000, rank == 1) |> 
-  arrange(desc(fraction)) |> 
-  head(20)
-    
-```
-
-By the same consideration, recent first ranked names were only 3% of that year. 
-
 
