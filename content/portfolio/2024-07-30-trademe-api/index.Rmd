@@ -1,0 +1,171 @@
+---
+title: TradeMe API
+author: ''
+date: '2024-07-30'
+slug: []
+categories: []
+tags: []
+image: ''
+showonlyimage: no
+draft: true
+---
+
+Using the TradeMe API to get open home times. 
+
+<!--more-->
+
+https://www.leonstirkwang.com/
+
+
+```{r, setup}
+
+library(tidyverse)
+library(httr)
+library(jsonlite)
+library(keyring)
+
+url <- 'https://api.tmsandbox.co.nz/v1/Search/Property/Residential.json'
+
+oauth_consumer_key <- key_get('oauth_consumer_key', keyring = 'trademeapi')
+oauth_token <- key_get('oauth_token', keyring = 'trademeapi')
+oauth_signature <- key_get('oauth_signature', keyring = 'trademeapi')
+oauth_signature_method <- 'PLAINTEXT'
+
+header <- paste('OAuth oauth_consumer_key=', oauth_consumer_key,
+                   ',oauth_token=', oauth_token,
+                   ',oauth_signature_method=', oauth_signature_method,
+                   ',oauth_signature=', oauth_signature,
+                   sep = '')
+
+result <- GET(url, add_headers(Authorization = header))
+
+```
+
+```{r, checkresult}
+result
+```
+
+Yay! 
+
+```{r, showdata}
+dat <- fromJSON(content(result, as='text'))
+dat$List %>% as_tibble()
+dat_tibble <- dat$List %>% as_tibble()
+```
+
+```{r, checkcount}
+dat$TotalCount
+
+```
+
+Let us also steal the loop code from Leon
+
+```{r, loopdata, message=FALSE}
+## Request loop
+rows <- 500
+stop <- 0
+i <- 1
+dat <- list()
+while(stop < 1) {
+  url_page <- paste0(url,'?rows=',rows,'&page=',i)
+  tmp <- GET(url_page, add_headers(Authorization = header))
+  dat[[i]] <- tmp
+  stop <- if(ceiling(fromJSON(content(tmp, as='text'))$TotalCount/rows) == i){1}else{0}
+  i <- i+1
+}
+rm(i, stop, rows, url_page)
+
+## Melt paginated data together
+df <- bind_rows(lapply(dat, function(x) {
+  fromJSON(content(x, as='text'))$List %>% as.data.frame() }
+))
+```
+
+And then some time conversion
+
+```{r, datechange}
+## Date variable conversion
+convDate <- function(x) {
+  as.Date((x %>% str_remove_all('[/Date()]') %>% as.numeric())/1000/60/60/24, origin = "1970-01-01")
+}
+
+df$StartDate <- convDate(df$StartDate)
+df$EndDate   <- convDate(df$EndDate)
+df$AsAt <- convDate(df$AsAt)
+
+```
+
+Plus pricing
+
+```{r, pricechange}
+## Price variables
+df$price_integer <- df$PriceDisplay %>% str_extract_all('\\d') %>%
+  lapply(., function(x) { paste(x, collapse = '') }) %>% unlist %>% as.integer()
+
+df$price_category <- df$PriceDisplay %>% str_extract_all('[^\\d:,$]') %>%
+  lapply(., function(x) { paste(x, collapse = '') }) %>% unlist %>% str_remove(' $') %>% as.factor
+```
+
+Plus maybe a map
+
+```{r, map}
+library(sf)
+library(tmap)
+
+df$lon <- df$GeographicLocation$Longitude
+df$lat <- df$GeographicLocation$Latitude
+
+df <- df |> 
+  filter(lat <= -30 & 
+        lat >= -50 & 
+        lon >= 165 & 
+        lon <= 180)
+
+df_sf <- st_as_sf(x = df, coords = c('lon', 'lat'), crs = 4326)
+
+## Visualise
+tmap_mode('view')
+## the code as it was on the page
+# tm_shape(df_sf %>% select(geometry) + tm_dots()
+
+## my best guess as to the proper code
+df_sf %>% select(geometry) |> tm_shape() + tm_dots()
+
+
+```
+
+Error in st_as_sf.data.frame(x = df, coords = c("lon", "lat"), crs = 4326) : 
+  missing values in coordinates not allowed
+  
+I don't think there are missing values, but there are some weird ones. We can have a look at the df and set some reasonable values. 
+
+This is no good: -15.96110 -178.079880, and neither is this: 51.64397 -121.295010
+
+Latitude between -30 and -50, Longitude between 165 and 180. 
+
+The code has been changed above. 
+
+What I'm really interested in is the OpenHomes column. 
+  
+```{r, open-homes-head}
+df$OpenHomes |> head()
+```
+  
+These are all blank dataframes, how do I filter them? 
+
+This row is not blank, but it's very hardcoded. 
+
+```{r, see-open-homes}
+
+df[15,]
+
+```
+
+This one
+https://stackoverflow.com/questions/71039911/drop-all-rows-in-a-dataframe-that-have-an-empty-list-in-a-specified-column-in-r#comment125583803_71039911 
+
+```{r, filter-open-homes}
+df[lengths(df$OpenHomes) > 0, ]
+```
+
+
