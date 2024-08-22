@@ -5,16 +5,20 @@ date: '2024-07-30'
 slug: []
 categories: []
 tags: []
-image: ''
+image: 'img/portfolio/trademe-bw.png'
 showonlyimage: no
 draft: true
 ---
 
-Using the TradeMe API to get open home times. 
+Let's use the TradeMe API to get open home times. 
 
 <!--more-->
 
-https://www.leonstirkwang.com/
+See my other [TradeMe post](https://nmoore.nz/portfolio/2024-07-29-trademe-open-home-search/) for background and a silly attempt at getting data from a Javascript site. 
+
+A bunch of this code is borrowed/stolen from https://www.leonstirkwang.com/ so special thanks to them. 
+
+I'm using the Sandbox environment since that app is automatically approved by TradeMe. Hopefully I get far enough that I'm confident to create a production app. TradeMe gives me a consumer key and consumer secret, and I need to generate a token and signature. Look carefully and you'll find these in previous commits - This isn't good! I created a new app and regenerated keys, then saved these in `keyring`. 
 
 
 ```{r, setup}
@@ -26,20 +30,22 @@ library(keyring)
 
 url <- 'https://api.tmsandbox.co.nz/v1/Search/Property/Residential.json'
 
-oauth_consumer_key <- key_get('oauth_consumer_key', keyring = 'trademeapi')
-oauth_token <- key_get('oauth_token', keyring = 'trademeapi')
-oauth_signature <- key_get('oauth_signature', keyring = 'trademeapi')
+oauth_consumer_key     <- key_get('oauth_consumer_key', keyring = 'trademeapi')
+oauth_token            <- key_get('oauth_token', keyring = 'trademeapi')
+oauth_signature        <- key_get('oauth_signature', keyring = 'trademeapi')
 oauth_signature_method <- 'PLAINTEXT'
 
-header <- paste('OAuth oauth_consumer_key=', oauth_consumer_key,
-                   ',oauth_token=', oauth_token,
-                   ',oauth_signature_method=', oauth_signature_method,
-                   ',oauth_signature=', oauth_signature,
-                   sep = '')
+header <- paste('OAuth oauth_consumer_key=',     oauth_consumer_key,
+                     ',oauth_token=',            oauth_token,
+                     ',oauth_signature=',        oauth_signature,
+                     ',oauth_signature_method=', oauth_signature_method,
+                     sep = '')
 
 result <- GET(url, add_headers(Authorization = header))
 
 ```
+
+Check the result for status 200
 
 ```{r, checkresult}
 result
@@ -47,18 +53,23 @@ result
 
 Yay! 
 
+Thanks again to Leon for this code, getting the content from each listing into a nice tibble. 
+
 ```{r, showdata}
 dat <- fromJSON(content(result, as='text'))
 dat$List %>% as_tibble()
 dat_tibble <- dat$List %>% as_tibble()
 ```
 
+How many listings are there in total? So far we only have the first page. 
+
 ```{r, checkcount}
+
 dat$TotalCount
 
 ```
 
-Let us also steal the loop code from Leon
+Let us also steal the loop code from Leon, going through each of the pages. There are API rate limits, but we are not going to hit those at all. 
 
 ```{r, loopdata, message=FALSE}
 ## Request loop

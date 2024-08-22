@@ -231,7 +231,7 @@ span
 
 url_1 = &#39;https://www.trademe.co.nz/a/property/residential/sale/search?price_min=1000&amp;price_max=2000000&amp;bedrooms_min=3&amp;bedrooms_max=6&amp;suburb=393&amp;suburb=316&amp;suburb=16&amp;suburb=17&amp;suburb=39&amp;suburb=62&amp;suburb=315&amp;suburb=322&amp;suburb=288&amp;suburb=337&amp;suburb=40&amp;suburb=42&amp;suburb=61&amp;suburb=63&amp;suburb=3496&amp;suburb=394&amp;suburb=317&amp;suburb=146&amp;page=1&#39;</code></pre>
 <p>Then we read the results.</p>
-<p>The class for the <a> element is used - and then we can get the href afterwards.</p>
+<p>The class for the <a></a> element is used - and then we can get the href afterwards.</p>
 <pre class="r"><code>page_1 = read_html(url_1)
 
 listings = page_1 |&gt; html_elements(&quot;.tm-property-premium-listing-card__link&quot;)</code></pre>
@@ -263,7 +263,7 @@ html_elements(wiki_1, &quot;h2&quot;)</code></pre>
 ## [20] &lt;h2 id=&quot;External_links&quot;&gt;External links&lt;/h2&gt;\n</code></pre>
 <pre class="r"><code>divs = page_1 |&gt; html_elements(&quot;div&quot;)</code></pre>
 <p>It’s good to see that the page has some divs!</p>
-<p>This is the selector for the <a></p>
+<p>This is the selector for the <code>&lt;a&gt;</code></p>
 <p>body &gt; tm-root &gt; div:nth-child(1) &gt; main &gt; div &gt; tm-property-search-component &gt; div &gt; div &gt; tm-property-search-results &gt; div &gt; div.tm-property-search-results__results-container &gt; tm-search-results &gt; div &gt; div.tm-search-results__container.ng-star-inserted &gt; tg-row &gt; tg-col:nth-child(3) &gt; tm-search-card-switcher &gt; tm-property-premium-listing-card &gt; div &gt; a</p>
 <p>This is the XPath, these have the same form.</p>
 <p>/html/body/tm-root/div[1]/main/div/tm-property-search-component/div/div/tm-property-search-results/div/div[3]/tm-search-results/div/div[2]/tg-row/tg-col[3]/tm-search-card-switcher/tm-property-premium-listing-card/div/a</p>

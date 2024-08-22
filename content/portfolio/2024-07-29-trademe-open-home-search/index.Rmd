@@ -175,7 +175,7 @@ url_1 = 'https://www.trademe.co.nz/a/property/residential/sale/search?price_min=
 
 Then we read the results.
 
-The class for the <a> element is used - and then we can get the href afterwards. 
+The class for the <a></a> element is used - and then we can get the href afterwards. 
 
 ```{r}
 
@@ -205,7 +205,7 @@ divs = page_1 |> html_elements("div")
 
 It's good to see that the page has some divs! 
 
-This is the selector for the <a> 
+This is the selector for the `<a>`
 
 body > tm-root > div:nth-child(1) > main > div > tm-property-search-component > div > div > tm-property-search-results > div > div.tm-property-search-results__results-container > tm-search-results > div > div.tm-search-results__container.ng-star-inserted > tg-row > tg-col:nth-child(3) > tm-search-card-switcher > tm-property-premium-listing-card > div > a
 
