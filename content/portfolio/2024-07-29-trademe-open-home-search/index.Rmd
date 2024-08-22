@@ -5,9 +5,8 @@ date: '2024-07-29'
 slug: []
 categories: []
 tags: []
-image: ''
+image: 'img/portfolio/trademe-property.png'
 showonlyimage: no
-draft: true
 ---
 
 
@@ -15,7 +14,11 @@ This post explores TradeMe as New Zealand's most popular property website.
 
 <!--more-->
 
-Can we find out when open homes are during a weekend? I'm sure that a newspaper or property press printed publication has lists of open homes, but why can't I find this online? The major websites seem to be search focused. Shouldn't it be easier to create a list of open homes? 
+Can we find out when open homes are during a weekend? I'm sure that a newspaper or Property Press type printed publication has lists of open homes, but why can't I find this online? The major websites seem to be search focused. Shouldn't it be easy to create a list of open homes? 
+
+## Websites
+
+There's three major websites that I know of, and here are their Auckland links:
 
 https://www.oneroof.co.nz/search/houses-for-sale/region_auckland-35_page_1
 
@@ -23,42 +26,28 @@ https://www.realestate.co.nz/residential/sale/auckland
 
 https://www.trademe.co.nz/a/property/residential/sale/auckland/search?bof=ECipXrTw
 
-I'm going to use SelectorGadget in Chrome to find the information on each listing. 
+I'm going to use SelectorGadget in Chrome to find the information on each listing. This works with R package `rvest` to scrape web pages. 
 chrome://extensions/?id=mhjhnkcfbdhnjickkkdbjoemdmbfginb
 
-OneRoof and realestate.co.nz do not work well with SelectorGadget for some reason.
-TradeMe is the main online marketplace in New Zealand. It has the most accessible information for SelectorGadget. 
+OneRoof and realestate.co.nz do not work well with SelectorGadget for some reason. Which is good! I wanted to use TradeMe anyway. 
 
-I'm going to restrict my search - this is my actual current search, edited for search terms. 
+## TradeMe 
 
-https://www.trademe.co.nz/a/property/residential/sale/auckland/auckland-city/search?
-price_min=1000&
-price_max=2000000&
-bedrooms_min=3&
-bedrooms_max=6&
-suburb=393&suburb=316&suburb=16&suburb=17&suburb=39&
-suburb=62&suburb=315&suburb=322&suburb=288&suburb=337&
-suburb=40&suburb=42&suburb=61&suburb=63&suburb=3496&
-suburb=394&suburb=317&suburb=146
+I'm going to restrict my search - this is close to my actual current search, showing the second page of results. 
 
-https://www.trademe.co.nz/a/property/residential/sale/search?
-price_min=1000&
-price_max=2000000&
-bedrooms_min=3&
-bedrooms_max=6&
-suburb=393&suburb=316&suburb=16&suburb=17&suburb=39&
-suburb=62&suburb=315&suburb=322&suburb=288&suburb=337&
-suburb=40&suburb=42&suburb=61&suburb=63&suburb=3496&
-suburb=394&suburb=317&suburb=146&
-page=2
+https://www.trademe.co.nz/a/property/residential/sale/search?price_min=1000&price_max=2000000&bedrooms_min=3&bedrooms_max=6&suburb=393&suburb=316&suburb=16&suburb=17&suburb=39&suburb=62&suburb=315&suburb=322&suburb=288&suburb=337&suburb=40&suburb=42&suburb=61&suburb=63&suburb=3496&suburb=394&suburb=317&suburb=146&page=2
 
-There are 18 pages of results so I need to go through all of these. I'll also use the second form of the url since that will be consistent for pages. Which reminds me: I need some consistent way of sorting the results, in case "Featured first" doesn't work. "Latest listings" is best but I might come back to that. 
+There are 18 pages of results so I need to go through all of these. This is the second page of results, which is slightly different from the first page, so the url will be more consistent. Which reminds me: I need some consistent way of sorting the results, in case "Featured first" doesn't work, and the results change order while querying. It's not much of a risk but worth considering. "Latest listings" is best but I might come back to that. 
 
-OK, so, the first url lets me choose elements within each listing box, but the second one does not. Or only lets me choose sometimes with SelectorGadget. 
+## Selection
+
+OK, so, the page only lets me choose elements sometimes with SelectorGadget. Behaviour is inconsistent, which is annoying. 
 The tag is `.o-flag--compact` to get the open home date. What I actually want is the date and time which is only available on the page itself. 
 There's also something else that comes up when I hover: `tm-property-search-card-open-home tg-flag`. 
 
 If I get these links that have the open home flag, then I can go into a page and find the full details. 
+
+## Listings
 
 The urls for a listing look like this: these are sure to be consistent! 
 
@@ -108,7 +97,9 @@ Here I have removed anything that is within the <tm-add-to-calendar> tag because
 </div>
 ```
 
-Thoughts: Maybe I just need to use inspect to get the html elements rather than relying on SelectorGadget. Number two: there are two tags `<tg-rack-item-secondary class="o-rack-item__secondary">` only one of which I want with the open home time. 
+## Thoughts
+
+Maybe I just need to use inspect to get the html elements rather than relying on SelectorGadget. Number two: there are two tags `<tg-rack-item-secondary class="o-rack-item__secondary">` only one of which I want with the open home time. 
 
 So, the html from the search page. 
 
@@ -154,7 +145,9 @@ span
 
 ```
 
-I think this is all in vain because not everything is a premium listing. 
+I think this is all in vain because not everything is a premium listing. We need to look at each page. 
+
+## More Thoughts
 
 Do we think that TradeMe is going to worry about loading all these pages? I'm sure we can find out. It's only 400 properties with my search parameters. 
 
@@ -171,6 +164,7 @@ https://www.trademe.co.nz/a/property/residential/sale/search?price_min=1000&pric
 
 I'm sure there's a constructor for these but I'm pretty much going to hard code it, including the number of pages. 
 
+## Code
 
 ```{r}
 library(rvest)
@@ -179,7 +173,7 @@ url_1 = 'https://www.trademe.co.nz/a/property/residential/sale/search?price_min=
 
 ```
 
-Then we read.
+Then we read the results.
 
 The class for the <a> element is used - and then we can get the href afterwards. 
 
@@ -294,7 +288,7 @@ html_text(js) |> trimws()
 
 ```
 
-No wonder I can't get things, I was never going to be able to get anything 
+No wonder I can't get things, I was never going to be able to get anything. 
 
 https://stackoverflow.com/questions/75768141/how-to-enable-javascript-in-r-rvest-browser
 
