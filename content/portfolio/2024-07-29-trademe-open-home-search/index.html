@@ -175,9 +175,9 @@ html_elements(wiki_1, &quot;h2&quot;)</code></pre>
 <pre class="r"><code>divs = page_1 |&gt; html_elements(&quot;div&quot;)</code></pre>
 <p>It’s good to see that the page has some divs!</p>
 <p>This is the selector for the <code>&lt;a&gt;</code></p>
-<p>body &gt; tm-root &gt; div:nth-child(1) &gt; main &gt; div &gt; tm-property-search-component &gt; div &gt; div &gt; tm-property-search-results &gt; div &gt; div.tm-property-search-results__results-container &gt; tm-search-results &gt; div &gt; div.tm-search-results__container.ng-star-inserted &gt; tg-row &gt; tg-col:nth-child(3) &gt; tm-search-card-switcher &gt; tm-property-premium-listing-card &gt; div &gt; a</p>
+<p><code>body &gt; tm-root &gt; div:nth-child(1) &gt; main &gt; div &gt; tm-property-search-component &gt; div &gt; div &gt; tm-property-search-results &gt; div &gt; div.tm-property-search-results__results-container &gt; tm-search-results &gt; div &gt; div.tm-search-results__container.ng-star-inserted &gt; tg-row &gt; tg-col:nth-child(3) &gt; tm-search-card-switcher &gt; tm-property-premium-listing-card &gt; div &gt; a</code></p>
 <p>This is the XPath, these have the same form.</p>
-<p>/html/body/tm-root/div[1]/main/div/tm-property-search-component/div/div/tm-property-search-results/div/div[3]/tm-search-results/div/div[2]/tg-row/tg-col[3]/tm-search-card-switcher/tm-property-premium-listing-card/div/a</p>
+<p><code>/html/body/tm-root/div[1]/main/div/tm-property-search-component/div/div/tm-property-search-results/div/div[3]/tm-search-results/div/div[2]/tg-row/tg-col[3]/tm-search-card-switcher/tm-property-premium-listing-card/div/a</code></p>
 <p>I think we should be working at a deeper level of the tree but I need to know how to get there.</p>
 <p>Using SelectorGadget gives us this css selector <code>.l-col--has-flex-contents</code>
 and this XPath <code>//*[contains(concat( " ", @class, " " ), concat( " ", "l-col--has-flex-contents", " " ))]</code>.</p>
@@ -186,8 +186,8 @@ and this XPath <code>//*[contains(concat( " ", @class, " " ), concat( " ", "l-co
 <pre class="r"><code>listings = page_1 |&gt; html_elements(xpath = &#39;//*[contains(concat( &quot; &quot;, @class, &quot; &quot; ), concat( &quot; &quot;, &quot;l-col--has-flex-contents&quot;, &quot; &quot; ))]&#39;)</code></pre>
 <p>I don’t think I’m using SelectorGadget properly, or TradeMe is giving poor results.</p>
 <p>Let’s check back in with some XPath.</p>
-<p>body &gt; tm-root &gt; div:nth-child(1) &gt; main &gt; div &gt; tm-property-search-component &gt; div &gt; div &gt; tm-property-search-results &gt; div &gt; div.tm-property-search-results__results-container &gt; tm-search-results &gt; div &gt; div.tm-search-results__container.ng-star-inserted &gt; tg-row &gt; tg-col:nth-child(6)</p>
-<p>/html/body/tm-root/div[1]/main/div/tm-property-search-component/div/div/tm-property-search-results/div/div[3]/tm-search-results/div/div[2]/tg-row/tg-col[7]</p>
+<p><code>body &gt; tm-root &gt; div:nth-child(1) &gt; main &gt; div &gt; tm-property-search-component &gt; div &gt; div &gt; tm-property-search-results &gt; div &gt; div.tm-property-search-results__results-container &gt; tm-search-results &gt; div &gt; div.tm-search-results__container.ng-star-inserted &gt; tg-row &gt; tg-col:nth-child(6)</code></p>
+<p><code>/html/body/tm-root/div[1]/main/div/tm-property-search-component/div/div/tm-property-search-results/div/div[3]/tm-search-results/div/div[2]/tg-row/tg-col[7]</code></p>
 <pre class="r"><code>page_1 |&gt; html_elements(xpath = &#39;/html/body/tm-root/div&#39;)</code></pre>
 <pre><code>## {xml_nodeset (1)}
 ## [1] &lt;div class=&quot;preloader&quot;&gt;\r\n                &lt;div class=&quot;preload-nav&quot;&gt;\r\n  ...</code></pre>
@@ -204,7 +204,7 @@ and this XPath <code>//*[contains(concat( " ", @class, " " ), concat( " ", "l-co
 <pre class="r"><code>page_1 |&gt; html_elements(css = &#39;a.tm-property-premium-listing-card__link&#39;)</code></pre>
 <pre><code>## {xml_nodeset (0)}</code></pre>
 <p>OK let us traverse the tree downwards.</p>
-<p>/html/body/tm-root/div[1]/main/div/tm-property-search-component/div/div/tm-property-search-results/div/div[3]/tm-search-results/div/div[2]/tg-row/tg-col[7]</p>
+<p><code>/html/body/tm-root/div[1]/main/div/tm-property-search-component/div/div/tm-property-search-results/div/div[3]/tm-search-results/div/div[2]/tg-row/tg-col[7]</code></p>
 <pre class="r"><code>divs = page_1 |&gt; html_elements(xpath = &#39;/html/body/tm-root/div&#39;)
 
 js = html_children(divs)[2] |&gt; html_children() 

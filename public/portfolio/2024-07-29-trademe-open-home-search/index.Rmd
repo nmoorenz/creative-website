@@ -207,11 +207,11 @@ It's good to see that the page has some divs!
 
 This is the selector for the `<a>`
 
-body > tm-root > div:nth-child(1) > main > div > tm-property-search-component > div > div > tm-property-search-results > div > div.tm-property-search-results__results-container > tm-search-results > div > div.tm-search-results__container.ng-star-inserted > tg-row > tg-col:nth-child(3) > tm-search-card-switcher > tm-property-premium-listing-card > div > a
+`body > tm-root > div:nth-child(1) > main > div > tm-property-search-component > div > div > tm-property-search-results > div > div.tm-property-search-results__results-container > tm-search-results > div > div.tm-search-results__container.ng-star-inserted > tg-row > tg-col:nth-child(3) > tm-search-card-switcher > tm-property-premium-listing-card > div > a`
 
 This is the XPath, these have the same form. 
 
-/html/body/tm-root/div[1]/main/div/tm-property-search-component/div/div/tm-property-search-results/div/div[3]/tm-search-results/div/div[2]/tg-row/tg-col[3]/tm-search-card-switcher/tm-property-premium-listing-card/div/a
+`/html/body/tm-root/div[1]/main/div/tm-property-search-component/div/div/tm-property-search-results/div/div[3]/tm-search-results/div/div[2]/tg-row/tg-col[3]/tm-search-card-switcher/tm-property-premium-listing-card/div/a`
 
 I think we should be working at a deeper level of the tree but I need to know how to get there. 
 
@@ -236,9 +236,9 @@ I don't think I'm using SelectorGadget properly, or TradeMe is giving poor resul
 
 Let's check back in with some XPath. 
 
-body > tm-root > div:nth-child(1) > main > div > tm-property-search-component > div > div > tm-property-search-results > div > div.tm-property-search-results__results-container > tm-search-results > div > div.tm-search-results__container.ng-star-inserted > tg-row > tg-col:nth-child(6)
+`body > tm-root > div:nth-child(1) > main > div > tm-property-search-component > div > div > tm-property-search-results > div > div.tm-property-search-results__results-container > tm-search-results > div > div.tm-search-results__container.ng-star-inserted > tg-row > tg-col:nth-child(6)`
 
-/html/body/tm-root/div[1]/main/div/tm-property-search-component/div/div/tm-property-search-results/div/div[3]/tm-search-results/div/div[2]/tg-row/tg-col[7]
+`/html/body/tm-root/div[1]/main/div/tm-property-search-component/div/div/tm-property-search-results/div/div[3]/tm-search-results/div/div[2]/tg-row/tg-col[7]`
 
 ```{r}
 
@@ -276,7 +276,7 @@ page_1 |> html_elements(css = 'a.tm-property-premium-listing-card__link')
 
 OK let us traverse the tree downwards. 
 
-/html/body/tm-root/div[1]/main/div/tm-property-search-component/div/div/tm-property-search-results/div/div[3]/tm-search-results/div/div[2]/tg-row/tg-col[7]
+`/html/body/tm-root/div[1]/main/div/tm-property-search-component/div/div/tm-property-search-results/div/div[3]/tm-search-results/div/div[2]/tg-row/tg-col[7]`
 
 ```{r}
 
