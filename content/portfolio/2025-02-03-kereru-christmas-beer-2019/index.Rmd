@@ -7,7 +7,6 @@ categories: []
 tags: []
 image: '/img/beer2019/kereru.jpg'
 showonlyimage: no
-draft: true
 ---
 
 Christmas beer sampler, 2019
