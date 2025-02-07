@@ -48,13 +48,12 @@ languageCode = "en-us"
   name = "About"
   url = "about/"
 
-#  [[params.navlinks]]
-#  name = "Get in touch"
-#  url = "contact/"
+  [[params.navlinks]]
+  name = "Categories"
+  url = "categories/"
 
   [params.social]
   email         = "nath@nmoore.nz"
-#  twitter       = "https://www.twitter.com/nmoorenz"
   linkedin      = "https://www.linkedin.com/in/nmoorenz"
   github        = "https://www.github.com/nmoorenz"
 #  facebook      = "full page or profile url in facebook"

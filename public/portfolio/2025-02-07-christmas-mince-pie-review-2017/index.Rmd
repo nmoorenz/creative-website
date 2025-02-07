@@ -3,7 +3,8 @@ title: Christmas Mince Pie Review 2017
 author: Nathan Moore
 date: '2025-02-07'
 slug: []
-categories: []
+categories:
+  - Christmas Mince Pies
 tags: []
 image: ''
 showonlyimage: no
