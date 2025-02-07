@@ -1,0 +1,26 @@
+---
+title: Twitter Secret Santa
+author: Nathan Moore
+date: '2025-02-07'
+slug: []
+categories: []
+tags: []
+image: '/img/portfolio/secret-santa.jpg'
+showonlyimage: yes
+---
+
+Twitter Secret Santa
+
+<!--more-->
+
+This is the amazing gift I got from Twitter Secret Santa in 2020
+
+![](/img/portfolio/secret-santa.jpg){width="80%"}
+
+Postage Stamps 1985-1989 'Native Birds'
+
+Handstitched to vintage linen, mounted on harakeke paper and bordered with rauru.
+
+"I make the paper and rauru from a flax bush in my garden. The linen came from my great grandmother. Every work I make is individual."
+
+#SecretSantaNZ2020

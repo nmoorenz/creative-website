@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Advent of Code 2020</title>
+<title>Twitter Secret Santa</title>
 <meta name="description" content="Nathan&#39;s Website">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
@@ -101,73 +101,13 @@
   <div class="row">
     <div class="col-lg-8">
       <div class="content-column-content">
-         <h1>Advent of Code 2020</h1>
-         <p>This is a short review of my first foray into Advent of Code. I’ve started to gather my thoughts in the github readme while looking over the code again. I had big goals of completing each day in R and python, but after a few days decided that one language was more than enough. It will be an ongoing project to look at each day and see if I can write python solutions, while also collecting choice tidbits of fancy or useful or awful code.</p>
-<p>This is the advent website: <a href="https://adventofcode.com/2020">Advent of Code 2020</a></p>
-<p>This is my github repository: <a href="https://github.com/nmoorenz/advent-of-code">github.com/nmoorenz/advent-of-code</a></p>
-<p>The following is a comparison of R and Python code for day 5, my favourite day of the challenge. Recognising the ticket numbers can be interpreted in binary is a crucial breakthrough. I love finding a new and good function in R: <code>strtoi()</code>. That takes a <code>base</code> argument for binary! Then finding <code>int()</code> in Python has the same argument. List comprehensions are, for me, a killer feature of Python.</p>
-<div id="r-code" class="section level3">
-<h3>R Code</h3>
-<pre class="r"><code># tidyverse of course
-suppressPackageStartupMessages(library(tidyverse))
-
-# love the here package to load things
-inputfile = here::here(&quot;static&quot;, &quot;data&quot;, &quot;advent2020&quot;, &quot;day05.txt&quot;)
-bp &lt;- read.delim(inputfile, header = FALSE)
-
-# conversions for letters to binary
-named_v = c(&quot;F&quot; = &quot;0&quot;, &quot;B&quot; = &quot;1&quot;, &quot;L&quot; = &quot;0&quot;, &quot;R&quot; = &quot;1&quot;)
-
-# mutate seems like the best way to do this
-# we can also use many replacements in one function
-# strtoi() for string to integer, in base 2
-bp_bin &lt;- bp %&gt;% 
-  mutate(
-    bin = str_replace_all(V1, named_v),
-    row = strtoi(str_sub(bin, end = 7), base = 2), 
-    col = strtoi(str_sub(bin, start = 8), base = 2), 
-    id = row * 8 + col
-  )
-
-# max is part one answer
-max_id &lt;- max(bp_bin$id)  
-min_id &lt;- min(bp_bin$id)
-
-# possible seats from min to max
-bp_seq = seq(from = min_id, to = max_id)
-
-# part two answer - seat left over
-p2 &lt;- setdiff(bp_seq, bp_bin$id)</code></pre>
-</div>
-<div id="python-code" class="section level3">
-<h3>Python Code</h3>
-<pre class="python"><code># read file
-with open(&quot;../../../static/data/advent2020/day05.txt&quot;, &quot;r&quot;) as f:
-  bp = f.read().splitlines()
-
-# row and col binary via replacement
-row = [x[:7].replace(&quot;B&quot;, &quot;1&quot;).replace(&quot;F&quot;, &quot;0&quot;) for x in bp]
-col = [x[7:].replace(&quot;L&quot;, &quot;0&quot;).replace(&quot;R&quot;, &quot;1&quot;) for x in bp]
-
-# id as a combo of row and col            
-id = [int(r, 2) * 8 + int(c, 2) for r, c in zip(row, col)]
-
-#part a
-p1 = max(id)
-
-# part b
-p2 = set(range(min(id), max(id))) - set(id)</code></pre>
-</div>
-<div id="answer" class="section level3">
-<h3>Answer</h3>
-<p>The maximum seat number on my plane (part one answer) is 826 and my seat number (part two answer) is 678.</p>
-<p>In honour of the card playing crab mentioned in the challenges, here’s a big one from the Te Papa collection, only included here for creating a picture for the blog page.</p>
-<p>Image Credit: Charybdis (Charybdis) japonica (A. Milne-Edwards, 1861), collected September 2000, Auckland, Rangitoto Channel, New Zealand. CC BY 4.0. Te Papa (CR.009843)</p>
-<div class="float">
-<img src="/img/portfolio/TePapaCrab.jpg" alt="Crab" />
-<div class="figcaption">Crab</div>
-</div>
-</div>
+         <h1>Twitter Secret Santa</h1>
+         <p>This is the amazing gift I got from Twitter Secret Santa in 2020</p>
+<p><img src="/img/portfolio/secret-santa.jpg" style="width:80.0%" /></p>
+<p>Postage Stamps 1985-1989 ‘Native Birds’</p>
+<p>Handstitched to vintage linen, mounted on harakeke paper and bordered with rauru.</p>
+<p>“I make the paper and rauru from a flax bush in my garden. The linen came from my great grandmother. Every work I make is individual.”</p>
+<p>#SecretSantaNZ2020</p>
 
          
       </div>

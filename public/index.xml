@@ -2,143 +2,171 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nathan Moore</title>
-    <link>https://nmoore.nz/</link>
+    <link>http://localhost:4321/</link>
     <description>Recent content on Nathan Moore</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 07 Feb 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://nmoore.nz/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:4321/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Christmas Mince Pie Review 2017</title>
-      <link>https://nmoore.nz/portfolio/2025-02-07-christmas-mince-pie-review-2017/</link>
+      <link>http://localhost:4321/portfolio/2025-02-07-christmas-mince-pie-review-2017/</link>
       <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2025-02-07-christmas-mince-pie-review-2017/</guid>
+      <guid>http://localhost:4321/portfolio/2025-02-07-christmas-mince-pie-review-2017/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Christmas Mince Pies 2017&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
+      <title>Twitter Secret Santa</title>
+      <link>http://localhost:4321/portfolio/2025-02-07-twitter-secret-santa/</link>
+      <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/portfolio/2025-02-07-twitter-secret-santa/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Twitter Secret Santa&lt;/p&gt;&#xD;&#xA;</description>
+    </item>
+    <item>
       <title>Kereru Christmas Beer 2019</title>
-      <link>https://nmoore.nz/portfolio/2025-02-03-kereru-christmas-beer-2019/</link>
+      <link>http://localhost:4321/portfolio/2025-02-03-kereru-christmas-beer-2019/</link>
       <pubDate>Mon, 03 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2025-02-03-kereru-christmas-beer-2019/</guid>
+      <guid>http://localhost:4321/portfolio/2025-02-03-kereru-christmas-beer-2019/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Christmas beer sampler, 2019&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>TradeMe Open Home Search</title>
-      <link>https://nmoore.nz/portfolio/2024-07-29-trademe-open-home-search/</link>
+      <link>http://localhost:4321/portfolio/2024-07-29-trademe-open-home-search/</link>
       <pubDate>Mon, 29 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2024-07-29-trademe-open-home-search/</guid>
+      <guid>http://localhost:4321/portfolio/2024-07-29-trademe-open-home-search/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;This post explores TradeMe as New Zealand’s most popular property website.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Leasehold Properties</title>
-      <link>https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/</link>
+      <link>http://localhost:4321/portfolio/2024-07-09-leasehold-properties/</link>
       <pubDate>Tue, 09 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/</guid>
-      <description>&#xD;&#xA;&lt;link href=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/htmltools-fill/fill.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xD;&#xA;&lt;script src=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;script src=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/jquery/jquery-3.6.0.min.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;link href=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/leaflet/leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xD;&#xA;&lt;script src=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;link href=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/leafletfix/leafletfix.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xD;&#xA;&lt;script src=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/proj4/proj4.min.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;script src=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/Proj4Leaflet/proj4leaflet.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;link href=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/rstudio_leaflet/rstudio_leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xD;&#xA;&lt;script src=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/leaflet-binding/leaflet.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;script src=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/leaflet-providers/leaflet-providers_2.0.0.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;script src=&#34;https://nmoore.nz/portfolio/2024-07-09-leasehold-properties/index_files/leaflet-providers-plugin/leaflet-providers-plugin.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Leasehold properties pop up occasionally in Auckland, so I wanted to see where they are.&lt;/p&gt;&#xD;&#xA;</description>
+      <guid>http://localhost:4321/portfolio/2024-07-09-leasehold-properties/</guid>
+      <description>&#xD;&#xA;&lt;link href=&#34;http://localhost:4321/portfolio/2024-07-09-leasehold-properties/index_files/htmltools-fill/fill.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xD;&#xA;&lt;script src=&#34;http://localhost:4321/portfolio/2024-07-09-leasehold-properties/index_files/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;script src=&#34;http://localhost:4321/portfolio/2024-07-09-leasehold-properties/index_files/jquery/jquery-3.6.0.min.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;link href=&#34;http://localhost:4321/portfolio/2024-07-09-leasehold-properties/index_files/leaflet/leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xD;&#xA;&lt;script src=&#34;http://localhost:4321/portfolio/2024-07-09-leasehold-properties/index_files/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;link href=&#34;http://localhost:4321/portfolio/2024-07-09-leasehold-properties/index_files/leafletfix/leafletfix.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xD;&#xA;&lt;script src=&#34;http://localhost:4321/portfolio/2024-07-09-leasehold-properties/index_files/proj4/proj4.min.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;script src=&#34;http://localhost:4321/portfolio/2024-07-09-leasehold-properties/index_files/Proj4Leaflet/proj4leaflet.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;link href=&#34;http://localhost:4321/portfolio/2024-07-09-leasehold-properties/index_files/rstudio_leaflet/rstudio_leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xD;&#xA;&lt;script src=&#34;http://localhost:4321/portfolio/2024-07-09-leasehold-properties/index_files/leaflet-binding/leaflet.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;script src=&#34;http://localhost:4321/portfolio/2024-07-09-leasehold-properties/index_files/leaflet-providers/leaflet-providers_2.0.0.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;script src=&#34;http://localhost:4321/portfolio/2024-07-09-leasehold-properties/index_files/leaflet-providers-plugin/leaflet-providers-plugin.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Leasehold properties pop up occasionally in Auckland, so I wanted to see where they are.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Covid Sucks</title>
-      <link>https://nmoore.nz/portfolio/2024-06-05-covid-sucks/</link>
+      <link>http://localhost:4321/portfolio/2024-06-05-covid-sucks/</link>
       <pubDate>Wed, 05 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2024-06-05-covid-sucks/</guid>
+      <guid>http://localhost:4321/portfolio/2024-06-05-covid-sucks/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;This is a recollection of a series of facebook posts about how much covid sucks but how covid denialists and anti-vaxers suck even more.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Christmas Mince Pies 2021</title>
-      <link>https://nmoore.nz/portfolio/2024-05-31-christmas-mince-pies-2021/</link>
+      <link>http://localhost:4321/portfolio/2024-05-31-christmas-mince-pies-2021/</link>
       <pubDate>Fri, 31 May 2024 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2024-05-31-christmas-mince-pies-2021/</guid>
+      <guid>http://localhost:4321/portfolio/2024-05-31-christmas-mince-pies-2021/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Christmas mince pies, 2021.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Hot Cross Buns 2022</title>
-      <link>https://nmoore.nz/portfolio/2024-05-31-hot-cross-buns-2022/</link>
+      <link>http://localhost:4321/portfolio/2024-05-31-hot-cross-buns-2022/</link>
       <pubDate>Fri, 31 May 2024 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2024-05-31-hot-cross-buns-2022/</guid>
+      <guid>http://localhost:4321/portfolio/2024-05-31-hot-cross-buns-2022/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;This is a copy of my 2022 facebook thread on hot cross buns&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Christmas Mince Pies 2022</title>
-      <link>https://nmoore.nz/portfolio/2024-05-30-christmas-mince-pies-2022/</link>
+      <link>http://localhost:4321/portfolio/2024-05-30-christmas-mince-pies-2022/</link>
       <pubDate>Thu, 30 May 2024 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2024-05-30-christmas-mince-pies-2022/</guid>
+      <guid>http://localhost:4321/portfolio/2024-05-30-christmas-mince-pies-2022/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Christmas Mince Pies 2022, Irish Style&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Hot Cross Buns 2023</title>
-      <link>https://nmoore.nz/portfolio/2024-05-30-hot-cross-buns-2023/</link>
+      <link>http://localhost:4321/portfolio/2024-05-30-hot-cross-buns-2023/</link>
       <pubDate>Thu, 30 May 2024 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2024-05-30-hot-cross-buns-2023/</guid>
+      <guid>http://localhost:4321/portfolio/2024-05-30-hot-cross-buns-2023/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;This is a copy of my 2023 hot cross bun review thread from Facebook&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Christmas Music 2023</title>
-      <link>https://nmoore.nz/portfolio/2024-05-29-christmas-music-2023/</link>
+      <link>http://localhost:4321/portfolio/2024-05-29-christmas-music-2023/</link>
       <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2024-05-29-christmas-music-2023/</guid>
+      <guid>http://localhost:4321/portfolio/2024-05-29-christmas-music-2023/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Some recommendations for alternative Christmas music&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Ireland 2017</title>
-      <link>https://nmoore.nz/portfolio/2024-05-29-ireland-2017/</link>
+      <link>http://localhost:4321/portfolio/2024-05-29-ireland-2017/</link>
       <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2024-05-29-ireland-2017/</guid>
+      <guid>http://localhost:4321/portfolio/2024-05-29-ireland-2017/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;A series of facebook posts from 2017, chronicling a trip to Ireland and the UK.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Christmas 2023</title>
-      <link>https://nmoore.nz/portfolio/2024-05-27-christmas-2023/</link>
+      <link>http://localhost:4321/portfolio/2024-05-27-christmas-2023/</link>
       <pubDate>Mon, 27 May 2024 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2024-05-27-christmas-2023/</guid>
+      <guid>http://localhost:4321/portfolio/2024-05-27-christmas-2023/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;This is a copy of my 2023 Christmas thread on Facebook&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Hot Cross Buns 2024</title>
-      <link>https://nmoore.nz/portfolio/2024-05-27-hot-cross-buns-2024/</link>
+      <link>http://localhost:4321/portfolio/2024-05-27-hot-cross-buns-2024/</link>
       <pubDate>Mon, 27 May 2024 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2024-05-27-hot-cross-buns-2024/</guid>
+      <guid>http://localhost:4321/portfolio/2024-05-27-hot-cross-buns-2024/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;This is a copy of my 2024 hot cross bun review thread from Facebook&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Non-Places and Third Places</title>
-      <link>https://nmoore.nz/portfolio/2024-04-05-non-place-third-place/</link>
+      <link>http://localhost:4321/portfolio/2024-04-05-non-place-third-place/</link>
       <pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2024-04-05-non-place-third-place/</guid>
+      <guid>http://localhost:4321/portfolio/2024-04-05-non-place-third-place/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;I have known about the concept of a “Third Place” for some time, but “Non-Places” are new to me.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
+      <title>Cat Cable Project</title>
+      <link>http://localhost:4321/portfolio/2024-03-29-cat-cable/</link>
+      <pubDate>Fri, 29 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/portfolio/2024-03-29-cat-cable/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;The idea of installing a CAT cable in the lounge for TV and laptop has taken hold.&lt;/p&gt;&#xD;&#xA;</description>
+    </item>
+    <item>
+      <title>Hot Cross Buns</title>
+      <link>http://localhost:4321/portfolio/2024-03-29-hot-cross-buns/</link>
+      <pubDate>Fri, 29 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/portfolio/2024-03-29-hot-cross-buns/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;I really like hot cross buns.&lt;/p&gt;&#xD;&#xA;</description>
+    </item>
+    <item>
+      <title>Baby Names</title>
+      <link>http://localhost:4321/portfolio/2024-03-28-baby-names/</link>
+      <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/portfolio/2024-03-28-baby-names/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Baby names become very interesting when you have a child.&lt;/p&gt;&#xD;&#xA;</description>
+    </item>
+    <item>
       <title>Running Adventures</title>
-      <link>https://nmoore.nz/portfolio/2024-03-11-running-adventures/</link>
+      <link>http://localhost:4321/portfolio/2024-03-11-running-adventures/</link>
       <pubDate>Mon, 11 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2024-03-11-running-adventures/</guid>
+      <guid>http://localhost:4321/portfolio/2024-03-11-running-adventures/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;These are not my running adventures.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>An introduction to Python via Wordle</title>
-      <link>https://nmoore.nz/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</link>
+      <link>http://localhost:4321/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</link>
       <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</guid>
+      <guid>http://localhost:4321/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;When Wordle first went viral I was in a group chat at work and had the idea of making a Python tutorial based on Wordle. I never did it, but this post is that introduction. I will likely do another introduction to R post as well.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Website Update</title>
-      <link>https://nmoore.nz/portfolio/2024-03-06-website-update/</link>
+      <link>http://localhost:4321/portfolio/2024-03-06-website-update/</link>
       <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2024-03-06-website-update/</guid>
+      <guid>http://localhost:4321/portfolio/2024-03-06-website-update/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;It’s been some years since I’ve updated my personal website so I though I better do something about it.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Advent of Code 2020</title>
-      <link>https://nmoore.nz/portfolio/2021-01-28-advent-of-code-2020/</link>
+      <link>http://localhost:4321/portfolio/2021-01-28-advent-of-code-2020/</link>
       <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2021-01-28-advent-of-code-2020/</guid>
+      <guid>http://localhost:4321/portfolio/2021-01-28-advent-of-code-2020/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;This is a short review of my first foray into Advent of Code.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Youtube Faves</title>
-      <link>https://nmoore.nz/portfolio/2021-01-27-youtube/</link>
+      <link>http://localhost:4321/portfolio/2021-01-27-youtube/</link>
       <pubDate>Wed, 27 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://nmoore.nz/portfolio/2021-01-27-youtube/</guid>
+      <guid>http://localhost:4321/portfolio/2021-01-27-youtube/</guid>
       <description>I’m a big fan of Run the Jewels, and remixes, and brass, and shortcodes, and this gets it exactly right.</description>
     </item>
   </channel>
