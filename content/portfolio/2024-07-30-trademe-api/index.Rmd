@@ -3,7 +3,8 @@ title: TradeMe API
 author: ''
 date: '2024-07-30'
 slug: []
-categories: []
+categories: 
+  - Code
 tags: []
 image: 'img/portfolio/trademe-bw.png'
 showonlyimage: no

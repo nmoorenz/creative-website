@@ -3,7 +3,8 @@ title: TradeMe Open Home Search
 author: ''
 date: '2024-07-29'
 slug: []
-categories: []
+categories: 
+  - Code
 tags: []
 image: 'img/portfolio/trademe-property.png'
 showonlyimage: no

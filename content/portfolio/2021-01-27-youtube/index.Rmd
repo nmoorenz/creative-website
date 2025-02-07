@@ -3,7 +3,8 @@ title: Youtube Faves
 author: Nathan Moore
 date: '2021-01-27'
 slug: []
-categories: []
+categories: 
+  - Social
 tags: []
 image: 'img/portfolio/RTJ.png'
 showonlyimage: yes

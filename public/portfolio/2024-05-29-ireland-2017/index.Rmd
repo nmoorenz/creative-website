@@ -3,7 +3,8 @@ title: Ireland 2017
 author: Nathan Moore
 date: '2024-05-29'
 slug: []
-categories: []
+categories: 
+  - Travel
 tags: []
 image: 'img/eire2017/17.jpg'
 showonlyimage: no

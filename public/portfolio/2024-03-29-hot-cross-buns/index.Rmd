@@ -3,7 +3,8 @@ title: Hot Cross Buns
 author: Nathan Moore
 date: '2024-03-29'
 slug: []
-categories: []
+categories:
+  - Hot Cross Buns
 tags: []
 image: ''
 showonlyimage: no

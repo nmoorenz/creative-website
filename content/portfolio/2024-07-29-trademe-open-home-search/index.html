@@ -3,7 +3,8 @@ title: TradeMe Open Home Search
 author: ''
 date: '2024-07-29'
 slug: []
-categories: []
+categories: 
+  - Code
 tags: []
 image: 'img/portfolio/trademe-property.png'
 showonlyimage: no
@@ -153,18 +154,18 @@ listings = page_1 |&gt; html_elements(&quot;.tm-property-premium-listing-card__l
 html_elements(wiki_1, &quot;h2&quot;)</code></pre>
 <pre><code>## {xml_nodeset (20)}
 ##  [1] &lt;h2 class=&quot;vector-pinnable-header-label&quot;&gt;Contents&lt;/h2&gt;
-##  [2] &lt;h2 id=&quot;History&quot;&gt;History&lt;/h2&gt;\n
-##  [3] &lt;h2 id=&quot;Geography&quot;&gt;Geography&lt;/h2&gt;\n
-##  [4] &lt;h2 id=&quot;Demographics&quot;&gt;Demographics&lt;/h2&gt;\n
-##  [5] &lt;h2 id=&quot;Culture_and_lifestyle&quot;&gt;Culture and lifestyle&lt;/h2&gt;\n
-##  [6] &lt;h2 id=&quot;Architecture&quot;&gt;Architecture&lt;/h2&gt;\n
-##  [7] &lt;h2 id=&quot;Economy&quot;&gt;Economy&lt;/h2&gt;\n
-##  [8] &lt;h2 id=&quot;Housing&quot;&gt;Housing&lt;/h2&gt;\n
-##  [9] &lt;h2 id=&quot;Government&quot;&gt;Government&lt;/h2&gt;\n
-## [10] &lt;h2 id=&quot;Education&quot;&gt;Education&lt;/h2&gt;\n
-## [11] &lt;h2 id=&quot;Transport&quot;&gt;Transport&lt;/h2&gt;\n
-## [12] &lt;h2 id=&quot;Infrastructure_and_services&quot;&gt;Infrastructure and services&lt;/h2&gt;\n
-## [13] &lt;h2 id=&quot;Tourism&quot;&gt;Tourism&lt;/h2&gt;\n
+##  [2] &lt;h2 id=&quot;Toponymy&quot;&gt;Toponymy&lt;/h2&gt;\n
+##  [3] &lt;h2 id=&quot;History&quot;&gt;History&lt;/h2&gt;\n
+##  [4] &lt;h2 id=&quot;Geography&quot;&gt;Geography&lt;/h2&gt;\n
+##  [5] &lt;h2 id=&quot;Demographics&quot;&gt;Demographics&lt;/h2&gt;\n
+##  [6] &lt;h2 id=&quot;Culture_and_lifestyle&quot;&gt;Culture and lifestyle&lt;/h2&gt;\n
+##  [7] &lt;h2 id=&quot;Architecture&quot;&gt;Architecture&lt;/h2&gt;\n
+##  [8] &lt;h2 id=&quot;Economy&quot;&gt;Economy&lt;/h2&gt;\n
+##  [9] &lt;h2 id=&quot;Housing&quot;&gt;Housing&lt;/h2&gt;\n
+## [10] &lt;h2 id=&quot;Government&quot;&gt;Government&lt;/h2&gt;\n
+## [11] &lt;h2 id=&quot;Education&quot;&gt;Education&lt;/h2&gt;\n
+## [12] &lt;h2 id=&quot;Transport&quot;&gt;Transport&lt;/h2&gt;\n
+## [13] &lt;h2 id=&quot;Infrastructure_and_services&quot;&gt;Infrastructure and services&lt;/h2&gt;\n
 ## [14] &lt;h2 id=&quot;Cultural_references&quot;&gt;Cultural references&lt;/h2&gt;\n
 ## [15] &lt;h2 id=&quot;Notable_people&quot;&gt;Notable people&lt;/h2&gt;\n
 ## [16] &lt;h2 id=&quot;International_relationships&quot;&gt;International relationships&lt;/h2&gt;\n
@@ -190,7 +191,7 @@ and this XPath <code>//*[contains(concat( " ", @class, " " ), concat( " ", "l-co
 <p><code>/html/body/tm-root/div[1]/main/div/tm-property-search-component/div/div/tm-property-search-results/div/div[3]/tm-search-results/div/div[2]/tg-row/tg-col[7]</code></p>
 <pre class="r"><code>page_1 |&gt; html_elements(xpath = &#39;/html/body/tm-root/div&#39;)</code></pre>
 <pre><code>## {xml_nodeset (1)}
-## [1] &lt;div class=&quot;preloader&quot;&gt;\r\n                &lt;div class=&quot;preload-nav&quot;&gt;\r\n  ...</code></pre>
+## [1] &lt;div class=&quot;preloader&quot;&gt;\n                &lt;div class=&quot;preload-nav&quot;&gt;\n      ...</code></pre>
 <p>We can navigate down some elements but then we run into a list selector <code>div[1]</code>. We’ll have to figure out how to manage that. I don’t think we should have to manage that but here we are.</p>
 <pre class="r"><code>page_1 |&gt; html_elements(xpath = &#39;/tm-property-search-results&#39;)</code></pre>
 <pre><code>## {xml_nodeset (0)}</code></pre>
@@ -198,7 +199,7 @@ and this XPath <code>//*[contains(concat( " ", @class, " " ), concat( " ", "l-co
 <p>I can see that the div elements have some classes, let us try “preloader”.</p>
 <pre class="r"><code>page_1 |&gt; html_elements(css = &#39;.preloader&#39;)</code></pre>
 <pre><code>## {xml_nodeset (1)}
-## [1] &lt;div class=&quot;preloader&quot;&gt;\r\n                &lt;div class=&quot;preload-nav&quot;&gt;\r\n  ...</code></pre>
+## [1] &lt;div class=&quot;preloader&quot;&gt;\n                &lt;div class=&quot;preload-nav&quot;&gt;\n      ...</code></pre>
 <p>That works but maybe not like I want it to.</p>
 <p>OK so I’m hopeful here.</p>
 <pre class="r"><code>page_1 |&gt; html_elements(css = &#39;a.tm-property-premium-listing-card__link&#39;)</code></pre>
@@ -210,9 +211,9 @@ and this XPath <code>//*[contains(concat( " ", @class, " " ), concat( " ", "l-co
 js = html_children(divs)[2] |&gt; html_children() 
 
 html_text(js) |&gt; trimws()</code></pre>
-<pre><code>## [1] &quot;Trade Me&quot;                                                                                                                                    
-## [2] &quot;Enable JavaScript to continue&quot;                                                                                                               
-## [3] &quot;This site requires JavaScript to run. Please enable JavaScript in your browser and refresh the\r\n                        page to try again.&quot;</code></pre>
+<pre><code>## [1] &quot;Trade Me&quot;                                                                                                                                  
+## [2] &quot;Enable JavaScript to continue&quot;                                                                                                             
+## [3] &quot;This site requires JavaScript to run. Please enable JavaScript in your browser and refresh the\n                        page to try again.&quot;</code></pre>
 <p>No wonder I can’t get things, I was never going to be able to get anything.</p>
 <p><a href="https://stackoverflow.com/questions/75768141/how-to-enable-javascript-in-r-rvest-browser" class="uri">https://stackoverflow.com/questions/75768141/how-to-enable-javascript-in-r-rvest-browser</a></p>
 <p>If I search for other people that have had a similar problem, then I find that TradeMe has an API, which I probably should have started with.</p>

@@ -3,7 +3,8 @@ title: Baby Names
 author: Nathan Moore
 date: '2024-03-28'
 slug: []
-categories: []
+categories: 
+  - Code
 tags: []
 image: ''
 showonlyimage: no

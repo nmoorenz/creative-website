@@ -3,7 +3,8 @@ title: Christmas 2023
 author: Nathan Moore
 date: '2024-05-27'
 slug: []
-categories: []
+categories: 
+  - Christmas 
 tags: []
 image: '/img/fb23xmas/kitchen.jpg'
 showonlyimage: no

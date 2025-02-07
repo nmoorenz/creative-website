@@ -3,7 +3,8 @@ title: Kereru Christmas Beer 2019
 author: Nathan Moore
 date: '2025-02-03'
 slug: []
-categories: []
+categories: 
+  - Christmas
 tags: []
 image: '/img/beer2019/kereru.jpg'
 showonlyimage: no

@@ -3,10 +3,12 @@ title: Leasehold Properties
 author: Nathan Moore
 date: '2024-07-09'
 slug: []
-categories: []
+categories: 
+  - Code
 tags: []
 image: ''
 showonlyimage: no
+draft: true
 ---
 
 Leasehold properties pop up occasionally in Auckland, so I wanted to see where they are. 

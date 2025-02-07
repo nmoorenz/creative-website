@@ -3,7 +3,8 @@ title: Christmas Music 2023
 author: Nathan Moore
 date: '2024-05-29'
 slug: []
-categories: []
+categories: 
+  - Christmas
 tags: []
 image: '/img/portfolio/fb-23-xmas-music-header.jpg'
 showonlyimage: no

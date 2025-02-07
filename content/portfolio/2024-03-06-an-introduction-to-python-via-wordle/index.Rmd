@@ -3,7 +3,8 @@ title: An introduction to Python via Wordle
 author: Nathan Moore
 date: '2024-03-06'
 slug: []
-categories: []
+categories: 
+  - Code
 tags: []
 image: 'img/portfolio/wordle.jpg'
 showonlyimage: no
