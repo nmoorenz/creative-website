@@ -6,7 +6,7 @@ slug: []
 categories:
   - Christmas Mince Pies
 tags: []
-image: '/img/fb19xmas/cmp.jpg'
+image: '/img/fb19xmas/cmp.png'
 showonlyimage: no
 ---
 
