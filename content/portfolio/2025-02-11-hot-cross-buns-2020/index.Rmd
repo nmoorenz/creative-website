@@ -6,7 +6,7 @@ slug: []
 categories:
   - Hot Cross Buns
 tags: []
-image: ''
+image: '/img/fb20easter/hcb.png'
 showonlyimage: no
 ---
 
