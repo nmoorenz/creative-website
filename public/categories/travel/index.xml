@@ -4,16 +4,25 @@
     <title>Travel on Nathan Moore</title>
     <link>https://nmoore.nz/categories/travel/</link>
     <description>Recent content in Travel on Nathan Moore</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 29 May 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://nmoore.nz/categories/travel/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://nmoore.nz/categories/travel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Ireland 2017</title>
       <link>https://nmoore.nz/portfolio/2024-05-29-ireland-2017/</link>
       <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://nmoore.nz/portfolio/2024-05-29-ireland-2017/</guid>
-      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;A series of facebook posts from 2017, chronicling a trip to Ireland and the UK.&lt;/p&gt;&#xD;&#xA;</description>
+      <description>
+
+
+&lt;p&gt;A series of facebook posts from 2017, chronicling a trip to Ireland and the UK.&lt;/p&gt;
+</description>
     </item>
+    
   </channel>
 </rss>

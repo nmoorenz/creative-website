@@ -4,23 +4,38 @@
     <title>Christmas on Nathan Moore</title>
     <link>https://nmoore.nz/categories/christmas/</link>
     <description>Recent content in Christmas on Nathan Moore</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 May 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://nmoore.nz/categories/christmas/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Feb 2025 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://nmoore.nz/categories/christmas/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Christmas Music 2023</title>
       <link>https://nmoore.nz/portfolio/2024-05-29-christmas-music-2023/</link>
       <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://nmoore.nz/portfolio/2024-05-29-christmas-music-2023/</guid>
-      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Some recommendations for alternative Christmas music&lt;/p&gt;&#xD;&#xA;</description>
+      <description>
+
+
+&lt;p&gt;Some recommendations for alternative Christmas music&lt;/p&gt;
+</description>
     </item>
+    
     <item>
       <title>Christmas 2023</title>
       <link>https://nmoore.nz/portfolio/2024-05-27-christmas-2023/</link>
       <pubDate>Mon, 27 May 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://nmoore.nz/portfolio/2024-05-27-christmas-2023/</guid>
-      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;This is a copy of my 2023 Christmas thread on Facebook&lt;/p&gt;&#xD;&#xA;</description>
+      <description>
+
+
+&lt;p&gt;This is a copy of my 2023 Christmas thread on Facebook&lt;/p&gt;
+</description>
     </item>
+    
   </channel>
 </rss>

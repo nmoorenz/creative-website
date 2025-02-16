@@ -4,8 +4,11 @@
     <title>Tags on Nathan Moore</title>
     <link>https://nmoore.nz/tags/</link>
     <description>Recent content in Tags on Nathan Moore</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://nmoore.nz/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://nmoore.nz/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
   </channel>
 </rss>
