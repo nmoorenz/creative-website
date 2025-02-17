@@ -2,78 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Christmas Mince Pies on Nathan Moore</title>
-    <link>https://nmoore.nz/categories/christmas-mince-pies/</link>
+    <link>http://localhost:4321/categories/christmas-mince-pies/</link>
     <description>Recent content in Christmas Mince Pies on Nathan Moore</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Feb 2025 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://nmoore.nz/categories/christmas-mince-pies/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 17 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:4321/categories/christmas-mince-pies/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Christmas Mince Pies 2020</title>
+      <link>http://localhost:4321/portfolio/2025-02-17-christmas-mince-pies-2020/</link>
+      <pubDate>Mon, 17 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/portfolio/2025-02-17-christmas-mince-pies-2020/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;</description>
+    </item>
     <item>
       <title>Christmas Mince Pies 2019</title>
-      <link>https://nmoore.nz/portfolio/2025-02-10-christmas-mince-pies-2019/</link>
+      <link>http://localhost:4321/portfolio/2025-02-10-christmas-mince-pies-2019/</link>
       <pubDate>Mon, 10 Feb 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://nmoore.nz/portfolio/2025-02-10-christmas-mince-pies-2019/</guid>
-      <description>
-
-
-</description>
+      <guid>http://localhost:4321/portfolio/2025-02-10-christmas-mince-pies-2019/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>Christmas Mince Pie Review 2017</title>
-      <link>https://nmoore.nz/portfolio/2025-02-07-christmas-mince-pie-review-2017/</link>
+      <link>http://localhost:4321/portfolio/2025-02-07-christmas-mince-pie-review-2017/</link>
       <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://nmoore.nz/portfolio/2025-02-07-christmas-mince-pie-review-2017/</guid>
-      <description>
-
-
-&lt;p&gt;Christmas Mince Pies 2017&lt;/p&gt;
-</description>
+      <guid>http://localhost:4321/portfolio/2025-02-07-christmas-mince-pie-review-2017/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Christmas Mince Pies 2017&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>Christmas Mince Pies 2018</title>
-      <link>https://nmoore.nz/portfolio/2025-02-07-christmas-mince-pies-2018/</link>
+      <link>http://localhost:4321/portfolio/2025-02-07-christmas-mince-pies-2018/</link>
       <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://nmoore.nz/portfolio/2025-02-07-christmas-mince-pies-2018/</guid>
-      <description>
-
-
-&lt;p&gt;Christmas Mince Pies 2018&lt;/p&gt;
-</description>
+      <guid>http://localhost:4321/portfolio/2025-02-07-christmas-mince-pies-2018/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Christmas Mince Pies 2018&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>Christmas Mince Pies 2021</title>
-      <link>https://nmoore.nz/portfolio/2024-05-31-christmas-mince-pies-2021/</link>
+      <link>http://localhost:4321/portfolio/2024-05-31-christmas-mince-pies-2021/</link>
       <pubDate>Fri, 31 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://nmoore.nz/portfolio/2024-05-31-christmas-mince-pies-2021/</guid>
-      <description>
-
-
-&lt;p&gt;Christmas mince pies, 2021.&lt;/p&gt;
-</description>
+      <guid>http://localhost:4321/portfolio/2024-05-31-christmas-mince-pies-2021/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Christmas mince pies, 2021.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>Christmas Mince Pies 2022</title>
-      <link>https://nmoore.nz/portfolio/2024-05-30-christmas-mince-pies-2022/</link>
+      <link>http://localhost:4321/portfolio/2024-05-30-christmas-mince-pies-2022/</link>
       <pubDate>Thu, 30 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://nmoore.nz/portfolio/2024-05-30-christmas-mince-pies-2022/</guid>
-      <description>
-
-
-&lt;p&gt;Christmas Mince Pies 2022, Irish Style&lt;/p&gt;
-</description>
+      <guid>http://localhost:4321/portfolio/2024-05-30-christmas-mince-pies-2022/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Christmas Mince Pies 2022, Irish Style&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
   </channel>
 </rss>

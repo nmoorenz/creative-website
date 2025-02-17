@@ -2,89 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Social on Nathan Moore</title>
-    <link>https://nmoore.nz/categories/social/</link>
+    <link>http://localhost:4321/categories/social/</link>
     <description>Recent content in Social on Nathan Moore</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 14 Feb 2025 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://nmoore.nz/categories/social/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="http://localhost:4321/categories/social/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Lockdown Jigsaws 2020</title>
-      <link>https://nmoore.nz/portfolio/2025-02-14-lockdown-jigsaws/</link>
+      <link>http://localhost:4321/portfolio/2025-02-14-lockdown-jigsaws/</link>
       <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://nmoore.nz/portfolio/2025-02-14-lockdown-jigsaws/</guid>
-      <description>
-
-
-&lt;p&gt;Show me your jigsaws!&lt;/p&gt;
-</description>
+      <guid>http://localhost:4321/portfolio/2025-02-14-lockdown-jigsaws/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Show me your jigsaws!&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>Twitter Secret Santa</title>
-      <link>https://nmoore.nz/portfolio/2025-02-07-twitter-secret-santa/</link>
+      <link>http://localhost:4321/portfolio/2025-02-07-twitter-secret-santa/</link>
       <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://nmoore.nz/portfolio/2025-02-07-twitter-secret-santa/</guid>
-      <description>
-
-
-&lt;p&gt;Twitter Secret Santa&lt;/p&gt;
-</description>
+      <guid>http://localhost:4321/portfolio/2025-02-07-twitter-secret-santa/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Twitter Secret Santa&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>Covid Sucks</title>
-      <link>https://nmoore.nz/portfolio/2024-06-05-covid-sucks/</link>
+      <link>http://localhost:4321/portfolio/2024-06-05-covid-sucks/</link>
       <pubDate>Wed, 05 Jun 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://nmoore.nz/portfolio/2024-06-05-covid-sucks/</guid>
-      <description>
-
-
-&lt;p&gt;This is a recollection of a series of facebook posts about how much covid sucks but how covid denialists and anti-vaxers suck even more.&lt;/p&gt;
-</description>
+      <guid>http://localhost:4321/portfolio/2024-06-05-covid-sucks/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;This is a recollection of a series of facebook posts about how much covid sucks but how covid denialists and anti-vaxers suck even more.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>Non-Places and Third Places</title>
-      <link>https://nmoore.nz/portfolio/2024-04-05-non-place-third-place/</link>
+      <link>http://localhost:4321/portfolio/2024-04-05-non-place-third-place/</link>
       <pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://nmoore.nz/portfolio/2024-04-05-non-place-third-place/</guid>
-      <description>
-
-
-&lt;p&gt;I have known about the concept of a “Third Place” for some time, but “Non-Places” are new to me.&lt;/p&gt;
-</description>
+      <guid>http://localhost:4321/portfolio/2024-04-05-non-place-third-place/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;I have known about the concept of a “Third Place” for some time, but “Non-Places” are new to me.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>Running Adventures</title>
-      <link>https://nmoore.nz/portfolio/2024-03-11-running-adventures/</link>
+      <link>http://localhost:4321/portfolio/2024-03-11-running-adventures/</link>
       <pubDate>Mon, 11 Mar 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://nmoore.nz/portfolio/2024-03-11-running-adventures/</guid>
-      <description>
-
-
-&lt;p&gt;These are not my running adventures.&lt;/p&gt;
-</description>
+      <guid>http://localhost:4321/portfolio/2024-03-11-running-adventures/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;These are not my running adventures.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>Youtube Faves</title>
-      <link>https://nmoore.nz/portfolio/2021-01-27-youtube/</link>
+      <link>http://localhost:4321/portfolio/2021-01-27-youtube/</link>
       <pubDate>Wed, 27 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nmoore.nz/portfolio/2021-01-27-youtube/</guid>
-      <description>I’m a big fan of Run the Jewels, and remixes, and brass, and shortcodes, and this gets it exactly right.
-  </description>
+      <guid>http://localhost:4321/portfolio/2021-01-27-youtube/</guid>
+      <description>I’m a big fan of Run the Jewels, and remixes, and brass, and shortcodes, and this gets it exactly right.</description>
     </item>
-    
   </channel>
 </rss>
