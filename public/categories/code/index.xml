@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code on Nathan Moore</title>
-    <link>http://localhost:4321/categories/code/</link>
+    <link>https://nmoore.nz/categories/code/</link>
     <description>Recent content in Code on Nathan Moore</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Jul 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:4321/categories/code/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nmoore.nz/categories/code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Change Email in Git Repo</title>
+      <link>https://nmoore.nz/portfolio/2025-02-28-change-email-in-git-repo/</link>
+      <pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://nmoore.nz/portfolio/2025-02-28-change-email-in-git-repo/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;I always get confused by this.&lt;/p&gt;&#xD;&#xA;</description>
+    </item>
     <item>
       <title>TradeMe Open Home Search</title>
-      <link>http://localhost:4321/portfolio/2024-07-29-trademe-open-home-search/</link>
+      <link>https://nmoore.nz/portfolio/2024-07-29-trademe-open-home-search/</link>
       <pubDate>Mon, 29 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-07-29-trademe-open-home-search/</guid>
+      <guid>https://nmoore.nz/portfolio/2024-07-29-trademe-open-home-search/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;This post explores TradeMe as New Zealand’s most popular property website.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
-      <title>Baby Names</title>
-      <link>http://localhost:4321/portfolio/2024-03-28-baby-names/</link>
-      <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-03-28-baby-names/</guid>
-      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Baby names become very interesting when you have a child.&lt;/p&gt;&#xD;&#xA;</description>
-    </item>
-    <item>
       <title>An introduction to Python via Wordle</title>
-      <link>http://localhost:4321/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</link>
+      <link>https://nmoore.nz/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</link>
       <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</guid>
+      <guid>https://nmoore.nz/portfolio/2024-03-06-an-introduction-to-python-via-wordle/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;When Wordle first went viral I was in a group chat at work and had the idea of making a Python tutorial based on Wordle. I never did it, but this post is that introduction. I will likely do another introduction to R post as well.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Website Update</title>
-      <link>http://localhost:4321/portfolio/2024-03-06-website-update/</link>
+      <link>https://nmoore.nz/portfolio/2024-03-06-website-update/</link>
       <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2024-03-06-website-update/</guid>
+      <guid>https://nmoore.nz/portfolio/2024-03-06-website-update/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;It’s been some years since I’ve updated my personal website so I though I better do something about it.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
     <item>
       <title>Advent of Code 2020</title>
-      <link>http://localhost:4321/portfolio/2021-01-28-advent-of-code-2020/</link>
+      <link>https://nmoore.nz/portfolio/2021-01-28-advent-of-code-2020/</link>
       <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/portfolio/2021-01-28-advent-of-code-2020/</guid>
+      <guid>https://nmoore.nz/portfolio/2021-01-28-advent-of-code-2020/</guid>
       <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;This is a short review of my first foray into Advent of Code.&lt;/p&gt;&#xD;&#xA;</description>
     </item>
   </channel>

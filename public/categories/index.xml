@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Nathan Moore</title>
-    <link>http://localhost:4321/categories/</link>
+    <link>https://nmoore.nz/categories/</link>
     <description>Recent content in Categories on Nathan Moore</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Feb 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:4321/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nmoore.nz/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code</title>
+      <link>https://nmoore.nz/categories/code/</link>
+      <pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://nmoore.nz/categories/code/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Christmas Mince Pies</title>
-      <link>http://localhost:4321/categories/christmas-mince-pies/</link>
+      <link>https://nmoore.nz/categories/christmas-mince-pies/</link>
       <pubDate>Mon, 17 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/categories/christmas-mince-pies/</guid>
+      <guid>https://nmoore.nz/categories/christmas-mince-pies/</guid>
       <description></description>
     </item>
     <item>
       <title>Hot Cross Buns</title>
-      <link>http://localhost:4321/categories/hot-cross-buns/</link>
+      <link>https://nmoore.nz/categories/hot-cross-buns/</link>
       <pubDate>Sun, 16 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/categories/hot-cross-buns/</guid>
+      <guid>https://nmoore.nz/categories/hot-cross-buns/</guid>
       <description></description>
     </item>
     <item>
       <title>Social</title>
-      <link>http://localhost:4321/categories/social/</link>
+      <link>https://nmoore.nz/categories/social/</link>
       <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/categories/social/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Code</title>
-      <link>http://localhost:4321/categories/code/</link>
-      <pubDate>Mon, 29 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/categories/code/</guid>
+      <guid>https://nmoore.nz/categories/social/</guid>
       <description></description>
     </item>
     <item>
       <title>Christmas</title>
-      <link>http://localhost:4321/categories/christmas/</link>
+      <link>https://nmoore.nz/categories/christmas/</link>
       <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/categories/christmas/</guid>
+      <guid>https://nmoore.nz/categories/christmas/</guid>
       <description></description>
     </item>
     <item>
       <title>Travel</title>
-      <link>http://localhost:4321/categories/travel/</link>
+      <link>https://nmoore.nz/categories/travel/</link>
       <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/categories/travel/</guid>
+      <guid>https://nmoore.nz/categories/travel/</guid>
       <description></description>
     </item>
   </channel>

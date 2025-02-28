@@ -1,0 +1,89 @@
+---
+title: Change Email in Git Repo
+author: Nathan Moore
+date: '2025-02-28'
+slug: []
+categories:
+  - Code
+tags: []
+image: ''
+showonlyimage: no
+---
+
+I always get confused by this.
+
+<!--more-->
+
+I often move between work computer and home computer, and pick up work on a repository after months or even years of not doing anything with it. I recently did this with a few repositories to fix them up. I also moved jobs last year. So, I have a new work computer but want to commit with my personal email address, not my work address, and I had not updated the local user.email for one of the old repos.
+
+These are my notes so I don't have to go searching through StackOverflow every time.
+
+An additional weird problem I just found is that I use the same profile picture for most things so I can't quickly tell the difference between commits on GitHub. Slowly scrolling, then... Scrolling through `git log`... I could probably find a command for showing commit information on one line... Anyway.
+
+To find current configuration
+
+```         
+git config --list
+```
+
+and specifically for email address
+
+```         
+git config user.email
+```
+
+I don't want to change the email address globally for this computer, I just want to change for the repository i.e. locally.
+
+```         
+git config --local user.email "your_email@abc.example"
+```
+
+Reference: <https://stackoverflow.com/questions/37805621/change-email-address-in-git>
+
+Now, I want to change previous commits, specifically their email address.
+
+This looks like what I want:\
+<https://stackoverflow.com/questions/750172/how-do-i-change-the-author-and-committer-name-email-for-multiple-commits>
+
+Other references:\
+<https://stackoverflow.com/questions/28536980/git-change-commit-date-to-author-date>\
+<https://stackoverflow.com/questions/2919878/git-rewrite-previous-commit-usernames-and-emails>
+
+```         
+git rebase -r <some commit before all of your bad commits> \
+    --exec 'git commit --amend --no-edit --reset-author'
+```
+
+Except, this is not what I want, because I don't really want to change all of the metadata. This changes the dates and times of old commits, which I don't really want to do.
+
+I also don't know how to get rid of what I've just done, since `git pull` does a merge into the main branch. I have deleted the local repo and cloned the GitHub copy into the same place. Drastic! It's quick though. 
+
+Notes: it looks like filter-branch is not a good idea; I am not worried about force pushing or for others to use my work, it's only me using a private repo; I would like to keep the dates of old commits even though it doesn't actually matter; I don't have any tags on commits; I don't want to filter certain email addresses, I just want all the same email address. 
+
+This answer will work for the latest commit only, after changing the user name and email.
+
+```         
+git commit --amend --reset-author --no-edit 
+```
+
+Then this answer shows up, way down the list\
+https://stackoverflow.com/a/75841127
+
+```   
+git commit --amend --author 'My Name <email@example.com>' --no-edit 
+```   
+
+And this is what we want! Glorious. 
+
+``` 
+git rebase -r <commit/branch before wrong author and email or '--root' for all commits> --exec "git commit --amend --no-edit --author 'My Name <email@example.com>'"
+``` 
+
+Then to get those changes back to a remote repository, `-f` to force
+
+``` 
+git push -f
+``` 
+
+Thanks for listening. 
+
