@@ -45,3 +45,13 @@ showonlyimage: no
 <p>Then to get those changes back to a remote repository, <code>-f</code> to force</p>
 <pre><code>git push -f</code></pre>
 <p>Thanks for listening.</p>
+<p>Post Script:</p>
+<p>Two things that I had to do recently, rename a branch and push to remote automatically.</p>
+<p><a href="https://stackoverflow.com/questions/6591213/how-can-i-rename-a-local-git-branch" class="uri">https://stackoverflow.com/questions/6591213/how-can-i-rename-a-local-git-branch</a></p>
+<p>Rename the current branch:</p>
+<pre><code>git branch -m &lt;newname&gt;</code></pre>
+<p>or rename any branch from old to new</p>
+<pre><code>git branch -m &lt;oldname&gt; &lt;newname&gt;</code></pre>
+<p>When adding a new branch locally, I want to be able to write <code>git push</code> and have the remote set to track the local automatically. Run this once and future branches will be good to go.</p>
+<p><a href="https://stackoverflow.com/questions/29422101/automatically-track-remote-branch-with-git" class="uri">https://stackoverflow.com/questions/29422101/automatically-track-remote-branch-with-git</a></p>
+<pre><code>git config --global --type bool push.autoSetupRemote true</code></pre>

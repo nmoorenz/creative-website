@@ -87,3 +87,28 @@ git push -f
 
 Thanks for listening. 
 
+Post Script: 
+
+Two things that I had to do recently, rename a branch and push to remote automatically. 
+
+https://stackoverflow.com/questions/6591213/how-can-i-rename-a-local-git-branch
+
+Rename the current branch: 
+
+``` 
+git branch -m <newname>
+``` 
+
+or rename any branch from old to new
+
+``` 
+git branch -m <oldname> <newname>
+``` 
+
+When adding a new branch locally, I want to be able to write `git push` and have the remote set to track the local automatically. Run this once and future branches will be good to go.
+
+https://stackoverflow.com/questions/29422101/automatically-track-remote-branch-with-git
+
+```
+git config --global --type bool push.autoSetupRemote true
+``` 
