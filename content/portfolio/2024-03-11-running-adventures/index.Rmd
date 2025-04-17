@@ -10,64 +10,58 @@ image: 'img/portfolio/auckland-volcanos.jpg'
 showonlyimage: no
 ---
 
-These are not my running adventures. 
+These are not my running adventures.
 
 <!--more-->
 
 ### Barkley
 
-I don't know how I first became interested in the Barkley Marathon. It's a fascinating race in the Appalchian mountains with a secret entry process, a quirky race director, and unknown route. It's happening again soon for 2024, but no one apart from those organising and taking part know when it's going to happen. 
+I don't know how I first became interested in the Barkley Marathon. It's a fascinating race in the Appalchian mountains with a secret entry process, a quirky race director, and unknown route. It's happening again soon for 2024, but no one apart from those organising and taking part know when it's going to happen.
 
-After a quick search to find different videos, run247 has a number of recent articles giving background and a [preview of 2024](https://run247.com/race-previews/barkley-marathons-2024-how-to-follow-live-tracking-latest-results). There are plenty of onward links from that article. There's also [this list](https://run247.com/running-news/trail/barkley-marathons-best-documentaries) of documentaries, which are fascinating insights in to the toil and likely failure of a nearly impossible race. "The Race That Eats Its Young" and "Where Dreams Go To Die" are apt titles for these captures of human ~~suffering~~ endeavour. 
+After a quick search to find different videos, run247 has a number of recent articles giving background and a [preview of 2024](https://run247.com/race-previews/barkley-marathons-2024-how-to-follow-live-tracking-latest-results). There are plenty of onward links from that article. There's also [this list](https://run247.com/running-news/trail/barkley-marathons-best-documentaries) of documentaries, which are fascinating insights in to the toil and likely failure of a nearly impossible race. "The Race That Eats Its Young" and "Where Dreams Go To Die" are apt titles for these captures of human ~~suffering~~ endeavour.
 
-An aside, that I found while looking for Barkley documentaries, linked to from the run247 posts: John Kelly (two time finisher of the Barkley) has a great blog with info on [Hot to apply to Barkley](https://randomforestrunner.com/2017/05/how-to-apply-to-barkley/) and [How to get in to Barkley](https://randomforestrunner.com/2024/02/how-to-get-in-to-the-barkley-marathons/). He also has a post on the [Grand Round](https://randomforestrunner.com/2020/08/the-grand-round-2020/) which is a nice segway into the next link. 
+An aside, that I found while looking for Barkley documentaries, linked to from the run247 posts: John Kelly (two time finisher of the Barkley) has a great blog with info on [How to apply to Barkley](https://randomforestrunner.com/2017/05/how-to-apply-to-barkley/) and [How to get in to Barkley](https://randomforestrunner.com/2024/02/how-to-get-in-to-the-barkley-marathons/). He also has a post on the [Grand Round](https://randomforestrunner.com/2020/08/the-grand-round-2020/) which is a nice segway into the next link.
 
-### Bob Graham 
+### Bob Graham
 
-As a result of watching lots of ultramarathon videos on youtube I got recommended this video from Canadian Jeff Pelletier doing the Bob Graham Round. I really enjoyed it so wanted to include it here.         
+As a result of watching lots of ultramarathon videos on youtube I got recommended this video from Canadian Jeff Pelletier doing the Bob Graham Round. I really enjoyed it so wanted to include it here.
 
 ```{r echo=FALSE}
 blogdown::shortcode('youtube', 'dOTPAayi4nM')
 ```
 
-First run by Bob Graham in 1932 (aged 42), the 42 peaks of the round need to be visited within 24 hours. There is now a whole community and [website](http://bobgrahamclub.org.uk/) and awards dinner (!!) every year. 
+First run by Bob Graham in 1932 (aged 42), the 42 peaks of the round need to be visited within 24 hours. There is now a whole community and [website](http://bobgrahamclub.org.uk/) and awards dinner (!!) every year.
 
-### Ireland 
+### Ireland
 
-That brings me to the next part of my post. Again, I think I just stumbled across these one day. There are two rounds in Ireland, one older and one newer. 
+That brings me to the next part of my post. Again, I think I just stumbled across these one day. There are two rounds in Ireland, one older and one newer.
 
-Wicklow is older, having been run since 2009. https://www.imra.ie/rounds/view/id/1 gives course information, completed rounds, rules, and records. With the help of [Grid Reference Finder](https://irish.gridreferencefinder.com/) I created a [google maps route](https://www.google.com/maps/d/edit?mid=1QgIPBX262RkN0iKXeV2Aqll-1DIssW8&usp=sharing), in the vague hope that I might one day be able to even think about completing the challenge. 
+Wicklow is older, having been run since 2009. <https://www.imra.ie/rounds/view/id/1> gives course information, completed rounds, rules, and records. With the help of [Grid Reference Finder](https://irish.gridreferencefinder.com/) I created a [google maps route](https://www.google.com/maps/d/edit?mid=1QgIPBX262RkN0iKXeV2Aqll-1DIssW8&usp=sharing), in the vague hope that I might one day be able to even think about completing the challenge.
 
-There's also the Connemara round: https://www.imra.ie/rounds/view/id/2 has only one completion, in 2023! Again, I created a [google maps route](https://www.google.com/maps/d/edit?mid=1oBqP3bHHey8xyuYKDXuy7nlUo7RUdSc&usp=sharing). This is a wonderful part of Ireland that I have been to but not explored enough. 
+There's also the Connemara round: <https://www.imra.ie/rounds/view/id/2> has only one completion, in 2023! Again, I created a [google maps route](https://www.google.com/maps/d/edit?mid=1oBqP3bHHey8xyuYKDXuy7nlUo7RUdSc&usp=sharing). This is a wonderful part of Ireland that I have been to but not explored enough.
 
-And just for good measure, I created an [Auckland Volcano Round](https://www.google.com/maps/d/edit?mid=1UaMIiIh9aCgrUMvyGIXSGidaEJDkqK8&usp=sharing). Future task: create a script to find the shortest route between a selection of the volcanos in a Travelling Salesperson fashion. 
+And just for good measure, I created an [Auckland Volcano Round](https://www.google.com/maps/d/edit?mid=1UaMIiIh9aCgrUMvyGIXSGidaEJDkqK8&usp=sharing). Future task: create a script to find the shortest route between a selection of the volcanos in a Travelling Salesperson fashion.
 
-All this is to say, I love the idea of these runs, it is two and a half years until I am 42, and maybe I should do something about putting these dreams into reality. 
+All this is to say, I love the idea of these runs, it is two and a half years until I am 42, and maybe I should do something about putting these dreams into reality.
 
 ### 2024 Barkley
 
-Update: the 2024 Barkley Marathon had five finishers, including the first woman, Jasmin Paris. 
+Update: the 2024 Barkley Marathon had five finishers, including the first woman, Jasmin Paris.
 
-Here are a bunch of links with results: 
+Here are a bunch of links with results:
 
-https://www.irunfar.com/2024-barkley-marathons-results
+<https://www.irunfar.com/2024-barkley-marathons-results>
 
-https://www.runnersworld.com/news/a60281789/barkley-marathons-2024-results/
+<https://www.runnersworld.com/news/a60281789/barkley-marathons-2024-results/>
 
-https://therunningchannel.com/barkley-marathons-worlds-hardest-race-2024/
+<https://therunningchannel.com/barkley-marathons-worlds-hardest-race-2024/>
 
-https://therunningchannel.com/jasmin-paris-a-portrait-of-perseverance/
+<https://therunningchannel.com/jasmin-paris-a-portrait-of-perseverance/>
 
-https://run247.com/running-news/trail/barkley-marathons-2024-records
+<https://run247.com/running-news/trail/barkley-marathons-2024-records>
 
-https://run247.com/running-races/barkley-marathons 
+<https://run247.com/running-races/barkley-marathons>
 
-And something I didn't know about before, a nice and simple but very useful spreadsheet of previous results 
+And something I didn't know about before, a nice and simple but very useful spreadsheet of previous results
 
-https://docs.google.com/spreadsheets/d/e/2PACX-1vS7bFn8RH5Na4vVxNijCsFCiHeYqRksDi5D9ddC9Fz4yK7nOQhEg8HwG78lz-PFVB2EkFn4QlJKEXMV/pubhtml#
-
-
-
-
-
-
+<https://docs.google.com/spreadsheets/d/e/2PACX-1vS7bFn8RH5Na4vVxNijCsFCiHeYqRksDi5D9ddC9Fz4yK7nOQhEg8HwG78lz-PFVB2EkFn4QlJKEXMV/pubhtml#>
