@@ -1,3 +1,20 @@
+---
+title: Record Holder
+author: Nathan Moore
+date: '2025-06-01'
+slug: []
+categories:
+  - Code
+tags: []
+image: ''
+showonlyimage: no
+---
+
+Record Holder for most drafts and ideas without follow through
+
+<!--more-->
+
+
 https://www.printables.com/model/814126-vinyl-record-stand
 
 https://www.printables.com/model/344357-vinyl-record-stand
