@@ -4,7 +4,7 @@ author: Nathan Moore
 date: '2025-05-31'
 slug: []
 categories:
-  - Running
+  - Social
 tags: []
 image: ''
 showonlyimage: no
