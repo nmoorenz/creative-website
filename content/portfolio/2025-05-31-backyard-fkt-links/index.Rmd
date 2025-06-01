@@ -1,3 +1,19 @@
+---
+title: Trails and Trials
+author: Nathan Moore
+date: '2025-05-31'
+slug: []
+categories:
+  - Running
+tags: []
+image: ''
+showonlyimage: no
+---
+
+More links and ideas for ultra running posts
+
+<!--more-->
+
 https://www.instagram.com/backyardstats?igsh=MXR2ZHF4c29uczlxYw==
 
 https://trailrunningnz.substack.com/p/2024-world-backyard-ultra-champs
