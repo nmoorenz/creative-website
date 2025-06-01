@@ -1,3 +1,19 @@
+---
+title: Links for Creating NAS with a Raspberry PI
+author: Nathan Moore
+date: '2025-05-30'
+slug: []
+categories:
+  - Code
+tags: []
+image: ''
+showonlyimage: no
+---
+
+Plans and theories for creating network attached storage
+
+<!--more-->
+
 https://www.google.com/search?q=raspberry+pi+nas+server&oq=raspberry+pi+nas+server
 
 https://www.raspberrypi.com/tutorials/nas-box-raspberry-pi-tutorial/
