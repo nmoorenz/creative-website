@@ -1,0 +1,40 @@
+---
+title: Links for Creating NAS with a Raspberry PI
+author: Nathan Moore
+date: '2025-05-30'
+slug: []
+categories:
+  - Code
+tags: []
+image: ''
+showonlyimage: no
+---
+
+Plans and theories for creating network attached storage
+
+<!--more-->
+
+https://www.google.com/search?q=raspberry+pi+nas+server&oq=raspberry+pi+nas+server
+
+https://www.raspberrypi.com/tutorials/nas-box-raspberry-pi-tutorial/
+
+https://www.reddit.com/r/HomeServer/comments/1alr4lj/is_raspberrypi_good_for_home_nas/
+
+https://www.reddit.com/r/RASPBERRY_PI_PROJECTS/comments/t0b4a9/anyone_make_a_home_nas_with_a_raspberry_pi_words/
+
+https://www.reddit.com/r/homelab/comments/15uwvrb/raspberry_pi_nas_setup/
+
+https://au.pcmag.com/network-attached-storage/65070/how-to-turn-a-raspberry-pi-into-a-nas-for-whole-home-file-sharing
+
+https://medium.com/@mister-life/so-you-want-a-raspberry-pi-nas-a478e8b5b17d
+https://www.techradar.com/pro/i-thought-a-raspberry-pi-nas-was-a-good-idea-heres-why-im-wrong
+
+https://www.reddit.com/r/selfhosted/comments/126q8di/is_jellyfin_really_so_much_better_than_plex/
+
+https://www.instructables.com/Raspberry-Pi-NAS/
+
+https://www.reddit.com/r/selfhosted/comments/1df471p/self_hosted_photo_management_2024/
+
+https://www.google.com/search?q=self+host+photo+website&oq=self+host+photo+website
+
+https://core-electronics.com.au/guides/how-to-raspberry-pi-nas/
