@@ -38,3 +38,24 @@ https://www.reddit.com/r/selfhosted/comments/1df471p/self_hosted_photo_managemen
 https://www.google.com/search?q=self+host+photo+website&oq=self+host+photo+website
 
 https://core-electronics.com.au/guides/how-to-raspberry-pi-nas/
+
+## More Links
+
+https://www.xda-developers.com/installing-plex-on-raspberry-pi-zero-2w/
+
+https://www.howtogeek.com/mistakes-i-made-when-hosting-my-first-plex-media-server/
+
+https://www.xda-developers.com/things-i-do-to-simplify-self-hosting/
+
+https://www.xda-developers.com/i-use-these-7-self-hosted-apps-instead-of-google-drive-notion-and-more/
+
+https://www.xda-developers.com/a-gui-distribution-isnt-all-that-bad-for-an-entry-level-home-server/
+
+https://thenewstack.io/build-your-own-private-cloud-at-home-with-docker/
+
+https://www.xda-developers.com/why-i-went-hybrid-with-nas/
+
+https://www.xda-developers.com/irreplaceable-services-my-nas-provides-that-i-couldnt-live-without/
+
+https://au.lifehacker.com/software/114824/help/why-you-should-use-more-than-one-cloud-storage-service-and-how-to-choose-them
+
