@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Advent of Code 2020</title>
+
 <meta name="description" content="Nathan&#39;s Website">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
@@ -103,73 +103,104 @@
   <div class="row">
     <div class="col-lg-8">
       <div class="content-column-content">
-         <h1>Advent of Code 2020</h1>
-         <p>This is a short review of my first foray into Advent of Code. I’ve started to gather my thoughts in the github readme while looking over the code again. I had big goals of completing each day in R and python, but after a few days decided that one language was more than enough. It will be an ongoing project to look at each day and see if I can write python solutions, while also collecting choice tidbits of fancy or useful or awful code.</p>
-<p>This is the advent website: <a href="https://adventofcode.com/2020">Advent of Code 2020</a></p>
-<p>This is my github repository: <a href="https://github.com/nmoorenz/advent-of-code">github.com/nmoorenz/advent-of-code</a></p>
-<p>The following is a comparison of R and Python code for day 5, my favourite day of the challenge. Recognising the ticket numbers can be interpreted in binary is a crucial breakthrough. I love finding a new and good function in R: <code>strtoi()</code>. That takes a <code>base</code> argument for binary! Then finding <code>int()</code> in Python has the same argument. List comprehensions are, for me, a killer feature of Python.</p>
-<div id="r-code" class="section level3">
-<h3>R Code</h3>
-<pre class="r"><code># tidyverse of course
-suppressPackageStartupMessages(library(tidyverse))
+         <h1></h1>
+         <p>Christmas mince pies, 2021.</p>
+<p><strong>Countdown Salted Caramel Tarts</strong><br />
+A twist on the regular. Quite nice, not at all traditional. Filling did
+not fill the case.<br />
+Average 3/5</p>
+<p><img role="img" src="/img/fb21xmas/cd-salted-caramel.jpg" /></p>
+<p>Didn’t really fill the case after the top rose. Inadequate</p>
+<p><img role="img" src="/img/fb21xmas/cd-salted-gap.jpg" /></p>
+<p>Extra cases - I don’t need 5, thanks though</p>
+<p><img role="img" src="/img/fb21xmas/cd-salted-cases.jpg" /></p>
+<p><strong>Countdown Plum and Gin</strong><br />
+These are great. No gin taste but it is fun to pretend I’m having a
+tipple for morning tea. The plum is excellent. Something went on during
+baking, all the ones in the store were bubbled over as well.<br />
+4/5 gotta look your best</p>
+<p><img role="img" src="/img/fb21xmas/cd-plum-gin.jpg" /></p>
+<p><strong>New World Xmas Mince Tarts</strong><br />
+How good do these look? The ribbon 🎀 really makes these stand out. It’s
+reusable as well with a little untie. Christmas wrapping totally sorted.
+Icing sugar sprinkled on top too which is a luxury. Good tarts, similar
+to others, which I do enjoy.<br />
+5/5 gotta look your best</p>
+<p><img role="img" src="/img/fb21xmas/new-world-ribbon.jpg" /></p>
+<p>New World also have these in silver and gold, in case you’re looking
+for some colour coordination for the Christmas table</p>
+<p><img role="img" src="/img/fb21xmas/new-world-shop.jpg" /></p>
+<p><strong>Edmonds Apricot and Cardamom Spiced Tarts</strong><br />
+These were surprisingly good. Well presented in the usual Edmonds box.
+No foil case, so they must have a premium production line to get them
+out of the trays safely. Filling flavours were perfectly complimentary,
+pastry well baked.<br />
+5/5 the score might be generous but worth your time</p>
+<p><img role="img" src="/img/fb21xmas/new-world-shop.jpg" /></p>
+<p><strong>Countdown Traditional FRUIT Mince Pies</strong><br />
+New packaging, I think. They might have changed up the filling recipe
+slightly? There was a little more bite in the fruit.<br />
+4/5 consistency is good</p>
+<p><img role="img" src="/img/fb21xmas/cd-trad.jpg" /></p>
+<p><strong>Countdown Rum Infused Tarts</strong><br />
+These are good. Similar to the gin ones, a little filling escaped during
+baking. Just a hint of rum spice with the traditional fruit mince. Has
+the price been reduced? Don’t be scared folks.<br />
+4/5 dealz</p>
+<p><img role="img" src="/img/fb21xmas/cd-rum.jpg" /></p>
+<p><strong>Katie Moore Homemade Mince Pies</strong><br />
+Sultanas, green apple, orange peel, brandy, no figs this year. Great by
+themselves or with ice cream.<br />
+5/5 great to spend time with family at Christmas</p>
+<p><img role="img" src="/img/fb21xmas/homemade.jpg" /></p>
 
-# love the here package to load things
-inputfile = here::here(&quot;static&quot;, &quot;data&quot;, &quot;advent2020&quot;, &quot;day05.txt&quot;)
-bp &lt;- read.delim(inputfile, header = FALSE)
 
-# conversions for letters to binary
-named_v = c(&quot;F&quot; = &quot;0&quot;, &quot;B&quot; = &quot;1&quot;, &quot;L&quot; = &quot;0&quot;, &quot;R&quot; = &quot;1&quot;)
 
-# mutate seems like the best way to do this
-# we can also use many replacements in one function
-# strtoi() for string to integer, in base 2
-bp_bin &lt;- bp %&gt;% 
-  mutate(
-    bin = str_replace_all(V1, named_v),
-    row = strtoi(str_sub(bin, end = 7), base = 2), 
-    col = strtoi(str_sub(bin, start = 8), base = 2), 
-    id = row * 8 + col
-  )
 
-# max is part one answer
-max_id &lt;- max(bp_bin$id)  
-min_id &lt;- min(bp_bin$id)
-
-# possible seats from min to max
-bp_seq = seq(from = min_id, to = max_id)
-
-# part two answer - seat left over
-p2 &lt;- setdiff(bp_seq, bp_bin$id)</code></pre>
 </div>
-<div id="python-code" class="section level3">
-<h3>Python Code</h3>
-<pre class="python"><code># read file
-with open(&quot;../../../static/data/advent2020/day05.txt&quot;, &quot;r&quot;) as f:
-  bp = f.read().splitlines()
 
-# row and col binary via replacement
-row = [x[:7].replace(&quot;B&quot;, &quot;1&quot;).replace(&quot;F&quot;, &quot;0&quot;) for x in bp]
-col = [x[7:].replace(&quot;L&quot;, &quot;0&quot;).replace(&quot;R&quot;, &quot;1&quot;) for x in bp]
+<script>
 
-# id as a combo of row and col            
-id = [int(r, 2) * 8 + int(c, 2) for r, c in zip(row, col)]
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
 
-#part a
-p1 = max(id)
 
-# part b
-p2 = set(range(min(id), max(id))) - set(id)</code></pre>
-</div>
-<div id="answer" class="section level3">
-<h3>Answer</h3>
-<p>The maximum seat number on my plane (part one answer) is 826 and my seat number (part two answer) is 678.</p>
-<p>In honour of the card playing crab mentioned in the challenges, here’s a big one from the Te Papa collection, only included here for creating a picture for the blog page.</p>
-<p>Image Credit: Charybdis (Charybdis) japonica (A. Milne-Edwards, 1861), collected September 2000, Auckland, Rangitoto Channel, New Zealand. CC BY 4.0. Te Papa (CR.009843)</p>
-<div class="float">
-<img src="/img/portfolio/TePapaCrab.jpg" alt="Crab" />
-<div class="figcaption">Crab</div>
-</div>
-</div>
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
 
          
       </div>

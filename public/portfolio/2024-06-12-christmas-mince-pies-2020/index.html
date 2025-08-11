@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Advent of Code 2020</title>
+
 <meta name="description" content="Nathan&#39;s Website">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
@@ -103,73 +103,117 @@
   <div class="row">
     <div class="col-lg-8">
       <div class="content-column-content">
-         <h1>Advent of Code 2020</h1>
-         <p>This is a short review of my first foray into Advent of Code. I’ve started to gather my thoughts in the github readme while looking over the code again. I had big goals of completing each day in R and python, but after a few days decided that one language was more than enough. It will be an ongoing project to look at each day and see if I can write python solutions, while also collecting choice tidbits of fancy or useful or awful code.</p>
-<p>This is the advent website: <a href="https://adventofcode.com/2020">Advent of Code 2020</a></p>
-<p>This is my github repository: <a href="https://github.com/nmoorenz/advent-of-code">github.com/nmoorenz/advent-of-code</a></p>
-<p>The following is a comparison of R and Python code for day 5, my favourite day of the challenge. Recognising the ticket numbers can be interpreted in binary is a crucial breakthrough. I love finding a new and good function in R: <code>strtoi()</code>. That takes a <code>base</code> argument for binary! Then finding <code>int()</code> in Python has the same argument. List comprehensions are, for me, a killer feature of Python.</p>
-<div id="r-code" class="section level3">
-<h3>R Code</h3>
-<pre class="r"><code># tidyverse of course
-suppressPackageStartupMessages(library(tidyverse))
-
-# love the here package to load things
-inputfile = here::here(&quot;static&quot;, &quot;data&quot;, &quot;advent2020&quot;, &quot;day05.txt&quot;)
-bp &lt;- read.delim(inputfile, header = FALSE)
-
-# conversions for letters to binary
-named_v = c(&quot;F&quot; = &quot;0&quot;, &quot;B&quot; = &quot;1&quot;, &quot;L&quot; = &quot;0&quot;, &quot;R&quot; = &quot;1&quot;)
-
-# mutate seems like the best way to do this
-# we can also use many replacements in one function
-# strtoi() for string to integer, in base 2
-bp_bin &lt;- bp %&gt;% 
-  mutate(
-    bin = str_replace_all(V1, named_v),
-    row = strtoi(str_sub(bin, end = 7), base = 2), 
-    col = strtoi(str_sub(bin, start = 8), base = 2), 
-    id = row * 8 + col
-  )
-
-# max is part one answer
-max_id &lt;- max(bp_bin$id)  
-min_id &lt;- min(bp_bin$id)
-
-# possible seats from min to max
-bp_seq = seq(from = min_id, to = max_id)
-
-# part two answer - seat left over
-p2 &lt;- setdiff(bp_seq, bp_bin$id)</code></pre>
+         <h1></h1>
+         <div id="countdown" class="section level2">
+<h2>Countdown</h2>
+<p>Countdown Fruit Mince Pies</p>
+<p>A classic, but kinda basic. The tin foil seems unnecessary, just cook
+them in a muffin pan. (How big do commercial muffin pans get or do they
+just have lots of them?) 3/5 good in a pinch but not top shelf</p>
+<p><img role="img" src="/img/fb20xmas/countdown.jpg" style="width:70.0%" /></p>
 </div>
-<div id="python-code" class="section level3">
-<h3>Python Code</h3>
-<pre class="python"><code># read file
-with open(&quot;../../../static/data/advent2020/day05.txt&quot;, &quot;r&quot;) as f:
-  bp = f.read().splitlines()
-
-# row and col binary via replacement
-row = [x[:7].replace(&quot;B&quot;, &quot;1&quot;).replace(&quot;F&quot;, &quot;0&quot;) for x in bp]
-col = [x[7:].replace(&quot;L&quot;, &quot;0&quot;).replace(&quot;R&quot;, &quot;1&quot;) for x in bp]
-
-# id as a combo of row and col            
-id = [int(r, 2) * 8 + int(c, 2) for r, c in zip(row, col)]
-
-#part a
-p1 = max(id)
-
-# part b
-p2 = set(range(min(id), max(id))) - set(id)</code></pre>
+<div id="homemade-1" class="section level2">
+<h2>Homemade 1</h2>
+<p>Homemade by my niece. Pastry and filling shop bought, but expertly
+put together as a practice before Christmas Day. More currants and spice
+than other pies which is good. Baked well, eaten hot, delicious. 4/5
+looking forward to round 2</p>
+<p><img role="img" src="/img/fb20xmas/hm1.jpg" style="width:70.0%" /></p>
 </div>
-<div id="answer" class="section level3">
-<h3>Answer</h3>
-<p>The maximum seat number on my plane (part one answer) is 826 and my seat number (part two answer) is 678.</p>
-<p>In honour of the card playing crab mentioned in the challenges, here’s a big one from the Te Papa collection, only included here for creating a picture for the blog page.</p>
-<p>Image Credit: Charybdis (Charybdis) japonica (A. Milne-Edwards, 1861), collected September 2000, Auckland, Rangitoto Channel, New Zealand. CC BY 4.0. Te Papa (CR.009843)</p>
-<div class="float">
-<img src="/img/portfolio/TePapaCrab.jpg" alt="Crab" />
-<div class="figcaption">Crab</div>
+<div id="free-stuff" class="section level2">
+<h2>Free Stuff</h2>
+<p>Free mince pie as part of a corporate thank you for IT from Spark at
+work. Fruit mince was really minced, smooth, different but ok. Case was
+nice. 3/5 tastes like free stuff</p>
+<p><img role="img" src="/img/fb20xmas/free.jpg" style="width:70.0%" /></p>
 </div>
+<div id="homemade-2" class="section level2">
+<h2>Homemade 2</h2>
+<p>Homemade from scratch by my sister. Sultanas, figs, cranberries,
+apple, orange and lemon zest, mixed peel, brandy and butter. Delicious.
+Can taste the different fruit. 7/5 perfect score now I’ve got 2 people
+making pies.</p>
+<p><img role="img" src="/img/fb20xmas/hm2.jpg" style="width:70.0%" /></p>
 </div>
+<div id="homemade-3" class="section level2">
+<h2>Homemade 3</h2>
+<p>(catching up on a few pies)</p>
+<p>Farewell morning tea homemade. Pretty good, thick pastry, standard
+mince, 3/5 tastes like goodbye</p>
+<p><img role="img" src="/img/fb20xmas/hm3.jpg" style="width:70.0%" /></p>
+</div>
+<div id="two-tarts" class="section level2">
+<h2>Two Tarts</h2>
+<p>Two Tarts brandy flavour from Parnell farmers’ market. They also had
+original and Cointreau. Didn’t really taste the brandy, but still good.
+Two bites and done. 3/5 prefer the potato farl we also got from the
+markets</p>
+<p><img role="img" src="/img/fb20xmas/two-tarts.jpg" style="width:70.0%" /></p>
+</div>
+<div id="pams" class="section level2">
+<h2>Pams</h2>
+<p>Pam’s fruit mince tarts. Standard pattern for fruit mince pies
+apparently, as evidenced by countdown and Ernest Adams (up next) and
+some others I’ve seen. Maybe a little less butter than Ernest Adams, but
+very similar. 3/5 reasonable</p>
+<p><img role="img" src="/img/fb20xmas/pams.jpg" style="width:70.0%" /></p>
+</div>
+<div id="ernest-adams" class="section level2">
+<h2>Ernest Adams</h2>
+<p>Ernest Adams Christmas Delights</p>
+<p>Festive Rich Fruit Christmas Tarts</p>
+<p>Bold packaging can’t save these tarts from same-same mediocrity. 3/5
+maybe I should make my own or maybe I should not post all at once</p>
+<p><img role="img" src="/img/fb20xmas/ernest-adams.jpg" style="width:70.0%" /></p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
 
          
       </div>
