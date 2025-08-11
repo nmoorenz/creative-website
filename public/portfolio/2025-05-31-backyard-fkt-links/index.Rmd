@@ -50,3 +50,24 @@ https://fastestknowntime.com/route/irelands-county-high-points-ireland
 https://www.rnz.co.nz/national/programmes/summer-days/audio/2018970485/runner-completes-ten-great-walks-in-ten-days
 
 https://180cadence.au/pages/results 
+
+
+### Animation
+
+https://stackoverflow.com/questions/70862290/how-to-change-the-resolution-of-animated-plots-gif-in-rstudio-viewer
+
+
+https://stackoverflow.com/questions/73157035/create-animation-or-gif-with-point-plots-in-r
+
+### Spreadsheets
+
+Individual
+
+https://docs.google.com/spreadsheets/d/e/2PACX-1vTIbgBfQDN3LCBRaH4h9iSseN0oXcQHmktbH_4xyrDsZA0dQKVBbjNX3j_zsmf86SFqqkm3UMWANr0M/pubhtml
+
+ 
+
+Team
+
+https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vQeFQKht6ubs8DY-hihRnYTq0e3kNI0tMfdooG47qUkJ_Pg3TQMer2_2K5PQxyFvf4P4KcgaE1RQL0M/pubhtml#
+

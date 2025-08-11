@@ -1,0 +1,99 @@
+---
+title: Old Phone Options
+author: Nathan Moore
+date: '2025-07-04'
+slug: []
+categories:
+  - Code
+tags: []
+image: ''
+showonlyimage: no
+---
+
+## Ideas
+
+-   Home server, cloud server, DLNA server
+-   Torrent server (LibreTorrent suggested, but TTorrent also has a web interface so you don't need to touch your phone).
+-   Utilise USB on-the-go to manage external hard drive contents
+
+## Maybe
+
+-   Retro games
+-   GPS for bike
+-   HDMI out via USB-c port
+-   Wireless trackpad for computer - might be more interesting if I was an artist
+-   Remote computer terminal - probably not actually useful
+
+## Not Keen
+
+-   Audio player - just use my regular phone
+-   Alarm - just use my regular phone
+-   Smart home stuff - don't have anything to automate
+-   Baby cam - no need
+-   Home security camera - [AlfredCamera](https://alfred.camera/)
+-   Dash cam - no thanks
+-   Kids phone - nope
+-   Video chat device - why?
+-   TV Remote - unnecessary
+-   E-book reader - nah
+
+## Links
+
+<https://www.reddit.com/r/AndroidQuestions/comments/1183fgt/ways_to_upcycle_or_reuse_old_phones/>
+
+<https://www.reddit.com/r/indiasocial/comments/1ljwdd6/what_else_can_i_do_with_my_old_phone/>
+
+<https://www.reddit.com/r/Android/comments/18g0sys/what_are_some_cool_ways_to_use_an_old_android/>
+
+<https://au.pcmag.com/mobile-phones/86573/11-uses-for-your-old-smartphone>
+
+<https://www.computerworld.com/article/1519799/20-great-uses-for-an-old-android-device.html>
+
+<https://www.reddit.com/r/androidafterlife/comments/1l8rctv/need_reuse_ideas_for_a_30gb_xiaomi_redmi_note_4/>
+
+<https://www.reddit.com/r/androidafterlife/comments/1ll74af/article_estonian_engineers_turn_15yearold_9_trash/>
+
+## Subreddits
+
+<https://www.reddit.com/r/AndroidQuestions/>
+
+<https://www.reddit.com/r/androidafterlife/>
+
+## Resources
+
+Make Google think you have a Pixel and therefore get unlimited Google Photos storage "pixel experience roms"
+
+<https://github.com/j-hc/revanced-magisk-module/releases>
+
+## Custom Roms
+
+<https://xdaforums.com/f/redmi-note-9t.12075/>
+
+This looks like the best option so far\
+<https://xdaforums.com/t/rom-android-13-unofficial-ota-lineageos-20-for-redmi-note-9-5g-and-redmi-note-9t.4668393/>
+
+Another link\
+<https://xdaforums.com/t/best-performances-custom-rom-for-redmi-9t.4694477/>
+
+Roms:
+
+-   LineageOS <https://github.com/LineageOS>
+
+-   Project Infinity X <https://github.com/orgs/ProjectInfinity-X/repositories>
+
+-   Derpfest Android 14 <https://derpfest.org/>
+
+-   Elite Rom Lite <https://sourceforge.net/projects/eliteroms/>
+
+-   Project Matrixx Android <https://www.projectmatrixx.org/>
+
+-   Pixel Experience <https://get.pixelexperience.org/>
+
+So many pop up ads but it has a list of possibilities\
+<https://rootingmaster.com/custom-roms-for-redmi-note-9t/>
+
+## 
+
+## Server Links
+
+<https://emby.media/>
