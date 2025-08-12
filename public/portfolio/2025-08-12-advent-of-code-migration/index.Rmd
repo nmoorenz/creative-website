@@ -6,13 +6,16 @@ slug: []
 categories:
   - Code
 tags: []
+draft: yes
 image: ''
 showonlyimage: no
 ---
 
 I used to have whole text copies of Advent of Code problems saved to a repository. This is not good! 
 
+https://adventofcode.com/about#faq_copying
+
 So I decided to move the solutions to a new repository and only have a little text and no examples, with the data files included in gitignore. 
 
-https://adventofcode.com/about#faq_copying
+
 

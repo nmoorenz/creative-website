@@ -1,0 +1,19 @@
+---
+title: Image Resize
+author: Nathan Moore
+date: '2025-08-13'
+slug: blog-image-resize
+categories:
+  - Code
+tags: []
+draft: yes
+image: ''
+showonlyimage: no
+---
+
+Most of my images have been resized, but some of them are still too big. 
+I only need them to be as large as they will be displayed on the screen. 
+What's a good size? 1000px wide? 100KB? 
+
+This is my script to go through this blog folders and resize images down to an acceptable size. 
+

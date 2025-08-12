@@ -1,0 +1,30 @@
+---
+title: Hugo Theme Changes
+author: Nathan Moore
+date: '2025-08-13'
+slug: []
+categories:
+  - Code
+tags: []
+image: ''
+showonlyimage: no
+---
+
+
+
+<p>The text on this site was too light (#999999) so I thought I would change to something darker: #555555 as in a couple of places.</p>
+<p>This was easier than I thought!</p>
+<p>Right click &gt; Inspect brings up the developer window in a browser. The window shows the html for the page, plus any styles applied.</p>
+<p><img src="/img/portfolio/content-css.png" style="width:80.0%" /></p>
+<p>This also shows the file and line where the style comes from.</p>
+<p>My guess was that adding the style for <code>.content-column-content p</code> to default.css would override style.default.css because of hierarchy of styles. Don’t ask me where this is defined or if it’s just part of the <em>cascading</em> style sheets system.</p>
+<p>These are the new lines for the body text for posts and for the sidebar text.</p>
+<pre><code>.content-column-content p,
+.content-column-content li {
+  color: #555555;
+}
+.sidebar-p {
+  color: #555555;
+  font-size: 14px;
+}</code></pre>
+<p>That’s it! Something that’s been bothering me for ages, fixed in a few minutes, with a bonus blog post written too.</p>
