@@ -5,3 +5,7 @@ caption{
     color:#777;
     text-align:right
 }
+.content-column-content p,
+.content-column-content li {
+  color: #555555;
+}
