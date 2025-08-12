@@ -2,10 +2,14 @@
 caption{
     padding-top:8px;
     padding-bottom:8px;
-    color:#777;
+    color:#555555;
     text-align:right
 }
 .content-column-content p,
 .content-column-content li {
   color: #555555;
+}
+.sidebar-p {
+  color: #555555;
+  font-size: 14px;
 }
