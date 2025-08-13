@@ -35,9 +35,11 @@ First, copy and paste from the AoC site for how many stars I've got in each year
 [2016]\
 [2015] 50\*
 
-I've obviously got a long way to go with the solutions. But that is fine, it's mostly nonsense anyway. Earning stars on an annual coding challenge years after the problems are published? Honestly I really enjoy it despite the frustrations. I have been looking at Reddit more to see some solution techniques for the difficult problems from previous years, and I might lean on that more as I go through. It's no use struggling on my own and I learn just as much with new approaches to strange problems.
+I've obviously got a long way to go with the solutions. But that is fine, it's mostly nonsense anyway. Earning stars on an annual coding challenge years after the problems are published? Honestly I really enjoy it despite the frustrations. I have been looking at Reddit more to see some solution techniques for the difficult problems from previous years, and I might lean on that more as I go through. It's no use struggling on my own and I learn just as much or even more with new approaches to strange problems.
 
-It's worth noting that I have a little sample code to import the input in each of the days for each of the years in the new repo. As I have gone through I also add a brief description of the problem. Here is where I'm up to (to be updated with progress):
+It's worth noting that I have a little sample code to import the input in each of the days for each of the years in the new repo. As I go through I add a brief description of the problem. I try to understand the code I've written and make sure the solution still works. I've even managed to solved some problems!
+
+Here is where I'm up to (to be updated with progress):
 
 [2024] done\
 [2023] done\
