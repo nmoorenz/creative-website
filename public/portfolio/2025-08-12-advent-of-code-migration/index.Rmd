@@ -7,15 +7,186 @@ categories:
   - Code
 tags: []
 draft: yes
-image: ''
+image: '/img/portfolio/aoc-2020-stars.png'
 showonlyimage: no
 ---
 
-I used to have whole text copies of Advent of Code problems saved to a repository. This is not good! 
+I used to have whole text copies of Advent of Code problems saved to a repository. This is not good!
 
-https://adventofcode.com/about#faq_copying
+<!--more-->
 
-So I decided to move the solutions to a new repository and only have a little text and no examples, with the data files included in gitignore. 
+I used to have whole text copies of Advent of Code problems saved to a repository. This is not good!
 
+<https://adventofcode.com/about#faq_copying>
 
+So I decided to move the solutions to a new repository and only have a little text and no examples, with the data files included in gitignore.
+
+As of August 2025 while writing this post I've done a fair amount of the transfer but I'd like to keep track of where I'm up to.
+
+First, copy and paste from the AoC site for how many stars I've got in each year:
+
+[2024] 24\*\
+[2023] 27\*\
+[2022] 24\*\
+[2021] 27\*\
+[2020] 50\*\
+[2019] 2\*\
+[2018]\
+[2017]\
+[2016]\
+[2015] 50\*
+
+I've obviously got a long way to go with the solutions. But that is fine, it's mostly nonsense anyway. Earning stars on an annual coding challenge years after the problems are published? Honestly I really enjoy it despite the frustrations. I have been looking at Reddit more to see some solution techniques for the difficult problems from previous years, and I might lean on that more as I go through. It's no use struggling on my own and I learn just as much with new approaches to strange problems.
+
+It's worth noting that I have a little sample code to import the input in each of the days for each of the years in the new repo. As I have gone through I also add a brief description of the problem. Here is where I'm up to (to be updated with progress):
+
+[2024] done\
+[2023] done\
+[2022] in progress\
+[2021] folder exists\
+[2020] folder exists\
+[2019] none\
+[2018] no attempts\
+[2017] no attempts\
+[2016] no attempts\
+[2015] done
+
+I would also like to mention at this stage the templates I've created for the quarto markdown pages - because quarto was new and cool when I decided to update the repo. 'folder exists' means I've created the folder (automatically) and downloaded the data for the problems (automatically).
+
+[https://github.com/nmoorenz/advent-of-code/blob/main/create-files.py](https://github.com/nmoorenz/advent-of-code/blob/main/create-files.py)
+
+This file creates the year folder if it does not exist, takes the template file and creates a solution file for each of the days, creates an input file for each of the days, then creates a readme file with entries for each of the days. The `` is not included but prevents the code from running here. 
+
+Call it with `py create-files.py 2024`
+
+```{python}
+#| eval: false
+
+import sys
+import os 
+
+year = sys.argv[1]
+
+# create folder for the year 
+if not os.path.exists(year):
+    os.makedirs(year)
+    
+# read in the template
+with open(f'template.qmd', 'r') as f:
+    qmd_file = f.read()
+
+# loop through and create text files
+for i in range(1, 26):
+    with open(f"{year}/data-{year}-{i:02d}.txt", "w") as f:
+        pass
+    with open(f"{year}/{year}-{i:02d}.qmd", "w") as f:
+        f.write(qmd_file.format(x=i, year=year, python="{python}"))
+
+# create the overall readme file with notes for each day and part
+readme = """
+### Day {i}
+
+1.  
+2.  
+
+-   
+-   
+
+"""
+
+# pre-formatted readme to describe each day's attempt
+with open(f'{year}/README-{year}.md', 'w') as f:
+    f.write(f"## Advent of Code {year}")
+    for i in range(1, 26):
+        f.write(readme.format(i=i))
+```
+
+[https://github.com/nmoorenz/advent-of-code/blob/main/template.qmd](https://github.com/nmoorenz/advent-of-code/blob/main/template.qmd)
+
+The template file is here, with standard boilerplate for reading the input file. The first `{yaml}` line isn't in the file, it's just to stop the header being evaluated.
+
+> ```{yaml}
+> ---
+> title: "Advent of Code {year} Day {x}"
+> author: "Nathan Moore"
+> format: html
+> editor: visual
+> ---
+> ```
+>
+> Write the Puzzle explanation here
+>
+> ```{python}
+> #| eval: false
+>
+> with open('data-{year}-{x:02d}.txt', 'r') as f:
+>     inp = f.read().splitlines()
+> 
+> ```
+>
+> Maybe write an explanation of the solution approach here
+>
+> ```{python}
+> # here's another python cell for good luck
+> 
+> ```
+>
+> Paste part two here
+
+[https://github.com/nmoorenz/advent-of-code/blob/main/get-input.py](https://github.com/nmoorenz/advent-of-code/blob/main/get-input.py)
+
+I use the get input file to get one day's worth of input data, usually on the day the problem is published. This requires a session cookie when logged in to the AoC site. This also assumes the file already exists from the process above. 
+
+`py get-input.py 2023 1`
+
+```{python}
+#| eval: false
+#| 
+import requests
+import sys
+
+# used to authenticate with AoC
+with open('session-cookie.txt') as f: 
+    cookie = f.read()
+
+# required arguments
+year = sys.argv[1]
+day = sys.argv[2]
+
+url = f'https://adventofcode.com/{year}/day/{day}/input'
+
+inp = requests.get(url, cookies={"session": cookie})
+
+# print(inp.text)
+dd = f'{int(day):02d}'
+
+# overwrite, assume we are only calling once though
+with open(f'{year}/data-{year}-{dd}.txt', 'w') as f:
+    f.write(inp.text[:-1])
+
+```
+
+[https://github.com/nmoorenz/advent-of-code/blob/main/get-all-input.py](https://github.com/nmoorenz/advent-of-code/blob/main/get-all-input.py)
+
+Finally we have the get all input file, which uses the get input file, with a polite sleep timer of 2 seconds. Calling this file 25 times in a row isn't going to tax the AoC servers when 1000s of people usually play, but it's a nice thing to do.  
+
+`py get-all-input.py 2023`
+
+```{python}
+#| eval: false
+#| 
+# import os
+import sys
+import time
+import subprocess
+
+year = sys.argv[1]
+
+i = 1
+while i <= 25:
+    time.sleep(2)
+    subprocess.run(['python', 'get-input.py', year, str(i)])
+    i += 1
+
+```
 
