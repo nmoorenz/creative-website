@@ -6,8 +6,15 @@
     <description>Recent content on Nathan Moore</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://nmoore.nz/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo Theme Changes</title>
+      <link>https://nmoore.nz/portfolio/2025-08-13-hugo-theme-changes/</link>
+      <pubDate>Wed, 13 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://nmoore.nz/portfolio/2025-08-13-hugo-theme-changes/</guid>
+      <description>The text on this site was too light (#999999) so I thought I would change to something darker: #555555 as in a couple of places.&#xA;This was easier than I thought!&#xA;Right click &amp;gt; Inspect brings up the developer window in a browser. The window shows the html for the page, plus any styles applied.&#xA;This also shows the file and line where the style comes from.&#xA;My guess was that adding the style for .</description>
+    </item>
     <item>
       <title>Change Email in Git Repo</title>
       <link>https://nmoore.nz/portfolio/2025-02-28-change-email-in-git-repo/</link>
