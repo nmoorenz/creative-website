@@ -73,5 +73,18 @@ This suggests the same thing for Windows, but I'll use the port numbers and recu
 https://stackoverflow.com/questions/33364752/equivalent-of-wget-command-line-for-windows-8-1
 
 
+I don't want to write a script
+https://www.reddit.com/r/PowerShell/comments/dzzhre/recursively_download_files_from_web_mirror_based/
+
+Go and get wget for windows
+https://gnuwin32.sourceforge.net/packages/wget.htm
+
+Add `C:\Program Files (x86)\GnuWin32\bin` to Path environment variables
+
+run a command
+`wget -r http://192.168.68.107:8000/shared/Download/Station.Eleven.S01.COMPLETE.720p.HMAX.WEBRip.x264-GalaxyTV[TGx]/`
+
+
+
 
 
