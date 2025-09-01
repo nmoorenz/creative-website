@@ -1,0 +1,77 @@
+---
+title: Termux and a Python Server
+author: Nathan Moore
+date: '2025-09-01'
+slug: []
+categories:
+  - Code
+tags: []
+draft: yes
+image: ''
+showonlyimage: no
+---
+
+https://www.tomshardware.com/software/how-to-transfer-and-share-files-over-a-network-without-a-usb-flash-drive-and-with-just-one-line-of-code
+
+`python -m http.server`
+
+Lovely
+
+Can I do this from Android? 
+
+Termux is possible
+
+Install from f-droid
+
+No python installed
+
+Must choose a mirror
+
+https://www.reddit.com/r/termux/comments/17w48rb/what_is_termuxchangerepo/
+
+choose group of mirrors and get Oceania
+
+`apt list --upgradable` but I'm not too worried about that. Perhaps because Termux was last updated 3 months ago
+
+`pkg install python` screenshot information. Y to continue. 
+
+`python --version`: 3.12.1
+
+`python -m http.server` 
+
+http://192.168.68.107:8000/
+
+More complicated open, don't need an apache web server 
+https://www.digitalocean.com/community/tutorials/host-a-web-server-on-android
+
+https://stackoverflow.com/questions/73244505/in-termux-android-ls-cannot-open-directory-permission-denied
+
+https://stackoverflow.com/questions/68515987/how-to-change-working-directory-in-termux
+
+So, I actually just need the proper directory
+
+`cd ~/storage/`
+
+and then I can download files. 
+
+But can I download directories? For folders of things? 
+
+Old posts
+https://stackoverflow.com/questions/2573670/download-whole-directories-in-python-simplehttpserver
+
+
+`wget` looks good, but it's a linux thing 
+https://bioinformaticsreview.com/20220926/how-to-download-directories-and-subdirectories-from-an-https-server/
+
+This modifies the behaviour of the server, which I don't want to do 
+https://www.reddit.com/r/learnpython/comments/925m0y/python_simple_http_server_with_1click_download/
+
+This has the right stuff 
+https://www.maketecheasier.com/transferring-files-using-python-http-server/
+
+This suggests the same thing for Windows, but I'll use the port numbers and recursive option from above. 
+https://stackoverflow.com/questions/33364752/equivalent-of-wget-command-line-for-windows-8-1
+
+
+
+
