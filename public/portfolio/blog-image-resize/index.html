@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Image Resize</title>
+<meta name="description" content="Nathan&#39;s Website">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="http://localhost:4321/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="http://localhost:4321/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://localhost:4321/css/owl.carousel.css">
+<link rel="stylesheet" href="http://localhost:4321/css/owl.theme.css">
+
+
+  <link href="http://localhost:4321/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="http://localhost:4321/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="http://localhost:4321/img/favicon.png">
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="http://localhost:4321/">Nathan Moore</a></h1>
+    
+      <p class="sidebar-p">I am a data person who wants to make a website.</p>
+    
+      <p class="sidebar-p">Originally from Taranaki, I now live in Auckland. </p>
+    
+      <p class="sidebar-p">Also: ultimate frisbee, disc golf, cycling, cooking</p>
+    
+    <ul class="sidebar-menu">
+      
+        <li><a href="http://localhost:4321/portfolio/">Home</a></li>
+      
+        <li><a href="http://localhost:4321/about/">About</a></li>
+      
+        <li><a href="http://localhost:4321/categories/">Categories</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  
+  
+  <a href="mailto:nath@nmoore.nz" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://www.linkedin.com/in/nmoorenz" data-animate-hover="pulse" class="external">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  
+  <a href="https://www.github.com/nmoorenz" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2024 Nathan Moore |
+        
+        Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="http://localhost:4321/">Nathan Moore</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>Image Resize</h1>
+         <p>Most of my images have been resized one way or another, but some of them are still too big. Many of them because I saved them from Facebook where the original posts lived. I only need them to be as large as they will be displayed on the screen for this site. What’s a good size? 1000px wide? 100KB? What’s the relationship between these measures?</p>
+<p>This is my script to go through this blog’s folders and resize images down to an acceptable size. Should I do this for python and R? Yes!</p>
+<p>First, we should collect some metrics about the sizes and dimensions of of what we already have.</p>
+<p>The folder location for all the images is here:</p>
+<p><code>C:\Users\NathanMoore\code\creative-website\static\img</code></p>
+<pre class="r"><code>library(here)</code></pre>
+<pre><code>## here() starts at C:/Users/NathanMoore/code/creative-website</code></pre>
+<pre class="r"><code>here::here()</code></pre>
+<pre><code>## [1] &quot;C:/Users/NathanMoore/code/creative-website&quot;</code></pre>
+<pre class="python"><code>import os
+
+os.getcwd()</code></pre>
+<pre><code>## &#39;C:\\Users\\NathanMoore\\code\\creative-website\\content\\portfolio\\2025-08-13-blog-image-resize&#39;</code></pre>
+<p>Interesting that the R code is for the repository, and the python code is for the current file. Can we find a way to get git directory for python?</p>
+<p><a href="https://stackoverflow.com/questions/22081209/find-the-root-of-the-git-repository-where-the-file-lives" class="uri">https://stackoverflow.com/questions/22081209/find-the-root-of-the-git-repository-where-the-file-lives</a></p>
+<p><a href="https://github.com/gitpython-developers/GitPython" class="uri">https://github.com/gitpython-developers/GitPython</a><br />
+<a href="https://gitpython.readthedocs.io/en/stable/" class="uri">https://gitpython.readthedocs.io/en/stable/</a></p>
+<p>This is great but I really only need the one function and method.</p>
+<pre class="python"><code>import git
+
+repo = git.Repo(&#39;.&#39;, search_parent_directories=True)
+repo.working_tree_dir</code></pre>
+<pre><code>## &#39;C:\\Users\\NathanMoore\\code\\creative-website&#39;</code></pre>
+<p>Nice.</p>
+<p>It looks like I can keep switching between environments so I’m going to develop these two techniques at the same time rather than one after the other.</p>
+<pre class="r"><code>r_fldr = here::here()
+
+r_fldr = paste0(r_fldr, &#39;/static/img/&#39;)
+
+r_fldr</code></pre>
+<pre><code>## [1] &quot;C:/Users/NathanMoore/code/creative-website/static/img/&quot;</code></pre>
+<pre class="python"><code>py_fldr = repo.working_tree_dir + &#39;\\static\\img\\&#39;
+
+print(py_fldr)</code></pre>
+<pre><code>## C:\Users\NathanMoore\code\creative-website\static\img\</code></pre>
+<p>I want to use <code>os.walk()</code> for python but I’m not sure what the equivalent is in R. It looks like <code>list.files()</code> is the way to go.</p>
+<pre class="r"><code>r_files = list.files(r_fldr, full.names = TRUE, recursive = TRUE)
+head(r_files)</code></pre>
+<pre><code>## [1] &quot;C:/Users/NathanMoore/code/creative-website/static/img/beer2019/1.jpg&quot; 
+## [2] &quot;C:/Users/NathanMoore/code/creative-website/static/img/beer2019/10.jpg&quot;
+## [3] &quot;C:/Users/NathanMoore/code/creative-website/static/img/beer2019/11.jpg&quot;
+## [4] &quot;C:/Users/NathanMoore/code/creative-website/static/img/beer2019/12.jpg&quot;
+## [5] &quot;C:/Users/NathanMoore/code/creative-website/static/img/beer2019/13.jpg&quot;
+## [6] &quot;C:/Users/NathanMoore/code/creative-website/static/img/beer2019/14.jpg&quot;</code></pre>
+<p>Always love a list comprehension.</p>
+<p><a href="https://stackoverflow.com/questions/3207219/how-do-i-list-all-files-of-a-directory#comment128971338_3207973" class="uri">https://stackoverflow.com/questions/3207219/how-do-i-list-all-files-of-a-directory#comment128971338_3207973</a></p>
+<pre class="python"><code>py_files = [os.path.join(dirpath,f) for (dirpath, dirnames, filenames) in os.walk(py_fldr) for f in filenames] 
+py_files[:5]</code></pre>
+<pre><code>## [&#39;C:\\Users\\NathanMoore\\code\\creative-website\\static\\img\\favicon.png&#39;, &#39;C:\\Users\\NathanMoore\\code\\creative-website\\static\\img\\nmoorenz.jpg&#39;, &#39;C:\\Users\\NathanMoore\\code\\creative-website\\static\\img\\beer2019\\1.jpg&#39;, &#39;C:\\Users\\NathanMoore\\code\\creative-website\\static\\img\\beer2019\\10.jpg&#39;, &#39;C:\\Users\\NathanMoore\\code\\creative-website\\static\\img\\beer2019\\11.jpg&#39;]</code></pre>
+<p>The same results for each of these operations: 292 files.</p>
+<p>we can now get files sizes and image widths</p>
+<pre class="r"><code>r_sizes = lapply(r_files, file.size)
+head(r_sizes)</code></pre>
+<pre><code>## [[1]]
+## [1] 105850
+## 
+## [[2]]
+## [1] 88297
+## 
+## [[3]]
+## [1] 96541
+## 
+## [[4]]
+## [1] 117641
+## 
+## [[5]]
+## [1] 117803
+## 
+## [[6]]
+## [1] 102733</code></pre>
+<pre class="python"><code>py_sizes = [os.stat(f).st_size for f in py_files]
+py_sizes[:5]</code></pre>
+<pre><code>## [2589, 55433, 105850, 88297, 96541]</code></pre>
+<p>This is fine so far, but I’m going to have more vectors and lists, and this is better contained in a dataframe.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.4     ✔ readr     2.1.5
+## ✔ forcats   1.0.0     ✔ stringr   1.5.1
+## ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+## ✔ purrr     1.0.2     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<pre class="r"><code>r_df = tibble(r_files) |&gt; 
+       rename(filename = r_files)
+
+r_df = r_df |&gt; 
+       mutate(filesize = file.size(filename))</code></pre>
+<p>Good! I always feel weird importing all of tidyverse but I have a hard time remembering which library contains which functions after a few years not using R.</p>
+<pre class="python"><code>import pandas as pd
+
+py_df = pd.DataFrame(py_files, columns=[&#39;filename&#39;])
+
+py_df[&#39;filesize&#39;] = py_df[&#39;filename&#39;].map(lambda x: os.stat(x).st_size)</code></pre>
+<p>Also, dimensions.</p>
+<p>I struggled with this for a while, with the interaction between mutate, if_else, read.bitmap.
+I think I need to create a function which I can then simply use with mutate.
+Kind of simply, because I actually want the height and width of the image, so map for the function output, and then unnest.</p>
+<pre class="r"><code>library(readbitmap)
+
+# this was the closest I got but doesn&#39;t seem to work. 
+# I think if_else evaluates the thing even though the condition is false? 
+# and read.bitmap cannot handle a mp4 file
+# r_df = r_df |&gt; 
+#        rowwise() |&gt;
+#        mutate(dims = if_else(str_detect(filename, &#39;.jpg&#39;),                              
+#                              read.bitmap(filename),
+#                              99))
+
+
+height_width &lt;- function(filenames) {
+  h = array(dim = length(filenames))
+  w = array(dim = length(filenames))
+  for (i in seq_along(filenames)) {
+    k = filenames[i]
+    if (str_detect(k, &#39;.png&#39;) || str_detect(k, &#39;.jpg&#39;)) {
+      img = read.bitmap(k)
+      h[i] = dim(img)[1]
+      w[i] = dim(img)[2]
+    } else {
+      h[i] = 0
+      w[i] = 0
+    }
+  }
+  list(height = h, width = w)
+}
+
+r_df = r_df |&gt; 
+       mutate(dims = map(filename, height_width)) |&gt; 
+       unnest_wider(dims)</code></pre>
+<p>Now, for python. I think I’ll jump to the same approach with a lambda for pandas.
+Not quite a lambda, but I went through <code>apply()</code> and then found <code>zip()</code></p>
+<p><a href="https://stackoverflow.com/questions/16236684/apply-pandas-function-to-column-to-create-multiple-new-columns" class="uri">https://stackoverflow.com/questions/16236684/apply-pandas-function-to-column-to-create-multiple-new-columns</a></p>
+<pre class="python"><code>from PIL import Image
+
+def height_width(filename): 
+    # filename = row[&#39;filename&#39;]
+    if &#39;.jpg&#39; in filename or &#39;.png&#39; in filename:
+        with Image.open(filename) as img: 
+            width, height = img.size
+    else: 
+        width, height = 0, 0
+    return width, height
+        
+# py_df[&#39;width&#39;], py_df[&#39;height&#39;] = py_df[&#39;filename&#39;].map(lambda x: height_width(x))
+
+# py_df[[&#39;width&#39;,&#39;height&#39;]] = py_df.apply(height_width, axis=&#39;columns&#39;)
+
+py_df[&#39;width&#39;], py_df[&#39;height&#39;] = zip(*py_df[&#39;filename&#39;].map(height_width))</code></pre>
+<p>Now, to make a chart out of the dataframes. I think a couple of histograms each, one for filesize, one for width, and a scatter plot that compares two. The images are not all in one orientation, portrait/landscape, so maybe I should take the maximum out of width and height?</p>
+<pre class="r"><code>r_df = r_df |&gt; 
+    rowwise() |&gt; 
+    mutate(max_dim = max(width, height))</code></pre>
+<pre class="r"><code>r_df |&gt; 
+    filter(width != 0) |&gt; 
+    ggplot(aes(filesize)) + 
+    geom_histogram()</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/portfolio/blog-image-resize/index_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<pre class="r"><code>r_df |&gt; 
+    filter(width != 0) |&gt; 
+    ggplot(aes(max_dim)) + 
+    geom_histogram()</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/portfolio/blog-image-resize/index_files/figure-html/unnamed-chunk-15-2.png" width="672" /></p>
+<pre class="r"><code>r_df |&gt; 
+    filter(width != 0) |&gt; 
+    ggplot(aes(max_dim, filesize)) + 
+    geom_point()</code></pre>
+<p><img src="/portfolio/blog-image-resize/index_files/figure-html/unnamed-chunk-15-3.png" width="672" /></p>
+<p>Python charts, which requires a search. w3schools is the first result, which will give me what I need. <a href="https://www.w3schools.com/python/matplotlib_histograms.asp" class="uri">https://www.w3schools.com/python/matplotlib_histograms.asp</a></p>
+<pre class="python"><code>import matplotlib.pyplot as plt
+
+py_df_img = py_df[py_df[&#39;width&#39;] != 0]
+
+py_df_img[&#39;max_dim&#39;] = py_df_img[[&#39;width&#39;, &#39;height&#39;]].max(axis=1)</code></pre>
+<pre><code>## &lt;string&gt;:2: SettingWithCopyWarning: 
+## A value is trying to be set on a copy of a slice from a DataFrame.
+## Try using .loc[row_indexer,col_indexer] = value instead
+## 
+## See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy</code></pre>
+<pre class="python"><code>plt.hist(py_df_img[&#39;filesize&#39;], bins=30)
+plt.show()</code></pre>
+<p><img src="/portfolio/blog-image-resize/index_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<pre class="python"><code>
+plt.close()</code></pre>
+<pre class="python"><code>plt.hist(py_df_img[&#39;max_dim&#39;], bins=30)
+plt.show()</code></pre>
+<p><img src="/portfolio/blog-image-resize/index_files/figure-html/unnamed-chunk-17-3.png" width="672" /></p>
+<pre class="python"><code>
+plt.close()</code></pre>
+<pre class="python"><code>plt.scatter(py_df_img[&#39;max_dim&#39;], py_df_img[&#39;filesize&#39;])
+plt.show()</code></pre>
+<p><img src="/portfolio/blog-image-resize/index_files/figure-html/unnamed-chunk-18-5.png" width="672" /></p>
+<pre class="python"><code>
+plt.close()</code></pre>
+<p>Nice! We have some plots. Now we need to change the size of the images. I’ll take a backup, of course.</p>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="http://localhost:4321/js/jquery.min.js"></script>
+<script src="http://localhost:4321/js/bootstrap.min.js"></script>
+<script src="http://localhost:4321/js/jquery.cookie.js"> </script>
+<script src="http://localhost:4321/js/ekko-lightbox.js"></script>
+<script src="http://localhost:4321/js/jquery.scrollTo.min.js"></script>
+<script src="http://localhost:4321/js/masonry.pkgd.min.js"></script>
+<script src="http://localhost:4321/js/imagesloaded.pkgd.min.js"></script>
+<script src="http://localhost:4321/js/owl.carousel.min.js"></script>
+<script src="http://localhost:4321/js/front.js"></script>
+
+
+
+</body>
+</html>

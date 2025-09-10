@@ -1,0 +1,354 @@
+---
+title: Image Resize
+author: Nathan Moore
+date: '2025-08-13'
+slug: blog-image-resize
+categories:
+  - Code
+tags: []
+draft: yes
+image: ''
+showonlyimage: no
+---
+
+Decrease the size of the images in this repository / on this blog.
+
+<!--more-->
+
+Most of my images have been resized one way or another, but some of them are still too big. Many of them because I saved them from Facebook where the original posts lived. I only need them to be as large as they will be displayed on the screen for this site. What's a good size? 1000px wide? 100KB? What's the relationship between these measures?
+
+This is my script to go through this blog's folders and resize images down to an acceptable size. Should I do this for python and R? Yes!
+
+First, we should collect some metrics about the sizes and dimensions of of what we already have.
+
+The folder location for all the images is here:
+
+`C:\Users\NathanMoore\code\creative-website\static\img`
+
+```{r}
+library(here)
+
+here::here()
+
+```
+
+```{python}
+import os
+
+os.getcwd()
+
+```
+
+Interesting that the R code is for the repository, and the python code is for the current file. Can we find a way to get git directory for python?
+
+<https://stackoverflow.com/questions/22081209/find-the-root-of-the-git-repository-where-the-file-lives>
+
+<https://github.com/gitpython-developers/GitPython>\
+<https://gitpython.readthedocs.io/en/stable/>
+
+This is great but I really only need the one function and method.
+
+```{python}
+import git
+
+repo = git.Repo('.', search_parent_directories=True)
+repo.working_tree_dir
+```
+
+Nice.
+
+It looks like I can keep switching between environments so I'm going to develop these two techniques at the same time rather than one after the other.
+
+```{r}
+r_fldr = here::here()
+
+r_fldr = paste0(r_fldr, '/static/img/')
+
+r_fldr
+```
+
+```{python}
+
+py_fldr = repo.working_tree_dir + '\\static\\img\\'
+
+print(py_fldr)
+```
+
+I want to use `os.walk()` for python but I'm not sure what the equivalent is in R. It looks like `list.files()` is the way to go.
+
+
+```{r}
+r_files = list.files(r_fldr, full.names = TRUE, recursive = TRUE)
+head(r_files)
+```
+
+Always love a list comprehension. 
+
+<https://stackoverflow.com/questions/3207219/how-do-i-list-all-files-of-a-directory#comment128971338_3207973>
+
+```{python}
+
+py_files = [os.path.join(dirpath,f) for (dirpath, dirnames, filenames) in os.walk(py_fldr) for f in filenames] 
+py_files[:5]
+```
+
+The same results for each of these operations: 292 files.
+
+we can now get files sizes and image widths
+
+```{r}
+r_sizes = lapply(r_files, file.size)
+head(r_sizes)
+```
+
+```{python}
+py_sizes = [os.stat(f).st_size for f in py_files]
+py_sizes[:5]
+```
+
+This is fine so far, but I'm going to have more vectors and lists, and this is better contained in a dataframe. 
+
+```{r}
+library(tidyverse)
+
+r_df = tibble(r_files) |> 
+       rename(filename = r_files)
+
+r_df = r_df |> 
+       mutate(filesize = file.size(filename))
+
+```
+
+Good! I always feel weird importing all of tidyverse but I have a hard time remembering which library contains which functions after a few years not using R. 
+
+```{python}
+import pandas as pd
+
+py_df = pd.DataFrame(py_files, columns=['filename'])
+
+py_df['filesize'] = py_df['filename'].map(lambda x: os.stat(x).st_size)
+
+```
+
+Also, dimensions. 
+
+I struggled with this for a while, with the interaction between mutate, if_else, read.bitmap. 
+I think I need to create a function which I can then simply use with mutate. 
+Kind of simply, because I actually want the height and width of the image, so map for the function output, and then unnest. 
+
+```{r warning=FALSE}
+library(readbitmap)
+
+# this was the closest I got but doesn't seem to work. 
+# I think if_else evaluates the thing even though the condition is false? 
+# and read.bitmap cannot handle a mp4 file
+# r_df = r_df |> 
+#        rowwise() |>
+#        mutate(dims = if_else(str_detect(filename, '.jpg'),                              
+#                              read.bitmap(filename),
+#                              99))
+
+
+height_width <- function(filenames) {
+  h = array(dim = length(filenames))
+  w = array(dim = length(filenames))
+  for (i in seq_along(filenames)) {
+    k = filenames[i]
+    if (str_detect(k, '.png') || str_detect(k, '.jpg')) {
+      img = read.bitmap(k)
+      h[i] = dim(img)[1]
+      w[i] = dim(img)[2]
+    } else {
+      h[i] = 0
+      w[i] = 0
+    }
+  }
+  list(height = h, width = w)
+}
+
+r_df = r_df |> 
+       mutate(dims = map(filename, height_width)) |> 
+       unnest_wider(dims) |> 
+       mutate(filetype = tools::file_ext(filename))
+
+table(r_df$filetype)
+
+```
+
+Now, for python. I think I'll jump to the same approach with a lambda for pandas. 
+Not quite a lambda, but I went through `apply()` and then found `zip()`
+
+https://stackoverflow.com/questions/16236684/apply-pandas-function-to-column-to-create-multiple-new-columns
+
+
+```{python}
+from PIL import Image
+
+def height_width(filename): 
+    # filename = row['filename']
+    if '.jpg' in filename or '.png' in filename:
+        with Image.open(filename) as img: 
+            width, height = img.size
+    else: 
+        width, height = 0, 0
+    return width, height
+        
+# py_df['width'], py_df['height'] = py_df['filename'].map(lambda x: height_width(x))
+
+# py_df[['width','height']] = py_df.apply(height_width, axis='columns')
+
+py_df['width'], py_df['height'] = zip(*py_df['filename'].map(height_width))
+
+py_df['filetype'] = py_df['filename'].map(lambda x: x.split('.')[-1])
+
+py_df['filetype'].value_counts()
+
+```
+
+Now, to make a chart out of the dataframes. I think a couple of histograms each, one for filesize, one for width, and a scatter plot that compares two. The images are not all in one orientation, portrait/landscape, so maybe I should take the maximum out of width and height? 
+
+```{r}
+
+r_df = r_df |> 
+    rowwise() |> 
+    mutate(max_dim = max(width, height))
+
+```
+
+```{r}
+
+r_df |> 
+    filter(width != 0) |> 
+    ggplot(aes(filesize)) + 
+    geom_histogram()
+
+r_df |> 
+    filter(width != 0) |> 
+    ggplot(aes(max_dim)) + 
+    geom_histogram()
+
+r_df |> 
+    filter(width != 0) |> 
+    ggplot(aes(max_dim, filesize)) + 
+    geom_point()
+
+```
+
+Python charts, which requires a search, because I always have to look something up. w3schools is the first result, which will give me what I need. https://www.w3schools.com/python/matplotlib_histograms.asp 
+
+```{python}
+import matplotlib.pyplot as plt
+
+py_df_img = py_df[py_df['width'] != 0]
+
+py_df_img['max_dim'] = py_df_img[['width', 'height']].max(axis=1)
+
+plt.hist(py_df_img['filesize'], bins=30)
+
+plt.show()
+
+plt.close()
+
+```
+
+```{python}
+
+plt.hist(py_df_img['max_dim'], bins=30)
+plt.show()
+
+plt.close()
+
+```
+
+```{python}
+
+plt.scatter(py_df_img['max_dim'], py_df_img['filesize'])
+plt.show()
+
+plt.close()
+
+```
+
+Nice! We have some plots. I don't want to do too much with the charts. 
+
+Now we need to change the size of the images. I'll take a backup, of course. Before the changes, the `img` folder size on disk is 40.6MB. 
+
+```{r}
+
+```
+
+ChatGPT to write some code? I'll give it a go. 
+
+
+```{python eval=FALSE}
+import os
+from PIL import Image
+
+def shrink_images(input_folder, output_folder, max_size=(800, 800), quality=70):
+    """
+    Shrink all images in a folder (including subfolders) and save them to output_folder.
+    
+    Args:
+        input_folder (str): Path to input images.
+        output_folder (str): Path to save reduced images.
+        max_size (tuple): Max width, height (keeps aspect ratio).
+        quality (int): JPEG quality (1-100).
+    """
+    # Collect all image paths
+    image_files = []
+    for root, _, files in os.walk(input_folder):
+        for filename in files:
+            if filename.lower().endswith((".jpg", ".png")):
+                image_files.append(os.path.join(root, filename))
+
+    total = len(image_files)
+    print(f"Found {total} images to process.")
+
+    # Process images with counter
+    for i, input_path in enumerate(image_files, start=1):
+        relative_path = os.path.relpath(os.path.dirname(input_path), input_folder)
+        output_dir = os.path.join(output_folder, relative_path)
+        os.makedirs(output_dir, exist_ok=True)
+
+        output_path = os.path.join(output_dir, os.path.basename(input_path))
+
+        with Image.open(input_path) as img:
+            img.thumbnail(max_size)
+
+            if img.mode in ("RGBA", "P"):
+                img = img.convert("RGB")
+
+            img.save(output_path, optimize=True, quality=quality)
+
+        print(f"[{i}/{total}] Saved: {output_path}")
+
+# Example usage
+shrink_images("input_images", "output_images", max_size=(800, 800), quality=70)
+
+```
+
+This isn't quite right because I'm not calling this as a script. I can take most of this and loop through the dataframe (even though that's not ideal as a programming paradigm). 
+
+First thing is not having to save the folder manually - replace 'img' in the path to save to a different location. 
+
+```{python}
+os.makedirs('C:\\Users\\NathanMoore\\code\\creative-website\\static\\output\\')
+```
+
+
+```{python}
+from PIL import Image
+
+max_size = (1000,1000)
+
+for f,type in zip(py_df['filename'],py_df['filetype']):
+    if type in ('jpg','png'):
+        out = f.replace('img', 'output')
+        os.makedirs(os.path.dirname(out), exist_ok=True)
+      
+        with Image.open(f) as img: 
+            img.thumbnail(max_size)
+            img.save(out)
+
+```
+
