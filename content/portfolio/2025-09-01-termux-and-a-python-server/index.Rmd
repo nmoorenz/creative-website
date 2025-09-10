@@ -16,27 +16,20 @@ I have an old phone that I have been using for a few development type things, an
 
 I have an old phone that I have been using for a few development type things, and I wanted to share this post about Termux and sharing files from an Android phone.
 
-My old Redmi phone lasted for more than two years. This is pretty good these days! There were a few troubles along the way, like randomly turning off and restarting and getting into startup loops by just touching the power button / fingerprint reader. This turns out to not be a good idea: constantly touching and pushing the combined button means it got worn out, probably? It would require a soft restart, holding the button for four seconds, and then would be OK for a while. Then a few days later and touching the button would set this off again. And then it would be fine for a couple of months. Eventually it was happening most days and that's just not sustainable.
+My old Redmi phone lasted for more than two years. This is pretty good these days! There were a few troubles along the way, like randomly turning off and restarting and getting into startup loops by just touching the power button / fingerprint reader. This turns out to not be a good idea: constantly touching and pushing the combined button means it got worn out, probably? It would require a soft restart, holding the button for four seconds, and then would be OK for a while. Then a few days later and touching the button would set this off again. And then it would be fine for a couple of months. Eventually it was happening most days and that just becomes unsustainably annoying. 
 
 So, the old Redmi is plugged in to my hub on my desk at home, running a few things. [F-droid](https://f-droid.org/) is a great app for free and open source software. Download and install from their site rather than Play Store. [This is at risk](https://forum.f-droid.org/t/google-will-require-developer-verification-to-install-android-apps-including-sideloading/33123/6) so we will see how long it lasts.
 
 Apps installed (count these as an endorsement)
 
--   [Boinc](https://boinc.berkeley.edu/) is running as best it can.
-
--   I have uninstalled as many apps as I can with [ADB](https://geekchamp.com/how-to-uninstall-any-android-app-with-adb-including-system-apps-and-bloatware/).
-
--   [Immich](https://immich.app/) and [Nextcloud](https://nextcloud.com/) apps are installed but no server yet. That will / may be part of another future project.
-
--   [Amaze](https://github.com/TeamAmaze/AmazeFileManager) file browser
-
--   [LibreTorrent](https://gitlab.com/proninyaroslav/libretorrent) and [Torrents-csv](https://torrents-csv.com/)
-
--   [VLC](https://www.videolan.org/vlc/)
-
--   [Simple Text Editor](https://texteditor.maxistar.me/about/)
-
--   [Termux](https://termux.dev/en/): the subject of this post
+* [Boinc](https://boinc.berkeley.edu/) is running as best it can.
+* I have uninstalled as many apps as I can with [ADB](https://geekchamp.com/how-to-uninstall-any-android-app-with-adb-including-system-apps-and-bloatware/).
+* [Immich](https://immich.app/) and [Nextcloud](https://nextcloud.com/) apps are installed but no server yet. That will / may be part of another future project.
+* [Amaze](https://github.com/TeamAmaze/AmazeFileManager) file browser
+* [LibreTorrent](https://gitlab.com/proninyaroslav/libretorrent) and [Torrents-csv](https://torrents-csv.com/)
+* [VLC](https://www.videolan.org/vlc/)
+* [Simple Text Editor](https://texteditor.maxistar.me/about/)
+* [Termux](https://termux.dev/en/): the subject of this post
 
 Usually I would use an app like [WiFi File Transfer](https://play.google.com/store/apps/details?id=com.techprd.filetransfer&hl=en-US) to access files saved on a phone. After looking up a few articles about what to do with old Android phones (*future planned post*) google feed served me up this one
 
@@ -46,7 +39,7 @@ Usually I would use an app like [WiFi File Transfer](https://play.google.com/sto
 
 Python is so cool. Can I do this from Android? I have seen something [similar before for R](https://selbydavid.com/2017/12/29/r-android/) and I imagine python is easy. 
 
-There are many SEO based web pages with lists of Android terminals possibilities, but it looked like Termux was good and popular. It is installable from F-droid of course. 
+There are so many SEO list web pages with lists of Android terminal possibilities. I'm sure there's a term for this, but when I search I just get lists of results about SEO. Termux looks like it is good and popular. It is installable from F-droid of course. 
 
 ![](/img/termux/termux-welcome.jpg)
 
@@ -60,7 +53,7 @@ Now I can run `pkg install python`. Termux is verbose by default (I assume) so t
 
 I now have python on my phone! There is an interactive terminal. 
 
-![](/img/termux/pkg-install-python.jpg)
+![](/img/termux/termux-python-interactive.jpg)
 
 We can make calls including the classic `--help` or `--version`. 
 
@@ -70,7 +63,9 @@ I can now start the server with `python -m http.server`
 
 It is accessible at <http://192.168.68.107:8000/>
 
-However, the directory is wrong and I do not know where I am. `ls` is not permitted in many places. https://stackoverflow.com/questions/68515987/how-to-change-working-directory-in-termux Turns out, I just need to find the right directory. 
+However, the directory is wrong and I do not know where I am. `ls` is not permitted in many places as I try to navigate around the directory structure. 
+
+https://stackoverflow.com/questions/68515987/how-to-change-working-directory-in-termux Turns out, I just need to find the right directory. I was somewhere in `/data/data/` but I want to be in `~/storage`. 
 
 ![](/img/termux/cd-ls-downloads.jpg)
 
@@ -90,7 +85,7 @@ This modifies the behaviour of the server, which I don't want to do
 This has the right stuff 
 <https://www.maketecheasier.com/transferring-files-using-python-http-server/>
 
-This suggests the same thing for Windows, but I'll use the port numbers and recursive option from above.
+This suggests the same thing for Windows, but I'll use the recursive option from above.
 <https://stackoverflow.com/questions/33364752/equivalent-of-wget-command-line-for-windows-8-1>
 
 I don't want to write a script 
@@ -99,7 +94,7 @@ I don't want to write a script
 Go and get wget for windows 
 <https://gnuwin32.sourceforge.net/packages/wget.htm>
 
-Add `C:\Program Files (x86)\GnuWin32\bin` to Path environment variables (duck duck go it {that won't become a verb})
+Add `C:\Program Files (x86)\GnuWin32\bin` to Path environment variables (duck duck go it to find out how {that won't become a verb})
 
 And one more thing, because for some reason `index.html` comes along with the downloads. 
 https://stackoverflow.com/questions/17638543/how-to-ignore-specific-type-of-files-to-download-in-wget

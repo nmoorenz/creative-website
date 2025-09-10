@@ -15,36 +15,37 @@ showonlyimage: no
 <p>I have an old phone that I have been using for a few development type things, and I wanted to share this post about Termux and locally sharing files from an Android phone.</p>
 <!--more-->
 <p>I have an old phone that I have been using for a few development type things, and I wanted to share this post about Termux and sharing files from an Android phone.</p>
-<p>My old Redmi phone lasted for more than two years. This is pretty good these days! There were a few troubles along the way, like randomly turning off and restarting and getting into startup loops by just touching the power button / fingerprint reader. This turns out to not be a good idea: constantly touching and pushing the combined button means it got worn out, probably? It would require a soft restart, holding the button for four seconds, and then would be OK for a while. Then a few days later and touching the button would set this off again. And then it would be fine for a couple of months. Eventually it was happening most days and that’s just not sustainable.</p>
+<p>My old Redmi phone lasted for more than two years. This is pretty good these days! There were a few troubles along the way, like randomly turning off and restarting and getting into startup loops by just touching the power button / fingerprint reader. This turns out to not be a good idea: constantly touching and pushing the combined button means it got worn out, probably? It would require a soft restart, holding the button for four seconds, and then would be OK for a while. Then a few days later and touching the button would set this off again. And then it would be fine for a couple of months. Eventually it was happening most days and that just becomes unsustainably annoying.</p>
 <p>So, the old Redmi is plugged in to my hub on my desk at home, running a few things. <a href="https://f-droid.org/">F-droid</a> is a great app for free and open source software. Download and install from their site rather than Play Store. <a href="https://forum.f-droid.org/t/google-will-require-developer-verification-to-install-android-apps-including-sideloading/33123/6">This is at risk</a> so we will see how long it lasts.</p>
 <p>Apps installed (count these as an endorsement)</p>
 <ul>
-<li><p><a href="https://boinc.berkeley.edu/">Boinc</a> is running as best it can.</p></li>
-<li><p>I have uninstalled as many apps as I can with <a href="https://geekchamp.com/how-to-uninstall-any-android-app-with-adb-including-system-apps-and-bloatware/">ADB</a>.</p></li>
-<li><p><a href="https://immich.app/">Immich</a> and <a href="https://nextcloud.com/">Nextcloud</a> apps are installed but no server yet. That will / may be part of another future project.</p></li>
-<li><p><a href="https://github.com/TeamAmaze/AmazeFileManager">Amaze</a> file browser</p></li>
-<li><p><a href="https://gitlab.com/proninyaroslav/libretorrent">LibreTorrent</a> and <a href="https://torrents-csv.com/">Torrents-csv</a></p></li>
-<li><p><a href="https://www.videolan.org/vlc/">VLC</a></p></li>
-<li><p><a href="https://texteditor.maxistar.me/about/">Simple Text Editor</a></p></li>
-<li><p><a href="https://termux.dev/en/">Termux</a>: the subject of this post</p></li>
+<li><a href="https://boinc.berkeley.edu/">Boinc</a> is running as best it can.</li>
+<li>I have uninstalled as many apps as I can with <a href="https://geekchamp.com/how-to-uninstall-any-android-app-with-adb-including-system-apps-and-bloatware/">ADB</a>.</li>
+<li><a href="https://immich.app/">Immich</a> and <a href="https://nextcloud.com/">Nextcloud</a> apps are installed but no server yet. That will / may be part of another future project.</li>
+<li><a href="https://github.com/TeamAmaze/AmazeFileManager">Amaze</a> file browser</li>
+<li><a href="https://gitlab.com/proninyaroslav/libretorrent">LibreTorrent</a> and <a href="https://torrents-csv.com/">Torrents-csv</a></li>
+<li><a href="https://www.videolan.org/vlc/">VLC</a></li>
+<li><a href="https://texteditor.maxistar.me/about/">Simple Text Editor</a></li>
+<li><a href="https://termux.dev/en/">Termux</a>: the subject of this post</li>
 </ul>
 <p>Usually I would use an app like <a href="https://play.google.com/store/apps/details?id=com.techprd.filetransfer&amp;hl=en-US">WiFi File Transfer</a> to access files saved on a phone. After looking up a few articles about what to do with old Android phones (<em>future planned post</em>) google feed served me up this one</p>
 <p><a href="https://www.tomshardware.com/software/how-to-transfer-and-share-files-over-a-network-without-a-usb-flash-drive-and-with-just-one-line-of-code" class="uri">https://www.tomshardware.com/software/how-to-transfer-and-share-files-over-a-network-without-a-usb-flash-drive-and-with-just-one-line-of-code</a></p>
 <p><code>python -m http.server</code></p>
 <p>Python is so cool. Can I do this from Android? I have seen something <a href="https://selbydavid.com/2017/12/29/r-android/">similar before for R</a> and I imagine python is easy.</p>
-<p>There are many SEO based web pages with lists of Android terminals possibilities, but it looked like Termux was good and popular. It is installable from F-droid of course.</p>
+<p>There are so many SEO list web pages with lists of Android terminal possibilities. I’m sure there’s a term for this, but when I search I just get lists of results about SEO. Termux looks like it is good and popular. It is installable from F-droid of course.</p>
 <p><img src="/img/termux/termux-welcome.jpg" /></p>
 <p>If I try to run the server code termux complains that I do not have python installed. Fair enough. I have to choose a mirror first though. <a href="https://www.reddit.com/r/termux/comments/17w48rb/what_is_termuxchangerepo/" class="uri">https://www.reddit.com/r/termux/comments/17w48rb/what_is_termuxchangerepo/</a>. You have to choose a group of mirrors so I choose Oceania. I also run <code>apt list --upgradable</code> but I’m not too worried about that. Termux was last updated 3 months ago, which is close, but also if it contains lot of utilities that are under active development there will be a bunch of possible upgrades and I’ll take that a positive sign but also not update them.</p>
 <p><img src="/img/termux/mirrors-selected-termux.jpg" /></p>
 <p>Now I can run <code>pkg install python</code>. Termux is verbose by default (I assume) so there’s a lot of output here.</p>
 <p><img src="/img/termux/pkg-install-python.jpg" /></p>
 <p>I now have python on my phone! There is an interactive terminal.</p>
-<p><img src="/img/termux/pkg-install-python.jpg" /></p>
+<p><img src="/img/termux/termux-python-interactive.jpg" /></p>
 <p>We can make calls including the classic <code>--help</code> or <code>--version</code>.</p>
 <p><img src="/img/termux/termux-python-version.jpg" /></p>
 <p>I can now start the server with <code>python -m http.server</code></p>
 <p>It is accessible at <a href="http://192.168.68.107:8000/" class="uri">http://192.168.68.107:8000/</a></p>
-<p>However, the directory is wrong and I do not know where I am. <code>ls</code> is not permitted in many places. <a href="https://stackoverflow.com/questions/68515987/how-to-change-working-directory-in-termux" class="uri">https://stackoverflow.com/questions/68515987/how-to-change-working-directory-in-termux</a> Turns out, I just need to find the right directory.</p>
+<p>However, the directory is wrong and I do not know where I am. <code>ls</code> is not permitted in many places as I try to navigate around the directory structure.</p>
+<p><a href="https://stackoverflow.com/questions/68515987/how-to-change-working-directory-in-termux" class="uri">https://stackoverflow.com/questions/68515987/how-to-change-working-directory-in-termux</a> Turns out, I just need to find the right directory. I was somewhere in <code>/data/data/</code> but I want to be in <code>~/storage</code>.</p>
 <p><img src="/img/termux/cd-ls-downloads.jpg" /></p>
 <p>And then I can download files.</p>
 <p>But can I download directories? For folders of things? Here come a bunch of links.</p>
@@ -56,13 +57,13 @@ showonlyimage: no
 <a href="https://www.reddit.com/r/learnpython/comments/925m0y/python_simple_http_server_with_1click_download/" class="uri">https://www.reddit.com/r/learnpython/comments/925m0y/python_simple_http_server_with_1click_download/</a></p>
 <p>This has the right stuff
 <a href="https://www.maketecheasier.com/transferring-files-using-python-http-server/" class="uri">https://www.maketecheasier.com/transferring-files-using-python-http-server/</a></p>
-<p>This suggests the same thing for Windows, but I’ll use the port numbers and recursive option from above.
+<p>This suggests the same thing for Windows, but I’ll use the recursive option from above.
 <a href="https://stackoverflow.com/questions/33364752/equivalent-of-wget-command-line-for-windows-8-1" class="uri">https://stackoverflow.com/questions/33364752/equivalent-of-wget-command-line-for-windows-8-1</a></p>
 <p>I don’t want to write a script
 <a href="https://www.reddit.com/r/PowerShell/comments/dzzhre/recursively_download_files_from_web_mirror_based/" class="uri">https://www.reddit.com/r/PowerShell/comments/dzzhre/recursively_download_files_from_web_mirror_based/</a></p>
 <p>Go and get wget for windows
 <a href="https://gnuwin32.sourceforge.net/packages/wget.htm" class="uri">https://gnuwin32.sourceforge.net/packages/wget.htm</a></p>
-<p>Add <code>C:\Program Files (x86)\GnuWin32\bin</code> to Path environment variables (duck duck go it {that won’t become a verb})</p>
+<p>Add <code>C:\Program Files (x86)\GnuWin32\bin</code> to Path environment variables (duck duck go it to find out how {that won’t become a verb})</p>
 <p>And one more thing, because for some reason <code>index.html</code> comes along with the downloads.
 <a href="https://stackoverflow.com/questions/17638543/how-to-ignore-specific-type-of-files-to-download-in-wget" class="uri">https://stackoverflow.com/questions/17638543/how-to-ignore-specific-type-of-files-to-download-in-wget</a></p>
 <p>So, finally:
