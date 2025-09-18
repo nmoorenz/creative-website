@@ -65,6 +65,8 @@ It is accessible at <http://192.168.68.107:8000/>
 
 However, the directory is wrong and I do not know where I am. `ls` is not permitted in many places as I try to navigate around the directory structure. 
 
+![](/img/termux/directory-listing-termux.png)
+
 https://stackoverflow.com/questions/68515987/how-to-change-working-directory-in-termux Turns out, I just need to find the right directory. I was somewhere in `/data/data/` but I want to be in `~/storage`. 
 
 ![](/img/termux/cd-ls-downloads.jpg)

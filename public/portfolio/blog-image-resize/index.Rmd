@@ -57,7 +57,7 @@ repo.working_tree_dir
 
 Nice.
 
-It looks like I can keep switching between environments so I'm going to develop these two techniques at the same time rather than one after the other.
+It looks like I can keep switching between R and python environments so I'm going to develop these two techniques at the same time rather than one after the other.
 
 ```{r}
 r_fldr = here::here()
@@ -134,7 +134,7 @@ Also, dimensions.
 
 I struggled with this for a while, with the interaction between mutate, if_else, read.bitmap. 
 I think I need to create a function which I can then simply use with mutate. 
-Kind of simply, because I actually want the height and width of the image, so map for the function output, and then unnest. 
+Kind of simply, because I actually want the height and width of the image, so `map` for the `list` function output, and then `unnest`. 
 
 ```{r warning=FALSE}
 library(readbitmap)
@@ -176,7 +176,7 @@ table(r_df$filetype)
 ```
 
 Now, for python. I think I'll jump to the same approach with a lambda for pandas. 
-Not quite a lambda, but I went through `apply()` and then found `zip()`
+Not quite a lambda, but I went through `apply()` and then found this application of `zip()`
 
 https://stackoverflow.com/questions/16236684/apply-pandas-function-to-column-to-create-multiple-new-columns
 
@@ -273,12 +273,7 @@ Nice! We have some plots. I don't want to do too much with the charts.
 
 Now we need to change the size of the images. I'll take a backup, of course. Before the changes, the `img` folder size on disk is 40.6MB. 
 
-```{r}
-
-```
-
 ChatGPT to write some code? I'll give it a go. 
-
 
 ```{python eval=FALSE}
 import os
@@ -327,7 +322,7 @@ shrink_images("input_images", "output_images", max_size=(800, 800), quality=70)
 
 ```
 
-This isn't quite right because I'm not calling this as a script. I can take most of this and loop through the dataframe (even though that's not ideal as a programming paradigm). 
+This isn't quite right because I'm not calling this as a script operating on the files themselves. Maybe I should? I can take most of this and loop through the dataframe (even though that's not ideal as a programming paradigm). 
 
 First thing is not having to save the folder manually - replace 'img' in the path to save to a different location. 
 
