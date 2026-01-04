@@ -45,6 +45,10 @@ advent of code migration    pub
 image resize                draft
 hugo theme update           pub
 termux python server        pub
+baby names                  draft
+spotify to tidal            draft
+
+
 
 
 

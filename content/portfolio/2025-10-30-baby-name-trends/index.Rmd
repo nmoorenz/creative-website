@@ -1,0 +1,67 @@
+---
+title: Baby Name Trends
+author: Nathan Moore
+date: '2025-10-30'
+slug: []
+categories:
+  - Code
+tags: []
+image: ''
+showonlyimage: no
+draft: true
+---
+
+Triggered by a theoretical question about alphabetical ordering of people possibly being gendered, here's a short analysis of baby names through time. Taking a man and a woman in a series of pairs, is it more likely that men or women are listed first? 
+
+Baby names are published by the Department of Internal Affairs and Stats NZ
+
+https://smartstart.services.govt.nz/news/baby-names
+https://catalogue.data.govt.nz/dataset/baby-name-popularity-over-time
+
+```{r setup, include=FALSE}  
+# library(knitr)  
+library(reticulate)  
+knitr::knit_engines$set(python = reticulate::eng_python)  
+```
+
+```{python}
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('baby-names-2025-01-06.csv', encoding='latin1')
+
+df.head()
+
+```
+
+Let's add a rank column 
+
+```{python}
+
+df["rank"] = df.groupby(["Year","Sex"])["Count"].rank(method="dense", ascending=False)
+
+# df.head()
+
+df.loc[df['rank'] == 1]
+
+```
+
+A new dataframe for counting the names per year. How many different names were there for M/F each year? 
+
+```{python}
+
+df_year_sex = df.groupby(['Year','Sex']).size().reset_index(name='counts')
+
+df_year_sex = df_year_sex.pivot(index='Year', columns='Sex', values='counts').rename_axis(None, axis=1)
+# .reset_index()
+df_year_sex.head(20)
+
+```
+
+Create a simple chart to see how this has changed through time. 
+My assumption is that there is a larger variety of names through time. 
+
+
+
+

@@ -1,0 +1,27 @@
+---
+title: More Git Techniques
+author: Nathan Moore
+date: '2026-01-05'
+slug: []
+categories: []
+tags: []
+image: ''
+showonlyimage: false
+---
+
+
+
+<p>This is another thing that I always refer to.</p>
+<!--more-->
+<p>My main reference is this page:</p>
+<p><a href="https://www.geeksforgeeks.org/git/how-to-checkout-a-file-from-another-branch-in-git/" class="uri">https://www.geeksforgeeks.org/git/how-to-checkout-a-file-from-another-branch-in-git/</a></p>
+<p>But there are plenty of other pages around. This is a summary of how I think about it.</p>
+<p>Check where we are up to and what branch we are using.<br />
+<code>git status</code></p>
+<p>Check the names of all the branches.<br />
+<code>git branch</code></p>
+<p>Check out the target branch, the one we want to be working on<br />
+<code>git checkout feature-working-branch</code></p>
+<p>Take the file from the other branch. This is checking out a file, rather than a checking out a branch.<br />
+<code>git checkout feature-branch -- path/to/file</code></p>
+<p>And that’s it!</p>

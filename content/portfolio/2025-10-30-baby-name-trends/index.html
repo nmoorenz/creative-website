@@ -1,0 +1,121 @@
+---
+title: Baby Name Trends
+author: Nathan Moore
+date: '2025-10-30'
+slug: []
+categories:
+  - Code
+tags: []
+image: ''
+showonlyimage: no
+draft: true
+---
+
+
+
+<p>Triggered by a theoretical question about alphabetical ordering of people possibly being gendered, here’s a short analysis of baby names through time. Taking a man and a woman in a series of pairs, is it more likely that men or women are listed first?</p>
+<p>Baby names are published by the Department of Internal Affairs and Stats NZ</p>
+<p><a href="https://smartstart.services.govt.nz/news/baby-names" class="uri">https://smartstart.services.govt.nz/news/baby-names</a>
+<a href="https://catalogue.data.govt.nz/dataset/baby-name-popularity-over-time" class="uri">https://catalogue.data.govt.nz/dataset/baby-name-popularity-over-time</a></p>
+<pre class="python"><code>import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv(&#39;baby-names-2025-01-06.csv&#39;, encoding=&#39;latin1&#39;)
+
+df.head()</code></pre>
+<pre><code>##    Year Sex     Name  Count
+## 0  2022   F   Aadhya     13
+## 1  2024   F   Aadhya     10
+## 2  2024   F    Aaira     10
+## 3  2002   F  Aaliyah     81
+## 4  2014   F  Aaliyah     75</code></pre>
+<p>Let’s add a rank column</p>
+<pre class="python"><code>df[&quot;rank&quot;] = df.groupby([&quot;Year&quot;,&quot;Sex&quot;])[&quot;Count&quot;].rank(method=&quot;dense&quot;, ascending=False)
+
+# df.head()
+
+df.loc[df[&#39;rank&#39;] == 1]</code></pre>
+<pre><code>##        Year Sex       Name  Count  rank
+## 3160   2019   F     Amelia    255   1.0
+## 12492  2013   F  Charlotte    302   1.0
+## 12494  2017   F  Charlotte    277   1.0
+## 12495  2014   F  Charlotte    271   1.0
+## 12504  2018   F  Charlotte    233   1.0
+## ...     ...  ..        ...    ...   ...
+## 71826  1902   M    William    871   1.0
+## 71827  1904   M    William    862   1.0
+## 71828  1908   M    William    851   1.0
+## 71832  1901   M    William    793   1.0
+## 71837  1900   M    William    753   1.0
+## 
+## [250 rows x 5 columns]</code></pre>
+<p>A new dataframe for counting the names per year. How many different names were there for M/F each year?</p>
+<pre class="python"><code>df_year_sex = df.groupby([&#39;Year&#39;,&#39;Sex&#39;]).size().reset_index(name=&#39;counts&#39;)
+
+df_year_sex = df_year_sex.pivot(index=&#39;Year&#39;, columns=&#39;Sex&#39;, values=&#39;counts&#39;).rename_axis(None, axis=1)
+# .reset_index()
+df_year_sex.head(30)</code></pre>
+<pre><code>##         F    M
+## Year          
+## 1900  146  119
+## 1901  151  111
+## 1902  153  116
+## 1903  155  123
+## 1904  151  127
+## 1905  165  128
+## 1906  161  134
+## 1907  178  132
+## 1908  176  136
+## 1909  180  141
+## 1910  173  135
+## 1911  179  138
+## 1912  194  148
+## 1913  186  147
+## 1914  193  143
+## 1915  204  142
+## 1916  203  151
+## 1917  207  146
+## 1918  192  145
+## 1919  177  144
+## 1920  198  151
+## 1921  208  157
+## 1922  208  157
+## 1923  209  159
+## 1924  200  155
+## 1925  212  159
+## 1926  213  154
+## 1927  208  149
+## 1928  205  151
+## 1929  206  160</code></pre>
+<p>Create a simple chart to see how this has changed through time.
+My assumption is that there is a larger variety of names through time.</p>
+<pre class="python"><code>
+# ax = plt.gca()
+# 
+# #use plot() method on the dataframe
+# df_year_sex.plot(x=&#39;Year&#39;, y=&#39;F&#39;, ax=ax)
+# df_year_sex.plot(x=&#39;Year&#39;, y=&#39;M&#39;, ax=ax)
+
+# plt = df_year_sex.plot()
+# 
+# plt.show()</code></pre>
+<pre class="python"><code>df = pd.DataFrame({&#39;length&#39;: [1.5, 0.5, 1.2, 0.9, 3],
+                   &#39;width&#39;: [0.7, 0.2, 0.15, 0.2, 1.1]},
+                   index=[&#39;pig&#39;, &#39;rabbit&#39;, &#39;duck&#39;, &#39;chicken&#39;, &#39;horse&#39;])
+df.plot(title=&quot;DataFrame Plot&quot;)
+
+# plt.show()</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="python"><code># df = pd.DataFrame({
+#     &#39;pig&#39;: [20, 18, 489, 675, 1776],
+#     &#39;horse&#39;: [4, 25, 281, 600, 1900]
+#     }, index=[1990, 1997, 2003, 2009, 2014])
+# lines = df.plot.line()
+
+
+fig, ax = plt.subplots()
+ax.plot([1, 2, 3], [4, 5, 6])
+ax.set_title(&#39;DataFrame Plot&#39;, loc=&#39;center&#39;)
+# plt.show()
+</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-3.png" width="672" /></p>
