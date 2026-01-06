@@ -7,10 +7,9 @@ categories:
   - Social
 tags: []
 image: '/img/portfolio/secret-santa.jpg'
-showonlyimage: yes
+showonlyimage: false
 ---
 
-Twitter Secret Santa
 
 <!--more-->
 

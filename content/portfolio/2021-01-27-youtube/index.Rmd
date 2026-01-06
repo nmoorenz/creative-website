@@ -7,7 +7,7 @@ categories:
   - Social
 tags: []
 image: 'img/portfolio/RTJ.png'
-showonlyimage: yes
+showonlyimage: false
 ---
 
 I'm a big fan of Run the Jewels, and remixes, and brass, and shortcodes, and this gets it exactly right.   

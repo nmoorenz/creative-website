@@ -7,7 +7,7 @@ categories:
   - Social
 tags: []
 image: '/img/fbcovid/unstoppable.jpg'
-showonlyimage: yes
+showonlyimage: false
 ---
 
 This is a recollection of a series of facebook posts about how much covid sucks but how covid denialists and anti-vaxers suck even more. 

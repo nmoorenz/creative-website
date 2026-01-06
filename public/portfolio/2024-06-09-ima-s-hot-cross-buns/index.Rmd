@@ -7,7 +7,7 @@ categories:
   - Hot Cross Buns
 tags: []
 image: '/img/fb20ima/cover.png'
-showonlyimage: yes
+showonlyimage: false
 ---
 
 <!--more-->
