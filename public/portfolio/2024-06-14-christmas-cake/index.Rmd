@@ -1,0 +1,28 @@
+---
+title: Christmas Cake
+author: Nathan Moore
+date: '2024-06-14'
+slug: []
+categories:
+  - Christmas
+tags: []
+image: '/img/fb21xmas/cake1.jpg'
+showonlyimage: false
+---
+
+Christmas Cake
+
+<!--more-->
+
+It is a Christmas cake baking kind of day
+
+![](/img/fb21xmas/cake1.jpg){width="80%"}
+
+![](/img/fb21xmas/cake2.jpg){width="80%"}
+
+![](/img/fb21xmas/cake3.jpg){width="80%"}
+
+![](/img/fb21xmas/cake4.jpg){width="80%"}
+
+![](/img/fb21xmas/cake5.jpg){width="80%"}
+
