@@ -1,5 +1,5 @@
 ---
-title: yt-dl
+title: yt-dlp
 author: Nathan Moore
 date: '2026-01-07'
 slug: []
