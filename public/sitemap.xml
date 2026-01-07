@@ -2,23 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nmoore.nz/portfolio/2026-01-05-more-git-techniques/</loc>
-    <lastmod>2026-01-05T00:00:00+00:00</lastmod>
+    <loc>https://nmoore.nz/categories/</loc>
+    <lastmod>2026-01-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nmoore.nz/categories/code/</loc>
+    <lastmod>2026-01-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://nmoore.nz/</loc>
-    <lastmod>2026-01-05T00:00:00+00:00</lastmod>
+    <lastmod>2026-01-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://nmoore.nz/categories/</loc>
-    <lastmod>2025-11-19T00:00:00+00:00</lastmod>
+    <loc>https://nmoore.nz/portfolio/2026-01-07-yt-dl/</loc>
+    <lastmod>2026-01-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nmoore.nz/portfolio/2026-01-05-more-git-techniques/</loc>
+    <lastmod>2026-01-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://nmoore.nz/categories/social/</loc>
     <lastmod>2025-11-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://nmoore.nz/portfolio/2025-11-19-spotify-to-tidal/</loc>
     <lastmod>2025-11-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://nmoore.nz/categories/code/</loc>
-    <lastmod>2025-09-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://nmoore.nz/portfolio/2025-09-01-termux-and-a-python-server/</loc>
     <lastmod>2025-09-01T00:00:00+00:00</lastmod>

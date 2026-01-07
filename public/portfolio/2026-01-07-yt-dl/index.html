@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>yt-dl</title>
+<meta name="description" content="Nathan&#39;s Website">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="https://nmoore.nz/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="https://nmoore.nz/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://nmoore.nz/css/owl.carousel.css">
+<link rel="stylesheet" href="https://nmoore.nz/css/owl.theme.css">
+
+
+  <link href="https://nmoore.nz/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="https://nmoore.nz/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://nmoore.nz/img/favicon.png">
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="https://nmoore.nz/">Nathan Moore</a></h1>
+    
+      <p class="sidebar-p">I am a data person who wants to make a website.</p>
+    
+      <p class="sidebar-p">Originally from Taranaki, I now live in Auckland. </p>
+    
+      <p class="sidebar-p">Also: ultimate frisbee, disc golf, cycling, cooking</p>
+    
+    <ul class="sidebar-menu">
+      
+        <li><a href="https://nmoore.nz/portfolio/">Home</a></li>
+      
+        <li><a href="https://nmoore.nz/about/">About</a></li>
+      
+        <li><a href="https://nmoore.nz/categories/">Categories</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  
+  
+  <a href="mailto:nath@nmoore.nz" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://www.linkedin.com/in/nmoorenz" data-animate-hover="pulse" class="external">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  
+  <a href="https://www.github.com/nmoorenz" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2024 Nathan Moore |
+        
+        Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="https://nmoore.nz/">Nathan Moore</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>yt-dl</h1>
+         <div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>I want to download some audio from Youtube which is not available anywhere else. Please make things available for purchase if you want my money.</p>
+<p>There are a few different python packages but this one looks to be the most well maintained and up to date.</p>
+<p><code>pip install yt-dlp</code></p>
+<blockquote>
+<p>WARNING: The script yt-dlp.exe is installed in ‘C:\Scripts’ which is not on PATH.</p>
+</blockquote>
+</div>
+<div id="python" class="section level2">
+<h2>Python</h2>
+<p>OK, that’s fine, I can still write a python script and call from there.</p>
+<pre class="python"><code>from yt_dlp import YoutubeDL
+
+URLS = [&#39;https://www.youtube.com/watch?v=dQw4w9WgXcQ&#39;] 
+with YoutubeDL() as ydl: 
+    ydl.download(URLS)</code></pre>
+<p>Call this from the file location with<br />
+<code>py download.py</code></p>
+<blockquote>
+<p>[download] Destination: Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster) [dQw4w9WgXcQ].mp4</p>
+</blockquote>
+<p>And I get a bunch of warnings as well.</p>
+<blockquote>
+<p>WARNING: [youtube] No supported JavaScript runtime could be found. Only deno is enabled by default; to use another runtime add –js-runtimes RUNTIME[:PATH] to your command/config. YouTube extraction without a JS runtime has been deprecated, and some formats may be missing. See <a href="https://github.com/yt-dlp/yt-dlp/wiki/EJS" class="uri">https://github.com/yt-dlp/yt-dlp/wiki/EJS</a> for details on installing one</p>
+</blockquote>
+<p>But it downloads successfully!</p>
+</div>
+<div id="pip" class="section level2">
+<h2>pip</h2>
+<p>It looks like I can resolve this by running<br />
+<code>pip install -U "yt-dlp[default]"</code><br />
+to install the default dependencies along with <code>yt-dlp</code></p>
+<p>Similar warning to before:</p>
+<blockquote>
+<p>WARNING: The script websockets.exe is installed in ‘C:\Scripts’ which is not on PATH.</p>
+</blockquote>
+<p>So, I should add this directory to path. My python package installation is reasonably haphazard - I rarely use venv, and use pip by default. Maybe I should use<br />
+<code>py -m pip install [package]</code><br />
+more regularly? I have used that a bit in the past.</p>
+<p>Trying to upgrade plotly with<br />
+<code>py -m pip install -U plotly</code><br />
+Doesn’t make any difference to the install location, it still goes into AppData, so I should use an administrator shell to install python packages if I want to be more consistent.</p>
+<p>I could also use <a href="https://stackoverflow.com/a/75037576">something like this</a>:<br />
+<code>pip install -r requirements.txt -t "C:\Python37\Lib\site-packages"</code></p>
+</div>
+<div id="path" class="section level2">
+<h2>path</h2>
+<p>How do I see the Path environment variable entries? VSCode uses PowerShell by default and I haven’t changed it. After a bit of <a href="https://stackoverflow.com/a/74074843">searching</a>:</p>
+<p><code>Get-ChildItem env:</code><br />
+Shows all the environment variables.</p>
+<p><code>(Get-ChildItem Env:PATH).Value.Split(';') | Sort</code><br />
+Shows the sorted items in Path</p>
+<p>So, I think I’ve got JavaScript dependencies sorted, let us download again and see if there are more warnings. I know there’s one about <code>ffmpeg</code> that I need to fix.</p>
+<p>But, the JavaScript warning still comes up, even when I open a new powershell window to get a fresh Path. I’m going to install via the deno website recommended PowerShell script.<br />
+<a href="https://docs.deno.com/runtime/getting_started/installation/" class="uri">https://docs.deno.com/runtime/getting_started/installation/</a><br />
+This looks like it works well enough. <code>deno --help</code> gives appropriate output.</p>
+<p>Downloading again gives no warning, for JS at least.</p>
+</div>
+<div id="ffmpeg" class="section level2">
+<h2>ffmpeg</h2>
+<p>Let’s fix <code>ffmpeg</code> warning.</p>
+<blockquote>
+<p>WARNING: ffmpeg not found. The downloaded format may not be the best available. Installing ffmpeg is strongly recommended: <a href="https://github.com/yt-dlp/yt-dlp#dependencies" class="uri">https://github.com/yt-dlp/yt-dlp#dependencies</a></p>
+</blockquote>
+<p>Link to the main site: <a href="https://www.ffmpeg.org/" class="uri">https://www.ffmpeg.org/</a></p>
+<p>Windows Auto-Builds: <a href="https://github.com/BtbN/FFmpeg-Builds" class="uri">https://github.com/BtbN/FFmpeg-Builds</a></p>
+<p>Recommended yt-dlp builds which fix some issues: <a href="https://github.com/yt-dlp/FFmpeg-Builds" class="uri">https://github.com/yt-dlp/FFmpeg-Builds</a></p>
+<p>Do I need to install this? Extract and place it somewhere? There are no instructions that I can see on the website. This was my suspicion, extra, copy to a folder, and add that folder to path. <a href="https://video.stackexchange.com/questions/20495/how-do-i-set-up-and-use-ffmpeg-in-windows" class="uri">https://video.stackexchange.com/questions/20495/how-do-i-set-up-and-use-ffmpeg-in-windows</a></p>
+<p>Yes! No warnings, two downloads, merging formats, looks sensible, though I’m not sure exactly what it all means.</p>
+</div>
+<div id="audio" class="section level2">
+<h2>Audio</h2>
+<p>We can also try downloading the audio.<br />
+<code>py download-audio.py</code></p>
+<pre class="python"><code>
+import yt_dlp
+
+URLS = [&#39;https://www.youtube.com/watch?v=dQw4w9WgXcQ&#39;]
+
+ydl_opts = { 
+    &#39;format&#39;: &#39;m4a/bestaudio/best&#39;, 
+    # ℹ️ See help(yt_dlp.postprocessor) for a list of available Postprocessors and their arguments 
+    &#39;postprocessors&#39;: [{ # Extract audio using ffmpeg 
+        &#39;key&#39;: &#39;FFmpegExtractAudio&#39;, 
+        &#39;preferredcodec&#39;: &#39;m4a&#39;, 
+    }] 
+}
+
+with yt_dlp.YoutubeDL(ydl_opts) as ydl: 
+    error_code = ydl.download(URLS)</code></pre>
+<p>This works too, downloading to an <code>m4a</code> format. I’m used to <code>mp3</code> files, but that’s only because they’ve been around so long and everyone talks about them as audio files. From a quick search, it looks like <code>m4a</code> is fine even though it is Apple. Just for checking though, I can change the <code>m4a</code> into <code>mp3</code> in the code and it downloads the <code>webm</code> file first, then extracts the audio. There is no extraction like this for <code>m4a</code> and even though I’m not worried about bandwidth or storage size, I think I’ll stick with <code>m4a</code>.</p>
+<p>Can I download a playlist? Yes, I can download 4 files, but then disaster:</p>
+<blockquote>
+<p>PermissionError: [WinError 5] Access is denied:</p>
+</blockquote>
+<p>Does this mean Youtube has blocked me? Can I do anything about this? Wait a little while and try again, and I can download more. I can download all of them in fact. So I’m not sure what was going on before.</p>
+</div>
+<div id="concat" class="section level2">
+<h2>Concat</h2>
+<p>Now, I also want to join some of these files together to make a single file.</p>
+<p><a href="https://trac.ffmpeg.org/wiki/Concatenate" class="uri">https://trac.ffmpeg.org/wiki/Concatenate</a></p>
+<p><code>ffmpeg</code> looks useful in this regard. I’m not sure if I can go straight to one file using the m4a files, according to this post.</p>
+<p><a href="https://stackoverflow.com/questions/18434854/merge-m4a-files-in-terminal" class="uri">https://stackoverflow.com/questions/18434854/merge-m4a-files-in-terminal</a></p>
+<p>Yeah, a couple of different options to combine m4a directly didn’t work.</p>
+<p>The <code>cat</code> command from the stack overflow post didn’t work.<br />
+<code>cat file1.aac file2.aac file3.aac &gt;&gt; filenew.aac</code></p>
+<p>This looks like it will work<br />
+<code>ffmpeg -i "concat:file1.aac|file2.aac|file3.aac" -c copy filenew.aac</code></p>
+<p>Yes! Now to get a nice file name and m4a format back again.</p>
+</div>
+<div id="file-size" class="section level2">
+<h2>File size</h2>
+<p>And finally, I might want to reduce the quality and therefore filesize of these files just a little bit. Is this where I mention the size limit for a Yoto card? I may as well. After a bunch of debugging, here’s my python script for converting the files.</p>
+<pre class="python"><code>import subprocess
+import os
+import re
+
+def downsize_me(old, new): 
+    # function to reduce the size of an audio file by reducing the bitrate
+    # we can&#39;t just pass a string to subprocess.call() we need to create a list
+    # we can&#39;t split the string, because there are spaces in the file name
+    # we also don&#39;t need to quote the filename strings, which is good, but took some debugging
+    # command = f&quot;ffmpeg -i &#39;{old}&#39; -c:a aac -b:a 64k &#39;{new}&#39;&quot;
+    command = [&#39;ffmpeg&#39;, &#39;-i&#39;, old, &#39;-c:a&#39;, &#39;aac&#39;, &#39;-b:a&#39;, &#39;64k&#39;, new]
+    # print(command)
+    # subprocess.call(command.split(), shell=True)
+    subprocess.call(command, shell=True)
+
+# raw string for single backslashes
+folder = r&quot;C:\Users\NathanMoore\code\youtube-download&quot;
+# apparently scandir() is nicer than listdir(), and that&#39;s true
+# files = [f for f in os.listdir(folder) if os.path.isfile(os.path.join(folder, f))]
+files = [f.name for f in os.scandir(folder) if f.is_file()]
+
+for ff in files: 
+    # construct these file names before passing over
+    # remove the youtube url entry between square brackets
+    old = os.path.join(folder, ff)
+    new = os.path.join(folder, &#39;smaller&#39;, re.sub(r&#39; \[.*\]&#39;, &#39;&#39;, ff))
+    downsize_me(old, new)
+    # print(old, new)</code></pre>
+</div>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="https://nmoore.nz/js/jquery.min.js"></script>
+<script src="https://nmoore.nz/js/bootstrap.min.js"></script>
+<script src="https://nmoore.nz/js/jquery.cookie.js"> </script>
+<script src="https://nmoore.nz/js/ekko-lightbox.js"></script>
+<script src="https://nmoore.nz/js/jquery.scrollTo.min.js"></script>
+<script src="https://nmoore.nz/js/masonry.pkgd.min.js"></script>
+<script src="https://nmoore.nz/js/imagesloaded.pkgd.min.js"></script>
+<script src="https://nmoore.nz/js/owl.carousel.min.js"></script>
+<script src="https://nmoore.nz/js/front.js"></script>
+
+
+
+</body>
+</html>
