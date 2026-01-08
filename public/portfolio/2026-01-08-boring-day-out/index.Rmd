@@ -1,0 +1,41 @@
+---
+title: Boring Day Out
+author: Nathan Moore
+date: '2026-01-08'
+slug: []
+categories:
+  - Social
+tags: []
+image: '/img/bdo2020/bdo4.jpg'
+showonlyimage: false
+---
+
+An outing to see the tunnel boring machine and city rail link work at Mt Eden train station in December 2020. 
+
+<!--more-->
+
+An outing to see the tunnel boring machine and city rail link work at Mt Eden train station in December 2020. 
+
+https://www.cityraillink.co.nz/tunnel-boring-machine-events
+
+https://www.youtube.com/watch?v=u9bNBvEH7So
+
+![](/img/bdo2020/bdo1.jpg){width="80%"}
+
+![](/img/bdo2020/bdo2.jpg){width="80%"}
+
+![](/img/bdo2020/bdo3.jpg){width="80%"}
+
+![](/img/bdo2020/bdo4.jpg){width="80%"}
+
+![](/img/bdo2020/bdo5.jpg){width="80%"}
+
+![](/img/bdo2020/bdo6.jpg){width="80%"}
+
+![](/img/bdo2020/bdo7.jpg){width="80%"}
+
+![](/img/bdo2020/bdo8.jpg){width="80%"}
+
+![](/img/bdo2020/bdo9.jpg){width="80%"}
+
+![](/img/bdo2020/bdo10.jpg){width="80%"}
