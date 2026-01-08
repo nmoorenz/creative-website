@@ -1,0 +1,43 @@
+---
+title: Voronoi Artistry
+author: Nathan Moore
+date: '2026-01-08'
+slug: []
+categories:
+  - Code
+tags: []
+image: '/img/portfolio/ashley-cover.png'
+showonlyimage: false
+---
+
+Voronoi creation
+
+<!--more-->
+
+> Originally posted on Twitter in Feb 2021
+>
+> The original code is borrowed from here: <https://fronkonstin.com/2017/03/07/frankenstein/>
+>
+> There are some other amazing posts on this blog, check them out!
+
+"The emergence of AB"
+
+Thanks again to @aschinchon for sharing code and our patron saint of health Ashley Bloomfield
+
+#rtistry
+
+{voronoi diagram of increasing resolution}
+
+![](/img/portfolio/ashley1.gif){width="80%"}
+
+Another picture of Ashley with the same code
+
+![](/img/portfolio/ashley2.gif){width="80%"}
+
+After going to @Auckartgal to see Toi Tu Toi Ora on Auckland Anniversary weekend <https://aucklandartgallery.com/whats-on/exhibition/toi-tu-toi-ora-contemporary-maori-art> I was inspired to try some other pictures, they only turned out ok. It's the detail that makes Ena Te Papatahi so special, so an approximation is only ok.
+
+![](/img/portfolio/papatahi.jpg){width="80%"}
+
+Te Aho-o-te-Rangi Wharepu sat for a few portraits by Goldie, this is "All \`E Same T'e Pakeha" <http://collection.dunedin.art.museum/search.do?view=detail&page=1&id=38046&db=object> and again, it's only ok as an interpretation
+
+![](/img/portfolio/wharepu.jpg){width="80%"}
