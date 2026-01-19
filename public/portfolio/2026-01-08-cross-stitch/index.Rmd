@@ -1,0 +1,17 @@
+---
+title: Cross Stitch
+author: Nathan Moore
+date: '2026-01-08'
+slug: []
+categories:
+  - Maker
+tags: []
+image: ''
+showonlyimage: false
+draft: true
+---
+
+Cross stitching a Japanese figure or two. 
+
+<!--more-->
+

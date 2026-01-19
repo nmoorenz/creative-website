@@ -1,0 +1,28 @@
+---
+title: Friding
+author: Nathan Moore
+date: '2026-01-18'
+slug: []
+categories:
+  - Travel
+tags: []
+image: '/img/portfolio/friding2.jpg'
+showonlyimage: false
+---
+
+`#friding`
+
+<!--more--> 
+
+*Originally posted on Twitter, Friday December 4, 2015*
+
+A little #friding since I have the day off work.  
+Wonderful new #LightpathAKL
+
+![](/img/portfolio/friding1.jpg){width="80%"}
+
+![](/img/portfolio/friding2.jpg){width="80%"}
+
+![](/img/portfolio/friding3.jpg){width="80%"}
+
+![](/img/portfolio/friding4.jpg){width="80%"}

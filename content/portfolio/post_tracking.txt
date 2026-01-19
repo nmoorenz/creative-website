@@ -44,12 +44,19 @@ xmas mince pies 2024        draft
 old phone options           draft
 advent of code migration    pub
 image resize                draft
-hugo theme update           pub
+hugo theme changes          pub
 termux python server        pub
 baby names                  draft
 spotify to tidal            pub
 More Git Techniques         pub
 yt-dlp                      pub
+voronoi artistry            pub
+boring day out              pub
+auckland transit challenge  pub
+cross stitch                draft
+friding                     pub
+
+
 
 
 
