@@ -16,17 +16,19 @@ Downloading some things
 
 ## Introduction
 
-I want to download some audio from Youtube which is not available anywhere else. Please make things available for purchase if you want my money.
+I want to download some audio from Youtube which is not available anywhere else. 
+
+> Please make things available for purchase if you want my money.
 
 There are a few different python packages but this one looks to be the most well maintained and up to date.
 
 `pip install yt-dlp`
 
-> WARNING: The script yt-dlp.exe is installed in 'C:\Users\NathanMoore\AppData\Roaming\Python\Python312\\Scripts' which is not on PATH.
+> WARNING: The script yt-dlp.exe is installed in 'C:\\Users\\NathanMoore\\AppData\\Roaming\\Python\\Python312\\Scripts' which is not on PATH.
 
 ## Python
 
-OK, that's fine, I can still write a python script and call from there.
+OK, that's fine, I can still write a python script and call from that directory.
 
 ``` python
 from yt_dlp import YoutubeDL
@@ -55,9 +57,11 @@ to install the default dependencies along with `yt-dlp`
 
 Similar warning to before:
 
-> WARNING: The script websockets.exe is installed in 'C:\Users\NathanMoore\AppData\Roaming\Python\Python312\\Scripts' which is not on PATH.
+> WARNING: The script websockets.exe is installed in 'C:\\Users\\NathanMoore\\AppData\\Roaming\\Python\\Python312\\Scripts' which is not on PATH.
 
-So, I should add this directory to path. My python package installation is reasonably haphazard - I rarely use venv, and use pip by default. Maybe I should use\
+So, I should add this directory to path. DRE: Don't Repeat Errors.
+
+My python package installation is reasonably haphazard - I rarely use venv, and use pip by default. Maybe I should use\
 `py -m pip install [package]`\
 more regularly? I have used that a bit in the past.
 
@@ -68,9 +72,11 @@ Doesn't make any difference to the install location, it still goes into AppData,
 I could also use [something like this](https://stackoverflow.com/a/75037576):\
 `pip install -r requirements.txt -t "C:\Python37\Lib\site-packages"`
 
+I'm going to ignore installation locations and proper venv for now. 
+
 ## path
 
-How do I see the Path environment variable entries? VSCode uses PowerShell by default and I haven't changed it. After a bit of [searching](https://stackoverflow.com/a/74074843):
+How do I see the PATH environment variable entries in PS? VSCode uses PowerShell by default and I haven't changed it. After a bit of [searching](https://stackoverflow.com/a/74074843):
 
 `Get-ChildItem env:`\
 Shows all the environment variables.
@@ -78,13 +84,13 @@ Shows all the environment variables.
 `(Get-ChildItem Env:PATH).Value.Split(';') | Sort`\
 Shows the sorted items in Path
 
-So, I think I've got JavaScript dependencies sorted, let us download again and see if there are more warnings. I know there's one about `ffmpeg` that I need to fix.
+So, I think I've got JavaScript dependencies sorted via PATH, let us download again and see if there are more warnings. I know there's one about `ffmpeg` that I need to fix.
 
-But, the JavaScript warning still comes up, even when I open a new powershell window to get a fresh Path. I'm going to install via the deno website recommended PowerShell script.\
+But, the JavaScript warning still comes up, even when I open a new powershell window to get a fresh PATH. I'm going to install via the deno website recommended PowerShell script.\
 <https://docs.deno.com/runtime/getting_started/installation/>\
 This looks like it works well enough. `deno --help` gives appropriate output.
 
-Downloading again gives no warning, for JS at least.
+Downloading a video again gives no warning, for JS at least.
 
 ## ffmpeg
 
@@ -98,13 +104,13 @@ Windows Auto-Builds: <https://github.com/BtbN/FFmpeg-Builds>
 
 Recommended yt-dlp builds which fix some issues: <https://github.com/yt-dlp/FFmpeg-Builds>
 
-Do I need to install this? Extract and place it somewhere? There are no instructions that I can see on the website. This was my suspicion, extra, copy to a folder, and add that folder to path. <https://video.stackexchange.com/questions/20495/how-do-i-set-up-and-use-ffmpeg-in-windows>
+Do I need to install this? Extract and place it somewhere? There are no instructions that I can see on the website. This was my suspicion, extract, copy to a folder, and add that folder to PATH. Of course.  <https://video.stackexchange.com/questions/20495/how-do-i-set-up-and-use-ffmpeg-in-windows>
 
-Yes! No warnings, two downloads, merging formats, looks sensible, though I'm not sure exactly what it all means.
+Yes! No warnings, two downloads, merging formats, looks sensible, though I'm not sure exactly what the output all means.
 
 ## Audio
 
-We can also try downloading the audio.\
+We can also try downloading the audio only, which is ultimately what I want.\
 `py download-audio.py`
 
 ``` python
@@ -132,7 +138,7 @@ Can I download a playlist? Yes, I can download 4 files, but then disaster:
 
 > PermissionError: [WinError 5] Access is denied:
 
-Does this mean Youtube has blocked me? Can I do anything about this? Wait a little while and try again, and I can download more. I can download all of them in fact. So I'm not sure what was going on before.
+Does this mean Youtube has blocked me? Can I do anything about this? If I wait a little while and try again, and I can download more. I can download all of them in fact. So I'm not sure what was going on before.
 
 ## Concat
 
@@ -156,7 +162,7 @@ Yes! Now to get a nice file name and m4a format back again.
 
 ## File size
 
-And finally, I might want to reduce the quality and therefore filesize of these files just a little bit. Is this where I mention the size limit for a Yoto card? I may as well. After a bunch of debugging, here's my python script for converting the files.
+And finally, I might want to reduce the quality and therefore filesize of these files just a little bit. Is this where I mention the size limit for a Yoto card? Because that's where these are ending up. After a bunch of debugging, here's my python script for converting the files.
 
 ``` python
 import subprocess

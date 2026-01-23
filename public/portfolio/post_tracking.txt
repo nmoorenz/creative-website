@@ -54,6 +54,7 @@ voronoi artistry            pub
 boring day out              pub
 auckland transit challenge  pub
 cross stitch                draft
+friding                     pub
 
 
 
