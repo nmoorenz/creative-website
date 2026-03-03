@@ -39,11 +39,11 @@ Let's add a rank column
 
 ```{python}
 
-df["rank"] = df.groupby(["Year","Sex"])["Count"].rank(method="dense", ascending=False)
+df["rank_count"] = df.groupby(["Year","Sex"])["Count"].rank(method="dense", ascending=False)
 
 # df.head()
 
-df.loc[df['rank'] == 1]
+df.loc[df['rank_count'] == 1]
 
 ```
 
@@ -53,14 +53,66 @@ A new dataframe for counting the names per year. How many different names were t
 
 df_year_sex = df.groupby(['Year','Sex']).size().reset_index(name='counts')
 
-df_year_sex = df_year_sex.pivot(index='Year', columns='Sex', values='counts').rename_axis(None, axis=1)
-# .reset_index()
+df_year_sex = df_year_sex.pivot(index='Year', columns='Sex', values='counts').rename_axis(None, axis=1).reset_index()
+
 df_year_sex.head(20)
 
 ```
 
 Create a simple chart to see how this has changed through time. 
 My assumption is that there is a larger variety of names through time. 
+
+```{python}
+
+plt.clf()
+
+plt.plot(df_year_sex['Year'], df_year_sex['M'], label='Male')
+plt.plot(df_year_sex['Year'], df_year_sex['F'], label='Female')
+
+plt.legend()
+plt.show()
+```
+
+Definitely an increase! About the mid 1930s there is an increase in this trend, and sometime around the 1970s there is a decrease in the slope for female names. 
+
+Now, for the comparison of alphabetical-ness of M and F. 
+
+Ideas: 
+- a histogram of M and F starting letter. This would show overall distribution, but not time. 
+- rank all the names alphabetically each year, and take the median of each for M and F. We might expect these to be the same
+- create a function that takes a random M and random F name, returns the lower one alphabetically, take many samples for each year, and calculates this measure for each year. 
+
+```{python}
+
+df['rank_alpha'] = df.groupby(["Year"])["Name"].rank(method="dense")
+
+df.loc[df['Year'] == 2000]
+
+```
+
+Median of each group: `.median()`
+
+```{python}
+
+df_year_median = df.groupby(['Year','Sex'])['rank_alpha'].median().reset_index(name='median')
+
+df_year_median = df_year_median.pivot(index='Year', columns='Sex', values='median'
+                                      ).rename_axis(None, axis=1).reset_index()
+
+plt.clf()
+
+plt.plot(df_year_median['Year'], df_year_median['M'], label='Male')
+plt.plot(df_year_median['Year'], df_year_median['F'], label='Female')
+
+plt.legend()
+plt.show()
+
+```
+
+Two points - we could normalise this using the total counts each year, but the trend would be the same. Second, it looks like male names are lower ranked alphabetically from ~1950 to ~2010. 
+
+This also does not take into account the count of each name. Is it possible to do a weighted median? If we were to do a random sample, we would need to create boundaries based on the count of each name in each year, then use uniform distribution. Or search online for some weighted sample technique. If there are lots of Andrew and not many Xavier we shouldn't treat those as the same, for the example of comparing samples alphabetically. 
+
 
 
 

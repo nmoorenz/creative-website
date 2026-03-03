@@ -1,0 +1,74 @@
+---
+title: Recent Tabs
+author: Nathan Moore
+date: '2026-03-02'
+slug: []
+categories:
+  - Social
+tags: []
+image: '/img/tabs-202603/snake-gameplay.gif'
+showonlyimage: false
+---
+
+Things that I have read recently
+
+<!--more-->
+
+Predicting what is happening at the Pentagon by analysing the busyness of pizza places around the area. This came to prominence again with US and Israel missile strikes on Iran.\
+<https://www.pizzint.watch/>
+
+![](/img/tabs-202603/pizza-watch.png){width="80%"}
+
+Stop bottom trawling - Jono Ridler is swimming the length of the North Island to raise awareness about bottom trawling.\
+<https://liveocean.org/swim4theocean/>
+
+This reminds me of Karel Sabbe and his fastest known time for the Te Araroa trail, the length of New Zealand. I like a map with photo overlays.\
+<https://live.adventuretracking.be/te-araroa>\
+<https://karelsabbe.com/2024/11/14/te-araroa/>\
+<https://fastestknowntime.com/fkt/karel-sabbe-te-araroa-2025-02-16>
+
+This is a truly deep dive into something I'm aware of but haven't tried to make myself, and now I feel like I could never do it justice\
+<https://alexharri.com/blog/ascii-rendering>
+
+![](/img/tabs-202603/ascii.png){width="80%"}
+
+This is weird and cool\
+<https://www.deadlanguagesociety.com/p/how-far-back-in-time-understand-english>
+
+Do not steal\
+<https://nvie.com/posts/15-years-later/>
+
+This is a pair of really good analyses, the latest one in response to the National government's proposed LNG facility. 10% of roofs of businesses would cost about the same amount and provide far larger benefits for many more years (and not be subject to oil supply shocks, see first link!)\
+<https://bisley.substack.com/p/securing-energy-supply-with-school>\
+<https://bisley.substack.com/p/abundant-energy-for-business#_>
+
+It seems that the National government considered some help with installing solar, but, rejected that.\
+<https://www.rnz.co.nz/news/top/588445/government-kicked-the-tyres-on-solar-subsidies-but-went-with-minor-tweaks-instead>
+
+Secure Snake Home is an important protocol for playing snake remotely with many other people\
+<https://snake.eieio.games>
+
+![](/img/tabs-202603/snake-gameplay.gif)
+
+This site has some other fun things and deep dives into making things for the internet.
+
+The name says it all\
+<https://eieio.games/really-easy-tetris/>
+
+One Million Checkboxes has its own [Wikipedia](https://en.wikipedia.org/wiki/One_Million_Checkboxes) page, and a story about [what some people did with the site](https://eieio.games/blog/the-secret-inside-one-million-checkboxes/), and goes into the [technical details](https://eieio.games/blog/scaling-one-million-checkboxes/) of handling a viral website.\
+<https://eieio.games/blog/one-million-checkboxes/>
+
+Writing down every UUID has some excellent humour\
+"I’ve been struggling to remember all of the UUIDs"\
+"I can quickly find my favorite UUIDs and star them or browse them all to find one that’s just right"\
+"We all know the good UUIDs are in the middle!"\
+"After all, it’d be disappointing if you scrolled through every UUID and realized that you hadn’t seen one."\
+<https://eieio.games/blog/writing-down-every-uuid/>
+
+One Million Chessboards is a follow up to One Million Checkboxes\
+<https://eieio.games/blog/a-million-realtime-chess-boards-in-a-single-process/>
+
+Finally, Third Places! This is some really interesting analysis, a little disheartening, but with some good suggestions at the end. ([Link to my own post](https://www.nmoore.nz/portfolio/2024-04-05-non-place-third-place/))\
+<https://laurenleek.substack.com/p/britain-lost-14000-third-places-they>
+
+![](/img/tabs-202603/uk-pubs.jpg)
