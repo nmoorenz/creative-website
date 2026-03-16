@@ -6,12 +6,26 @@ slug: []
 categories:
   - Maker
 tags: []
-image: ''
+image: '/img/stitching/cs3.jpg'
 showonlyimage: false
-draft: true
 ---
 
-Cross stitching a Japanese figure or two. 
+Cross stitching two Japanese figures.
 
 <!--more-->
 
+I bought these in 2014. They took some time to stitch, because there is a lot of stitching and because I procrastinated. It took a couple of years to do the man and one year to do the woman. There was a bit more motivation to get it finished after seeing the full results. Four years after finishing them my mum got them framed by a friend, and the framer said they were the best work she's ever seen.
+
+I'm quite proud of them.
+
+![](/img/stitching/cs3.jpg){width="80%"}
+
+![](/img/stitching/cs4.jpg){width="80%"}
+
+![](/img/stitching/cs5.jpg){width="80%"}
+
+![](/img/stitching/cs6.jpg){width="80%"}
+
+![](/img/stitching/cs7.jpg){width="80%"}
+
+![](/img/stitching/cs8.jpg){width="80%"}
