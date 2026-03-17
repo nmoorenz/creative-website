@@ -11,14 +11,17 @@ showonlyimage: no
 draft: true
 ---
 
-Triggered by a theoretical question about alphabetical ordering of people possibly being gendered, here's a short analysis of baby names through time. Taking a man and a woman in a series of pairs, is it more likely that men or women are listed first? 
+Are names alpabetically different between males and females?
 
-Baby names are published by the Department of Internal Affairs and Stats NZ
+<!--more-->
 
-https://smartstart.services.govt.nz/news/baby-names
-https://catalogue.data.govt.nz/dataset/baby-name-popularity-over-time
+This post was triggered by a theoretical question about alphabetical ordering of people possibly being gendered. So here's a short analysis of baby names through time. Taking a man and a woman in a series of pairs, is it more likely that men or women are listed first?
 
-```{r setup, include=FALSE}  
+Baby names are published by the Department of Internal Affairs and Stats NZ. It's a really useful and interesting dataset!
+
+<https://smartstart.services.govt.nz/news/baby-names> <https://catalogue.data.govt.nz/dataset/baby-name-popularity-over-time>
+
+```{r setup, include=FALSE}
 # library(knitr)  
 library(reticulate)  
 knitr::knit_engines$set(python = reticulate::eng_python)  
@@ -31,11 +34,11 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv('baby-names-2025-01-06.csv', encoding='latin1')
 
-df.head()
+df.head(20)
 
 ```
 
-Let's add a rank column 
+Let's add a rank column
 
 ```{python}
 
@@ -47,7 +50,7 @@ df.loc[df['rank_count'] == 1]
 
 ```
 
-A new dataframe for counting the names per year. How many different names were there for M/F each year? 
+Create a new dataframe for counting the names per year. How many different names were there for M/F each year?
 
 ```{python}
 
@@ -55,12 +58,13 @@ df_year_sex = df.groupby(['Year','Sex']).size().reset_index(name='counts')
 
 df_year_sex = df_year_sex.pivot(index='Year', columns='Sex', values='counts').rename_axis(None, axis=1).reset_index()
 
+df_year_sex['Total'] = df_year_sex['F'] + df_year_sex['M']
+
 df_year_sex.head(20)
 
 ```
 
-Create a simple chart to see how this has changed through time. 
-My assumption is that there is a larger variety of names through time. 
+Create a simple chart to see how this has changed through time. My assumption is that there is a larger variety of names through time.
 
 ```{python}
 
@@ -73,14 +77,17 @@ plt.legend()
 plt.show()
 ```
 
-Definitely an increase! About the mid 1930s there is an increase in this trend, and sometime around the 1970s there is a decrease in the slope for female names. 
+Definitely an increase! About the mid 1930s there is an increase in this trend, and sometime around the 1970s there is a decrease in the slope for female names.
 
-Now, for the comparison of alphabetical-ness of M and F. 
+Now, for the comparison of alphabetical-ness of M and F.
 
-Ideas: 
-- a histogram of M and F starting letter. This would show overall distribution, but not time. 
-- rank all the names alphabetically each year, and take the median of each for M and F. We might expect these to be the same
-- create a function that takes a random M and random F name, returns the lower one alphabetically, take many samples for each year, and calculates this measure for each year. 
+Ideas:
+
+-   a histogram of M and F starting letter. This would show overall distribution, but not time.
+
+-   rank all the names alphabetically each year, and then take the median of each for M and F. We would expect these to be the same
+
+-   create a function that takes a random M and random F name, returns the lower one alphabetically, take many samples for each year, and calculates this measure for each year.
 
 ```{python}
 
@@ -98,6 +105,13 @@ df_year_median = df.groupby(['Year','Sex'])['rank_alpha'].median().reset_index(n
 
 df_year_median = df_year_median.pivot(index='Year', columns='Sex', values='median'
                                       ).rename_axis(None, axis=1).reset_index()
+                                      
+df_year_median = pd.merge(df_year_median, df_year_sex, on='Year', how='inner')
+
+df_year_median['F'] = df_year_median['F_x'] / df_year_median['Total']
+df_year_median['M'] = df_year_median['M_x'] / df_year_median['Total']
+
+df_year_median.head(20)
 
 plt.clf()
 
@@ -109,11 +123,70 @@ plt.show()
 
 ```
 
-Two points - we could normalise this using the total counts each year, but the trend would be the same. Second, it looks like male names are lower ranked alphabetically from ~1950 to ~2010. 
+It looks like male names are lower ranked alphabetically from \~1950 to \~2010.
 
-This also does not take into account the count of each name. Is it possible to do a weighted median? If we were to do a random sample, we would need to create boundaries based on the count of each name in each year, then use uniform distribution. Or search online for some weighted sample technique. If there are lots of Andrew and not many Xavier we shouldn't treat those as the same, for the example of comparing samples alphabetically. 
+However, this does not take into account the count of each name. Is it possible to do a weighted median? If there are lots of Andrew and not many Xavier we shouldn't treat those as the same, for the example of comparing samples alphabetically.
+
+```{python}
+
+df.loc[(df['rank_count'] < 9) & (df['Year'] == 1970)].sort_values(by=['Sex','Name'])
 
 
+```
+
+Maybe the likes of Craig and David have an influence over Rachel and Tracey?
+
+I want to do a weighted sample based on the count of each name each year.
+
+```{python}
+
+# list of years
+years = list(df['Year'].unique())
+# years and counts
+fracs = {}
+
+# for each year
+for y in years: 
+    # create a temp_df for the year
+    temp_f = df.loc[(df['Year'] == y) & (df['Sex'] == 'F')]
+    temp_m = df.loc[(df['Year'] == y) & (df['Sex'] == 'M')]
+    
+    frac_m = 0
+    # do 1000 samples of F and M
+    for i in range(10000): 
+        this_f = temp_f['Name'].sample(n=1, weights=temp_f['Count']).values[0]
+        this_m = temp_m['Name'].sample(n=1, weights=temp_m['Count']).values[0]
+
+        # calculate which is lower
+        if this_f == this_m: 
+            frac_m += 0.5
+        elif this_f < this_m: 
+            frac_m += 1
+
+    # append to dictionary
+    fracs[y] = frac_m
+    # create a dataframe
+    df_year_frac = pd.DataFrame.from_dict(fracs, orient='index', columns=['Frac']  
+                        ).reset_index(names='Year'
+                        ).sort_values(by='Year')
 
 
+df_year_frac
+```
 
+And a graph for good measure
+
+```{python}
+
+plt.clf()
+
+plt.plot(df_year_frac['Year'], df_year_frac['Frac'], label='Male')
+
+plt.legend()
+plt.show()
+
+```
+
+That's really strong! Can we see why?
+
+Stacked bar chart for separate genders
