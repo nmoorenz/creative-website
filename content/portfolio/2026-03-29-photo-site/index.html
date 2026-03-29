@@ -1,0 +1,254 @@
+---
+title: Photo Site
+author: Nathan Moore
+date: '2026-03-29'
+slug: []
+categories:
+  - Code
+tags: []
+image: '/img/portfolio/photo-site.png'
+showonlyimage: false
+---
+
+
+
+<p>Create a photo website with the help of my buddy Claude</p>
+<!--more-->
+<blockquote>
+<p>🤖 <strong>Note:</strong> This blog post was written entirely by an AI (Claude, by Anthropic). The technical content is accurate.</p>
+</blockquote>
+<hr />
+<div id="building-a-serverless-photo-gallery-with-aws-s3-cloudfront-netlify-and-terraform-a-complete-guide" class="section level1">
+<h1>🚀 Building a Serverless Photo Gallery with AWS S3, CloudFront, Netlify, and Terraform — A Complete Guide</h1>
+<hr />
+<div id="the-problem-or-why-does-this-need-to-be-so-complicated" class="section level2">
+<h2>🤔 The Problem — Or, Why Does This Need to Be So Complicated?</h2>
+<p>You’ve got photos. Lots of them. Maybe you shot them on a proper camera. Maybe you want to share them with family and friends — but not with <em>everyone</em>. You want:</p>
+<ul>
+<li>✅ A <strong>beautiful website</strong> to browse your albums</li>
+<li>✅ <strong>Fast image loading</strong> — nobody waits for photos to load in 2026</li>
+<li>✅ <strong>Password protection</strong> — not everything needs to be public</li>
+<li>✅ <strong>Cheap to run</strong> — ideally free, or close to it</li>
+<li>✅ <strong>Your photos stored reliably</strong> — not in some startup that might disappear</li>
+<li>✅ <strong>Infrastructure as code</strong> — because clicking around in the AWS console at 2am is how mistakes happen</li>
+</ul>
+<p>The good news? All of this is achievable — and the running cost is effectively <strong>$0/month</strong> for a personal site, thanks to AWS and Netlify’s generous free tiers.</p>
+<hr />
+</div>
+<div id="the-architecture-how-it-all-fits-together" class="section level2">
+<h2>🏗️ The Architecture — How It All Fits Together</h2>
+<p>Here’s the high-level picture:</p>
+<p><img src="/img/portfolio/photo-site-arch.svg" style="width:80.0%" /></p>
+<p>Let’s break down each component — because understanding <em>why</em> we’re using each piece is just as important as knowing <em>how</em>:</p>
+<div id="amazon-s3-the-photo-vault" class="section level3">
+<h3>🪣 Amazon S3 — The Photo Vault</h3>
+<p>S3 is where your photos actually live. It’s reliable, cheap (essentially free at personal-site scale), and integrates perfectly with the rest of the AWS ecosystem. We configure it as a <strong>completely private bucket</strong> — no public access whatsoever. This is important: raw S3 URLs shouldn’t work at all.</p>
+</div>
+<div id="amazon-cloudfront-the-fast-lane" class="section level3">
+<h3>☁️ Amazon CloudFront — The Fast Lane</h3>
+<p>CloudFront is AWS’s CDN — a global network of servers that caches your photos close to wherever your visitors are. It sits in front of S3 and:</p>
+<ul>
+<li><strong>Serves photos over HTTPS</strong> from your own custom domain</li>
+<li><strong>Caches aggressively</strong> — photos load fast, S3 costs stay low</li>
+<li><strong>Is the only thing allowed to read your private S3 bucket</strong> — via a mechanism called Origin Access Control (OAC)</li>
+</ul>
+<p>The free tier covers 1TB of data transfer and 10 million requests per month. You’d need a <em>very</em> popular photo site to exceed that.</p>
+</div>
+<div id="netlify-the-site-host" class="section level3">
+<h3>🌐 Netlify — The Site Host</h3>
+<p>Netlify hosts the actual website — the HTML, CSS, and JavaScript that your browser downloads and runs. It’s free, deploys automatically when you push to GitHub, and handles HTTPS for your domain without any configuration.</p>
+<p>The key insight here is the <strong>separation of concerns</strong>: - Netlify serves the <em>site</em> (lightweight — just a few KB of HTML/JS/CSS) - CloudFront serves the <em>photos</em> (heavy — potentially gigabytes of images)</p>
+<p>This means Netlify never has to touch your photos at all.</p>
+</div>
+<div id="terraform-infrastructure-as-code" class="section level3">
+<h3>🏔️ Terraform — Infrastructure as Code</h3>
+<p>Rather than clicking around in the AWS console, we define our entire infrastructure in a single <code>main.tf</code> file. Run <code>terraform apply</code> and it creates everything. Run it again and it only changes what’s different. Destroy it all with <code>terraform destroy</code>. This is — and I cannot stress this enough — <strong>the correct way to manage cloud infrastructure</strong>.</p>
+</div>
+<div id="python-cli-the-workflow-tool" class="section level3">
+<h3>🐍 Python CLI — The Workflow Tool</h3>
+<p>A small Python script (<code>photo_sync.py</code>) handles the day-to-day workflow: uploading new photos to S3 and regenerating the manifest. No Node, no complex build pipeline — just Python and <code>boto3</code>.</p>
+<hr />
+</div>
+</div>
+<div id="the-manifest.json-the-secret-glue" class="section level2">
+<h2>📋 The <code>manifest.json</code> — The Secret Glue</h2>
+<p>Here’s the elegant part of this architecture: the website doesn’t talk to S3 or any API to know what albums and photos exist. Instead, <code>photo_sync.py</code> generates a single JSON file — <code>manifest.json</code> — and uploads it to S3 alongside the photos.</p>
+<pre class="json"><code>{
+  &quot;generated&quot;: &quot;2025-01-15T03:00:00Z&quot;,
+  &quot;albums&quot;: [
+    {
+      &quot;slug&quot;: &quot;japan-2024&quot;,
+      &quot;title&quot;: &quot;Japan&quot;,
+      &quot;description&quot;: &quot;Two weeks exploring Tokyo, Kyoto, and Osaka.&quot;,
+      &quot;date&quot;: &quot;April 2024&quot;,
+      &quot;cover&quot;: &quot;https://cdn.example.com/japan-2024/001.jpg&quot;,
+      &quot;photos&quot;: [
+        {
+          &quot;url&quot;: &quot;https://cdn.example.com/japan-2024/001.jpg&quot;,
+          &quot;filename&quot;: &quot;001.jpg&quot;,
+          &quot;caption&quot;: &quot;Senso-ji temple at dawn&quot;
+        }
+      ]
+    }
+  ]
+}</code></pre>
+<p>The website fetches this file on load and renders everything from it. Dead simple — and it means the site is <strong>100% static</strong>. No database, no API, no backend. Just files.</p>
+<hr />
+</div>
+<div id="security-how-the-password-gate-works" class="section level2">
+<h2>🔒 Security — How the Password Gate Works</h2>
+<p>The password protection is a client-side gate — here’s how it works:</p>
+<ol style="list-style-type: decimal">
+<li>You set a plaintext password as a <strong>Netlify environment variable</strong> (<code>PHOTO_SITE_PASSWORD</code>)</li>
+<li>At build time, a Python script hashes it with SHA-256 and bakes the hash into <code>config.js</code></li>
+<li>When a visitor enters their password, the browser hashes it client-side and compares it to the stored hash</li>
+<li>If it matches — session is marked as authenticated and the gate disappears</li>
+</ol>
+<p>The plaintext password <strong>never appears in your source code or the deployed site</strong>. The hash alone is in the browser — and you can’t reverse a SHA-256 hash to get the original password.</p>
+<blockquote>
+<p>⚠️ <strong>Important caveat:</strong> This protects the <em>website</em>. The S3 bucket is locked down behind CloudFront, so direct CDN URLs (<code>cdn.example.com/album/001.jpg</code>) do work if someone has them. For a personal photo site shared with friends and family, this is entirely acceptable. If you need stronger protection, CloudFront signed URLs are the next step up.</p>
+</blockquote>
+<hr />
+</div>
+<div id="the-dns-setup-two-subdomains-two-jobs" class="section level2">
+<h2>🗂️ The DNS Setup — Two Subdomains, Two Jobs</h2>
+<p>One of the key design decisions is <strong>using separate subdomains</strong> for the site and the CDN:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Subdomain</th>
+<th>Points to</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>photos.example.com</code></td>
+<td>Netlify</td>
+<td>The website</td>
+</tr>
+<tr class="even">
+<td><code>cdn.example.com</code></td>
+<td>CloudFront</td>
+<td>Photos + manifest</td>
+</tr>
+</tbody>
+</table>
+<p>This means CloudFront is reusable — if you ever build a second site, <code>cdn.example.com</code> can serve assets for that too. Just organise your S3 folders clearly and point your new site at the same CDN.</p>
+<blockquote>
+<p>💡 <strong>Lesson learned the hard way:</strong> Don’t point your main site subdomain directly at CloudFront. CloudFront serves S3 content — it has no idea what to do with a request for an HTML page. Keep Netlify handling the site, CloudFront handling the assets.</p>
+</blockquote>
+<hr />
+</div>
+<div id="captions-because-context-matters" class="section level2">
+<h2>📸 Captions — Because Context Matters</h2>
+<p>Each album can have a <code>captions.json</code> file:</p>
+<pre class="json"><code>{
+  &quot;001.jpg&quot;: &quot;Senso-ji temple at dawn&quot;,
+  &quot;002.jpg&quot;: &quot;Ramen in Shinjuku at midnight&quot;,
+  &quot;003.jpg&quot;: &quot;&quot;
+}</code></pre>
+<p>A helper script generates the template from your photo folder — sorted the same way Windows Explorer sorts them (natural sort, case-insensitive), so the order matches what you see on your filesystem:</p>
+<pre class="bash"><code>python scripts/make_captions.py photos/japan-2024</code></pre>
+<p>Captions are optional per-photo — leave the string empty and no caption is shown. They appear below the slider and in the lightbox.</p>
+<hr />
+</div>
+<div id="the-cost-breakdown" class="section level2">
+<h2>💸 The Cost Breakdown</h2>
+<p>Let’s talk money — because “serverless” doesn’t mean “free”, it just means “pay for what you use”:</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Service</th>
+<th>Free tier</th>
+<th>Likely cost</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>S3 storage</td>
+<td>5GB free (12 months)</td>
+<td>~$0.023/GB/month after</td>
+</tr>
+<tr class="even">
+<td>CloudFront</td>
+<td>1TB transfer, 10M requests/month — <strong>always free</strong></td>
+<td>$0</td>
+</tr>
+<tr class="odd">
+<td>ACM certificate</td>
+<td>Always free</td>
+<td>$0</td>
+</tr>
+<tr class="even">
+<td>Netlify</td>
+<td>Free plan</td>
+<td>$0</td>
+</tr>
+</tbody>
+</table>
+<p>For a personal photo site with a few thousand photos: <strong>effectively $0/month</strong> on CloudFront and Netlify, and a few cents per month on S3 storage depending on how many photos you have.</p>
+<hr />
+</div>
+<div id="the-everyday-workflow" class="section level2">
+<h2>🔧 The Everyday Workflow</h2>
+<p>Once everything is set up, adding new photos is genuinely simple:</p>
+<pre class="bash"><code># 1. Drop photos into a folder
+mkdir photos/new-album
+cp ~/Pictures/holiday/*.jpg photos/new-album/
+
+# 2. Describe the album
+# Edit albums.json to add the new album
+
+# 3. Optionally add captions
+python scripts/make_captions.py photos/new-album
+# Edit photos/new-album/captions.json
+
+# 4. Upload everything
+python scripts/photo_sync.py sync
+# Done — site updates within seconds</code></pre>
+<p>The sync script is smart — it skips photos that already exist in S3, so re-running it is always safe. Only new photos get uploaded.</p>
+<hr />
+</div>
+<div id="key-design-decisions-and-why-we-made-them" class="section level2">
+<h2>🎯 Key Design Decisions — And Why We Made Them</h2>
+<p><strong>Why Python instead of Node for the CLI?</strong> — Python ships with most operating systems, <code>boto3</code> is the gold standard AWS SDK, and there’s no <code>node_modules</code> folder to deal with. For a CLI tool you run occasionally, Python is the right call.</p>
+<p><strong>Why Terraform instead of the AWS CDK or SAM?</strong> — Terraform is provider-agnostic, widely used, and the state management is battle-tested. For a relatively simple infrastructure like this, it’s the least surprising option.</p>
+<p><strong>Why Netlify instead of S3 static hosting?</strong> — Netlify gives you automatic deploys from GitHub, environment variable injection at build time, and HTTPS for free. Replicating that with S3 + GitHub Actions + CloudFront would require more moving parts for no real benefit.</p>
+<p><strong>Why a manifest file instead of querying S3 directly?</strong> — Listing S3 bucket contents from the browser would require either public bucket access or signed requests. A manifest file keeps the site fully static and the S3 bucket fully private.</p>
+<hr />
+</div>
+<div id="get-the-code" class="section level2">
+<h2>🚀 Get the Code</h2>
+<p><a href="https://github.com/nmoorenz/example-photo-site" class="uri">https://github.com/nmoorenz/example-photo-site</a></p>
+<p>The full source code is available on GitHub — everything you need to deploy your own version:</p>
+<ul>
+<li><code>infrastructure/main.tf</code> — all AWS infrastructure in one file</li>
+<li><code>scripts/photo_sync.py</code> — upload photos, generate manifest</li>
+<li><code>scripts/make_captions.py</code> — generate caption templates</li>
+<li><code>scripts/generate_config.py</code> — Netlify build step</li>
+<li><code>site/</code> — the static website (HTML, CSS, vanilla JS)</li>
+</ul>
+<p>Clone it, fill in your <code>terraform.tfvars</code>, and follow the README. The whole setup takes about an hour — most of which is waiting for CloudFront to deploy and DNS to propagate.</p>
+<hr />
+</div>
+<div id="wrapping-up" class="section level2">
+<h2>🏁 Wrapping Up</h2>
+<p>What I love about this architecture is how each piece does exactly one job — and does it well:</p>
+<ul>
+<li><strong>S3</strong> stores files reliably and cheaply</li>
+<li><strong>CloudFront</strong> makes them fast and secure</li>
+<li><strong>Netlify</strong> hosts the site and handles deployments</li>
+<li><strong>Terraform</strong> keeps the infrastructure reproducible</li>
+<li><strong>Python</strong> handles the workflow</li>
+</ul>
+<p>There’s no database to maintain, no server to patch, no Docker container to babysit. Just files, a CDN, and a static site — running essentially for free, indefinitely.</p>
+<p>If you build your own version, I’d love to hear about it. Well — I’m an AI, so I won’t actually hear about it. But you should build it anyway. 📷</p>
+<p><img src="/img/portfolio/photo-site.png" style="width:80.0%" /></p>
+</div>
+</div>
