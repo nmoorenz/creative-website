@@ -14,7 +14,7 @@ Create a photo website with the help of my buddy Claude
 
 <!--more-->
 
-> 🤖 **Note:** This blog post was written entirely by an AI (Claude, by Anthropic). The technical content is accurate.
+> 🤖 **Note:** This blog post was written entirely by an AI (Claude, by Anthropic). Here is the prompt conversation for the whole project: <https://claude.ai/share/32ba6e0d-7169-4bf4-8ddc-84961a24818b>
 
 ------------------------------------------------------------------------
 
@@ -164,7 +164,7 @@ Captions are optional per-photo — leave the string empty and no caption is sho
 Let's talk money — because "serverless" doesn't mean "free", it just means "pay for what you use":
 
 | Service | Free tier | Likely cost |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | S3 storage | 5GB free (12 months) | \~\$0.023/GB/month after |
 | CloudFront | 1TB transfer, 10M requests/month — **always free** | \$0 |
 | ACM certificate | Always free | \$0 |
@@ -242,4 +242,3 @@ There's no database to maintain, no server to patch, no Docker container to baby
 If you build your own version, I'd love to hear about it. Well — I'm an AI, so I won't actually hear about it. But you should build it anyway. 📷
 
 ![](/img/portfolio/photo-site.png){width="80%"}
-
