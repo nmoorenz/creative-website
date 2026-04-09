@@ -1,0 +1,351 @@
+---
+title: Instagram Export
+author: Nathan Moore
+date: '2026-03-17'
+slug: []
+categories:
+  - Social
+tags: []
+image: '/img/insta/Instagram-Logo.png'
+showonlyimage: false
+---
+
+I want to get off social media, or at least reduce my presence, and I thought I'd get all my data. This is a post about Instagram.
+
+<!--more-->
+
+*I want to get off social media, or at least reduce my presence, and I thought I'd get all my data. This is a post about Instagram.*
+
+*First I did this: <https://help.instagram.com/7130835797039956/>*
+
+*The download is a zip file with supposedly all of your information. It does not provide everything. Some of the data is limited to the previous week, some is limited to when Instagram features came in and out of use.*
+
+*Should I start with the file named `start_here.html`? Yes. It provides a good structure for this post as well. I'm going to include all the categories and lots of information in an anonymous way.*
+
+[start_here.html](start_here.html)
+
+## **About your download**
+
+Your information can be found in the HTML files in this download. We recommend viewing your download on a desktop device in order to use these links to navigate to your information. The links don't work on mobile devices.
+
+On a mobile device, use the folders in the download to go to the HTML files. Each type of information is stored in its own HTML file and can be viewed by opening the file.
+
+------------------------------------------------------------------------
+
+### **Avatars Store**
+
+Info associated with Avatars Store, such as your personal avatar, and avatar items that you purchased or added to your wardrobe
+
+You have no data in this section
+
+### **Shopping**
+
+Information about your shopping activity on Instagram
+
+You have no data in this section
+
+### **Comments**
+
+Comments you've posted on your own content or on other people's content
+
+[Post comments](your_instagram_activity/comments/post_comments_1.html)
+
+[Reels Comments](your_instagram_activity/comments/reels_comments.html)
+
+[Comments reported](your_instagram_activity/comments/comments_reported.html)
+
+### **Events**
+
+Your reminders for events and a list of the events you've created
+
+You have no data in this section
+
+### **Fundraisers**
+
+Fundraisers that you created, joined or added to profile
+
+You have no data in this section
+
+### **Gifts**
+
+Information about gifts that you've sent or received on Instagram
+
+You have no data in this section
+
+### **Likes**
+
+Content you've liked
+
+[Liked comments](your_instagram_activity/likes/liked_comments.html)
+
+[Liked posts](your_instagram_activity/likes/liked_posts.html)
+
+### **Meta Spark**
+
+A list of your activities on Meta Spark
+
+You have no data in this section
+
+### **Monetisation**
+
+Information about your monetisation eligibility and activity on Instagram
+
+[Eligibility](your_instagram_activity/monetization/eligibility.html)
+
+### **Saved**
+
+Posts, collections, draft videos, music, locations, and reposts you've saved
+
+[Saved posts](your_instagram_activity/saved/saved_posts.html)
+
+### **Story interactions**
+
+Interactions that you've had with other people's stories
+
+[Quizzes](your_instagram_activity/story_interactions/quizzes.html)
+
+[Question Music Response](your_instagram_activity/story_interactions/question_music_response.html)
+
+[Emoji sliders](your_instagram_activity/story_interactions/emoji_sliders.html)
+
+[Polls](your_instagram_activity/story_interactions/polls.html)
+
+[Questions](your_instagram_activity/story_interactions/questions.html)
+
+[Story Reaction Sticker Reactions](your_instagram_activity/story_interactions/story_reaction_sticker_reactions.html)
+
+[Story likes](your_instagram_activity/story_interactions/story_likes.html)
+
+### **Subscriptions**
+
+Profiles you've subscribed to or that have subscribed to you
+
+[Your muted story teaser creators](your_instagram_activity/subscriptions/your_muted_story_teaser_creators.html)
+
+[Show Exclusive Story Promo Setting](your_instagram_activity/subscriptions/show_exclusive_story_promo_setting.html)
+
+### **Other activity**
+
+Other information and activity from different areas of Instagram
+
+You have no data in this section
+
+### **Quicksnaps**
+
+Information about quicksnaps that you've interacted with on Instagram
+
+You have no data in this section
+
+### **Threads**
+
+All of your data related to Threads
+
+[Threads Viewed](your_instagram_activity/threads/threads_viewed.html)
+
+### **Media**
+
+Photos, videos and other media content you've shared
+
+[Posts](your_instagram_activity/media/posts_1.html)
+
+### **Edits**
+
+All of your data related to Edits
+
+You have no data in this section
+
+### **Reports**
+
+Reports that you've submitted to Instagram
+
+You have no data in this section
+
+### **Shared access**
+
+Information related to your shared access activity
+
+You have no data in this section
+
+### **AI**
+
+Generative AI products
+
+You have no data in this section
+
+### **Messages**
+
+Messages that you've exchanged with other people
+
+[Secret conversations](your_instagram_activity/messages/secret_conversations.html)
+
+[Chats](your_instagram_activity/messages/chats.html)
+
+### **Auto-fill information**
+
+Auto-fill information for your Instagram profile
+
+You have no data in this section
+
+### **Loyalty accounts**
+
+Information about your loyalty accounts
+
+You have no data in this section
+
+### **Personal information**
+
+Personal information you've added to your profile
+
+[Instagram profile information](personal_information/personal_information/instagram_profile_information.html)
+
+[Profile changes](personal_information/personal_information/profile_changes.html)
+
+[Instagram friend map](personal_information/personal_information/instagram_friend_map.html)
+
+[Note Interactions](personal_information/personal_information/note_interactions.html)
+
+[Professional information](personal_information/personal_information/professional_information.html)
+
+[Personal information](personal_information/personal_information/personal_information.html)
+
+### **Device information**
+
+Information about your devices
+
+[Devices](personal_information/device_information/devices.html)
+
+[Two-Factor Authentication](personal_information/device_information/two-factor_authentication.html)
+
+[Camera information](personal_information/device_information/camera_information.html)
+
+### **Information about you**
+
+Information associated with your Instagram profile
+
+[Profile based in](personal_information/information_about_you/profile_based_in.html)
+
+[Locations of interest](personal_information/information_about_you/locations_of_interest.html)
+
+### **Facebook Accounts Centre**
+
+Control settings for connected experiences such as logging in and sharing stories and posts across Messenger, Facebook and Instagram.
+
+You have no data in this section
+
+### **Contacts**
+
+Contact information you've added for other people
+
+You have no data in this section
+
+### **Followers and following**
+
+Profiles and tags you choose to see content from, and profiles that follow you
+
+[Followers](connections/followers_and_following/followers_1.html)
+
+[Following](connections/followers_and_following/following.html)
+
+[Pending follow requests](connections/followers_and_following/pending_follow_requests.html)
+
+[Removed suggestions](connections/followers_and_following/removed_suggestions.html)
+
+[Blocked profiles](connections/followers_and_following/blocked_profiles.html)
+
+### **Link history**
+
+Website links that you've visited on Instagram's in-app browser
+
+[Your link history settings](logged_information/link_history/your_link_history_settings.html)
+
+### **Past Instagram insights**
+
+Your Instagram insights data
+
+You have no data in this section
+
+### **Policy updates and permissions**
+
+Policy updates and permission requests from Instagram or Meta that you've viewed, acknowledged, accepted or declined
+
+You have no data in this section
+
+### **Recent searches**
+
+A history of your recent searches
+
+You have no data in this section
+
+### **Login and profile creation**
+
+Information associated with your profile, such as your login activity and the information that you provided when you signed up
+
+[Profile privacy changes](security_and_login_information/login_and_profile_creation/profile_privacy_changes.html)
+
+[Last Known Location](security_and_login_information/login_and_profile_creation/last_known_location.html)
+
+[Password change activity](security_and_login_information/login_and_profile_creation/password_change_activity.html)
+
+[Login activity](security_and_login_information/login_and_profile_creation/login_activity.html)
+
+[Logout activity](security_and_login_information/login_and_profile_creation/logout_activity.html)
+
+[Sign-up details](security_and_login_information/login_and_profile_creation/signup_details.html)
+
+### **Apps and websites**
+
+Apps and websites that you've connected to your profile
+
+[Your activity off-Meta technologies settings](apps_and_websites_off_of_instagram/apps_and_websites/your_activity_off_meta_technologies_settings.html)
+
+### **Your topics**
+
+A collection of topics selected and determined by your activity on Instagram that is used to create recommendations for you in different areas of Instagram, such as Reels, feed recommendations and Shopping
+
+[Recommended topics](preferences/your_topics/recommended_topics.html)
+
+### **Settings**
+
+Changes you've made to your settings
+
+[Use cross-app messaging](preferences/settings/use_cross-app_messaging.html)
+
+[Comments allowed from](preferences/settings/comments_allowed_from.html)
+
+[Notification Preferences](preferences/settings/notification_preferences.html)
+
+[Consents](preferences/settings/consents.html)
+
+### **Instagram ads and businesses**
+
+Ad topics that are relevant to you, advertisers who have collected information directly from you, information you've submitted to advertisers and your interactions with businesses and organisations that you visit off Instagram
+
+[Information that you've submitted to advertisers](ads_information/instagram_ads_and_businesses/information_you've_submitted_to_advertisers.html)
+
+[Ads about Meta](ads_information/instagram_ads_and_businesses/ads_about_meta.html)
+
+[Ad preferences](ads_information/instagram_ads_and_businesses/ad_preferences.html)
+
+### **Advertising**
+
+Information that you've provided when creating ads
+
+You have no data in this section
+
+### **Ads and topics**
+
+Ads, profiles, content and topics. Topics from any linked profiles must be downloaded from those profiles directly
+
+[Suggested profiles viewed](ads_information/ads_and_topics/suggested_profiles_viewed.html)
+
+[Ads clicked](ads_information/ads_and_topics/ads_clicked.html)
+
+[Posts viewed](ads_information/ads_and_topics/posts_viewed.html)
+
+[Ads viewed](ads_information/ads_and_topics/ads_viewed.html)
+
+[Profiles that you're not interested in](ads_information/ads_and_topics/profiles_you're_not_interested_in.html)
+
+[Videos watched](ads_information/ads_and_topics/videos_watched.html)
+
+[Posts you're not interested in](ads_information/ads_and_topics/posts_you're_not_interested_in.html)
