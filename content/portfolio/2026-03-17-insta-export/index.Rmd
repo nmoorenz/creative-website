@@ -57,7 +57,7 @@ Comments you've posted on your own content or on other people's content
 
 [Comments reported](your_instagram_activity/comments/comments_reported.html)
 
-```{r}
+```{r, collapse=TRUE}
 
 suppressPackageStartupMessages(library(tidyverse))
 library(rvest)
