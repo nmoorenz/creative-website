@@ -57,9 +57,9 @@ Comments you've posted on your own content or on other people's content
 
 [Comments reported](your_instagram_activity/comments/comments_reported.html)
 
-```{r, collapse=TRUE}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
-suppressPackageStartupMessages(library(tidyverse))
+library(tidyverse)
 library(rvest)
 
 month_df = function(full_file_name, df_type) {
@@ -84,7 +84,8 @@ df_comments = rbind(post_comments, comments_reported, reels_comments) |>
     count(month, type)
 
 ggplot(df_comments, aes(x=month, y=n, fill=type)) + 
-    geom_col()
+    geom_col() +
+    ggtitle('Comments over time')
 
 
 ```

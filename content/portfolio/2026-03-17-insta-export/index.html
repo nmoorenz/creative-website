@@ -43,38 +43,6 @@ output:
 <p><a href="your_instagram_activity/comments/post_comments_1.html">Post comments</a></p>
 <p><a href="your_instagram_activity/comments/reels_comments.html">Reels Comments</a></p>
 <p><a href="your_instagram_activity/comments/comments_reported.html">Comments reported</a></p>
-<pre class="r"><code>
-suppressPackageStartupMessages(library(tidyverse))
-library(rvest)
-## 
-## Attaching package: &#39;rvest&#39;
-## The following object is masked from &#39;package:readr&#39;:
-## 
-##     guess_encoding
-
-month_df = function(full_file_name, df_type) {
-    read_html(x = full_file_name) |&gt; 
-    html_elements(&quot;table&quot;) |&gt; 
-    html_text() |&gt; 
-    str_extract(&#39;(?&lt;=Time).+&#39;) |&gt; 
-    mdy_hm() |&gt; 
-    round_date(unit=&quot;month&quot;) |&gt; 
-    as_tibble() |&gt; 
-    mutate(type = df_type) |&gt; 
-    rename(month = value)
-}
-
-post_comments = month_df(&quot;./instagram-nmoorenz-2026-03-16/your_instagram_activity/comments/post_comments_1.html&quot;, &#39;Post Comments&#39;)
-    
-comments_reported = month_df(&quot;./instagram-nmoorenz-2026-03-16/your_instagram_activity/comments/comments_reported.html&quot;,&#39;Comments Reported&#39;)
-
-reels_comments = month_df(&quot;./instagram-nmoorenz-2026-03-16/your_instagram_activity/comments/reels_comments.html&quot;,&#39;Reels Comments&#39;)
-
-df_comments = rbind(post_comments, comments_reported, reels_comments) |&gt; 
-    count(month, type)
-
-ggplot(df_comments, aes(x=month, y=n, fill=type)) + 
-    geom_col()</code></pre>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 </div>
 <div id="events" class="section level3">
