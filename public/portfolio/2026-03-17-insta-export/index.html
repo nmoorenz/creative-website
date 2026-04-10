@@ -130,16 +130,14 @@
 <p><a href="your_instagram_activity/comments/post_comments_1.html">Post comments</a></p>
 <p><a href="your_instagram_activity/comments/reels_comments.html">Reels Comments</a></p>
 <p><a href="your_instagram_activity/comments/comments_reported.html">Comments reported</a></p>
-<pre class="r"><code>
-suppressPackageStartupMessages(library(tidyverse))
-library(rvest)
+<pre class="r"><code>suppressPackageStartupMessages(library(tidyverse))
+library(rvest)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;rvest&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:readr&#39;:
 ## 
-## Attaching package: &#39;rvest&#39;
-## The following object is masked from &#39;package:readr&#39;:
-## 
-##     guess_encoding
-
-month_df = function(full_file_name, df_type) {
+##     guess_encoding</code></pre>
+<pre class="r"><code>month_df = function(full_file_name, df_type) {
     read_html(x = full_file_name) |&gt; 
     html_elements(&quot;table&quot;) |&gt; 
     html_text() |&gt; 
@@ -162,7 +160,7 @@ df_comments = rbind(post_comments, comments_reported, reels_comments) |&gt;
 
 ggplot(df_comments, aes(x=month, y=n, fill=type)) + 
     geom_col()</code></pre>
-<p><img src="/portfolio/2026-03-17-insta-export/index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="https://nmoore.nz/portfolio/2026-03-17-insta-export/index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 </div>
 <div id="events" class="section level3">
 <h3><strong>Events</strong></h3>

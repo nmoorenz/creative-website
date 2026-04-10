@@ -8,6 +8,9 @@ categories:
 tags: []
 image: '/img/insta/Instagram-Logo.png'
 showonlyimage: false
+output: 
+  html_document:
+    code_folding: hide
 ---
 
 I want to get off social media, or at least reduce my presence, and I thought I'd get all my data. This is a post about Instagram.
@@ -54,7 +57,7 @@ Comments you've posted on your own content or on other people's content
 
 [Comments reported](your_instagram_activity/comments/comments_reported.html)
 
-```{r, collapse=TRUE}
+```{r}
 
 suppressPackageStartupMessages(library(tidyverse))
 library(rvest)
