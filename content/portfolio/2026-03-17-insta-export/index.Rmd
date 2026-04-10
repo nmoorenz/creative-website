@@ -54,6 +54,38 @@ Comments you've posted on your own content or on other people's content
 
 [Comments reported](your_instagram_activity/comments/comments_reported.html)
 
+```{r, collapse=TRUE}
+
+suppressPackageStartupMessages(library(tidyverse))
+library(rvest)
+
+month_df = function(full_file_name, df_type) {
+    read_html(x = full_file_name) |> 
+    html_elements("table") |> 
+    html_text() |> 
+    str_extract('(?<=Time).+') |> 
+    mdy_hm() |> 
+    round_date(unit="month") |> 
+    as_tibble() |> 
+    mutate(type = df_type) |> 
+    rename(month = value)
+}
+
+post_comments = month_df("./instagram-nmoorenz-2026-03-16/your_instagram_activity/comments/post_comments_1.html", 'Post Comments')
+    
+comments_reported = month_df("./instagram-nmoorenz-2026-03-16/your_instagram_activity/comments/comments_reported.html",'Comments Reported')
+
+reels_comments = month_df("./instagram-nmoorenz-2026-03-16/your_instagram_activity/comments/reels_comments.html",'Reels Comments')
+
+df_comments = rbind(post_comments, comments_reported, reels_comments) |> 
+    count(month, type)
+
+ggplot(df_comments, aes(x=month, y=n, fill=type)) + 
+    geom_col()
+
+
+```
+
 ### **Events**
 
 Your reminders for events and a list of the events you've created
