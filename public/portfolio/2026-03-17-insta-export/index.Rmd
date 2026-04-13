@@ -62,6 +62,8 @@ Comments you've posted on your own content or on other people's content
 library(tidyverse)
 library(rvest)
 
+fldr = './instagram-nmoorenz-2026-03-16/'
+
 month_df = function(full_file_name, df_type) {
     read_html(x = full_file_name) |> 
     html_elements("table") |> 
@@ -74,11 +76,11 @@ month_df = function(full_file_name, df_type) {
     rename(month = value)
 }
 
-post_comments = month_df("./instagram-nmoorenz-2026-03-16/your_instagram_activity/comments/post_comments_1.html", 'Post Comments')
+post_comments = month_df(paste0(fldr, "your_instagram_activity/comments/post_comments_1.html"), 'Post Comments')
     
-comments_reported = month_df("./instagram-nmoorenz-2026-03-16/your_instagram_activity/comments/comments_reported.html",'Comments Reported')
+comments_reported = month_df(paste0(fldr, "your_instagram_activity/comments/comments_reported.html"), 'Comments Reported')
 
-reels_comments = month_df("./instagram-nmoorenz-2026-03-16/your_instagram_activity/comments/reels_comments.html",'Reels Comments')
+reels_comments = month_df(paste0(fldr, "your_instagram_activity/comments/reels_comments.html"), 'Reels Comments')
 
 df_comments = rbind(post_comments, comments_reported, reels_comments) |> 
     count(month, type)
@@ -116,6 +118,43 @@ Content you've liked
 
 [Liked posts](your_instagram_activity/likes/liked_posts.html)
 
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+# every fifth element
+date_seq = c(rep(FALSE,4),TRUE)
+
+liked_comments = read_html(x = paste0(fldr, "your_instagram_activity/likes/liked_comments.html")) |> 
+    html_elements("main") |> 
+    html_elements("div") |> 
+    _[date_seq] |> 
+    html_text() |> 
+    mdy_hm() |> 
+    round_date(unit="month") |> 
+    as_tibble() |> 
+    rename(month = value) |> 
+    mutate(type = 'Liked Comments')
+
+liked_posts = read_html(x = paste0(fldr, "your_instagram_activity/likes/liked_posts.html")) |> 
+    html_elements("div._3-94") |> 
+    html_text() |> 
+    mdy_hm() |> 
+    round_date(unit="month") |> 
+    as_tibble() |> 
+    rename(month = value) |> 
+    mutate(type = 'Liked Posts')
+
+
+df_likes = rbind(liked_comments, liked_posts) |> 
+    count(month, type)
+
+ggplot(df_likes, aes(x=month, y=n, fill=type)) + 
+    geom_col() +
+    ggtitle('Likes over time')
+
+
+
+```
+
 ### **Meta Spark**
 
 A list of your activities on Meta Spark
@@ -128,29 +167,91 @@ Information about your monetisation eligibility and activity on Instagram
 
 [Eligibility](your_instagram_activity/monetization/eligibility.html)
 
+Information about you that Instagram uses to decide which monetization products you're eligible for
+
+|                               |
+|:------------------------------|
+| Product name: BRANDED CONTENT |
+| Decision: Eligible            |
+
 ### **Saved**
 
 Posts, collections, draft videos, music, locations, and reposts you've saved
 
 [Saved posts](your_instagram_activity/saved/saved_posts.html)
 
+*I had 20 saved posts and now I have none. Here are some highlights.*
+
+<https://www.instagram.com/p/BbIcbmjHUwb/>
+
+<https://www.instagram.com/reels/CztqgMUpIdy/>
+
+<https://www.instagram.com/reels/C4JuLnUsLIi/>
+
+<https://www.instagram.com/reels/C6HDWCQoJfq/>
+
+<https://www.instagram.com/reels/C9C5Iu-y5Pt/>
+
+<https://www.instagram.com/p/C-NERIkIGki/>
+
+<https://www.instagram.com/p/C-_hvyRMTpl/>
+
+<https://www.instagram.com/reels/DAZV63SOnAe/>
+
+<https://www.instagram.com/p/DLmo61AIFey/>
+
 ### **Story interactions**
 
 Interactions that you've had with other people's stories
 
-[Quizzes](your_instagram_activity/story_interactions/quizzes.html)
+[Quizzes](your_instagram_activity/story_interactions/quizzes.html) *(8 interactions from 2019 to 2023)*
 
-[Question Music Response](your_instagram_activity/story_interactions/question_music_response.html)
+[Question Music Response](your_instagram_activity/story_interactions/question_music_response.html) *(5 interactions from 2020 to 2021)*
 
-[Emoji sliders](your_instagram_activity/story_interactions/emoji_sliders.html)
+[Emoji sliders](your_instagram_activity/story_interactions/emoji_sliders.html) *(15 interactions from 2018 to 2021, 11 of which were 100)*
 
-[Polls](your_instagram_activity/story_interactions/polls.html)
+[Polls](your_instagram_activity/story_interactions/polls.html) *(Chart below)*
 
-[Questions](your_instagram_activity/story_interactions/questions.html)
+[Questions](your_instagram_activity/story_interactions/questions.html) *(Chart below)*
 
-[Story Reaction Sticker Reactions](your_instagram_activity/story_interactions/story_reaction_sticker_reactions.html)
+[Story Reaction Sticker Reactions](your_instagram_activity/story_interactions/story_reaction_sticker_reactions.html) *(2 from 2023)*
 
-[Story likes](your_instagram_activity/story_interactions/story_likes.html)
+[Story likes](your_instagram_activity/story_interactions/story_likes.html) *(Chart below)*
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+month_df = function(filename, df_type, seq_num) {
+    # create sequence for entries to keep
+    date_seq = c(rep(FALSE,seq_num-1),TRUE)
+    
+    # last thing gets returned
+    read_html(x = filename) |> 
+    html_elements("main") |> 
+    html_elements("div") |> 
+    _[date_seq] |> 
+    html_text() |> 
+    mdy_hm() |> 
+    round_date(unit="month") |> 
+    as_tibble() |> 
+    rename(month = value) |> 
+    mutate(type = df_type)
+}
+
+polls = month_df(paste0(fldr, "your_instagram_activity/story_interactions/polls.html"), "Polls", 6) 
+
+questions = month_df(paste0(fldr, "your_instagram_activity/story_interactions/questions.html"), "Questions", 4)
+
+story_likes = month_df(paste0(fldr, "your_instagram_activity/story_interactions/story_likes.html"), "Story Likes", 4)
+
+df_stories = rbind(polls, questions, story_likes) |> 
+    count(month, type)
+
+ggplot(df_stories, aes(x=month, y=n, fill=type)) + 
+    geom_col() +
+    ggtitle('Stories, Questions, and Polls')
+
+
+```
 
 ### **Subscriptions**
 
@@ -159,6 +260,8 @@ Profiles you've subscribed to or that have subscribed to you
 [Your muted story teaser creators](your_instagram_activity/subscriptions/your_muted_story_teaser_creators.html)
 
 [Show Exclusive Story Promo Setting](your_instagram_activity/subscriptions/show_exclusive_story_promo_setting.html)
+
+*No data*
 
 ### **Other activity**
 
@@ -178,11 +281,33 @@ All of your data related to Threads
 
 [Threads Viewed](your_instagram_activity/threads/threads_viewed.html)
 
+*Last week of data only*
+
 ### **Media**
 
 Photos, videos and other media content you've shared
 
 [Posts](your_instagram_activity/media/posts_1.html)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+posts = read_html(x = paste0(fldr, "your_instagram_activity/media/posts_1.html")) |> 
+    html_elements("div._3-94") |> 
+    html_text() |> 
+    mdy_hm() |> 
+    round_date(unit="month") |> 
+    as_tibble() |> 
+    rename(month = value) |> 
+    mutate(type = 'Posts')
+
+df_posts = posts |> 
+    count(month, type)
+
+ggplot(df_posts, aes(x=month, y=n, fill=type)) + 
+    geom_col() +
+    ggtitle('Posts over time')
+
+```
 
 ### **Edits**
 
@@ -214,7 +339,15 @@ Messages that you've exchanged with other people
 
 [Secret conversations](your_instagram_activity/messages/secret_conversations.html)
 
+A list of devices where you have access to the secret conversations feature
+
+*Phone and laptop, no secret conversations.*
+
 [Chats](your_instagram_activity/messages/chats.html)
+
+*Looks like some spam, among the 168 conversations.*
+
+![](/img/insta/messages.png){width="80%"}
 
 ### **Auto-fill information**
 
@@ -234,15 +367,63 @@ Personal information you've added to your profile
 
 [Instagram profile information](personal_information/personal_information/instagram_profile_information.html)
 
+|                              |
+|:-----------------------------|
+| Contact syncing: False       |
+| First country code: NZ       |
+| Has shared live video: False |
+| Last login                   |
+| Last logout                  |
+| First story time             |
+| Last story time              |
+
 [Profile changes](personal_information/personal_information/profile_changes.html)
+
+#### **Profile change**
+
+|                     |
+|:--------------------|
+| Changed: Username   |
+| New value: nmoorenz |
+
+#### **Profile change**
+
+|                         |
+|:------------------------|
+| Changed: Profile Name   |
+| New value: Nathan Moore |
 
 [Instagram friend map](personal_information/personal_information/instagram_friend_map.html)
 
+Your location sharing settings and friends that you are sharing location data with
+
+Sharing audience: ONLY_OWNER
+
 [Note Interactions](personal_information/personal_information/note_interactions.html)
+
+Your recent Note interactions.
+
+|                      |     |
+|:---------------------|:----|
+| Last notes seen time |     |
 
 [Professional information](personal_information/personal_information/professional_information.html)
 
+*No Data*
+
 [Personal information](personal_information/personal_information/personal_information.html)
+
+|                        |
+|:-----------------------|
+| Email address          |
+| Phone number confirmed |
+| Username               |
+| Name                   |
+| Bio                    |
+| Gender                 |
+| Date of birth          |
+| Private account        |
+| Emoji Pong high score  |
 
 ### **Device information**
 
@@ -250,9 +431,15 @@ Information about your devices
 
 [Devices](personal_information/device_information/devices.html)
 
+*5 phones in 9 years, and two laptop records, which might be true, for the ones I've logged in from.*
+
 [Two-Factor Authentication](personal_information/device_information/two-factor_authentication.html)
 
+*Turned on*
+
 [Camera information](personal_information/device_information/camera_information.html)
+
+*Camera metadata*
 
 ### **Information about you**
 
@@ -260,7 +447,25 @@ Information associated with your Instagram profile
 
 [Profile based in](personal_information/information_about_you/profile_based_in.html)
 
+The city that your profile is most likely to be based in
+
+Town/city name: Auckland, New Zealand
+
 [Locations of interest](personal_information/information_about_you/locations_of_interest.html)
+
+Locations we think you may be interested in based on your activity on Instagram such as tagging your location, IP address and joining local groups
+
++:----------------------+
+| Locations of interest |
+|                       |
+| Auckland Region       |
+|                       |
+| Northland Region      |
+|                       |
+| Waikato               |
++-----------------------+
+| Usage explanation     |
++-----------------------+
 
 ### **Facebook Accounts Centre**
 
@@ -278,21 +483,63 @@ You have no data in this section
 
 Profiles and tags you choose to see content from, and profiles that follow you
 
-[Followers](connections/followers_and_following/followers_1.html)
+[Followers](connections/followers_and_following/followers_1.html) *(Chart below)*
 
-[Following](connections/followers_and_following/following.html)
+[Following](connections/followers_and_following/following.html) *(Chart below)*
 
 [Pending follow requests](connections/followers_and_following/pending_follow_requests.html)
 
-[Removed suggestions](connections/followers_and_following/removed_suggestions.html)
+*7 pending requests from a variety of time*
+
+[Removed suggestions](connections/followers_and_following/removed_suggestions.html) *(Chart below)*
 
 [Blocked profiles](connections/followers_and_following/blocked_profiles.html)
+
+*8 blocked profiles, all in Sep and Oct 2021, I must have been on some kind of streak about poker and pool accounts.*
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+month_df = function(filename, df_type, seq_num) {
+    # create sequence for entries to keep
+    date_seq = c(rep(FALSE,seq_num-1),TRUE)
+    
+    # last thing gets returned
+    read_html(x = filename) |> 
+    html_elements("main") |> 
+    html_elements("div") |> 
+    _[date_seq] |> 
+    html_text() |> 
+    mdy_hm() |> 
+    round_date(unit="month") |> 
+    as_tibble() |> 
+    rename(month = value) |> 
+    mutate(type = df_type)
+}
+
+followers = month_df(paste0(fldr, "connections/followers_and_following/followers_1.html"), "Followers", 5) 
+
+following = month_df(paste0(fldr, "connections/followers_and_following/following.html"), "Following", 5)
+
+removed_suggestions = month_df(paste0(fldr, "connections/followers_and_following/removed_suggestions.html"), "Removed Suggestions", 5)
+
+df_follow = rbind(followers, following, removed_suggestions) |> 
+    count(month, type)
+
+ggplot(df_follow, aes(x=month, y=n, fill=type)) + 
+    geom_col() +
+    ggtitle('Followers, Following, Suggestions (since 2016)')
+
+```
 
 ### **Link history**
 
 Website links that you've visited on Instagram's in-app browser
 
 [Your link history settings](logged_information/link_history/your_link_history_settings.html)
+
+When you choose to allow link history, website links for your recent in-app browsing activity are saved and this information may be used to improve your ads across Meta technologies. When you choose to not allow link history, your in-app browsing activity won't be saved or used to improve your ads. You can manage your link history settings from your in-app browser settings at any time
+
+*I do not allow Instagram to keep link history*
 
 ### **Past Instagram insights**
 
@@ -318,15 +565,38 @@ Information associated with your profile, such as your login activity and the in
 
 [Profile privacy changes](security_and_login_information/login_and_profile_creation/profile_privacy_changes.html)
 
+A history of the dates and times that you've updated your profile's privacy
+
+*My profile is currently private*
+
 [Last Known Location](security_and_login_information/login_and_profile_creation/last_known_location.html)
+
+Information about your last known location on Instagram, including GPS coordinates and upload times
+
+|                       |
+|:----------------------|
+| Imprecise latitude 0  |
+| Imprecise longitude 0 |
+| Precise latitude 0    |
+| Precise longitude 0   |
 
 [Password change activity](security_and_login_information/login_and_profile_creation/password_change_activity.html)
 
+A history of the dates and times you've changed your password
+
+*7 password changes 2012 - 2026*
+
 [Login activity](security_and_login_information/login_and_profile_creation/login_activity.html)
+
+*Many logins*
 
 [Logout activity](security_and_login_information/login_and_profile_creation/logout_activity.html)
 
+*12 logouts*
+
 [Sign-up details](security_and_login_information/login_and_profile_creation/signup_details.html)
+
+*May 08, 2012 10:06 pm*
 
 ### **Apps and websites**
 
@@ -334,11 +604,17 @@ Apps and websites that you've connected to your profile
 
 [Your activity off-Meta technologies settings](apps_and_websites_off_of_instagram/apps_and_websites/your_activity_off_meta_technologies_settings.html)
 
+*Account association disabled*
+
 ### **Your topics**
 
 A collection of topics selected and determined by your activity on Instagram that is used to create recommendations for you in different areas of Instagram, such as Reels, feed recommendations and Shopping
 
 [Recommended topics](preferences/your_topics/recommended_topics.html)
+
+Soccer, Basketball, Foods, Meat & Seafood, Video Games, Fashion Products, Types of Sports, Baked Goods, Dance, Nature Landmarks & Destinations, Football Family of Sports, Travel Destinations, Ground Transportation, Musical Instruments, Gym Workouts, Travel, Beach Travel, Fashion, Mammals, Clothing & Accessory Product Types, Dogs, Water Sports, Drinks, Toys, Music by Genre, Beauty, Animals, Visual Arts, Farm Animals, Cats, Clothing & Accessories, Desserts, Pets
+
+*These seem very vanilla*
 
 ### **Settings**
 
@@ -346,11 +622,77 @@ Changes you've made to your settings
 
 [Use cross-app messaging](preferences/settings/use_cross-app_messaging.html)
 
+*Upgrade to cross-app messaging*
+
 [Comments allowed from](preferences/settings/comments_allowed_from.html)
+
+*Everyone*
 
 [Notification Preferences](preferences/settings/notification_preferences.html)
 
+*These are the Push Notification settings.\
+Instagram did not send email notification settings, which are now all turned off.\
+These do not match the settings on Instagram, which is weird and annoying.*
+
+**OFF**
+
+STICKER_RESPONSES_POLL\
+UPLOADS_AND_SHARING\
+POSTS_SUGGESTED\
+TEXT_POST_APP_FIRST_POSTS\
+TEXT_POST_APP_PRE_FOLLOWED_CREATOR_JOINED\
+TEXT_POST_APP_ACCOUNT_SUGGESTIONS\
+TEXT_POST_APP_FOLLOWS_AND_REQUESTS\
+TEXT_POST_APP_TREND\
+TEXT_POST_APP_PEOPLE_YOU_MAY_FOLLOW\
+TEXT_POST_APP_FEATURE_UPDATES\
+THREADS_APP_CHURN_REMINDERS\
+THREADS_APP_DAILY_DIGEST\
+SHOPPING_ACCOUNTS_YOU_FOLLOW\
+SHOPPING_SUGGESTED_FOR_YOU\
+BIRTHDAY_REMINDERS\
+TRENDING_PLACES\
+CLIPS_ADD_YOURS_CREATOR_INVITE_FANOUT\
+CLIPS_CAMERA_ROLL_ACR_READY\
+OPEN_CAROUSEL_ADD_SUBMISSION\
+IGD_NOTES_AWARENESS\
+COMMENT_DAILY_DIGEST\
+CONNECTION_NOTIFICATION\
+CLIPS_MOST_WATCHED\
+FUNDRAISER_CREATOR\
+FUNDRAISER_SUPPORTER\
+CLIPS_RECENTLY_UPLOADED\
+FIRST_POST\
+REPORT_UPDATED\
+LIVE_BROADCAST\
+VIEW_COUNT\
+ANNOUNCEMENTS\
+NOTIFICATION_REMINDERS\
+CONTACT_JOINED
+
+**EVERYONE**
+
+MILESTONE_LIKES\
+REQUEST_MENTION\
+OPEN_CAROUSEL_SUBMISSION_ACCEPTED\
+FOLLOW_REQUEST_ACCEPTED\
+COMMENTS\
+USER_TAGGED\
+LIKE_AND_COMMENT_ON_PHOTO_USER_TAGGED\
+NEW_FOLLOWER\
+DIRECT_SHARE_ACTIVITY\
+LIKES\
+PENDING_DIRECT_SHARE
+
+**FOLLOWING**
+
+COMMENT_LIKES
+
 [Consents](preferences/settings/consents.html)
+
+Consent for the processing of user's data by ad partners on Instagram
+
+*2018 and 2025 for something*
 
 ### **Instagram ads and businesses**
 
@@ -358,9 +700,15 @@ Ad topics that are relevant to you, advertisers who have collected information d
 
 [Information that you've submitted to advertisers](ads_information/instagram_ads_and_businesses/information_you've_submitted_to_advertisers.html)
 
+*Email address, company name, job title - not sure when or why I did this.*
+
 [Ads about Meta](ads_information/instagram_ads_and_businesses/ads_about_meta.html)
 
+*Opted out*
+
 [Ad preferences](ads_information/instagram_ads_and_businesses/ad_preferences.html)
+
+*Removed categories: many. Hidden ads: many.*
 
 ### **Advertising**
 
@@ -374,14 +722,56 @@ Ads, profiles, content and topics. Topics from any linked profiles must be downl
 
 [Suggested profiles viewed](ads_information/ads_and_topics/suggested_profiles_viewed.html)
 
+*Plenty of profiles, between 2017 and 2020, not a feature or not tracked anymore.*
+
 [Ads clicked](ads_information/ads_and_topics/ads_clicked.html)
+
+*Last week of data only, 2 ads clicked.*
 
 [Posts viewed](ads_information/ads_and_topics/posts_viewed.html)
 
+*Last week of data only*
+
 [Ads viewed](ads_information/ads_and_topics/ads_viewed.html)
+
+*Last week of data only*
 
 [Profiles that you're not interested in](ads_information/ads_and_topics/profiles_you're_not_interested_in.html)
 
+*6 profiles between 2021 and 2026*
+
 [Videos watched](ads_information/ads_and_topics/videos_watched.html)
 
+*Last week of data only*
+
 [Posts you're not interested in](ads_information/ads_and_topics/posts_you're_not_interested_in.html)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+month_df = function(filename, df_type, seq_num) {
+    # create sequence for entries to keep
+    date_seq = c(rep(FALSE,seq_num-1),TRUE)
+    
+    # last thing gets returned
+    read_html(x = filename) |> 
+    html_elements("main") |> 
+    html_elements("div") |> 
+    _[date_seq] |> 
+    html_text() |> 
+    mdy_hm() |> 
+    round_date(unit="month") |> 
+    as_tibble() |> 
+    rename(month = value) |> 
+    mutate(type = df_type)
+}
+
+not_inst = month_df(paste0(fldr, "ads_information/ads_and_topics/posts_you're_not_interested_in.html"), "Not Interested", 5) 
+
+df_not = not_inst |> 
+    count(month, type)
+
+ggplot(df_not, aes(x=month, y=n, fill=type)) + 
+    geom_col() +
+    ggtitle('Not interested in profiles')
+
+```
