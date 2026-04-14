@@ -17,13 +17,13 @@ I want to get off social media, or at least reduce my presence, and I thought I'
 
 <!--more-->
 
-*I want to get off social media, or at least reduce my presence, and I thought I'd get all my data. This is a post about Instagram.*
-
-*First I did this: <https://help.instagram.com/7130835797039956/>*
-
-*The download is a zip file with supposedly all of your information. It does not provide everything. Some of the data is limited to the previous week, some is limited to when Instagram features came in and out of use.*
-
-*Should I start with the file named `start_here.html`? Yes. It provides a good structure for this post as well. I'm going to include all the categories and lots of information in an anonymous way.*
+> *I want to get off social media, or at least reduce my presence, and I thought I'd get all my data. This is a post about Instagram.*
+>
+> *First I did this: <https://help.instagram.com/7130835797039956/>*
+>
+> *The download is a zip file with supposedly all of your information. It does not provide everything. Some of the data is limited to the previous week, some is limited to when Instagram features came in and out of use.*
+>
+> *Should I start with the file named `start_here.html`? Yes. It provides a good structure for this post as well. I'm going to include all the categories and lots of information in an anonymous way.*
 
 [start_here.html](start_here.html)
 
@@ -180,25 +180,25 @@ Posts, collections, draft videos, music, locations, and reposts you've saved
 
 [Saved posts](your_instagram_activity/saved/saved_posts.html)
 
-*I had 20 saved posts and now I have none. Here are some highlights.*
-
-<https://www.instagram.com/p/BbIcbmjHUwb/>
-
-<https://www.instagram.com/reels/CztqgMUpIdy/>
-
-<https://www.instagram.com/reels/C4JuLnUsLIi/>
-
-<https://www.instagram.com/reels/C6HDWCQoJfq/>
-
-<https://www.instagram.com/reels/C9C5Iu-y5Pt/>
-
-<https://www.instagram.com/p/C-NERIkIGki/>
-
-<https://www.instagram.com/p/C-_hvyRMTpl/>
-
-<https://www.instagram.com/reels/DAZV63SOnAe/>
-
-<https://www.instagram.com/p/DLmo61AIFey/>
+> *I had 20 saved posts and now I have none. Here are some highlights.*
+>
+> <https://www.instagram.com/p/BbIcbmjHUwb/>
+>
+> <https://www.instagram.com/reels/CztqgMUpIdy/>
+>
+> <https://www.instagram.com/reels/C4JuLnUsLIi/>
+>
+> <https://www.instagram.com/reels/C6HDWCQoJfq/>
+>
+> <https://www.instagram.com/reels/C9C5Iu-y5Pt/>
+>
+> <https://www.instagram.com/p/C-NERIkIGki/>
+>
+> <https://www.instagram.com/p/C-_hvyRMTpl/>
+>
+> <https://www.instagram.com/reels/DAZV63SOnAe/>
+>
+> <https://www.instagram.com/p/DLmo61AIFey/>
 
 ### **Story interactions**
 
@@ -261,7 +261,7 @@ Profiles you've subscribed to or that have subscribed to you
 
 [Show Exclusive Story Promo Setting](your_instagram_activity/subscriptions/show_exclusive_story_promo_setting.html)
 
-*No data*
+> *No data*
 
 ### **Other activity**
 
@@ -281,7 +281,7 @@ All of your data related to Threads
 
 [Threads Viewed](your_instagram_activity/threads/threads_viewed.html)
 
-*Last week of data only*
+> *Last week of data only*
 
 ### **Media**
 
@@ -341,7 +341,7 @@ Messages that you've exchanged with other people
 
 A list of devices where you have access to the secret conversations feature
 
-*Phone and laptop, no secret conversations.*
+> *Phone and laptop, no secret conversations.*
 
 [Chats](your_instagram_activity/messages/chats.html)
 
@@ -409,7 +409,7 @@ Your recent Note interactions.
 
 [Professional information](personal_information/personal_information/professional_information.html)
 
-*No Data*
+> *No Data*
 
 [Personal information](personal_information/personal_information/personal_information.html)
 
@@ -431,15 +431,15 @@ Information about your devices
 
 [Devices](personal_information/device_information/devices.html)
 
-*5 phones in 9 years, and two laptop records, which might be true, for the ones I've logged in from.*
+> *5 phones in 9 years, and two laptop records, which might be true, for the ones I've logged in from.*
 
 [Two-Factor Authentication](personal_information/device_information/two-factor_authentication.html)
 
-*Turned on*
+> *Turned on*
 
 [Camera information](personal_information/device_information/camera_information.html)
 
-*Camera metadata*
+> *Camera metadata*
 
 ### **Information about you**
 
@@ -487,15 +487,11 @@ Profiles and tags you choose to see content from, and profiles that follow you
 
 [Following](connections/followers_and_following/following.html) *(Chart below)*
 
-[Pending follow requests](connections/followers_and_following/pending_follow_requests.html)
-
-*7 pending requests from a variety of time*
+[Pending follow requests](connections/followers_and_following/pending_follow_requests.html) *7 pending requests from a variety of time*
 
 [Removed suggestions](connections/followers_and_following/removed_suggestions.html) *(Chart below)*
 
-[Blocked profiles](connections/followers_and_following/blocked_profiles.html)
-
-*8 blocked profiles, all in Sep and Oct 2021, I must have been on some kind of streak about poker and pool accounts.*
+[Blocked profiles](connections/followers_and_following/blocked_profiles.html) *8 blocked profiles, all in Sep and Oct 2021, I must have been on some kind of streak about poker and pool accounts.*
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
@@ -539,7 +535,7 @@ Website links that you've visited on Instagram's in-app browser
 
 When you choose to allow link history, website links for your recent in-app browsing activity are saved and this information may be used to improve your ads across Meta technologies. When you choose to not allow link history, your in-app browsing activity won't be saved or used to improve your ads. You can manage your link history settings from your in-app browser settings at any time
 
-*I do not allow Instagram to keep link history*
+> *I do not allow Instagram to keep link history*
 
 ### **Past Instagram insights**
 
@@ -567,7 +563,7 @@ Information associated with your profile, such as your login activity and the in
 
 A history of the dates and times that you've updated your profile's privacy
 
-*My profile is currently private*
+> *My profile is currently private*
 
 [Last Known Location](security_and_login_information/login_and_profile_creation/last_known_location.html)
 
@@ -580,23 +576,15 @@ Information about your last known location on Instagram, including GPS coordinat
 | Precise latitude 0    |
 | Precise longitude 0   |
 
-[Password change activity](security_and_login_information/login_and_profile_creation/password_change_activity.html)
+[Password change activity](security_and_login_information/login_and_profile_creation/password_change_activity.html) *7 password changes 2012 - 2026*
 
 A history of the dates and times you've changed your password
 
-*7 password changes 2012 - 2026*
+[Login activity](security_and_login_information/login_and_profile_creation/login_activity.html) *Many logins*
 
-[Login activity](security_and_login_information/login_and_profile_creation/login_activity.html)
+[Logout activity](security_and_login_information/login_and_profile_creation/logout_activity.html) *12 logouts*
 
-*Many logins*
-
-[Logout activity](security_and_login_information/login_and_profile_creation/logout_activity.html)
-
-*12 logouts*
-
-[Sign-up details](security_and_login_information/login_and_profile_creation/signup_details.html)
-
-*May 08, 2012 10:06 pm*
+[Sign-up details](security_and_login_information/login_and_profile_creation/signup_details.html) *May 08, 2012 10:06 pm*
 
 ### **Apps and websites**
 
@@ -604,7 +592,7 @@ Apps and websites that you've connected to your profile
 
 [Your activity off-Meta technologies settings](apps_and_websites_off_of_instagram/apps_and_websites/your_activity_off_meta_technologies_settings.html)
 
-*Account association disabled*
+> *Account association disabled*
 
 ### **Your topics**
 
@@ -614,25 +602,21 @@ A collection of topics selected and determined by your activity on Instagram tha
 
 Soccer, Basketball, Foods, Meat & Seafood, Video Games, Fashion Products, Types of Sports, Baked Goods, Dance, Nature Landmarks & Destinations, Football Family of Sports, Travel Destinations, Ground Transportation, Musical Instruments, Gym Workouts, Travel, Beach Travel, Fashion, Mammals, Clothing & Accessory Product Types, Dogs, Water Sports, Drinks, Toys, Music by Genre, Beauty, Animals, Visual Arts, Farm Animals, Cats, Clothing & Accessories, Desserts, Pets
 
-*These seem very vanilla*
+> *These seem very vanilla*
 
 ### **Settings**
 
 Changes you've made to your settings
 
-[Use cross-app messaging](preferences/settings/use_cross-app_messaging.html)
+[Use cross-app messaging](preferences/settings/use_cross-app_messaging.html) *Upgrade to cross-app messaging*
 
-*Upgrade to cross-app messaging*
-
-[Comments allowed from](preferences/settings/comments_allowed_from.html)
-
-*Everyone*
+[Comments allowed from](preferences/settings/comments_allowed_from.html) *Everyone*
 
 [Notification Preferences](preferences/settings/notification_preferences.html)
 
-*These are the Push Notification settings.\
-Instagram did not send email notification settings, which are now all turned off.\
-These do not match the settings on Instagram, which is weird and annoying.*
+> *These are the Push Notification settings.\
+> Instagram did not send email notification settings, which are now all turned off.\
+> These do not match the settings on Instagram, which is weird and annoying.*
 
 **OFF**
 
@@ -692,7 +676,7 @@ COMMENT_LIKES
 
 Consent for the processing of user's data by ad partners on Instagram
 
-*2018 and 2025 for something*
+> *2018 and 2025 for something*
 
 ### **Instagram ads and businesses**
 
@@ -700,15 +684,11 @@ Ad topics that are relevant to you, advertisers who have collected information d
 
 [Information that you've submitted to advertisers](ads_information/instagram_ads_and_businesses/information_you've_submitted_to_advertisers.html)
 
-*Email address, company name, job title - not sure when or why I did this.*
+> *Email address, company name, job title - not sure when or why I did this.*
 
-[Ads about Meta](ads_information/instagram_ads_and_businesses/ads_about_meta.html)
+[Ads about Meta](ads_information/instagram_ads_and_businesses/ads_about_meta.html) *Opted out*
 
-*Opted out*
-
-[Ad preferences](ads_information/instagram_ads_and_businesses/ad_preferences.html)
-
-*Removed categories: many. Hidden ads: many.*
+[Ad preferences](ads_information/instagram_ads_and_businesses/ad_preferences.html) *Removed categories: many. Hidden ads: many.*
 
 ### **Advertising**
 
@@ -720,29 +700,17 @@ You have no data in this section
 
 Ads, profiles, content and topics. Topics from any linked profiles must be downloaded from those profiles directly
 
-[Suggested profiles viewed](ads_information/ads_and_topics/suggested_profiles_viewed.html)
+[Suggested profiles viewed](ads_information/ads_and_topics/suggested_profiles_viewed.html) *Plenty of profiles, between 2017 and 2020, not a feature or not tracked anymore.*
 
-*Plenty of profiles, between 2017 and 2020, not a feature or not tracked anymore.*
+[Ads clicked](ads_information/ads_and_topics/ads_clicked.html) *Last week of data only, 2 ads clicked.*
 
-[Ads clicked](ads_information/ads_and_topics/ads_clicked.html)
+[Posts viewed](ads_information/ads_and_topics/posts_viewed.html) *Last week of data only*
 
-*Last week of data only, 2 ads clicked.*
+[Ads viewed](ads_information/ads_and_topics/ads_viewed.html) *Last week of data only*
 
-[Posts viewed](ads_information/ads_and_topics/posts_viewed.html)
+[Profiles that you're not interested in](ads_information/ads_and_topics/profiles_you're_not_interested_in.html) *6 profiles between 2021 and 2026*
 
-*Last week of data only*
-
-[Ads viewed](ads_information/ads_and_topics/ads_viewed.html)
-
-*Last week of data only*
-
-[Profiles that you're not interested in](ads_information/ads_and_topics/profiles_you're_not_interested_in.html)
-
-*6 profiles between 2021 and 2026*
-
-[Videos watched](ads_information/ads_and_topics/videos_watched.html)
-
-*Last week of data only*
+[Videos watched](ads_information/ads_and_topics/videos_watched.html) *Last week of data only*
 
 [Posts you're not interested in](ads_information/ads_and_topics/posts_you're_not_interested_in.html)
 
@@ -774,4 +742,32 @@ ggplot(df_not, aes(x=month, y=n, fill=type)) +
     geom_col() +
     ggtitle('Not interested in profiles')
 
+```
+
+------------------------------------------------------------------------
+
+## Conclusion
+
+This was interesting even though I haven't used many of the possible Instragram features. I think charts is the best way to show activity. I had planned to show some different pages, but I didn't, and all the links here are broken. The pages are either not interesting or not anonymous enough.
+
+This might be useful for someone else to look at their Instagram statistics, the code is available on my GitHub. For the sake of presentation I have not included it in this post. (I also couldn't figure out how to get code folding to work).
+
+Because I have collected the data along the way, I can put it all together. Two charts here, because 'Not Interested' dominates the other measures.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+df_all = rbind(df_comments, df_follow, df_likes, df_not, df_posts, df_stories) 
+
+ggplot(df_all, aes(x=month, y=n, fill=type)) + 
+    geom_col() +
+    ggtitle('All Activity')
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+df_all = rbind(df_comments, df_follow, df_likes, df_posts, df_stories) 
+
+ggplot(df_all, aes(x=month, y=n, fill=type)) + 
+    geom_col() +
+    ggtitle('All Activity - without Not Interested')
 ```
