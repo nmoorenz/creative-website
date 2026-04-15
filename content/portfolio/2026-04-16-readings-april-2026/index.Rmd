@@ -1,0 +1,75 @@
+---
+title: Recent Tabs, April 2026
+author: Nathan Moore
+date: '2026-04-16'
+slug: []
+categories:
+  - Social
+tags: []
+image: '/img/tabs-202604/adp.jpg'
+showonlyimage: false
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+A roundup of readings
+
+<!--more-->
+
+![](/img/tabs-202604/adp.jpg)
+
+<https://www.leahreich.com/thats-what-the-humans-are-for/>\
+A user researcher laments the downfall of actually thinking about users,
+not just development workflows and site metrics.
+
+<https://kieranhealy.org/blog/archives/2026/03/09/using-quarto-to-write-a-book/>\
+It's amazing what people can do with a bit of markdown! This makes me
+miss peak #rstats Twitter.
+
+<https://newywithkids.com.au/best-podcasts-for-kids/>\
+Saving these links for the future. I'm sure there will be lots of
+podcast listening to follow on from the current Postman Pat/ Winnie the
+Pooh/ Dr Seuss phase.
+
+<https://www.wheresyoured.at/the-ai-bubble-is-an-information-war/>\
+There is so much information in Ed's posts. So much. It looks like it's
+all really well researched, I haven't checked all the sources. He
+presents a solid case that AI is messed up in multiple ways, like
+stealing the internet, and stealing art and books, and also being
+financially untenable and very unstable.
+
+<https://motherduck.com/blog/future-casting-the-modern-data-stack/>\
+Someone proselytising about the future of AI and data. It seems nice,
+but what about the cost of LLMs? What happens if they start to cost as
+much as a person?
+
+<https://no01.substack.com/p/march-19-21-god-is-a-comedian>\
+Great synopsis of the American-Israel war against Iran. The world is
+probably in a lot of trouble.
+
+<https://energyandresilience.substack.com/p/every-country-in-our-supply-chain>\
+"Every Country in Our Supply Chain Has Declared an Emergency. NZ just
+launched an Ad Campaign." This is not good and we seem to be day
+dreaming into a really bad situation.
+
+<https://www.youtube.com/watch?v=J7GY1Xg6X20>\
+Charlie Chaplin's final speech from The Great Dictator, still relevant
+some decades later. Even in
+[2014](https://www.vulture.com/2014/12/charlie-chaplin-great-dictator-history.html)
+and
+[2020](https://www.irishcentral.com/culture/charlie-chaplin-the-great-dictator)
+and still now.
+
+<https://www.cbc.ca/music/angine-de-poitrine-quebec-band-kexp-9.7120120>\
+Fucking amazing. I love these entities.
+
+<https://brandonrohrer.org/ds_roles>\
+Staff+ data science roles, what to watch out for, approaches to take for
+different situations. A good reminder of what's possible and why
+analysis is challenging, interesting, but ultimately rewarding.
+
+<https://www.andrewheiss.com/blog/2026/04/13/seeds-predetermined-universes/>\
+Randomness is not so random.
+
+![](/img/tabs-202604/Charlie-Chaplin-The-Great-Dictator-387733810.jpg)
