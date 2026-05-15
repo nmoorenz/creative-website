@@ -1,0 +1,56 @@
+---
+title: Tabs May 2026
+author: Nathan Moore
+date: '2026-05-14'
+slug: []
+categories:
+  - Social
+tags: []
+image: '/img/tabs-2026/thumb_Galatos.jpg'
+showonlyimage: false
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+A roundup of readings
+
+<!--more-->
+
+<https://simonpcouch.com/blog/2026-04-16-local-agents-2>\
+Local agents are capable, even if we're not quite there yet
+
+<https://blog.djnavarro.net/posts/2023-12-27_seedcatcher/>\
+Danielle being amazing, as per usual
+
+![](/img/tabs-2026/whales.jpg)
+
+<https://www.bbc.com/future/article/20260416-the-humpback-super-groups-swarming-the-seas>\
+Save the whales!
+
+<https://www.instagram.com/reel/DXZkps2jCky/?igsh=bW11cTJyb3ppYnM5>\
+Parks and Rec is a favourite of mine and obviously a favourite of ~~Leslie~~ Amy
+and ~~Ron~~ Nick
+
+<https://www.netlify.com/blog/stance-on-ai-training-data/>\
+Good on ya, Netlify. Not that I would have much training data to give,
+but it's nice to not be the product.
+
+<https://www.theguardian.com/technology/2026/apr/29/meet-the-ai-jailbreakers-i-see-the-worst-things-humanity-has-produced>\
+I'm glad these people exist and glad I don't have to do their job. 
+
+![](/img/tabs-2026/guy-montgomery.jpg)
+
+<https://kotaku.com/game-show-dropout-word-nerds-guy-montgomery-2000689430>\
+New Zealand relevance klaxon! There are a couple of great videos here. 
+
+<https://www.dotcom.press/archive/anguilla>\
+.ai domains have a fascinating history
+
+![](/img/tabs-2026/Galatos.jpg)
+
+<https://www.audioculture.co.nz/articles/galatos>\
+This is a legendary place that I've only been to once.
+
+<https://eblog.fly.dev/fastdocker.html>\
+I don't use docker often but saving this one for future reference.
