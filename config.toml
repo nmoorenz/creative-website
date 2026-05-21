@@ -9,7 +9,7 @@ languageCode = "en-us"
   style = "default"
   description = "Nathan's Website"
   pluralizeListTitles = false
-  copyright = "&copy;2024 Nathan Moore"
+  copyright = "&copy;2026 Nathan Moore"
   sidebarAbout = [
     "I am a data person who wants to make a website.",
     "Originally from Taranaki, I now live in Auckland. ", 
