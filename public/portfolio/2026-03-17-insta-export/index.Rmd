@@ -455,7 +455,9 @@ Town/city name: Auckland, New Zealand
 
 Locations we think you may be interested in based on your activity on Instagram such as tagging your location, IP address and joining local groups
 
-+:----------------------+
++-----------------------+
+|                       |
++:======================+
 | Locations of interest |
 |                       |
 | Auckland Region       |
