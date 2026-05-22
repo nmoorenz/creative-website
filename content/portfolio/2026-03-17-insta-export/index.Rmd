@@ -7,7 +7,7 @@ categories:
   - Social
 tags: []
 image: '/img/insta/Instagram-Logo.png'
-showonlyimage: false
+showonlyimage: true
 output: 
   html_document:
     code_folding: hide
