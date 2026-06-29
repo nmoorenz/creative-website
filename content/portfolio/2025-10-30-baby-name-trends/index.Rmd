@@ -83,11 +83,11 @@ Now, for the comparison of alphabetical-ness of M and F.
 
 Ideas:
 
--   a histogram of M and F starting letter. This would show overall distribution, but not time.
+- a histogram of M and F starting letter. This would show overall distribution, but not time.
 
--   rank all the names alphabetically each year, and then take the median of each for M and F. We would expect these to be the same
+- rank all the names alphabetically each year, and then take the median of each for M and F. We would expect these to be the same
 
--   create a function that takes a random M and random F name, returns the lower one alphabetically, take many samples for each year, and calculates this measure for each year.
+- create a function that takes a random M and random F name, returns the lower one alphabetically, take many samples for each year, and calculates this measure for each year.
 
 ```{python}
 
