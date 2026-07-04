@@ -1,0 +1,85 @@
+---
+title: Tabs June-ish 2026
+author: Nathan Moore
+date: '2026-07-04'
+slug: []
+categories:
+  - Social
+tags: []
+image: '/img/tabs-2026/monkeys.jpg'
+showonlyimage: false
+---
+
+More tabs, not quite monthly. 
+
+<!--more-->
+
+## Friends 
+
+https://timesofindia.indiatimes.com/blogs/civil-irony/the-quiet-grief-of-adult-friendship/
+This is important. Keep in touch with people. 
+
+## Data
+
+https://newsletter.vickiboykis.com/archive/tagging-my-blog-posts-with-bertopic-and-llms/
+I'm not going to add tags to posts beyond the categories that are already there, and this is long and technical, but it's still an interesting read on the development and capabilities of LLMs. 
+
+https://www.robinsloan.com/notes/home-cooked-app/
+Very cool read. Should I build my own app? Nah. But the thought is there. 
+
+https://www.rnz.co.nz/news/te-manu-korihi/596199/maori-owned-data-storage-network-hailed-as-significant-step-towards-data-sovereignty
+This is good and important.
+
+## Music 
+
+https://www.theguardian.com/music/2026/apr/29/arctic-monkeys-matt-helders-sheffield
+Love the Monkeys. This provides a good perspective on their arena. 
+
+![](/img/tabs-2026/ramones.jpg)
+
+https://www.rollingstone.com/music/music-lists/best-punk-albums-1235538842/
+Hey Ho! Let's Go! Plenty of listening content here. 
+
+![](/img/tabs-2026/franz-ferdinand.jpg)
+
+https://www.treblezine.com/best-21st-century-post-punk-albums/
+I love a list of albums. Do I love a list where I only know a few of the bands? There's only one way to find out
+
+https://www.stuff.co.nz/culture/360987448/we-exist-meet-need-real-groovy-turns-45-surviving-five-moves-and-changing-habits-music-fans
+Support your local record store 
+
+https://www.ft.com/the-life-of-a-song
+https://ig.ft.com/life-of-a-song/guns-of-brixton.html
+Subscription required, but one of them might be free somehow? Maybe the old ones are? Lucky it was one I wanted to read
+
+https://www.reddit.com/r/indie_rock/comments/jclg0r/comment/g95rsf4/
+New Zealand indie music list, concentrating on the Dunedin Sound and Flying Nun
+
+## Other 
+
+https://www.nzgeo.com/stories/the-pa-builders/
+New Zealand Time Team! Sorry that Time Team is my reference for archeology. I had been wondering if there were folks that were doing work like this in New Zealand, and it's cool to read about them. 
+
+https://www.cbr.com/best-fantasy-books-last-25-years-list/
+I've had a couple of books out from the library recently and bought a few from op shops but haven't read much at all. I think I need to make more time for reading (and exercise). 
+
+ourauckland.aucklandcouncil.govt.nz/media/54ydgrtg/onlinestreetartmap2026.pdf
+https://artnow.nz/walks/t%C4%81maki-makaurau-street-art-in-the-city-centre
+I need to make more time for exploring our city. 
+
+![](/img/tabs-2026/maier.jpg)
+
+https://www.vivianmaier.com/
+From maptap.gg a recommendation for one of the greatest street photographers of the 20th century. This is also something to spend time on, just cruising through. 
+
+https://www.kmart.co.nz/product/the-original-spirograph-deluxe-set-43296538/
+Nostalgia AF. I loved this growing up. 
+
+https://www.theguardian.com/us-news/ng-interactive/2026/may/17/america-china-energy-oil-renewables
+"Fossil Fuel Facsism" is a good description. Where to from here? Do not know. 
+
+https://www.theguardian.com/environment/2026/jun/18/natural-world-digital-biodiversity-heritage-library-scientific-knowledge-free-access-aoe
+Something else to cruise through. 
+
+![](/img/tabs-2026/nature.avif)
+
