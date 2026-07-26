@@ -1,0 +1,18 @@
+---
+title: Youtube Faves
+author: Nathan Moore
+date: '2026-07-20'
+slug: []
+categories: 
+  - Social
+tags: []
+image: 'img/portfolio/nb.jpg'
+showonlyimage: true
+---
+
+Testing for Numberblocks video embedding
+
+```{r echo=FALSE}
+blogdown::shortcode('youtube', 'atGvlUlnvcU')
+```
+

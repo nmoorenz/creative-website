@@ -1,0 +1,49 @@
+---
+title: Home Server Admin
+author: Nathan Moore
+date: '2026-07-06'
+slug: []
+categories:
+  - Code
+tags: []
+image: ''
+showonlyimage: false
+---
+
+Keeping track of my home server 
+
+<!--more-->
+
+
+Lots of output
+`mount`
+
+Useful to see sizes and percent used
+`df -h`
+
+Mount paths with options
+`findmnt`
+
+What gets mounted at boot 
+`cat /etc/fstab`
+
+Mounts and uuid
+`blkid`
+
+More details with sector, unit, id
+`sudo fdisk -l`
+
+Manually mount the drive
+`sudo mount -t ntfs-3g /dev/sdb1 /media/nathan/Elements`
+
+`UUID=2220418F20416B3D /media/nathan/Elements ntfs-3g rw,auto,user,fmask=0111,dmask=0000 0 0`
+
+https://help.ubuntu.com/community/AutomaticallyMountPartitions
+
+https://askubuntu.com/questions/696043/external-harddisk-detected-but-not-mounting
+
+
+`nathan@192.168.68.111:'/media/nathan/Elements/TV/'`
+
+https://askubuntu.com/questions/196768/how-to-install-updates-via-command-line
+
