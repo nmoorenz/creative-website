@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>Kids TV Player</title>
   <style>
     html,body{margin:0;padding:0;background:#000;height:100%;overflow:hidden}
@@ -19,6 +22,10 @@
     https://YOUR-SITE/kidstv-player.html ). App opens it as ?v=VIDEOID&t=SECONDS.
     The green text is a temporary on-screen trace; we'll remove it once it works.
   -->
+  <!-- Static marker: visible even if JavaScript does NOT run. -->
+  <div style="position:absolute;top:0;right:0;z-index:10;color:#ff0;
+    font:13px monospace;background:rgba(0,0,0,.7);padding:8px">STATIC HTML OK</div>
+
   <div id="log"></div>
   <div id="player"></div>
 
