@@ -10,110 +10,56 @@
   <style>
     html,body{margin:0;padding:0;background:#000;height:100%;overflow:hidden}
     #player{position:absolute;top:0;left:0;width:100%;height:100%}
-    #log{position:absolute;top:0;left:0;right:0;z-index:9;color:#0f0;
-      font:13px/1.4 monospace;background:rgba(0,0,0,.65);padding:8px;
-      white-space:pre-wrap;max-height:60%;overflow:auto}
+    #msg{position:absolute;top:0;left:0;right:0;color:#fff;font:16px sans-serif;padding:24px}
   </style>
 </head>
 <body>
   <!--
-    Kids TV player page (DIAGNOSTIC build).
-    Host on your website (Hugo/blogdown: put in the `static/` folder ->
-    https://YOUR-SITE/kidstv-player.html ). App opens it as ?v=VIDEOID&t=SECONDS.
-    The green text is a temporary on-screen trace; we'll remove it once it works.
+    Kids TV player page. Host on your website (Hugo/blogdown: put in `static/`
+    so it is served at  https://YOUR-SITE/kidstv-player.html ).
+    The app opens it as  ?v=VIDEOID&t=STARTSECONDS
   -->
-  <!-- Static marker: visible even if JavaScript does NOT run. -->
-  <div style="position:absolute;top:0;right:0;z-index:10;color:#ff0;
-    font:13px monospace;background:rgba(0,0,0,.7);padding:8px">STATIC HTML OK</div>
-
-  <div id="log"></div>
   <div id="player"></div>
 
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script>
-    var DEBUG = true;
-    function log(m){
-      try {
-        if (DEBUG) {
-          var el = document.getElementById('log');
-          if (el) el.textContent += m + "\n";
-        }
-        console.log(m);
-      } catch(e){}
-    }
-
-    window.onerror = function(msg, src, line){ log('window.onerror: ' + msg + ' @' + line); };
-
-    log('1. script start');
-
     function qs(k){ return new URLSearchParams(location.search).get(k); }
     var VIDEO = qs('v') || '';
     var START = parseInt(qs('t') || '0', 10) || 0;
-    log('2. video=' + VIDEO + ' start=' + START);
+    var player;
 
-    var player, lastDur = 0, apiReady = false, playerReady = false;
-
-    // Bridge helpers (only fire inside the app).
     function br0(n){ try{ if(window.AndroidBridge && AndroidBridge[n]) AndroidBridge[n](); }catch(e){} }
     function br1(n,a){ try{ if(window.AndroidBridge && AndroidBridge[n]) AndroidBridge[n](a); }catch(e){} }
     function br2(n,a,b){ try{ if(window.AndroidBridge && AndroidBridge[n]) AndroidBridge[n](a,b); }catch(e){} }
 
-    log('3. bridge present: ' + (!!window.AndroidBridge));
-
-    // Watchdog: did the YouTube script load?
-    setTimeout(function(){
-      if (!apiReady) log('WATCHDOG: YouTube iframe_api did NOT load after 8s');
-    }, 8000);
-    setTimeout(function(){
-      if (apiReady && !playerReady) log('WATCHDOG: player created but never became ready after 12s');
-    }, 12000);
-
     function onYouTubeIframeAPIReady(){
-      apiReady = true;
-      log('4. iframe_api ready — creating player');
-      if (!VIDEO){ log('ERROR: no video id in URL (?v=)'); return; }
-      try {
-        player = new YT.Player('player', {
-          width: '100%', height: '100%',
-          videoId: VIDEO,
-          playerVars: {
-            autoplay: 1, controls: 1, rel: 0, fs: 0,
-            modestbranding: 1, playsinline: 1, iv_load_policy: 3, start: START
-          },
-          events: {
-            'onReady': function(e){
-              playerReady = true;
-              log('6. onReady — playing');
-              e.target.playVideo();
-              br0('onReady');
-              setInterval(tick, 1000);
-            },
-            'onStateChange': function(e){ log('state=' + e.data); br1('onState', e.data); },
-            'onError': function(e){ log('ERROR code=' + e.data); br1('onError', e.data); }
-          }
-        });
-        log('5. YT.Player created');
-      } catch (err) {
-        log('EXCEPTION creating player: ' + err);
+      if (!VIDEO){
+        document.getElementById('player').outerHTML =
+          '<div id="msg">No video specified. Add ?v=VIDEO_ID to the address.</div>';
+        return;
       }
+      player = new YT.Player('player', {
+        width: '100%', height: '100%',
+        videoId: VIDEO,
+        playerVars: {
+          autoplay: 1, controls: 1, rel: 0, fs: 0,
+          modestbranding: 1, playsinline: 1, iv_load_policy: 3, start: START
+        },
+        events: {
+          'onReady': function(e){ e.target.playVideo(); br0('onReady'); setInterval(tick, 1000); },
+          'onStateChange': function(e){ br1('onState', e.data); },
+          'onError': function(e){ br1('onError', e.data); }
+        }
+      });
     }
 
     function tick(){
       try {
         if (player && player.getDuration) {
-          lastDur = Math.floor(player.getDuration());
-          br2('onProgress', Math.floor(player.getCurrentTime()), lastDur);
+          br2('onProgress', Math.floor(player.getCurrentTime()), Math.floor(player.getDuration()));
         }
       } catch(e){}
     }
-
-    // Log if the API script tag errors.
-    (function(){
-      var s = document.createElement('script');
-      s.src = 'https://www.youtube.com/iframe_api';
-      s.onerror = function(){ log('ERROR: failed to load youtube.com/iframe_api (network/blocked)'); };
-      s.onload = function(){ log('3b. iframe_api script tag loaded'); };
-      document.head.appendChild(s);
-    })();
   </script>
 </body>
 </html>
