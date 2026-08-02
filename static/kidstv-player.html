@@ -60,14 +60,29 @@
         videoId: VIDEO,
         playerVars: {
           autoplay: 1, controls: 1, rel: 0, fs: 0,
-          modestbranding: 1, playsinline: 1, iv_load_policy: 3, start: START
+          modestbranding: 1, playsinline: 1, iv_load_policy: 3, start: START,
+          cc_load_policy: 0   // don't show captions by default
         },
         events: {
-          'onReady': function(e){ e.target.playVideo(); fitPlayer(); br0('onReady'); setInterval(tick, 1000); },
+          'onReady': function(e){ e.target.playVideo(); fitPlayer(); disableCaptions(e.target); br0('onReady'); setInterval(tick, 1000); },
+          'onApiChange': function(e){ disableCaptions(e.target); },
           'onStateChange': function(e){ br1('onState', e.data); },
           'onError': function(e){ br1('onError', e.data); }
         }
       });
+    }
+
+    // Turn subtitles/closed captions off. The captions module isn't ready until
+    // onApiChange fires, so we clear the track there (and again on ready).
+    function disableCaptions(p){
+      try {
+        var mods = (p.getOptions && p.getOptions()) || [];
+        ['captions','cc'].forEach(function(m){
+          if (mods.indexOf(m) !== -1) { try{ p.setOption(m, 'track', {}); }catch(e){} }
+        });
+      } catch(e){}
+      try{ p.unloadModule('captions'); }catch(e){}
+      try{ p.unloadModule('cc'); }catch(e){}
     }
 
     function tick(){
