@@ -9,7 +9,10 @@
   <title>Kids TV Player</title>
   <style>
     html,body{margin:0;padding:0;background:#000;height:100%;overflow:hidden}
-    #player{position:absolute;top:0;left:0;width:100%;height:100%}
+    /* The player is created at a small pixel size (to make YouTube serve a lower,
+       smoother resolution on old TVs) then scaled up to fill the screen. */
+    #player{position:absolute;top:50%;left:50%;
+      transform:translate(-50%,-50%);transform-origin:center center}
     #msg{position:absolute;top:0;left:0;right:0;color:#fff;font:16px sans-serif;padding:24px}
   </style>
 </head>
@@ -18,11 +21,17 @@
     Kids TV player page. Host on your website (Hugo/blogdown: put in `static/`
     so it is served at  https://YOUR-SITE/kidstv-player.html ).
     The app opens it as  ?v=VIDEOID&t=STARTSECONDS
+
+    BUFFERING: if playback still stutters, lower TARGET_HEIGHT below from 480 to 360.
+    A higher number is sharper but heavier; lower is blurrier but smoother.
   -->
   <div id="player"></div>
 
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
+    var TARGET_HEIGHT = 480;                              // try 360 if it still buffers
+    var TARGET_WIDTH = Math.round(TARGET_HEIGHT * 16 / 9);
+
     function qs(k){ return new URLSearchParams(location.search).get(k); }
     var VIDEO = qs('v') || '';
     var START = parseInt(qs('t') || '0', 10) || 0;
@@ -32,6 +41,14 @@
     function br1(n,a){ try{ if(window.AndroidBridge && AndroidBridge[n]) AndroidBridge[n](a); }catch(e){} }
     function br2(n,a,b){ try{ if(window.AndroidBridge && AndroidBridge[n]) AndroidBridge[n](a,b); }catch(e){} }
 
+    function fitPlayer(){
+      var el = document.getElementById('player');
+      if(!el) return;
+      var s = Math.max(window.innerWidth / TARGET_WIDTH, window.innerHeight / TARGET_HEIGHT);
+      el.style.transform = 'translate(-50%,-50%) scale(' + s + ')';
+    }
+    window.addEventListener('resize', fitPlayer);
+
     function onYouTubeIframeAPIReady(){
       if (!VIDEO){
         document.getElementById('player').outerHTML =
@@ -39,14 +56,14 @@
         return;
       }
       player = new YT.Player('player', {
-        width: '100%', height: '100%',
+        width: String(TARGET_WIDTH), height: String(TARGET_HEIGHT),
         videoId: VIDEO,
         playerVars: {
           autoplay: 1, controls: 1, rel: 0, fs: 0,
           modestbranding: 1, playsinline: 1, iv_load_policy: 3, start: START
         },
         events: {
-          'onReady': function(e){ e.target.playVideo(); br0('onReady'); setInterval(tick, 1000); },
+          'onReady': function(e){ e.target.playVideo(); fitPlayer(); br0('onReady'); setInterval(tick, 1000); },
           'onStateChange': function(e){ br1('onState', e.data); },
           'onError': function(e){ br1('onError', e.data); }
         }
