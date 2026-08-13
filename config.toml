@@ -52,13 +52,40 @@ languageCode = "en-us"
   name = "Categories"
   url = "categories/"
 
-  [params.social]
-  email         = "nath@nmoore.nz"
-  linkedin      = "https://www.linkedin.com/in/nmoorenz"
-  github        = "https://www.github.com/nmoorenz"
-#  facebook      = "full page or profile url in facebook"
-#  googleplus    = "full profile url in googleplus"
-#  stackoverflow = "full profile url in stackoverflow"
-#  instagram     = "full profile url in instagram"
-#  youtube       = "full profile url in youtube"
-#  whatsapp      = "wa.me service link"
+# ---- line 1 ----
+[[params.sociallinks]]
+  icon  = "fa-envelope"
+  title = "Email"
+  url   = "nath@nmoore.nz"
+  line  = 1
+
+[[params.sociallinks]]
+  icon  = "fa-linkedin"
+  title = "LinkedIn"
+  url   = "https://www.linkedin.com/in/nmoorenz"
+  line  = 1
+
+[[params.sociallinks]]
+  icon  = "fa-github"
+  title = "GitHub"
+  url   = "https://www.github.com/nmoorenz"
+  line  = 1
+
+# ---- line 2 ----
+[[params.sociallinks]]
+  icon  = "fa-instagram"
+  title = "Instagram"
+  url   = "https://instagram.nmoore.nz"
+  line  = 2
+
+[[params.sociallinks]]
+  icon  = "fa-beer"
+  title = "Beer"
+  url   = "https://beer.nmoore.nz"
+  line  = 2
+
+[[params.sociallinks]]
+  icon  = "fa-star"
+  title = "Advent of Code"
+  url   = "https://adventofcode.nmoore.nz"
+  line  = 2  
