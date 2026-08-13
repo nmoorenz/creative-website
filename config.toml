@@ -89,3 +89,9 @@ languageCode = "en-us"
   title = "Advent of Code"
   url   = "https://adventofcode.nmoore.nz"
   line  = 2  
+
+[[params.sociallinks]]
+  icon  = "fa-map-marker"
+  title = "Youtube Maps"
+  url   = "https://youtube-maps.nmoore.nz"
+  line  = 2  
