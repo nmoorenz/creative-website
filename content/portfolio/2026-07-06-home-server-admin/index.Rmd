@@ -6,44 +6,56 @@ slug: []
 categories:
   - Code
 tags: []
-image: ''
+image: '/img/tabs-2026/elitedesk.jpg'
 showonlyimage: false
 ---
 
-Keeping track of my home server 
+Keeping track of my home server
 
 <!--more-->
 
+Here are some commands and links that have been helpful while setting up a home server.
 
-Lots of output
+## Apps
+
+<https://jellyfin.org>\
+<https://immich.app>\
+<https://nextcloud.com>\
+<https://pi-hole.net>
+
+## Commands
+
+Lots of output for what drives are currently mounted\
 `mount`
 
-Useful to see sizes and percent used
-`df -h`
-
-Mount paths with options
+Mount paths with options\
 `findmnt`
 
-What gets mounted at boot 
-`cat /etc/fstab`
-
-Mounts and uuid
-`blkid`
-
-More details with sector, unit, id
+More disk details for partitions with sector, unit, id, size\
 `sudo fdisk -l`
 
-Manually mount the drive
+Useful to see sizes and percent used for drives: **d**isk **f**ree **h**uman readable\
+`df -h`
+
+Human readable output for **d**isk **u**sage, **s**ummarize for a **h**uman, for the current folder\
+`du -sh -- *`
+
+Mounts and uuid: **bl**oc**k** **id**, used in `fstab`\
+`blkid`
+
+What gets mounted at boot - **f**ile **s**ystem **tab**le\
+`cat /etc/fstab`
+
+Manually mount the drive\
 `sudo mount -t ntfs-3g /dev/sdb1 /media/nathan/Elements`
 
+New line in `fstab` to mount the external drive on startup\
 `UUID=2220418F20416B3D /media/nathan/Elements ntfs-3g rw,auto,user,fmask=0111,dmask=0000 0 0`
 
-https://help.ubuntu.com/community/AutomaticallyMountPartitions
+## Links
 
-https://askubuntu.com/questions/696043/external-harddisk-detected-but-not-mounting
+<https://help.ubuntu.com/community/AutomaticallyMountPartitions>
 
+<https://askubuntu.com/questions/696043/external-harddisk-detected-but-not-mounting>
 
-`nathan@192.168.68.111:'/media/nathan/Elements/TV/'`
-
-https://askubuntu.com/questions/196768/how-to-install-updates-via-command-line
-
+<https://askubuntu.com/questions/196768/how-to-install-updates-via-command-line>

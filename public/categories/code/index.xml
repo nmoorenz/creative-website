@@ -6,8 +6,15 @@
     <description>Recent content in Code on Nathan Moore</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 29 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://nmoore.nz/categories/code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Home Server Admin</title>
+      <link>https://nmoore.nz/portfolio/2026-07-06-home-server-admin/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://nmoore.nz/portfolio/2026-07-06-home-server-admin/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Keeping track of my home server&lt;/p&gt;&#xD;&#xA;</description>
+    </item>
     <item>
       <title>Photo Site</title>
       <link>https://nmoore.nz/portfolio/2026-03-29-photo-site/</link>

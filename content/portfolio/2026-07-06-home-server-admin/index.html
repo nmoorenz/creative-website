@@ -1,0 +1,51 @@
+---
+title: Home Server Admin
+author: Nathan Moore
+date: '2026-07-06'
+slug: []
+categories:
+  - Code
+tags: []
+image: '/img/tabs-2026/elitedesk.jpg'
+showonlyimage: false
+---
+
+
+
+<p>Keeping track of my home server</p>
+<!--more-->
+<p>Here are some commands and links that have been helpful while setting up a home server.</p>
+<div id="apps" class="section level2">
+<h2>Apps</h2>
+<p><a href="https://jellyfin.org" class="uri">https://jellyfin.org</a><br />
+<a href="https://immich.app" class="uri">https://immich.app</a><br />
+<a href="https://nextcloud.com" class="uri">https://nextcloud.com</a><br />
+<a href="https://pi-hole.net" class="uri">https://pi-hole.net</a></p>
+</div>
+<div id="commands" class="section level2">
+<h2>Commands</h2>
+<p>Lots of output for what drives are currently mounted<br />
+<code>mount</code></p>
+<p>Mount paths with options<br />
+<code>findmnt</code></p>
+<p>More disk details for partitions with sector, unit, id, size<br />
+<code>sudo fdisk -l</code></p>
+<p>Useful to see sizes and percent used for drives: <strong>d</strong>isk <strong>f</strong>ree <strong>h</strong>uman readable<br />
+<code>df -h</code></p>
+<p>Human readable output for <strong>d</strong>isk <strong>u</strong>sage, <strong>s</strong>ummarize for a <strong>h</strong>uman, for the current folder<br />
+<code>du -sh -- *</code></p>
+<p>Mounts and uuid: <strong>bl</strong>oc<strong>k</strong> <strong>id</strong>, used in <code>fstab</code><br />
+<code>blkid</code></p>
+<p>What gets mounted at boot - <strong>f</strong>ile <strong>s</strong>ystem <strong>tab</strong>le<br />
+<code>cat /etc/fstab</code></p>
+<p>Manually mount the drive<br />
+<code>sudo mount -t ntfs-3g /dev/sdb1 /media/nathan/Elements</code></p>
+<p>New line in <code>fstab</code> to mount the external drive on startup<br />
+<code>UUID=2220418F20416B3D /media/nathan/Elements ntfs-3g rw,auto,user,fmask=0111,dmask=0000 0 0</code></p>
+</div>
+<div id="links" class="section level2">
+<h2>Links</h2>
+<p><a href="https://help.ubuntu.com/community/AutomaticallyMountPartitions" class="uri">https://help.ubuntu.com/community/AutomaticallyMountPartitions</a></p>
+<p><a href="https://askubuntu.com/questions/696043/external-harddisk-detected-but-not-mounting" class="uri">https://askubuntu.com/questions/696043/external-harddisk-detected-but-not-mounting</a></p>
+<p><a href="https://askubuntu.com/questions/196768/how-to-install-updates-via-command-line" class="uri">https://askubuntu.com/questions/196768/how-to-install-updates-via-command-line</a></p>
+</div>
