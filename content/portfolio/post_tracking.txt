@@ -65,6 +65,7 @@ Tabs June-ish 2026          pub
 Home Server Admin           draft
 
 
-
+images: ![](/img/tabs-2026/ramones.jpg){width="70%"}
+links: This is [my text](https://www.example.com/link/).
 
 

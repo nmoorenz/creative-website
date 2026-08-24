@@ -137,6 +137,7 @@ I think I need to create a function which I can then simply use with mutate.
 Kind of simply, because I actually want the height and width of the image, so `map` for the `list` function output, and then `unnest`. 
 
 ```{r warning=FALSE}
+
 library(readbitmap)
 
 # this was the closest I got but doesn't seem to work. 
@@ -182,6 +183,7 @@ https://stackoverflow.com/questions/16236684/apply-pandas-function-to-column-to-
 
 
 ```{python}
+
 from PIL import Image
 
 def height_width(filename): 
@@ -237,6 +239,7 @@ r_df |>
 Python charts, which requires a search, because I always have to look something up. w3schools is the first result, which will give me what I need. https://www.w3schools.com/python/matplotlib_histograms.asp 
 
 ```{python}
+
 import matplotlib.pyplot as plt
 
 py_df_img = py_df[py_df['width'] != 0]

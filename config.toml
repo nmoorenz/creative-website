@@ -13,7 +13,8 @@ languageCode = "en-us"
   sidebarAbout = [
     "I am a data person who wants to make a website.",
     "Originally from Taranaki, I now live in Auckland. ", 
-    "Also: ultimate frisbee, disc golf, cycling, cooking"
+    "Also: ultimate frisbee, disc golf, cycling, cooking", 
+    "This site uses GoatCounter for page views."
   ]
   # Contact page
      # Since this template is static, the contact form uses www.formspree.io as a
