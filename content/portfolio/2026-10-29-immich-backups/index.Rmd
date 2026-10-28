@@ -1,0 +1,192 @@
+---
+title: Immich Backups
+author: Nathan Moore
+date: '2026-10-29'
+slug: []
+categories:
+  - Code
+tags: []
+draft: false
+image: '/img/portfolio/immich.png'
+showonlyimage: false
+---
+
+A small Python script and a locked-down IAM user that back up your self-hosted Immich library to S3 — one zip per month, uploading only what changed.
+
+<!--more-->
+
+> **Note:** This post was written by Claude, Anthropic's AI assistant.
+
+Running [Immich](https://immich.app/) on a box at home is great right up until you remember that "a box at home" is a single point of failure. A dead SSD, a bad `rm`, or a child pulling out plugs can be destructive. The aim here is a cheap, hands-off offsite copy in S3 that runs itself, without unnecessary security exposure.
+
+This post walks through one way to do that: a Python script driven by cron, plus an IAM user that can only do one thing: upload to an S3 bucket. No extra services, no Docker container, no third-party backup tool.
+
+> **Downloads:** [`immich_monthly_backup.py`](/files/immich_monthly_backup.py) · [`s3-backup-policy.json`](/files/s3-backup-policy.json)
+
+## The idea
+
+Immich's storage template files every original photo into a predictable folder:
+
+```         
+<library>/<user-id>/YYYY-MM/<files>
+```
+
+That `YYYY-MM` folder is assigned by the photo's **capture date**, and it never changes. That single fact makes the whole backup simple:
+
+- **A photo belongs to exactly one month.** A shot taken on 31 August but imported in September still lives in the `2026-08` folder. So the library can be backed up month-by-month without worrying about a photo moving between archives.
+- **Detecting "did anything change?" is fast.** For each month folder the script computes a fingerprint from file metadata only (path, size, and modified-time), without reading image data. Compare it to last run's fingerprint; if it matches, skip. This means a daily run over a library that didn't change is almost instant. So the script's whole job is: walk every `user/YYYY-MM` folder, and for any whose fingerprint changed since last time, zip it and upload to `s3://<bucket>/<user>/<YYYY-MM>.zip`. The first run uploads everything; every run after that only upates months that gained photos.
+
+Zipping per-month (rather than syncing individual files) is deliberate: it keeps the number of S3 objects, and therefore the number of upload requests, low, which keeps the bucket tidy and the uploads simple to reason about.
+
+## Prerequisites
+
+- An Immich server you can SSH into, and the path to its library folder. If Immich runs via Docker Compose, it's the `library` volume; find it with `docker inspect immich_server` and look at the mounts. A typical path is `/opt/immich-app/library/library`.
+
+- Python 3 (already on any modern Linux).
+
+- The [AWS CLI v2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html). On recent Debian/Ubuntu it's **not** in apt anymore, so install it directly:
+
+  ``` bash
+  sudo apt update && sudo apt install -y curl unzip
+  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o awscliv2.zip
+  unzip awscliv2.zip && sudo ./aws/install
+  aws --version
+  ```
+
+  (Swap `x86_64` for `aarch64` in the URL on an ARM box; check with `uname -m`.)
+
+- An AWS account with an admin profile configured locally, used **once** to create the bucket and the restricted user.
+
+## Step 1: Create the bucket and a locked-down user
+
+The important part of this whole setup is the security posture. A home server is the least-trusted machine on the network. It's exposed, it runs a dozen containers, and if any of them is compromised, whatever credentials sit on that box are compromised too. So the key stored on the server should be able to do **nothing except upload to the one backup bucket**. It can't read the backups back, can't delete them, can't touch any other bucket, and can't see anything else in the AWS account.
+
+First, set a few shell variables so the commands below can be copied as-is. `AWSPROFILE` is an existing **admin** profile used only for this one-time setup:
+
+``` bash
+BUCKETNAME=bucket-immich-backup   # the bucket to create
+AWSPROFILE=my-admin-profile   # an admin CLI profile, for setup only
+REGION=ap-southeast-2         # the region to create the bucket in
+```
+
+Then create the bucket:
+
+``` bash
+aws s3api create-bucket --bucket "$BUCKETNAME" \
+  --region "$REGION" \
+  --create-bucket-configuration LocationConstraint="$REGION" \
+  --profile "$AWSPROFILE"
+ 
+# Block all public access 
+aws s3api put-public-access-block --bucket "$BUCKETNAME" \
+  --public-access-block-configuration \
+  BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true \
+  --profile "$AWSPROFILE"
+```
+
+> One region quirk: if the region is `us-east-1`, omit the `--create-bucket-configuration` line entirely, because AWS rejects it there.
+
+Now the IAM policy: [**`s3-backup-policy.json`**](/files/s3-backup-policy.json). It provides good security: it allows listing the bucket (so the CLI can route requests) and uploading objects to it, and nothing more. No `GetObject`, no `DeleteObject`, no other bucket. Download it, then open it and replace `bucket-immich-backup` with the real bucket name in both places.
+
+`AbortMultipartUpload` is in there because large zips upload in parts and the CLI needs to clean up a failed part; it can't touch finished objects. Because the key can't delete or read objects back, a compromised server is about the most boring thing an attacker could steal. The worst they can do is write junk into the backup bucket.
+
+Create the user, attach the policy, and mint an access key:
+
+``` bash
+aws iam create-user --user-name server-immich-backup --profile "$AWSPROFILE"
+ 
+aws iam put-user-policy --user-name server-immich-backup \
+  --policy-name s3-upload-only \
+  --policy-document file://s3-backup-policy.json \
+  --profile "$AWSPROFILE"
+ 
+aws iam create-access-key --user-name server-immich-backup --profile "$AWSPROFILE"
+```
+
+That last command prints an `AccessKeyId` and `SecretAccessKey` **once**, so copy the secret now. Then, on the server, configure a profile the script will use:
+
+``` bash
+aws configure --profile profile-immich-backup
+# paste the key + secret, set the region, output = json
+```
+
+## Step 2: The backup script
+
+Grab [**`immich_monthly_backup.py`**](/files/immich_monthly_backup.py) and drop it somewhere like `~/code/`. It has no dependencies beyond the AWS CLI and Python's standard library. The defaults assume a bucket named `bucket-immich-backup` and a profile named `profile-immich-backup`. Change those to match by editing the `--bucket` and `--profile` defaults near the top of `main()`, or pass them as flags each run.
+
+A few design notes worth calling out:
+
+- **The zips are stored, not compressed.** Photos and videos are already compressed; running them through DEFLATE wastes CPU for basically no size win, so `ZIP_STORED` just bundles them.
+- **The state file is a small JSON map** of `user/month → fingerprint`, kept next to the script. Delete it and the next run re-uploads everything; that's the "start fresh" button.
+- **A dry run writes nothing**, not even the state file, so the full plan can be previewed safely. Always do a dry run first to see what it'll push and how big it is:
+
+``` bash
+python3 ~/code/immich_monthly_backup.py --dry-run
+```
+
+Then let it run for real. The first run will take a while (it's uploading the whole library); subsequent runs are quick.
+
+## Step 3: Run it on a schedule with cron
+
+On Linux, cron is the equivalent of Windows Task Scheduler. Edit the crontab with `crontab -e` and add a daily run:
+
+``` cron
+0 3 * * * /usr/bin/python3 /home/you/code/immich_monthly_backup.py --aws-bin /usr/local/bin/aws >> /home/you/code/immich_backup.log 2>&1
+```
+
+The five fields before the command are `minute hour day-of-month month day-of-week`, so `0 3 * * *` means 3:00am every day. Two things that trip people up:
+
+- **Cron runs with a bare environment**, so `aws` often isn't on its `PATH`. The cleanest fix is to pass the full path with `--aws-bin` (find it with `which aws`; AWS CLI v2 usually installs to `/usr/local/bin/aws`). Confirm the Python path with `which python3` too.
+- **Redirect the output to a log** (`>> ...log 2>&1`) so the run can be checked. A no-change run just logs a line of skipped counts. Because the fingerprint check makes an unchanged run almost instant, daily is a fine cadence even for a big library.
+
+## Storage class
+
+Objects land in S3 Standard by default, which suits a backup that might need a quick restore. For an archive that's rarely read, S3 Glacier Deep Archive cuts storage cost dramatically, down to roughly a tenth of Standard, in exchange for slow, fee-bearing retrieval. That's a fair trade for a backup that hopefully never gets touched, and the move can be automated with a bucket lifecycle rule. Either way, since the zips are stored uncompressed, the space used in S3 roughly equals the size of the originals on disk.
+
+## Caveats and things to add
+
+- **This is a backup, not an archive with history.** Each month's zip is overwritten in place when that month changes, and versioning is left off by default. To protect against a corrupted upload clobbering a good one, enable versioning on the bucket, at the cost of storing old versions.
+- **It backs up originals only**, meaning the photos and videos as uploaded. It does *not* back up Immich's database (albums, faces, shared links, etc.). To restore the *Immich instance* rather than just the files, dump the Postgres database separately. The irreplaceable thing is the pixels; Immich metadata can be rebuilt.
+- **Deletions don't propagate**, by design. If a photo is deleted in Immich, its month zip will be rebuilt without it on the next run, but any month that's never touched again keeps whatever it had. That's usually what you want from a backup.
+- **Encryption**: objects are encrypted at rest by S3 by default. For backups encrypted so that even AWS can't read them, encrypt the zip client-side before upload (e.g. with `age` or `gpg`), a natural extension point in `build_zip`/`s3_upload`.
+
+## Rotating the access key
+ 
+The key sitting on the server never expires on its own, so it's worth rotating now and then, and immediately if there's any chance it leaked. IAM allows two access keys per user, which makes for a rotation with no downtime: create the new key before retiring the old one.
+ 
+Run these with the admin profile (`AWSPROFILE` from the setup above):
+ 
+```bash
+# 1. Create a second key (prints a new AccessKeyId + SecretAccessKey once)
+aws iam create-access-key --user-name server-immich-backup --profile "$AWSPROFILE"
+ 
+# 2. On the server, point the profile at the new key
+aws configure --profile profile-immich-backup   # paste the new key + secret
+ 
+# 3. Confirm it still works
+python3 ~/code/immich_monthly_backup.py --dry-run
+ 
+# 4. Disable the OLD key (reversible), then delete it once confident
+aws iam update-access-key --user-name server-immich-backup \
+  --access-key-id OLD_KEY_ID --status Inactive --profile "$AWSPROFILE"
+ 
+aws iam delete-access-key --user-name server-immich-backup \
+  --access-key-id OLD_KEY_ID --profile "$AWSPROFILE"
+```
+ 
+List the keys and their ages to find `OLD_KEY_ID`:
+ 
+```bash
+aws iam list-access-keys --user-name server-immich-backup --profile "$AWSPROFILE"
+```
+ 
+Disabling before deleting is the safety net: if something breaks, flip the old key back to `Active` and investigate. Delete it only once the new key is proven. It's tempting to automate this on a schedule, but letting the server rotate its own key means granting it IAM permissions, which widens exactly the blast radius this setup works to keep small. Rotation is better left an occasional manual task.
+ 
+## Conclusion
+ 
+That's the whole system: one bucket, one upload-only key, one script, one cron line. It quietly copies photos offsite every night, with a log to glance at when reassurance is needed.
+ 
+The design leans on one fact about Immich, that originals are already filed into immutable month folders, and everything else follows from it: month-sized zips, a metadata fingerprint to skip unchanged folders, and a key that can do nothing but add objects to a single bucket. There are no moving parts to babysit and nothing on the server worth stealing.
+ 
+It's worth treating this as a starting point rather than a finished product. The obvious next steps are the ones the caveats hint at: a periodic database dump alongside the originals if a full Immich restore matters, client-side encryption before upload for a zero-knowledge backup, and a lifecycle rule to drop older zips into Glacier. Most important of all, actually test a restore. A backup nobody has ever restored from is only a hopeful guess, so pull a month's zip down, unzip it, and confirm the photos are really there before trusting it with the only copy of anything.
+ 

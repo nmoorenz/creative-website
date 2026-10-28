@@ -64,8 +64,9 @@ Dopp Kit Maker              draft
 Tabs June-ish 2026          pub
 Home Server Admin           pub
 Tabs August 2026            pub
+immich backup               pub
 
-
+header image: '/img/tabs-2026/wickham-ai.jpg'
 images: ![](/img/tabs-2026/ramones.jpg){width="70%"}
 links: This is [my text](https://www.example.com/link/).
 
