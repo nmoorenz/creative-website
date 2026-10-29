@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Immich Backups</title>
+<meta name="description" content="Nathan&#39;s Website">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="https://nmoore.nz/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="https://nmoore.nz/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://nmoore.nz/css/owl.carousel.css">
+<link rel="stylesheet" href="https://nmoore.nz/css/owl.theme.css">
+
+
+  <link href="https://nmoore.nz/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="https://nmoore.nz/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://nmoore.nz/img/favicon.png">
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="https://nmoore.nz/">Nathan Moore</a></h1>
+    
+      <p class="sidebar-p">I am a data person who wants to make a website.</p>
+    
+      <p class="sidebar-p">Originally from Taranaki, I now live in Auckland. </p>
+    
+      <p class="sidebar-p">Also: ultimate frisbee, disc golf, cycling, cooking</p>
+    
+      <p class="sidebar-p">This site uses GoatCounter for page views.</p>
+    
+    <ul class="sidebar-menu">
+      
+        <li><a href="https://nmoore.nz/portfolio/">Home</a></li>
+      
+        <li><a href="https://nmoore.nz/about/">About</a></li>
+      
+        <li><a href="https://nmoore.nz/categories/">Categories</a></li>
+      
+    </ul>
+    
+
+
+  
+  <p class="social">
+    
+      
+      
+      <a href="mailto:nath@nmoore.nz" data-animate-hover="pulse" class="external" title="Email" rel="me">
+        <i class="fa fa-envelope"></i>
+      </a>
+    
+      
+      
+      <a href="https://www.linkedin.com/in/nmoorenz" data-animate-hover="pulse" class="external" title="LinkedIn" rel="me">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    
+      
+      
+      <a href="https://www.github.com/nmoorenz" data-animate-hover="pulse" class="external" title="GitHub" rel="me">
+        <i class="fa fa-github"></i>
+      </a>
+    
+  </p>
+  
+
+  
+  <p class="social">
+    
+      
+      
+      <a href="https://instagram.nmoore.nz" data-animate-hover="pulse" class="external" title="Instagram" rel="me">
+        <i class="fa fa-instagram"></i>
+      </a>
+    
+      
+      
+      <a href="https://beer.nmoore.nz" data-animate-hover="pulse" class="external" title="Beer" rel="me">
+        <i class="fa fa-beer"></i>
+      </a>
+    
+      
+      
+      <a href="https://adventofcode.nmoore.nz" data-animate-hover="pulse" class="external" title="Advent of Code" rel="me">
+        <i class="fa fa-star"></i>
+      </a>
+    
+      
+      
+      <a href="https://youtube-maps.nmoore.nz" data-animate-hover="pulse" class="external" title="Youtube Maps" rel="me">
+        <i class="fa fa-map-marker"></i>
+      </a>
+    
+  </p>
+  
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2026 Nathan Moore |
+        
+        Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="https://nmoore.nz/">Nathan Moore</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>Immich Backups</h1>
+         <blockquote>
+<p><strong>Note:</strong> This post was written by Claude, Anthropic’s AI assistant.</p>
+</blockquote>
+<p>Running <a href="https://immich.app/">Immich</a> on a box at home is great right up until you remember that “a box at home” is a single point of failure. A dead SSD, a bad <code>rm</code>, or a child pulling out plugs can be destructive. The aim here is a cheap, hands-off offsite copy in S3 that runs itself, without unnecessary security exposure.</p>
+<p>This post walks through one way to do that: a Python script driven by cron, plus an IAM user that can only do one thing: upload to an S3 bucket. No extra services, no Docker container, no third-party backup tool.</p>
+<blockquote>
+<p><strong>Downloads:</strong> <a href="/files/immich_monthly_backup.py"><code>immich_monthly_backup.py</code></a> · <a href="/files/s3-backup-policy.json"><code>s3-backup-policy.json</code></a></p>
+</blockquote>
+<div id="the-idea" class="section level2">
+<h2>The idea</h2>
+<p>Immich’s storage template files every original photo into a predictable folder:</p>
+<pre><code>&lt;library&gt;/&lt;user-id&gt;/YYYY-MM/&lt;files&gt;</code></pre>
+<p>That <code>YYYY-MM</code> folder is assigned by the photo’s <strong>capture date</strong>, and it never changes. That single fact makes the whole backup simple:</p>
+<ul>
+<li><strong>A photo belongs to exactly one month.</strong> A shot taken on 31 August but imported in September still lives in the <code>2026-08</code> folder. So the library can be backed up month-by-month without worrying about a photo moving between archives.</li>
+<li><strong>Detecting “did anything change?” is fast.</strong> For each month folder the script computes a fingerprint from file metadata only (path, size, and modified-time), without reading image data. Compare it to last run’s fingerprint; if it matches, skip. This means a daily run over a library that didn’t change is almost instant. So the script’s whole job is: walk every <code>user/YYYY-MM</code> folder, and for any whose fingerprint changed since last time, zip it and upload to <code>s3://&lt;bucket&gt;/&lt;user&gt;/&lt;YYYY-MM&gt;.zip</code>. The first run uploads everything; every run after that only upates months that gained photos.</li>
+</ul>
+<p>Zipping per-month (rather than syncing individual files) is deliberate: it keeps the number of S3 objects, and therefore the number of upload requests, low, which keeps the bucket tidy and the uploads simple to reason about.</p>
+</div>
+<div id="prerequisites" class="section level2">
+<h2>Prerequisites</h2>
+<ul>
+<li><p>An Immich server you can SSH into, and the path to its library folder. If Immich runs via Docker Compose, it’s the <code>library</code> volume; find it with <code>docker inspect immich_server</code> and look at the mounts. A typical path is <code>/opt/immich-app/library/library</code>.</p></li>
+<li><p>Python 3 (already on any modern Linux).</p></li>
+<li><p>The <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">AWS CLI v2</a>. On recent Debian/Ubuntu it’s <strong>not</strong> in apt anymore, so install it directly:</p>
+<pre class="bash"><code>sudo apt update &amp;&amp; sudo apt install -y curl unzip
+curl &quot;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&quot; -o awscliv2.zip
+unzip awscliv2.zip &amp;&amp; sudo ./aws/install
+aws --version</code></pre>
+<p>(Swap <code>x86_64</code> for <code>aarch64</code> in the URL on an ARM box; check with <code>uname -m</code>.)</p></li>
+<li><p>An AWS account with an admin profile configured locally, used <strong>once</strong> to create the bucket and the restricted user.</p></li>
+</ul>
+</div>
+<div id="step-1-create-the-bucket-and-a-locked-down-user" class="section level2">
+<h2>Step 1: Create the bucket and a locked-down user</h2>
+<p>The important part of this whole setup is the security posture. A home server is the least-trusted machine on the network. It’s exposed, it runs a dozen containers, and if any of them is compromised, whatever credentials sit on that box are compromised too. So the key stored on the server should be able to do <strong>nothing except upload to the one backup bucket</strong>. It can’t read the backups back, can’t delete them, can’t touch any other bucket, and can’t see anything else in the AWS account.</p>
+<p>First, set a few shell variables so the commands below can be copied as-is. <code>AWSPROFILE</code> is an existing <strong>admin</strong> profile used only for this one-time setup:</p>
+<pre class="bash"><code>BUCKETNAME=bucket-immich-backup   # the bucket to create
+AWSPROFILE=my-admin-profile   # an admin CLI profile, for setup only
+REGION=ap-southeast-2         # the region to create the bucket in</code></pre>
+<p>Then create the bucket:</p>
+<pre class="bash"><code>aws s3api create-bucket --bucket &quot;$BUCKETNAME&quot; \
+  --region &quot;$REGION&quot; \
+  --create-bucket-configuration LocationConstraint=&quot;$REGION&quot; \
+  --profile &quot;$AWSPROFILE&quot;
+ 
+# Block all public access 
+aws s3api put-public-access-block --bucket &quot;$BUCKETNAME&quot; \
+  --public-access-block-configuration \
+  BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true \
+  --profile &quot;$AWSPROFILE&quot;</code></pre>
+<blockquote>
+<p>One region quirk: if the region is <code>us-east-1</code>, omit the <code>--create-bucket-configuration</code> line entirely, because AWS rejects it there.</p>
+</blockquote>
+<p>Now the IAM policy: <a href="/files/s3-backup-policy.json"><strong><code>s3-backup-policy.json</code></strong></a>. It provides good security: it allows listing the bucket (so the CLI can route requests) and uploading objects to it, and nothing more. No <code>GetObject</code>, no <code>DeleteObject</code>, no other bucket. Download it, then open it and replace <code>bucket-immich-backup</code> with the real bucket name in both places.</p>
+<p><code>AbortMultipartUpload</code> is in there because large zips upload in parts and the CLI needs to clean up a failed part; it can’t touch finished objects. Because the key can’t delete or read objects back, a compromised server is about the most boring thing an attacker could steal. The worst they can do is write junk into the backup bucket.</p>
+<p>Create the user, attach the policy, and mint an access key:</p>
+<pre class="bash"><code>aws iam create-user --user-name server-immich-backup --profile &quot;$AWSPROFILE&quot;
+ 
+aws iam put-user-policy --user-name server-immich-backup \
+  --policy-name s3-upload-only \
+  --policy-document file://s3-backup-policy.json \
+  --profile &quot;$AWSPROFILE&quot;
+ 
+aws iam create-access-key --user-name server-immich-backup --profile &quot;$AWSPROFILE&quot;</code></pre>
+<p>That last command prints an <code>AccessKeyId</code> and <code>SecretAccessKey</code> <strong>once</strong>, so copy the secret now. Then, on the server, configure a profile the script will use:</p>
+<pre class="bash"><code>aws configure --profile profile-immich-backup
+# paste the key + secret, set the region, output = json</code></pre>
+</div>
+<div id="step-2-the-backup-script" class="section level2">
+<h2>Step 2: The backup script</h2>
+<p>Grab <a href="/files/immich_monthly_backup.py"><strong><code>immich_monthly_backup.py</code></strong></a> and drop it somewhere like <code>~/code/</code>. It has no dependencies beyond the AWS CLI and Python’s standard library. The defaults assume a bucket named <code>bucket-immich-backup</code> and a profile named <code>profile-immich-backup</code>. Change those to match by editing the <code>--bucket</code> and <code>--profile</code> defaults near the top of <code>main()</code>, or pass them as flags each run.</p>
+<p>A few design notes worth calling out:</p>
+<ul>
+<li><strong>The zips are stored, not compressed.</strong> Photos and videos are already compressed; running them through DEFLATE wastes CPU for basically no size win, so <code>ZIP_STORED</code> just bundles them.</li>
+<li><strong>The state file is a small JSON map</strong> of <code>user/month → fingerprint</code>, kept next to the script. Delete it and the next run re-uploads everything; that’s the “start fresh” button.</li>
+<li><strong>A dry run writes nothing</strong>, not even the state file, so the full plan can be previewed safely. Always do a dry run first to see what it’ll push and how big it is:</li>
+</ul>
+<pre class="bash"><code>python3 ~/code/immich_monthly_backup.py --dry-run</code></pre>
+<p>Then let it run for real. The first run will take a while (it’s uploading the whole library); subsequent runs are quick.</p>
+</div>
+<div id="step-3-run-it-on-a-schedule-with-cron" class="section level2">
+<h2>Step 3: Run it on a schedule with cron</h2>
+<p>On Linux, cron is the equivalent of Windows Task Scheduler. Edit the crontab with <code>crontab -e</code> and add a daily run:</p>
+<pre class="cron"><code>0 3 * * * /usr/bin/python3 /home/you/code/immich_monthly_backup.py --aws-bin /usr/local/bin/aws &gt;&gt; /home/you/code/immich_backup.log 2&gt;&amp;1</code></pre>
+<p>The five fields before the command are <code>minute hour day-of-month month day-of-week</code>, so <code>0 3 * * *</code> means 3:00am every day. Two things that trip people up:</p>
+<ul>
+<li><strong>Cron runs with a bare environment</strong>, so <code>aws</code> often isn’t on its <code>PATH</code>. The cleanest fix is to pass the full path with <code>--aws-bin</code> (find it with <code>which aws</code>; AWS CLI v2 usually installs to <code>/usr/local/bin/aws</code>). Confirm the Python path with <code>which python3</code> too.</li>
+<li><strong>Redirect the output to a log</strong> (<code>&gt;&gt; ...log 2&gt;&amp;1</code>) so the run can be checked. A no-change run just logs a line of skipped counts. Because the fingerprint check makes an unchanged run almost instant, daily is a fine cadence even for a big library.</li>
+</ul>
+</div>
+<div id="storage-class" class="section level2">
+<h2>Storage class</h2>
+<p>Objects land in S3 Standard by default, which suits a backup that might need a quick restore. For an archive that’s rarely read, S3 Glacier Deep Archive cuts storage cost dramatically, down to roughly a tenth of Standard, in exchange for slow, fee-bearing retrieval. That’s a fair trade for a backup that hopefully never gets touched, and the move can be automated with a bucket lifecycle rule. Either way, since the zips are stored uncompressed, the space used in S3 roughly equals the size of the originals on disk.</p>
+</div>
+<div id="caveats-and-things-to-add" class="section level2">
+<h2>Caveats and things to add</h2>
+<ul>
+<li><strong>This is a backup, not an archive with history.</strong> Each month’s zip is overwritten in place when that month changes, and versioning is left off by default. To protect against a corrupted upload clobbering a good one, enable versioning on the bucket, at the cost of storing old versions.</li>
+<li><strong>It backs up originals only</strong>, meaning the photos and videos as uploaded. It does <em>not</em> back up Immich’s database (albums, faces, shared links, etc.). To restore the <em>Immich instance</em> rather than just the files, dump the Postgres database separately. The irreplaceable thing is the pixels; Immich metadata can be rebuilt.</li>
+<li><strong>Deletions don’t propagate</strong>, by design. If a photo is deleted in Immich, its month zip will be rebuilt without it on the next run, but any month that’s never touched again keeps whatever it had. That’s usually what you want from a backup.</li>
+<li><strong>Encryption</strong>: objects are encrypted at rest by S3 by default. For backups encrypted so that even AWS can’t read them, encrypt the zip client-side before upload (e.g. with <code>age</code> or <code>gpg</code>), a natural extension point in <code>build_zip</code>/<code>s3_upload</code>.</li>
+</ul>
+</div>
+<div id="rotating-the-access-key" class="section level2">
+<h2>Rotating the access key</h2>
+<p>The key sitting on the server never expires on its own, so it’s worth rotating now and then, and immediately if there’s any chance it leaked. IAM allows two access keys per user, which makes for a rotation with no downtime: create the new key before retiring the old one.</p>
+<p>Run these with the admin profile (<code>AWSPROFILE</code> from the setup above):</p>
+<pre class="bash"><code># 1. Create a second key (prints a new AccessKeyId + SecretAccessKey once)
+aws iam create-access-key --user-name server-immich-backup --profile &quot;$AWSPROFILE&quot;
+ 
+# 2. On the server, point the profile at the new key
+aws configure --profile profile-immich-backup   # paste the new key + secret
+ 
+# 3. Confirm it still works
+python3 ~/code/immich_monthly_backup.py --dry-run
+ 
+# 4. Disable the OLD key (reversible), then delete it once confident
+aws iam update-access-key --user-name server-immich-backup \
+  --access-key-id OLD_KEY_ID --status Inactive --profile &quot;$AWSPROFILE&quot;
+ 
+aws iam delete-access-key --user-name server-immich-backup \
+  --access-key-id OLD_KEY_ID --profile &quot;$AWSPROFILE&quot;</code></pre>
+<p>List the keys and their ages to find <code>OLD_KEY_ID</code>:</p>
+<pre class="bash"><code>aws iam list-access-keys --user-name server-immich-backup --profile &quot;$AWSPROFILE&quot;</code></pre>
+<p>Disabling before deleting is the safety net: if something breaks, flip the old key back to <code>Active</code> and investigate. Delete it only once the new key is proven. It’s tempting to automate this on a schedule, but letting the server rotate its own key means granting it IAM permissions, which widens exactly the blast radius this setup works to keep small. Rotation is better left an occasional manual task.</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>That’s the whole system: one bucket, one upload-only key, one script, one cron line. It quietly copies photos offsite every night, with a log to glance at when reassurance is needed.</p>
+<p>The design leans on one fact about Immich, that originals are already filed into immutable month folders, and everything else follows from it: month-sized zips, a metadata fingerprint to skip unchanged folders, and a key that can do nothing but add objects to a single bucket. There are no moving parts to babysit and nothing on the server worth stealing.</p>
+<p>It’s worth treating this as a starting point rather than a finished product. The obvious next steps are the ones the caveats hint at: a periodic database dump alongside the originals if a full Immich restore matters, client-side encryption before upload for a zero-knowledge backup, and a lifecycle rule to drop older zips into Glacier. Most important of all, actually test a restore. A backup nobody has ever restored from is only a hopeful guess, so pull a month’s zip down, unzip it, and confirm the photos are really there before trusting it with the only copy of anything.</p>
+</div>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="https://nmoore.nz/js/jquery.min.js"></script>
+<script src="https://nmoore.nz/js/bootstrap.min.js"></script>
+<script src="https://nmoore.nz/js/jquery.cookie.js"> </script>
+<script src="https://nmoore.nz/js/ekko-lightbox.js"></script>
+<script src="https://nmoore.nz/js/jquery.scrollTo.min.js"></script>
+<script src="https://nmoore.nz/js/masonry.pkgd.min.js"></script>
+<script src="https://nmoore.nz/js/imagesloaded.pkgd.min.js"></script>
+<script src="https://nmoore.nz/js/owl.carousel.min.js"></script>
+<script src="https://nmoore.nz/js/front.js"></script>
+
+
+
+</body>
+</html>

@@ -3,19 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://nmoore.nz/</loc>
+    <lastmod>2026-10-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nmoore.nz/categories/</loc>
+    <lastmod>2026-10-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nmoore.nz/categories/code/</loc>
+    <lastmod>2026-10-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nmoore.nz/portfolio/2026-10-29-immich-backups/</loc>
     <lastmod>2026-10-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://nmoore.nz/portfolio/2026-august-links/</loc>
     <lastmod>2026-08-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://nmoore.nz/categories/</loc>
-    <lastmod>2026-08-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://nmoore.nz/categories/social/</loc>
     <lastmod>2026-08-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://nmoore.nz/categories/code/</loc>
-    <lastmod>2026-07-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://nmoore.nz/portfolio/2026-07-06-home-server-admin/</loc>
     <lastmod>2026-07-06T00:00:00+00:00</lastmod>

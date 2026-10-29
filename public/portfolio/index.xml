@@ -6,8 +6,15 @@
     <description>Recent content on Nathan Moore</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://nmoore.nz/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Immich Backups</title>
+      <link>https://nmoore.nz/portfolio/2026-10-29-immich-backups/</link>
+      <pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://nmoore.nz/portfolio/2026-10-29-immich-backups/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;A small Python script and a locked-down IAM user that back up your self-hosted Immich library to S3 — one zip per month, uploading only what changed.&lt;/p&gt;&#xD;&#xA;</description>
+    </item>
     <item>
       <title>August Links</title>
       <link>https://nmoore.nz/portfolio/2026-august-links/</link>
