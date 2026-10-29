@@ -6,7 +6,6 @@ slug: []
 categories:
   - Food
 tags: []
-draft: false
 image: '/img/tabs-2026/mallow.jpg'
 showonlyimage: false
 ---
