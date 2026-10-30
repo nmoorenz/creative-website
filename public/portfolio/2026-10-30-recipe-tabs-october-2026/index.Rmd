@@ -1,7 +1,7 @@
 ---
 title: Recipe Tabs October 2026
 author: Nathan Moore
-date: 2026-10-30T09:00:00+13:00
+date: '2026-10-30'
 slug: []
 categories:
   - Food
@@ -19,14 +19,23 @@ This tabs collection is a little different: some recipe tabs that I've had open 
 These recipes all look delicious \
 <https://www.okonomikitchen.com>
 
+images: ![](/img/tabs-2026/okonomi.png){width="80%"}
+
+
 These recipes all look delicious\
 <https://www.thebergerfeed.com>
+
+images: ![](/img/tabs-2026/berger.png){width="80%"}
 
 The Dough Guy has great pizza making videos on the socials, with a free dough calculator as a hook for other products\
 <https://doughguy.co/pages/dough>
 
+images: ![](/img/tabs-2026/doughguy.jpg){width="60%"}
+
 Good socials and realistic recipes (lemon recipes below)\
 <https://www.alicetayloreats.com>
+
+images: ![](/img/tabs-2026/alicetaylor.png){width="80%"}
 
 ### Marshmallow
 
@@ -53,6 +62,8 @@ We have some lemons to use
 
 <https://www.chefnotrequired.com/lemon-weet-bix-slice/>
 
+images: ![](/img/tabs-2026/lemonweetbix.png){width="80%"}
+
 ### Pasta
 
 One of these, I guess? I'm keen to try to make my own pasta
@@ -67,6 +78,8 @@ One of these, I guess? I'm keen to try to make my own pasta
 
 <https://www.theartofdoingstuff.com/how-to-make-pasta-dough/>
 
+images: ![](/img/tabs-2026/pasta.png){width="80%"}
+
 ### Pull-Apart Bread
 
 I feel like I have to try these as well
@@ -75,8 +88,12 @@ I feel like I have to try these as well
 
 <https://justamumnz.com/2024/09/21/cheese-garlic-pull-apart-loaf/>
 
+images: ![](/img/tabs-2026/pull-apart-bread.png){width="80%"}
+
 ### Cinnamon Rolls
 
 Because, yes.
 
 <https://scientificallysweet.com/best-cinnamon-rolls/>
+
+images: ![](/img/tabs-2026/cinnamon-rolls.png){width="80%"}
