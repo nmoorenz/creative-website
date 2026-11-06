@@ -3,9 +3,6 @@ advent of code 2020         pub
 introduction to python      pub
 website update              pub
 running adventures          pub
-baby names                  draft
-cat cable                   draft
-hot cross buns              draft
 non place third place       pub
 ireland 2017                pub
 
@@ -31,22 +28,11 @@ christmas 2023              pub 2024-06-18
 christmas music 2023        pub 2024-06-19
 hot cross buns 2024         pub 2024-06-20
 
-leasehold properties        draft
 trademe open home search    pub
-trademe api                 draft
 email in git repo           pub
-orienteering ideas          draft
-raspberry pi nas            draft
-backyard fkt links          draft
-3d print record holder      draft
-chocolate eclair links      draft
-xmas mince pies 2024        draft
-old phone options           draft
 advent of code migration    pub
-image resize                draft
 hugo theme changes          pub
 termux python server        pub
-baby names                  draft 
 spotify to tidal            pub
 More Git Techniques         pub
 yt-dlp                      pub
@@ -60,12 +46,31 @@ Insta Export                pub
 photo site                  pub
 Reading List April 2026     pub
 Tabs May 2026               pub
-Dopp Kit Maker              draft
 Tabs June-ish 2026          pub
 Home Server Admin           pub
 Tabs August 2026            pub
 immich backup               pub
 Tabs October 2026           pub
+Tumblr Analysis             pub
+
+
+baby names                  draft   2024-03-08
+cat cable                   draft   2024-03-29
+hot cross buns              draft   2024-03-29
+leasehold properties        draft   2024-07-09
+trademe api                 draft   2024-07-30
+orienteering ideas          draft   2025-03-24
+raspberry pi nas            draft   2025-05-30
+backyard fkt links          draft   2025-05-31
+3d print record holder      draft   2025-06-01
+chocolate eclair links      draft   2025-06-02
+xmas mince pies 2024        draft   2025-06-22
+old phone options           draft   2025-07-04
+image resize                draft   2025-08-13
+baby names                  draft   2025-10-30
+Dopp Kit Maker              draft   2026-06-29
+
+
 
 header image: '/img/tabs-2026/wickham-ai.jpg'
 images: ![](/img/tabs-2026/ramones.jpg){width="70%"}

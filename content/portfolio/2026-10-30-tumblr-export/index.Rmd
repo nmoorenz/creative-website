@@ -1,0 +1,131 @@
+---
+title: Tumblr Export
+author: Nathan Moore
+date: '2026-10-30'
+slug: []
+categories:
+  - Social
+tags: []
+image: '/img/portfolio/tumblr.png'
+showonlyimage: false
+output: 
+  html_document:
+    code_folding: hide
+---
+
+I downloaded my old Tumblr posts
+
+<!--more-->
+
+> *I downloaded my old Tumblr posts to create some analysis like I did with my Instagram activity.*
+>
+> <https://www.nmoore.nz/portfolio/2026-03-17-insta-export/>
+>
+> *The Tumblr export is a zip file with a `media` folder of images and a `posts` folder with one HTML file per post. Each post has the image, a caption, a timestamp and the tags.*
+>
+> *A Python script turns the HTML into a single `posts.csv` with post id, timestamp, tags and text. The charts below come from that file.*
+
+```{r loading, echo=FALSE, warning=FALSE, message=FALSE}
+
+library(tidyverse)
+
+fldr = './'
+
+posts = read_csv(paste0(fldr, 'posts.csv')) |> 
+    mutate(month = floor_date(timestamp, unit = 'month'))
+
+post_tags = posts |> 
+    separate_longer_delim(tags, delim = '; ') |> 
+    filter(!is.na(tags))
+
+```
+
+## **Posts**
+
+`r format(nrow(posts), big.mark = ',')` posts from `r format(min(posts$timestamp), '%B %Y')` to `r format(max(posts$timestamp), '%B %Y')`.
+
+```{r postsbymonth, echo=FALSE, warning=FALSE, message=FALSE}
+
+df_posts = posts |> 
+    count(month)
+
+ggplot(df_posts, aes(x=month, y=n)) + 
+    geom_col(fill = 'skyblue3') +
+    scale_x_datetime(date_breaks = '1 year', date_labels = '%Y') +
+    theme(panel.grid.minor.x = element_blank()) +
+    labs(y = NULL) +
+    ggtitle('Posts by Month')
+
+```
+
+```{r postsbyyear, echo=FALSE, warning=FALSE, message=FALSE}
+
+df_years = posts |> 
+    count(year = year(timestamp)) |> 
+    complete(year = full_seq(year, 1), fill = list(n = 0))
+
+ggplot(df_years, aes(x=factor(year), y=n)) + 
+    geom_col(fill = 'salmon') +
+    labs(y = NULL, x = NULL) +
+    ggtitle('Posts by Year')
+
+```
+
+## **Tags**
+
+`r format(n_distinct(post_tags$tags), big.mark = ',')` different tags, and `r sum(is.na(posts$tags))` posts without any.
+
+```{r toptags, echo=FALSE, warning=FALSE, message=FALSE}
+
+df_tags = post_tags |> 
+    count(tags) |> 
+    slice_max(n, n = 20, with_ties = FALSE)
+
+ggplot(df_tags, aes(x=n, y=fct_reorder(tags, n))) + 
+    geom_col(fill = 'rosybrown') +
+    geom_text(aes(label = n), hjust = -0.2, size = 3) +
+    scale_x_continuous(expand = expansion(mult = c(0, 0.08))) +
+    labs(y = NULL, x = NULL) +
+    ggtitle('Top 20 tags')
+
+```
+
+```{r tagtimeline, echo=FALSE, warning=FALSE, message=FALSE}
+
+top_tags = df_tags |> 
+    slice_max(n, n = 8, with_ties = FALSE) |> 
+    pull(tags)
+
+df_tag_month = post_tags |> 
+    filter(tags %in% top_tags) |> 
+    count(month, tags)
+
+ggplot(df_tag_month, aes(x=month, y=n, fill=tags)) + 
+    geom_col() +
+    scale_fill_brewer(palette = 'Set1') +
+    scale_x_datetime(date_breaks = '1 year', date_labels = '%Y') +
+    theme(panel.grid.minor.x = element_blank()) +
+    labs(y = NULL, x = NULL, fill = NULL) +
+    ggtitle('Top tags over time')
+
+```
+
+#### **Top tags by year**
+
+```{r tagsbyyear, echo=FALSE, warning=FALSE, message=FALSE, fig.height=10}
+
+df_tag_year = post_tags |> 
+    count(year = year(timestamp), tags) |> 
+    group_by(year) |> 
+    slice_max(n, n = 5, with_ties = FALSE) |> 
+    ungroup() |> 
+    mutate(tag_year = fct_reorder(paste(tags, year, sep = '___'), n))
+
+ggplot(df_tag_year, aes(x=n, y=tag_year)) + 
+    geom_col(fill = 'darkseagreen') +
+    facet_wrap(~ year, scales = 'free_y', ncol = 2) +
+    scale_y_discrete(labels = \(x) str_remove(x, '___.*')) +
+    labs(y = NULL, x = NULL) +
+    ggtitle('Top tags by year')
+
+```
