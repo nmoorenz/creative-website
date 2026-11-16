@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Beer Necessities</title>
+<meta name="description" content="Nathan&#39;s Website">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="https://nmoore.nz/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="https://nmoore.nz/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://nmoore.nz/css/owl.carousel.css">
+<link rel="stylesheet" href="https://nmoore.nz/css/owl.theme.css">
+
+
+  <link href="https://nmoore.nz/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="https://nmoore.nz/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://nmoore.nz/img/favicon.png">
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="https://nmoore.nz/">Nathan Moore</a></h1>
+    
+      <p class="sidebar-p">I am a data person who wants to make a website.</p>
+    
+      <p class="sidebar-p">Originally from Taranaki, I now live in Auckland. </p>
+    
+      <p class="sidebar-p">Also: ultimate frisbee, disc golf, cycling, cooking</p>
+    
+      <p class="sidebar-p">This site uses GoatCounter for page views.</p>
+    
+    <ul class="sidebar-menu">
+      
+        <li><a href="https://nmoore.nz/portfolio/">Home</a></li>
+      
+        <li><a href="https://nmoore.nz/about/">About</a></li>
+      
+        <li><a href="https://nmoore.nz/categories/">Categories</a></li>
+      
+    </ul>
+    
+
+
+  
+  <p class="social">
+    
+      
+      
+      <a href="mailto:nath@nmoore.nz" data-animate-hover="pulse" class="external" title="Email" rel="me">
+        <i class="fa fa-envelope"></i>
+      </a>
+    
+      
+      
+      <a href="https://www.linkedin.com/in/nmoorenz" data-animate-hover="pulse" class="external" title="LinkedIn" rel="me">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    
+      
+      
+      <a href="https://www.github.com/nmoorenz" data-animate-hover="pulse" class="external" title="GitHub" rel="me">
+        <i class="fa fa-github"></i>
+      </a>
+    
+  </p>
+  
+
+  
+  <p class="social">
+    
+      
+      
+      <a href="https://instagram.nmoore.nz" data-animate-hover="pulse" class="external" title="Instagram" rel="me">
+        <i class="fa fa-instagram"></i>
+      </a>
+    
+      
+      
+      <a href="https://beer.nmoore.nz" data-animate-hover="pulse" class="external" title="Beer" rel="me">
+        <i class="fa fa-beer"></i>
+      </a>
+    
+      
+      
+      <a href="https://adventofcode.nmoore.nz" data-animate-hover="pulse" class="external" title="Advent of Code" rel="me">
+        <i class="fa fa-star"></i>
+      </a>
+    
+      
+      
+      <a href="https://youtube-maps.nmoore.nz" data-animate-hover="pulse" class="external" title="Youtube Maps" rel="me">
+        <i class="fa fa-map-marker"></i>
+      </a>
+    
+  </p>
+  
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2026 Nathan Moore |
+        
+        Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="https://nmoore.nz/">Nathan Moore</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>Beer Necessities</h1>
+         <blockquote>
+<p>Built with AI-assisted development: the design, code, and infrastructure were worked out in conversation with an AI assistant, which wrote most of the code and talked through the trade-offs, with a human directing the decisions and reviewing every change.</p>
+</blockquote>
+<p><a href="https://beer.nmoore.nz">Beer Necessities</a> is a personal photo log of beers. It takes the familiar idea behind Untappd and similar sites and strips it back to the essentials: a grid of photos plus a little metadata. No social feed, no comments, no follower counts, and no star ratings.</p>
+<p>This is a writeup of what the site is, the choices behind it, and how it’s built.</p>
+<div id="the-site" class="section level2">
+<h2>The site</h2>
+<p>Each beer is a set of photos. Opening one shows the brewery, the beer, the style, ABV and size, and any note recorded at the time. The design instinct throughout was to subtract rather than add.</p>
+<p>The clearest example is the rating system. Instead of stars there are three verdicts:</p>
+<ul>
+<li>👍 <strong>yeah</strong> - would have again</li>
+<li>😐 <strong>eh</strong> - fine, wouldn’t seek it out</li>
+<li>👎 <strong>nah</strong> - no thanks</li>
+</ul>
+<p><img src="/img/portfolio/beer-focus.png" style="width:70.0%" /></p>
+</div>
+<div id="the-look" class="section level2">
+<h2>The look</h2>
+<p>The palette is a warm beer-hall scheme: amber, cream, timber tones, with a display serif for headings. The aim is for the feel of a pub at golden hour rather than a dashboard. Photos use a consistent portrait crop so the grid stays tidy, and the filters (year, brewery, style, strength, size) sit in a left sidebar, slicing the collection with no page reloads.</p>
+</div>
+<div id="architecture" class="section level2">
+<h2>Architecture</h2>
+<p>The architecture is conventional, which suits something meant to last. The front end is plain static HTML, CSS and JavaScript hosted on Netlify, with no framework. Photos live in a private S3 bucket served through CloudFront, so the bucket itself is never public. All of the infrastructure (bucket, CDN, certificate, and an upload-only IAM user) is defined in Terraform.</p>
+<p>The core of the data flow is a single <code>manifest.json</code>. A small Python CLI uploads each photo in three sizes (a thumbnail for the grid, a display size for the lightbox, and the untouched original for safekeeping) and rebuilds the manifest from everything in the bucket. The browser reads only that manifest; it has no knowledge of S3, filenames, or how the images are produced.</p>
+</div>
+<div id="adding-beers" class="section level2">
+<h2>Adding beers</h2>
+<p>Low friction is what keeps a log like this alive, so there are two ways to add to it. From a computer: drop photos in a folder, add a row to a spreadsheet, and run one command. From a phone: upload the photos to a staging folder and edit the spreadsheet in the GitHub app, where a GitHub Action picks up the change, resizes everything, and republishes.</p>
+</div>
+<div id="the-data-model" class="section level2">
+<h2>The data model</h2>
+<p>Every beer is one row in a <code>beers.csv</code>:</p>
+<pre><code>date,group,photos,brewery,name,type,abv,size,rating,notes
+20261101,a,img_20261101153406.jpg,Duncan&#39;s,Malbec Brett,Wild Sour,8.5,440ml,yeah,</code></pre>
+<p>There’s no database and no admin screen. The <code>type</code> field doubles as hashtags, so “Wild Sour” becomes <code>#wild</code> and <code>#sour</code> filters automatically. An early version required every photo to be renamed to a strict pattern; a later revision let the CSV reference the camera’s original filenames instead, removing a step that added friction without adding value.</p>
+</div>
+<div id="charts" class="section level2">
+<h2>Charts</h2>
+<p>With a few hundred beers logged, the collection becomes interesting in aggregate. A charts page shows bar charts by brewery, style, and year, alongside two heat maps: a calendar of which months see the most beers, and a style-against-strength grid that shows how each style spreads across ABV.</p>
+<p><img src="/img/portfolio/beer-chart.png" style="width:70.0%" /></p>
+</div>
+<div id="two-lessons-worth-keeping" class="section level2">
+<h2>Two lessons worth keeping</h2>
+<p>A couple of points generalise beyond this project.</p>
+<p>The first: don’t let two processes generate and commit the same file. Both the local tool and the GitHub Action were rebuilding <code>manifest.json</code> and committing it, which produced merge conflicts. The fix was to stop version-controlling it at all. It is a generated artifact that lives in S3, so there’s no reason for git to hold a copy. Derived files belong out of source control.</p>
+<p>The second: encodings matter. Several New Zealand names carry macrons. Two of them, the brewery Kererū and a Pōhutukawa honey ale, turned into question marks whenever the spreadsheet was saved in the wrong encoding. The remedy: always save as UTF-8, and keep a validation script that flags a stray <code>?</code> before it spreads.</p>
+</div>
+<div id="in-short" class="section level2">
+<h2>In short</h2>
+<p>Beer Necessities is a spreadsheet, a folder of photos, and a quiet pipeline that keeps the two in sync. It isn’t elaborate, it should still work in ten years, and adding to it is easy.</p>
+</div>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="https://nmoore.nz/js/jquery.min.js"></script>
+<script src="https://nmoore.nz/js/bootstrap.min.js"></script>
+<script src="https://nmoore.nz/js/jquery.cookie.js"> </script>
+<script src="https://nmoore.nz/js/ekko-lightbox.js"></script>
+<script src="https://nmoore.nz/js/jquery.scrollTo.min.js"></script>
+<script src="https://nmoore.nz/js/masonry.pkgd.min.js"></script>
+<script src="https://nmoore.nz/js/imagesloaded.pkgd.min.js"></script>
+<script src="https://nmoore.nz/js/owl.carousel.min.js"></script>
+<script src="https://nmoore.nz/js/front.js"></script>
+
+
+
+</body>
+</html>

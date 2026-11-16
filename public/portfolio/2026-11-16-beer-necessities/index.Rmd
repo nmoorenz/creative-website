@@ -1,0 +1,77 @@
+---
+title: Beer Necessities
+author: Nathan Moore
+date: '2026-11-16'
+slug: []
+categories:
+  - Code
+  - Food
+tags: []
+image: '/img/portfolio/beer-site.png'
+showonlyimage: false
+---
+
+Making a website for beers
+
+<!--more-->
+
+> Built with AI-assisted development: the design, code, and infrastructure were worked out in conversation with an AI assistant, which wrote most of the code and talked through the trade-offs, with a human directing the decisions and reviewing every change.
+
+[Beer Necessities](https://beer.nmoore.nz) is a personal photo log of beers. It takes the familiar idea behind Untappd and similar sites and strips it back to the essentials: a grid of photos plus a little metadata. No social feed, no comments, no follower counts, and no star ratings.
+
+This is a writeup of what the site is, the choices behind it, and how it's built.
+
+## The site
+
+Each beer is a set of photos. Opening one shows the brewery, the beer, the style, ABV and size, and any note recorded at the time. The design instinct throughout was to subtract rather than add.
+
+The clearest example is the rating system. Instead of stars there are three verdicts:
+
+- 👍 **yeah** - would have again
+- 😐 **eh** - fine, wouldn't seek it out
+- 👎 **nah** - no thanks
+
+![](/img/portfolio/beer-focus.png){width="70%"}
+
+## The look
+
+The palette is a warm beer-hall scheme: amber, cream, timber tones, with a display serif for headings. The aim is for the feel of a pub at golden hour rather than a dashboard. Photos use a consistent portrait crop so the grid stays tidy, and the filters (year, brewery, style, strength, size) sit in a left sidebar, slicing the collection with no page reloads.
+
+## Architecture
+
+The architecture is conventional, which suits something meant to last. The front end is plain static HTML, CSS and JavaScript hosted on Netlify, with no framework. Photos live in a private S3 bucket served through CloudFront, so the bucket itself is never public. All of the infrastructure (bucket, CDN, certificate, and an upload-only IAM user) is defined in Terraform.
+
+The core of the data flow is a single `manifest.json`. A small Python CLI uploads each photo in three sizes (a thumbnail for the grid, a display size for the lightbox, and the untouched original for safekeeping) and rebuilds the manifest from everything in the bucket. The browser reads only that manifest; it has no knowledge of S3, filenames, or how the images are produced.
+
+## Adding beers
+
+Low friction is what keeps a log like this alive, so there are two ways to add to it. From a computer: drop photos in a folder, add a row to a spreadsheet, and run one command. From a phone: upload the photos to a staging folder and edit the spreadsheet in the GitHub app, where a GitHub Action picks up the change, resizes everything, and republishes.
+
+## The data model
+
+Every beer is one row in a `beers.csv`:
+
+```         
+date,group,photos,brewery,name,type,abv,size,rating,notes
+20261101,a,img_20261101153406.jpg,Duncan's,Malbec Brett,Wild Sour,8.5,440ml,yeah,
+```
+
+There's no database and no admin screen. The `type` field doubles as hashtags, so "Wild Sour" becomes `#wild` and `#sour` filters automatically. An early version required every photo to be renamed to a strict pattern; a later revision let the CSV reference the camera's original filenames instead, removing a step that added friction without adding value.
+
+## Charts
+
+With a few hundred beers logged, the collection becomes interesting in aggregate. A charts page shows bar charts by brewery, style, and year, alongside two heat maps: a calendar of which months see the most beers, and a style-against-strength grid that shows how each style spreads across ABV.
+
+![](/img/portfolio/beer-chart.png){width="70%"}
+
+## Two lessons worth keeping
+
+A couple of points generalise beyond this project.
+
+The first: don't let two processes generate and commit the same file. Both the local tool and the GitHub Action were rebuilding `manifest.json` and committing it, which produced merge conflicts. The fix was to stop version-controlling it at all. It is a generated artifact that lives in S3, so there's no reason for git to hold a copy. Derived files belong out of source control.
+
+The second: encodings matter. Several New Zealand names carry macrons. Two of them, the brewery Kererū and a Pōhutukawa honey ale, turned into question marks whenever the spreadsheet was saved in the wrong encoding. The remedy: always save as UTF-8, and keep a validation script that flags a stray `?` before it spreads.
+
+## In short
+
+Beer Necessities is a spreadsheet, a folder of photos, and a quiet pipeline that keeps the two in sync. It isn't elaborate, it should still work in ten years, and adding to it is easy.
