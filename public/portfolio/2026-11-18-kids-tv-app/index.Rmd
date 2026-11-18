@@ -1,0 +1,55 @@
+---
+title: Kids TV App
+author: Nathan Moore
+date: '2026-11-18'
+slug: []
+categories:
+  - Code
+tags: []
+image: '/img/portfolio/kids-tv-banner.svg'
+showonlyimage: false
+---
+
+A small, safe TV app for a young child, built out of a few YouTube channels.
+
+<!--more-->
+
+> Built with AI-assisted development: the design, code, and infrastructure were worked out in conversation with an AI assistant, which wrote most of the code and talked through the trade-offs, with a human directing the decisions and reviewing every change.
+
+Kids TV is an Android TV app that lets a young child watch a short list of chosen YouTube channels and nothing else. It takes the thing you would not hand a small child, YouTube, and strips it back to the parts you trust: a grid of a few channels, each show playing inside the app, with no ads, no search, no recommendations, and no way to wander off.
+
+This is a writeup of what it is, the choices behind it, and how it's built.
+
+## The app
+
+The app should run on any Android TV, but needs to be downloaded from GitHub and sideloaded to be installed. The home screen is a row of channels. Move around the channels and the episodes in each channel, pick a card and the episode plays. That is the whole interface. There is no search box, no up-next rail, no comments, and nothing autoplaying a stranger's video after the credits.
+
+## The channels
+
+The channels are chosen by hand: Numberblocks, Kid Crew, David Rule, Half-Asleep Chris, Octonauts, Postman Pat. Where a show has a real season and episode structure the app keeps it, but otherwise there is just an episode list. The hour-long "all episodes back to back" compilations are left out, and what stays is individual episodes at a sensible length.
+
+What is on the TV is just a list the app reads. There is no regular updates to the app, unless YouTube changes something about fetching videos.
+
+## Staying current
+
+Some shows are static like Octonauts and Postman Pat. Some shows still release regularly. A scheduled job runs each night, re-checks the chosen channels, and include any new episodes into the metadata, so the latest episode of a show turns up on the TV on its own, usually by the next morning. Choosing or dropping a whole channel is a deliberate change; new episodes of the channels already there arrive by themselves.
+
+## Playback
+
+Playback was the hard part. You cannot simply embed a YouTube video and expect it to play cleanly, least of all on old hardware: embedding is restricted, and the television's browser is too old to cope. The first attempt put a web player in a WebView and hit both walls at once, embedding blocked on some videos and the TV rejecting modern security certificates on others.
+
+The version that works embeds nothing. The app pulls the actual video stream on the device and hands it to a native player at 720p. That is what makes it smooth and genuinely ad-free on a 2016 television: there is no web page and no one else's player, just the video.
+
+## Keeping up with YouTube
+
+The part that is never finished is extraction. Pulling a playable stream out of YouTube relies on a community library, the one behind NewPipe and LibreTube, and YouTube changes how it serves video often enough to break it from time to time.
+
+Rather than chase YouTube directly, the app rides on LibreTube. LibreTube is an open-source YouTube app that fights this out full time and keeps a working version of the extraction library, so when playback breaks the repair is to match whatever LibreTube is now using.
+
+Two wrinkles are worth noting. YouTube flags some videos as "made for kids", and those cannot be extracted this way at all, which is a quiet irony: a few of the most obviously child-friendly toy channels are the ones that will not play. And some channels now carry auto-translated audio, so the app has to choose the original track on purpose, or an episode will suddenly play in Spanish.
+
+## In short
+
+Kids TV is a short list of channels, played on a plain screen on an old television, with everything else taken away. The child gets chosen channels, and no path to anything else.
+
+If you would like access let me know and I can share the repository on GitHub.

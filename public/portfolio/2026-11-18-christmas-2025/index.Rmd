@@ -1,0 +1,67 @@
+---
+title: Christmas 2025
+author: Nathan Moore
+date: '2026-11-18'
+slug: []
+categories:
+  - Christmas
+tags: []
+image: '/img/portfolio/christmas-2025.png'
+showonlyimage: false
+---
+
+<!--more-->
+
+Rather than my usual Christmas Mince Pie reviews, here is some Christmas music instead.
+
+```{r echo=FALSE}
+blogdown::shortcode('youtube', 'KEBygTLtci0')
+```
+
+--
+
+```{r echo=FALSE}
+blogdown::shortcode('youtube', 'OQ5rI461KNE')
+```
+
+--
+
+```{r echo=FALSE}
+blogdown::shortcode('youtube', 'OR07r0ZMFb8')
+```
+
+--
+
+```{r echo=FALSE}
+blogdown::shortcode('youtube', '-cUz-zAATNI')
+```
+
+--
+
+```{r echo=FALSE}
+blogdown::shortcode('youtube', 'qTx-sdR6Yzk')
+```
+
+--
+
+```{r echo=FALSE}
+blogdown::shortcode('youtube', '6s8lvnSmISc')
+```
+
+--
+
+```{r echo=FALSE}
+blogdown::shortcode('youtube', '9LkKWca9wR8')
+```
+
+--
+
+```{r echo=FALSE}
+blogdown::shortcode('youtube', 'QXb6H6U1h0M')
+```
+
+--
+
+```{r echo=FALSE}
+blogdown::shortcode('youtube', 'DUuGuC9dzW0')
+```

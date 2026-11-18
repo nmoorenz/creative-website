@@ -1,5 +1,5 @@
 ---
-title: Ima's Hot Cross Buns
+title: Ima's Hot Cross Buns 2020
 author: Nathan Moore
 date: '2024-06-09'
 slug: []
@@ -14,6 +14,8 @@ showonlyimage: false
 
 *During lockdown in 2020, Ima's Cuisine offered make-at-home kits for their famous hot cross buns. I got some delivered to my in-laws, who were within the delivery radius. I then did a contactless pickup from outside their garage where the package had been left. This is the thread documenting their creation.*
 
+### Background
+
 <https://www.imacuisine.co.nz/>
 
 2019: <https://thespinoff.co.nz/kai/11-04-2019/recipe-imas-hot-cross-buns>
@@ -23,6 +25,8 @@ showonlyimage: false
 2023: <https://www.rnz.co.nz/news/national/487192/hot-cross-buns-help-keep-auckland-eatery-going-the-buns-mean-i-m-still-here>
 
 <https://www.ashleyandco.co/daybooks/discover-the-story-behind-ima-cuisine>
+
+### Process
 
 Recipe
 

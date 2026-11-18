@@ -52,6 +52,8 @@ Tabs August 2026            pub
 immich backup               pub
 Tabs October 2026           pub
 Tumblr Analysis             pub
+Christmas 2025              pub
+Hot Cross Buns 2026         pub
 
 
 

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Kids TV App</title>
+<meta name="description" content="Nathan&#39;s Website">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="https://nmoore.nz/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="https://nmoore.nz/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://nmoore.nz/css/owl.carousel.css">
+<link rel="stylesheet" href="https://nmoore.nz/css/owl.theme.css">
+
+
+  <link href="https://nmoore.nz/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="https://nmoore.nz/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://nmoore.nz/img/favicon.png">
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="https://nmoore.nz/">Nathan Moore</a></h1>
+    
+      <p class="sidebar-p">I am a data person who wants to make a website.</p>
+    
+      <p class="sidebar-p">Originally from Taranaki, I now live in Auckland. </p>
+    
+      <p class="sidebar-p">Also: ultimate frisbee, disc golf, cycling, cooking</p>
+    
+      <p class="sidebar-p">This site uses GoatCounter for page views.</p>
+    
+    <ul class="sidebar-menu">
+      
+        <li><a href="https://nmoore.nz/portfolio/">Home</a></li>
+      
+        <li><a href="https://nmoore.nz/about/">About</a></li>
+      
+        <li><a href="https://nmoore.nz/categories/">Categories</a></li>
+      
+    </ul>
+    
+
+
+  
+  <p class="social">
+    
+      
+      
+      <a href="mailto:nath@nmoore.nz" data-animate-hover="pulse" class="external" title="Email" rel="me">
+        <i class="fa fa-envelope"></i>
+      </a>
+    
+      
+      
+      <a href="https://www.linkedin.com/in/nmoorenz" data-animate-hover="pulse" class="external" title="LinkedIn" rel="me">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    
+      
+      
+      <a href="https://www.github.com/nmoorenz" data-animate-hover="pulse" class="external" title="GitHub" rel="me">
+        <i class="fa fa-github"></i>
+      </a>
+    
+  </p>
+  
+
+  
+  <p class="social">
+    
+      
+      
+      <a href="https://instagram.nmoore.nz" data-animate-hover="pulse" class="external" title="Instagram" rel="me">
+        <i class="fa fa-instagram"></i>
+      </a>
+    
+      
+      
+      <a href="https://beer.nmoore.nz" data-animate-hover="pulse" class="external" title="Beer" rel="me">
+        <i class="fa fa-beer"></i>
+      </a>
+    
+      
+      
+      <a href="https://adventofcode.nmoore.nz" data-animate-hover="pulse" class="external" title="Advent of Code" rel="me">
+        <i class="fa fa-star"></i>
+      </a>
+    
+      
+      
+      <a href="https://youtube-maps.nmoore.nz" data-animate-hover="pulse" class="external" title="Youtube Maps" rel="me">
+        <i class="fa fa-map-marker"></i>
+      </a>
+    
+  </p>
+  
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2026 Nathan Moore |
+        
+        Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="https://nmoore.nz/">Nathan Moore</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>Kids TV App</h1>
+         <blockquote>
+<p>Built with AI-assisted development: the design, code, and infrastructure were worked out in conversation with an AI assistant, which wrote most of the code and talked through the trade-offs, with a human directing the decisions and reviewing every change.</p>
+</blockquote>
+<p>Kids TV is an Android TV app that lets a young child watch a short list of chosen YouTube channels and nothing else. It takes the thing you would not hand a small child, YouTube, and strips it back to the parts you trust: a grid of a few channels, each show playing inside the app, with no ads, no search, no recommendations, and no way to wander off.</p>
+<p>This is a writeup of what it is, the choices behind it, and how it’s built.</p>
+<div id="the-app" class="section level2">
+<h2>The app</h2>
+<p>The app should run on any Android TV, but needs to be downloaded from GitHub and sideloaded to be installed. The home screen is a row of channels. Move around the channels and the episodes in each channel, pick a card and the episode plays. That is the whole interface. There is no search box, no up-next rail, no comments, and nothing autoplaying a stranger’s video after the credits.</p>
+</div>
+<div id="the-channels" class="section level2">
+<h2>The channels</h2>
+<p>The channels are chosen by hand: Numberblocks, Kid Crew, David Rule, Half-Asleep Chris, Octonauts, Postman Pat. Where a show has a real season and episode structure the app keeps it, but otherwise there is just an episode list. The hour-long “all episodes back to back” compilations are left out, and what stays is individual episodes at a sensible length.</p>
+<p>What is on the TV is just a list the app reads. There is no regular updates to the app, unless YouTube changes something about fetching videos.</p>
+</div>
+<div id="staying-current" class="section level2">
+<h2>Staying current</h2>
+<p>Some shows are static like Octonauts and Postman Pat. Some shows still release regularly. A scheduled job runs each night, re-checks the chosen channels, and include any new episodes into the metadata, so the latest episode of a show turns up on the TV on its own, usually by the next morning. Choosing or dropping a whole channel is a deliberate change; new episodes of the channels already there arrive by themselves.</p>
+</div>
+<div id="playback" class="section level2">
+<h2>Playback</h2>
+<p>Playback was the hard part. You cannot simply embed a YouTube video and expect it to play cleanly, least of all on old hardware: embedding is restricted, and the television’s browser is too old to cope. The first attempt put a web player in a WebView and hit both walls at once, embedding blocked on some videos and the TV rejecting modern security certificates on others.</p>
+<p>The version that works embeds nothing. The app pulls the actual video stream on the device and hands it to a native player at 720p. That is what makes it smooth and genuinely ad-free on a 2016 television: there is no web page and no one else’s player, just the video.</p>
+</div>
+<div id="keeping-up-with-youtube" class="section level2">
+<h2>Keeping up with YouTube</h2>
+<p>The part that is never finished is extraction. Pulling a playable stream out of YouTube relies on a community library, the one behind NewPipe and LibreTube, and YouTube changes how it serves video often enough to break it from time to time.</p>
+<p>Rather than chase YouTube directly, the app rides on LibreTube. LibreTube is an open-source YouTube app that fights this out full time and keeps a working version of the extraction library, so when playback breaks the repair is to match whatever LibreTube is now using.</p>
+<p>Two wrinkles are worth noting. YouTube flags some videos as “made for kids”, and those cannot be extracted this way at all, which is a quiet irony: a few of the most obviously child-friendly toy channels are the ones that will not play. And some channels now carry auto-translated audio, so the app has to choose the original track on purpose, or an episode will suddenly play in Spanish.</p>
+</div>
+<div id="in-short" class="section level2">
+<h2>In short</h2>
+<p>Kids TV is a short list of channels, played on a plain screen on an old television, with everything else taken away. The child gets chosen channels, and no path to anything else.</p>
+<p>If you would like access let me know and I can share the repository on GitHub.</p>
+</div>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="https://nmoore.nz/js/jquery.min.js"></script>
+<script src="https://nmoore.nz/js/bootstrap.min.js"></script>
+<script src="https://nmoore.nz/js/jquery.cookie.js"> </script>
+<script src="https://nmoore.nz/js/ekko-lightbox.js"></script>
+<script src="https://nmoore.nz/js/jquery.scrollTo.min.js"></script>
+<script src="https://nmoore.nz/js/masonry.pkgd.min.js"></script>
+<script src="https://nmoore.nz/js/imagesloaded.pkgd.min.js"></script>
+<script src="https://nmoore.nz/js/owl.carousel.min.js"></script>
+<script src="https://nmoore.nz/js/front.js"></script>
+
+
+
+</body>
+</html>
