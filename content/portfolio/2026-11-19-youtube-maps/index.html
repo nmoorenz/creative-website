@@ -1,0 +1,56 @@
+---
+title: Youtube Maps
+author: Nathan Moore
+date: '2026-11-19'
+slug: []
+categories:
+  - Code
+tags: []
+image: '/img/portfolio/yt-map1.png'
+showonlyimage: false
+---
+
+
+
+<p>Let’s put some YouTube videos on a map.</p>
+<!--more-->
+<blockquote>
+<p>Built with AI-assisted development: the design, code, and infrastructure were worked out in conversation with an AI assistant, which wrote most of the code and talked through the trade-offs, with a human directing the decisions and reviewing every change.</p>
+</blockquote>
+<p><a href="https://youtube-maps.nmoore.nz">YouTube Maps</a> turns a YouTube channel into a map. Each video has a marker at its location, shown as the video’s own thumbnail. Click the thumbnail and the video opens.</p>
+<p>There are two maps so far. One is a ramen and noodle channel, with each shop pinned across Japan. The other is Time Team, the British archaeology series, with each dig location taken from Wikipedia.</p>
+<p>This is a writeup of what it is, the choices behind it, and how it’s built.</p>
+<div id="the-site" class="section level2">
+<h2>The site</h2>
+<p>The home page is a grid of maps. Open one and the channel’s videos are spread across the map as thumbnails; hover a marker for the title, the place, and (for Time Team) the series and episode; click it to watch. There is no account and no feed, just a map.</p>
+<p><img src="/img/portfolio/yt-map1.png" style="width:80.0%" /></p>
+</div>
+<div id="architecture" class="section level2">
+<h2>Architecture</h2>
+<p>The whole thing is static files on Netlify, with no backend. The map is Leaflet drawing OpenStreetMap tiles. The rendering logic lives in a shared <code>map.js</code>, so each channel page is tiny: it loads the shared style and renderer, and a single data file of its own. That data file is just a title and a list of places, each with a video and a latitude and longitude. Adding a channel is adding one data file.</p>
+<p>Changing the look, the hover labels, or the search means editing the one shared file, and every map changes with it.</p>
+</div>
+<div id="finding-the-locations" class="section level2">
+<h2>Finding the locations</h2>
+<p>The noodle channel keeps its addresses in the video descriptions, so a script reads the descriptions, pulls out the shop and address, and geocodes each one to coordinates. The map is built from the channel itself.</p>
+<p>The list of Time Team episodes, with locations, lives on Wikipedia, and most entries there carry the dig’s coordinates already. So for Time Team the Wikipedia episode list is the authoritative basis, and the channel’s videos are matched onto it rather than the other way around.</p>
+</div>
+<div id="time-team-and-wikipedia" class="section level2">
+<h2>Time Team and Wikipedia</h2>
+<p>Matching between Wikipedia and Youtube is done on series and episode first, which is reliable, and falls back to comparing titles when it has to. The episode list is the spine: an episode that has coordinates but no matching video still appears, as a plain pin rather than a thumbnail, so the map shows every dig even before its video turns up.</p>
+<p>The two titles rarely agree. Wikipedia calls an episode “Not a Blot on the Landscape”; YouTube calls the same thing “The Lost Village Beneath Castle Howard - Unearthing Henderskelf’s Secrets”. The map keeps both, and the search box reads both, so looking for “Henderskelf” or “village” finds the dig even though neither word is in the real episode title.</p>
+</div>
+<div id="coverage-and-uploads" class="section level2">
+<h2>Coverage and Uploads</h2>
+<p>There are two reports that come from the comparison between Wikipedia and Youtube.</p>
+<p>The first is coverage: for every released episode, which ones have been found on the channel and which are still missing. The second comes from a quirk of the Time Team channel, which re-posts the same episodes often, as full versions, clips, and re-uploads. This second Upload report lists every video in reverse chronological order with a count of how many times that episode had already been posted, which sorts the genuinely new episodes from the re-releases.</p>
+</div>
+<div id="keeping-it-current" class="section level2">
+<h2>Keeping it current</h2>
+<p>New episodes keep appearing, so updating is one command. It refreshes the episode list from Wikipedia, pulls any new uploads, rematches, rebuilds the map, and regenerates both reports. Rerunning it is safe: coordinates and titles already set by hand are kept, and only genuinely new things are added.</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>YouTube Maps reads a channel, works out where each video belongs, and pins it there. For one channel the places come from the descriptions; for the other they come from Wikipedia and the videos are matched to them. Either way the output is the same: a map of a channel, and a thumbnail you can click.</p>
+<p><img src="/img/portfolio/yt-maps2.png" style="width:80.0%" /></p>
+</div>

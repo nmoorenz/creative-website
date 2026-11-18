@@ -53,3 +53,7 @@ Two wrinkles are worth noting. YouTube flags some videos as "made for kids", and
 Kids TV is a short list of channels, played on a plain screen on an old television, with everything else taken away. The child gets chosen channels, and no path to anything else.
 
 If you would like access let me know and I can share the repository on GitHub.
+
+This screenshot is of the preview on my computer rather than taking a photo of the actual app on TV.
+
+![](/img/portfolio/kids-tv-preview.png){width="90%"}

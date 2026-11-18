@@ -52,9 +52,19 @@ Tabs August 2026            pub
 immich backup               pub
 Tabs October 2026           pub
 Tumblr Analysis             pub
+Beer Site                   pub
 Christmas 2025              pub
 Hot Cross Buns 2026         pub
+Hot Cross Buns 2025         pub 
+Kids TV App                 pub
 
+
+youtube-maps                draft
+photo albums
+memento-mori
+ingress medals
+virtual gallery
+photo site
 
 
 baby names                  draft   2024-03-08
