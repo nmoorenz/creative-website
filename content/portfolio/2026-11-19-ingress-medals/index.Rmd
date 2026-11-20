@@ -1,0 +1,19 @@
+---
+title: Ingress Medals
+author: Nathan Moore
+date: '2026-11-19'
+slug: []
+categories:
+  - Social
+  - Travel
+tags: []
+draft: true
+image: '/img/portfolio/ingress.jpg'
+showonlyimage: true
+---
+
+<!--more-->
+
+This is a silly game I play, and thought it would be fun to show all the mission medals I have done.
+
+![](/img/portfolio/mission_medals.png){width="70%"}

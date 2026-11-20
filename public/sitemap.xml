@@ -2,19 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://nmoore.nz/categories/</loc>
+    <lastmod>2026-11-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nmoore.nz/categories/code/</loc>
+    <lastmod>2026-11-19T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://nmoore.nz/</loc>
     <lastmod>2026-11-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://nmoore.nz/categories/</loc>
-    <lastmod>2026-11-18T00:00:00+00:00</lastmod>
+    <loc>https://nmoore.nz/portfolio/2026-11-19-youtube-maps/</loc>
+    <lastmod>2026-11-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://nmoore.nz/categories/christmas/</loc>
     <lastmod>2026-11-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://nmoore.nz/portfolio/2026-11-18-christmas-2025/</loc>
-    <lastmod>2026-11-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://nmoore.nz/categories/code/</loc>
     <lastmod>2026-11-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://nmoore.nz/categories/hot-cross-buns/</loc>
