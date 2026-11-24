@@ -6,7 +6,7 @@ slug: []
 categories:
   - Christmas Mince Pies
 tags: []
-image: '/img/portfolio/pies2024'
+image: '/img/portfolio/pies2024.png'
 showonlyimage: no
 ---
 
