@@ -1,0 +1,84 @@
+---
+title: Virtual Gallery
+author: Nathan Moore
+date: '2026-11-24'
+slug: []
+categories:
+  - Code
+tags: []
+image: '/img/portfolio/gallery1.png'
+showonlyimage: false
+---
+
+
+
+<p>A 3D art gallery you walk around in the browser.</p>
+<!--more-->
+<blockquote>
+<p>Built with AI-assisted development: the design, code, and infrastructure were worked out in conversation with an AI assistant, which wrote most of the code and talked through the trade-offs, with a human directing the decisions and reviewing the changes.</p>
+</blockquote>
+<p><a href="https://example-gallery.nmoore.nz">Example Gallery</a> is a walkable gallery built with Three.js. You enter a round hub with a corridor leading off it for each artist, walk down a corridor, and click a painting to see it up close. The example shows 20 public-domain works by Rembrandt, Monet, Van Gogh and Hokusai. The code is public at <a href="https://github.com/nmoorenz/example-gallery-site">github.com/nmoorenz/example-gallery-site</a>.</p>
+<p>The same code started life as a private gallery for family artwork, behind a login. The example is the public version of it, with real paintings in place of the family’s.</p>
+<p>This is a writeup of what it is, the choices behind it, and how it’s built.</p>
+<div id="the-site" class="section level2">
+<h2>The site</h2>
+<p>Each artist, or any other category, becomes a corridor off the central hub. A floating label at each doorway names the corridor, and the corridor grows longer as more art is added to it. Paintings hang on both walls, alternating left and right, in thin dark frames sized to each picture’s proportions. Clicking one opens a panel with the title, date, medium, description and a larger image.</p>
+<p>On a desktop, drag to look around, use WASD to walk and the left and right arrows to turn on the spot. On a phone, drag to look and use the on-screen joystick. The joystick originally only responded to a finger. It appears on any device that reports touch support, though, and some Windows laptops do while being used with a mouse, so there it showed up and did nothing when dragged. It now responds to mouse, finger and pen alike.</p>
+<p>Some artworks have more than one picture, such as both sides of a page. These still get one frame on the wall, showing the first image. The info panel then gets previous and next buttons and a counter to flip through the rest, and the left and right arrow keys work there too.</p>
+</div>
+<div id="architecture" class="section level2">
+<h2>Architecture</h2>
+<p>The frontend is plain static files with no build step. Three.js comes from a CDN, and one <code>manifest.json</code> describes each piece. The page reads it, groups the pieces by category, and builds the hub and corridors from that. The walls and doorways are drawn from that data.</p>
+<p>The hub is sized by how many corridors it has to fit: each doorway reserves a stretch of the circle, so adding an artist makes the hub a little bigger. Each corridor is built on its own as a straight hallway and then turned and placed around the hub at an even angle.</p>
+<p>There is no physics engine, so the walls are just boundaries in code. When the visitor moves, one function checks where they ended up and nudges them back if they have gone through something. In the hub, that means staying inside the round room. Lined up with a doorway, it means being inside that corridor instead, held between its two side walls and its far end.</p>
+<p>The first version got the doorways wrong. The hub’s boundary pulled the visitor back from the edge before the doorway check had a chance to run, so the doorways behaved like solid wall and nobody could get into a corridor. The fix was to ask whether the visitor is lined up with a doorway first, and only apply the hub’s boundary if they are not.</p>
+<p>Each painting is a flat panel turned to face into the corridor. At first the images on the left wall were flipped, to correct what looked like a mirror image caused by turning the panel. There was no mirror image: turning the panel keeps the picture the right way round, so the flip was what reversed the paintings on the left. Both walls now show the image as it is.</p>
+<p><img src="/img/portfolio/gallery1.png" style="width:80.0%" /></p>
+</div>
+<div id="adding-art" class="section level2">
+<h2>Adding art</h2>
+<p>The art lives in a CSV with one row per image, and the image file is found by the row’s <code>id</code>:</p>
+<pre><code>id,name,date,category,era,medium,description,group_id,label
+monet-1,&quot;Impression, Sunrise&quot;,1872,Monet,1870s,Oil on canvas,A hazy sunrise over Le Havre harbour,,</code></pre>
+<p><code>category</code> decides which corridor a piece hangs in. <code>era</code> is just a tag shown on the piece. A Python script turns each photo into two versions, a 1000 pixel one for the wall and a 2000 pixel one for the info panel, and keeps the untouched original. It also straightens photos that were taken sideways, using the orientation the camera recorded.</p>
+<p>For multi-image pieces, rows that share a <code>group_id</code> become one piece, in row order, and <code>label</code> adds a caption such as “Front” or “Back”. Each row keeps its own image file, so grouping doesn’t involve renaming anything.</p>
+</div>
+<div id="the-example-art" class="section level2">
+<h2>The example art</h2>
+<p>The images come from Wikimedia Commons: five paintings or prints each from Rembrandt, Monet, Van Gogh and Hokusai. The first idea was Dalí and Picasso, but both died too recently for their work to be public domain. These four are long out of copyright, and Wikimedia Commons treats faithful photographs of two-dimensional public-domain works as public domain too. The images are downsized to 500 pixels wide, and the descriptions are original one-liners.</p>
+</div>
+<div id="running-it-locally" class="section level2">
+<h2>Running it locally</h2>
+<p>AWS isn’t needed to run the gallery. Two commands build a preview from the example folder and serve it with Python’s built-in web server:</p>
+<pre><code>python scripts/build_local_preview.py
+cd site &amp;&amp; python -m http.server 8000</code></pre>
+<p>Opening <code>http://localhost:8000</code> shows the same gallery, with the example art, the controls and the info panel. Replacing the CSV and images in the <code>example/</code> folder with your own shows your art instead. The upload form and admin page need the private stack, because saving goes through the login and the server functions, so locally and on the public example site the CSV is the way to add art.</p>
+</div>
+<div id="deploying-your-own" class="section level2">
+<h2>Deploying your own</h2>
+<p>The example is hosted on S3 behind CloudFront. The bucket is private, and only CloudFront can read from it. The setup is defined in Terraform, and the deployment-specific values (domain, bucket name, AWS profile) sit in a gitignored <code>.env</code>, with no defaults in the code.</p>
+<p>Because the art is public domain, this stack is small: a bucket, a CloudFront distribution and a certificate, with no login and no server code.</p>
+<p>Putting a copy of it online means forking the repository, filling in <code>.env</code> with your own domain, bucket name and AWS profile, and running the four commands below. Your own photos go in through the same CSV and image folder as the example art.</p>
+<pre><code>python scripts/tf.py --stack demo init
+python scripts/tf.py --stack demo cert
+python scripts/tf.py --stack demo apply
+python scripts/deploy_demo.py</code></pre>
+<p>The certificate makes the first deploy a two-step process. CloudFront needs it issued in a particular AWS region, and the DNS here is managed by hand rather than by AWS, so Terraform can only ask for the certificate. A validation record then has to be added at the DNS provider, and the certificate takes around half an hour to change from pending to issued. The rest of the stack is built after that, and a final record points the domain at CloudFront.</p>
+<p>The <code>infrastructure-demo/</code> README in the repository has the full walkthrough, including the required <code>.env</code> values, how to check the certificate has been issued, and what to do if it stays pending. The last command builds the example’s manifest, uploads the gallery’s own files, and clears CloudFront’s cache so the new version appears straight away.</p>
+</div>
+<div id="the-private-version" class="section level2">
+<h2>The private version</h2>
+<p>The other stack is the original: a gallery that only logged-in people can see, with a way to add art from a web page.</p>
+<p>Accounts are created by hand in Amazon Cognito, with no public sign-up. There are two roles above an ordinary viewer: one can upload new pieces, and the other can also change a piece’s category. After logging in, a small function checks the login, then gives the browser a cookie that CloudFront accepts as proof of access. The photos are served to browsers carrying it, and it lasts twelve hours.</p>
+<p>The private version has two extra pages. The upload form, titled “Add Your Art!”, takes a photo, a category, an era, a date, a title and a description, and shows a confirmation with the finished piece once it is saved. The admin page lists all the pieces with a name filter, and a superadmin can edit a piece’s details and save the change. Photos that were added by CSV show up there too, with a badge when a piece has more than one image.</p>
+<p>Uploading happens in the browser. The page shrinks the photo to the two sizes itself and sends all three files straight to S3 using short-lived upload links. A second function then records the piece in the manifest, checking the caller’s role first. If two people save at once, the later save notices and tries again rather than overwriting the first. Both functions can only be reached through CloudFront, using a secret header that CloudFront adds to each request.</p>
+</div>
+<div id="keeping-the-repository-public" class="section level2">
+<h2>Keeping the repository public</h2>
+<p>A few habits keep anything personal out of the repository. The <code>.env</code> file, Terraform’s state, build output and the real artwork folder are all gitignored, and the committed example folder has the same shape as the real one. Because nothing that identifies a deployment has a default value, a half-filled <code>.env</code> stops before anything is created. Before publishing, the whole tree was searched for the real domain, bucket name, AWS profile and account details, and none were found.</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>Example Gallery turns a CSV and a folder of images into a gallery you can walk through. A plain static stack publishes it as a public example, and the same code can run as a private, logged-in gallery with uploads. The art is public domain and the repository holds no deployment details, so it can be forked and run as someone else’s own gallery.</p>
+<p><img src="/img/portfolio/gallery2.png" style="width:80.0%" /></p>
+</div>

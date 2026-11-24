@@ -6,8 +6,15 @@
     <description>Recent content in Code on Nathan Moore</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://nmoore.nz/categories/code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Virtual Gallery</title>
+      <link>https://nmoore.nz/portfolio/2026-11-24-virtual-gallery/</link>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>https://nmoore.nz/portfolio/2026-11-24-virtual-gallery/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;A 3D art gallery you walk around in the browser.&lt;/p&gt;&#xD;&#xA;</description>
+    </item>
     <item>
       <title>Youtube Maps</title>
       <link>https://nmoore.nz/portfolio/2026-11-19-youtube-maps/</link>
